@@ -1,0 +1,20 @@
+[class*='ant-menu'][class*='ant-menu-vertical'] [class*='ant-menu-item'].menu-item {
+    margin-bottom: 18px;
+    padding-left: 17px;
+}
+
+@media (max-width: 479px) {
+    [class*='ant-menu'][class*='ant-menu-vertical'] [class*='ant-menu-item'].menu-item {
+        margin-bottom: 10px;
+        padding: 0;
+    }
+}
+
+[class*='ant-menu'][class*='ant-menu-vertical'][class*='collapsed']
+    [class*='ant-menu-item'].menu-item {
+    padding-left: 24px;
+}
+
+.menu-label {
+    letter-spacing: 0.2px;
+}

@@ -1,0 +1,1 @@
+export { SiderFooter } from './SiderFooter';

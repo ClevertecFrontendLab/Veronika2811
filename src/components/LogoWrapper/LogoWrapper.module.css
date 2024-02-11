@@ -1,0 +1,13 @@
+.wrapper-logo {
+    padding: 46px 0 64px;
+}
+
+@media (max-width: 479px) {
+    .wrapper-logo {
+        padding: 17px 0 29px;
+    }
+}
+
+[class*='collapsed'] .wrapper-logo {
+    padding: 51px 0 65px;
+}

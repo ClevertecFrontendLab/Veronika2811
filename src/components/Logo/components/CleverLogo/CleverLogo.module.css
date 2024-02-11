@@ -1,0 +1,11 @@
+.clever-logo {
+    width: 98px;
+    height: 24px;
+}
+
+@media (max-width: 479px) {
+    .clever-logo {
+        width: 52px;
+        height: 13px;
+    }
+}
