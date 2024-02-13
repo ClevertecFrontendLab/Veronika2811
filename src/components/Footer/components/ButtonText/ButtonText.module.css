@@ -1,0 +1,10 @@
+[class*='ant-btn-text'].footer-button {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    text-align: center;
+    color: var(--primary-light-6);
+    letter-spacing: 0.4px;
+    margin-bottom: 4px;
+}

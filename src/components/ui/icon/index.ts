@@ -1,0 +1,1 @@
+export { ExitIconCustom } from './ExitIcon';

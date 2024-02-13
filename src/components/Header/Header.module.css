@@ -1,0 +1,29 @@
+[class*='ant-page-header'].header {
+    background: var(--primary-light-1);
+    padding: 14px 25px 0;
+}
+
+.header[class*='ant-page-header-compact'] [class*='ant-page-header-heading'] {
+    flex-wrap: nowrap;
+    margin: 5px 0;
+}
+
+[class*='ant-page-header'].header [class*='ant-breadcrumb-link'] {
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 835px) {
+    .header[class*='ant-page-header-compact'] [class*='ant-page-header-heading'] {
+        margin: 5px 0 3px;
+    }
+
+    .header-button-icon[class*='anticon'] {
+        display: none;
+    }
+}
+
+@media (max-width: 479px) {
+    .header[class*='ant-page-header-compact'] [class*='ant-page-header-heading'] {
+        margin-top: 2px;
+    }
+}

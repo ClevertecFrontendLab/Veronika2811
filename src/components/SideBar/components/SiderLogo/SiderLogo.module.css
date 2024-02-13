@@ -1,0 +1,15 @@
+.logo {
+    display: flex;
+    align-items: flex-end;
+    padding: 46px 0 64px 29px;
+}
+
+.logo[class*='collapsed'] {
+    padding: 51px 0 65px 18px;
+}
+
+@media (max-width: 479px) {
+    .logo {
+        padding: 17px 0 29px 18px;
+    }
+}
