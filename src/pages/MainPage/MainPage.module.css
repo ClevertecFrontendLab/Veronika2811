@@ -1,5 +1,6 @@
 [class*='ant-layout'].page-container {
     flex-direction: row;
+    height: 100%;
     background: url('/images/background-image-light.jpg') no-repeat center / cover;
 }
 
