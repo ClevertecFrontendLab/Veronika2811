@@ -12,7 +12,7 @@
     }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 550px) {
     [class*='ant-btn'][class*='ant-btn-text'].header-button {
         display: none;
     }
