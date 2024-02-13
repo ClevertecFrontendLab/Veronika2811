@@ -10,7 +10,7 @@
 
 @media (max-width: 479px) {
     [class*='ant-layout-sider'].sider {
-        position: absolute;
+        position: fixed;
         z-index: 1;
     }
 }
