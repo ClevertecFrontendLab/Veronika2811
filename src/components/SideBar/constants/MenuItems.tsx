@@ -1,6 +1,6 @@
 import { CalendarTwoTone, HeartTwoTone, IdcardTwoTone, TrophyTwoTone } from '@ant-design/icons';
 
-import styles from './menuItems.module.css';
+import styles from './MenuItems.module.css';
 
 export const MENU_ITEMS = [
     {

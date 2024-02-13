@@ -1,6 +1,6 @@
 import { ExitIconCustom } from '@components/ui/icon';
 
-import styles from './menuItems.module.css';
+import styles from './MenuItems.module.css';
 
 export const MENU_ITEMS_FOOTER = [
     {
