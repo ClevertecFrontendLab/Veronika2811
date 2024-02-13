@@ -1,18 +1,21 @@
+import React from 'react';
 import { Layout } from 'antd';
 
-import { SiderCustom } from '@components/SiderCustom';
+import { SideBar } from '@components/SideBar';
 import { Header } from '@components/Header';
+import { MainContent } from '@components/MainContent';
+import { MainFooter } from '@components/Footer';
 
-const { Footer, Content } = Layout;
+import styles from './MainPage.module.css';
 
 export const MainPage: React.FC = () => {
     return (
-        <Layout>
-            <SiderCustom />
-            <Layout style={{ paddingLeft: '4px' }}>
+        <Layout className={styles['page-container']}>
+            <SideBar />
+            <Layout className={styles['page-content']}>
                 <Header />
-                <Content>Content</Content>
-                <Footer>Footer</Footer>
+                <MainContent />
+                <MainFooter />
             </Layout>
         </Layout>
     );

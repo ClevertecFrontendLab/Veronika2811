@@ -1,21 +1,11 @@
-import classNames from 'classnames/bind';
-
-import { CleverLogo, FitLogo } from './components';
-
-import styles from './Logo.module.css';
-
-const cx = classNames.bind(styles);
+import { CleverLogo } from './components/CleverLogo/CleverLogo';
+import { FitLogo } from './components/FitLogo/FitLogo';
 
 export const Logo = ({ collapsed }: { collapsed: boolean }) => {
-    const logoClass = cx({
-        logo: true,
-        'logo-collapsed': collapsed,
-    });
-
     return (
-        <div className={logoClass}>
+        <>
             {!collapsed && <CleverLogo />}
             <FitLogo />
-        </div>
+        </>
     );
 };

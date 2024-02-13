@@ -1,0 +1,5 @@
+export const SIDER_DESKTOP_WIDTH = 208;
+export const SIDER_MOBILE_WIDTH = 106;
+
+export const SIDER_COLLAPSED_DESKTOP_WIDTH = 64;
+export const SIDER_COLLAPSED_MOBILE_WIDTH = 0;

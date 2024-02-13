@@ -1,0 +1,23 @@
+[class*='ant-typography'].advantages-title,
+[class*='ant-list'].advantages-list [class*='ant-typography'] {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    color: var(--primary-light-9);
+    letter-spacing: 0.4px;
+}
+
+[class*='ant-card'].advantages {
+    margin-bottom: 24px;
+}
+
+[class*='ant-list-item'].advantages-list-item {
+    padding: 0;
+}
+
+@media (max-width: 479px) {
+    .advantages [class*='ant-card-body'] {
+        padding: 16px 19px 16px 16px;
+    }
+}
