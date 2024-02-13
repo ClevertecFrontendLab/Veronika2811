@@ -14,24 +14,22 @@ const routes = [
     },
 ];
 
-export const Header = () => {
-    return (
-        <PageHeader
-            className={styles.header}
-            breadcrumb={{ routes }}
-            title={<Title />}
-            extra={[
-                <ButtonIconText
-                    key='setting'
-                    label='Настройки'
-                    icon={<SettingOutlined className={styles['header-button-icon']} />}
-                />,
-                <ButtonIconRound
-                    key='setting-mobile'
-                    tooltipTitle='Настройки'
-                    icon={<SettingOutlined />}
-                />,
-            ]}
-        />
-    );
-};
+export const Header = () => (
+    <PageHeader
+        className={styles.header}
+        breadcrumb={{ routes }}
+        title={<Title />}
+        extra={[
+            <ButtonIconText
+                key='setting'
+                label='Настройки'
+                icon={<SettingOutlined className={styles['header-button-icon']} />}
+            />,
+            <ButtonIconRound
+                key='setting-mobile'
+                tooltipTitle='Настройки'
+                icon={<SettingOutlined />}
+            />,
+        ]}
+    />
+);

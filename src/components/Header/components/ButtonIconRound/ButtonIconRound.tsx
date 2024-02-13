@@ -7,10 +7,8 @@ interface ButtonIconRoundProps {
     icon: JSX.Element;
 }
 
-export const ButtonIconRound = ({ tooltipTitle, icon }: ButtonIconRoundProps) => {
-    return (
-        <Tooltip title={tooltipTitle}>
-            <Button shape='circle' className={styles['header-button-round']} icon={icon} />
-        </Tooltip>
-    );
-};
+export const ButtonIconRound = ({ tooltipTitle, icon }: ButtonIconRoundProps) => (
+    <Tooltip title={tooltipTitle}>
+        <Button shape='circle' className={styles['header-button-round']} icon={icon} />
+    </Tooltip>
+);

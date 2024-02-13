@@ -8,15 +8,13 @@ import { MainFooter } from '@components/Footer';
 
 import styles from './MainPage.module.css';
 
-export const MainPage: React.FC = () => {
-    return (
-        <Layout className={styles['page-container']}>
-            <SideBar />
-            <Layout className={styles['page-content']}>
-                <Header />
-                <MainContent />
-                <MainFooter />
-            </Layout>
+export const MainPage: React.FC = () => (
+    <Layout className={styles['page-container']}>
+        <SideBar />
+        <Layout className={styles['page-content']}>
+            <Header />
+            <MainContent />
+            <MainFooter />
         </Layout>
-    );
-};
+    </Layout>
+);

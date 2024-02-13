@@ -8,12 +8,10 @@ import styles from './MainContent.module.css';
 
 const { Content } = Layout;
 
-export const MainContent = () => {
-    return (
-        <Content className={styles['content']}>
-            <CardAdvantages />
-            <CardDescription />
-            <CardActions />
-        </Content>
-    );
-};
+export const MainContent = () => (
+    <Content className={styles['content']}>
+        <CardAdvantages />
+        <CardDescription />
+        <CardActions />
+    </Content>
+);
