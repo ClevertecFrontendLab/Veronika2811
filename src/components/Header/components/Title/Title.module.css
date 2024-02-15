@@ -4,15 +4,13 @@
     font-size: 38px;
     line-height: 130%;
     color: var(--character-light-title-85);
-    white-space: wrap;
-    letter-spacing: 0.2px;
+    white-space: break-spaces;
 }
 
 @media (max-width: 835px) {
     .title {
         font-weight: 500;
         font-size: 24px;
-        letter-spacing: 0.6px;
     }
 }
 

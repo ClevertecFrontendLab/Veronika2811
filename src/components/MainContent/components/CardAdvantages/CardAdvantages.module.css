@@ -5,7 +5,6 @@
     font-size: 16px;
     line-height: 130%;
     color: var(--primary-light-9);
-    letter-spacing: 0.4px;
 }
 
 [class*='ant-card'].advantages {
@@ -19,5 +18,9 @@
 @media (max-width: 479px) {
     .advantages [class*='ant-card-body'] {
         padding: 16px 19px 16px 16px;
+    }
+
+    [class*='ant-list'].advantages-list [class*='ant-typography'] {
+        letter-spacing: 0.1px;
     }
 }

@@ -9,6 +9,6 @@
 @media (max-width: 835px) {
     .card-action [class*='ant-card-head-title'] {
         padding: 12px 0;
-        white-space: wrap;
+        white-space: break-spaces;
     }
 }
