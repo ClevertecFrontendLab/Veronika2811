@@ -1,0 +1,7 @@
+.auth-logo-wrapper {
+    padding-bottom: 40px;
+
+    @media (max-width: 555px) {
+        padding-bottom: 25px;
+    }
+}

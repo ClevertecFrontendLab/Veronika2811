@@ -1,0 +1,38 @@
+.login-field {
+    :global {
+        .ant-input-group-addon {
+            padding: 0 13px;
+        }
+
+        .ant-input-affix-wrapper-lg {
+            font-size: 14px;
+        }
+
+        .ant-input-group-wrapper-status-error .ant-input-group-addon {
+            color: var(--character-light-title-85);
+        }
+
+        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
+            border-left-color: var(--character-light-border);;
+        }
+    }
+}
+
+.login-forgot {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 0 21px;
+
+    @media (max-width: 555px) {
+        padding: 24px 0 23px;
+    }
+}
+
+.login-forgot-link {
+    font-size: 16px;
+
+    @media (max-width: 555px) {
+        padding-right: 7px;
+        font-size: 14px;
+    }
+}

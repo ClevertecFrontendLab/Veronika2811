@@ -1,21 +1,21 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { createRoot } from 'react-dom/client';
-import { HashRouter, Route, Routes } from 'react-router-dom';
 
-import { MainPage } from './pages';
+import { store } from '@redux/store';
+import { AppRouter } from './routes/AppRouter';
 
 import 'antd/dist/antd.css';
-import './index.css';
+import './styles/constants.scss';
+import './styles/base.scss';
 
 const domNode = document.getElementById('root') as HTMLDivElement;
 const root = createRoot(domNode);
 
 root.render(
     <React.StrictMode>
-        <HashRouter>
-            <Routes>
-                <Route path='/' element={<MainPage />} />
-            </Routes>
-        </HashRouter>
+        <Provider store={store}>
+            <AppRouter />
+        </Provider>
     </React.StrictMode>,
 );

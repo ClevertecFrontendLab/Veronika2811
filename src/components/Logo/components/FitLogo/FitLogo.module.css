@@ -14,3 +14,15 @@
     width: 29px;
     height: 26px;
 }
+
+.logo-auth {
+    width: 79px;
+    height: 69px;
+}
+
+@media (max-width: 479px) {
+    .logo-auth {
+        width: 52px;
+        height: 46px;
+    }
+}
