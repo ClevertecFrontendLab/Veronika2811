@@ -1,9 +1,10 @@
 import { CleverLogo } from './components/CleverLogo/CleverLogo';
 import { FitLogo } from './components/FitLogo/FitLogo';
+import { LogoSizeType } from './types/types';
 
-export const Logo = ({ collapsed = false, auth }: { collapsed?: boolean; auth?: boolean }) => (
+export const Logo = ({ collapsed = false, size }: { collapsed?: boolean; size?: LogoSizeType }) => (
     <>
-        {!collapsed && <CleverLogo auth={auth} />}
-        <FitLogo auth={auth} />
+        {!collapsed && <CleverLogo size={size} />}
+        <FitLogo size={size} />
     </>
 );

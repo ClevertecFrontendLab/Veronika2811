@@ -1,13 +1,15 @@
 import classNames from 'classnames/bind';
 
-import styles from './FitLogo.module.css';
+import { LogoSizeType } from '@components/Logo/types/types';
+
+import styles from './FitLogo.module.scss';
 
 const cx = classNames.bind(styles);
 
-export const FitLogo = ({ auth = false }: { auth?: boolean }) => {
+export const FitLogo = ({ size = 'sm' }: { size?: LogoSizeType }) => {
     const logoClass = cx({
-        'fit-logo': true,
-        'logo-auth': auth,
+        'fit-sm': size === 'sm',
+        'fit-md': size === 'md',
     });
 
     return (

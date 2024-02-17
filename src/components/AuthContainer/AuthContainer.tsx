@@ -6,7 +6,7 @@ import styles from './AuthContainer.module.scss';
 export const AuthContainer = () => (
     <>
         <div className={styles['auth-logo-wrapper']}>
-            <Logo collapsed={false} auth />
+            <Logo size="md" />
         </div>
         <AuthTabs />
     </>

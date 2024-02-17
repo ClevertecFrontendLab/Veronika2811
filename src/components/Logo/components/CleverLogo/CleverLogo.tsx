@@ -1,13 +1,15 @@
 import classNames from 'classnames/bind';
 
-import styles from './CleverLogo.module.css';
+import { LogoSizeType } from '@components/Logo/types/types';
+
+import styles from './CleverLogo.module.scss';
 
 const cx = classNames.bind(styles);
 
-export const CleverLogo = ({ auth = false }: { auth?: boolean }) => {
+export const CleverLogo = ({ size = 'sm' }: { size?: LogoSizeType }) => {
     const logoClass = cx({
-        'clever-logo': true,
-        'logo-auth': auth,
+        'clever-sm': size === 'sm',
+        'clever-md': size === 'md',
     });
 
     return (
