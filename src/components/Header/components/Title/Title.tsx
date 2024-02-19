@@ -1,7 +1,7 @@
-import styles from './Title.module.css';
+import { Typography } from 'antd';
 
 export const Title = () => (
-    <h1 className={styles.title}>
+    <Typography.Title>
        Приветствуем тебя в CleverFit — приложении,<br/>которое поможет тебе добиться своей мечты!
-    </h1>
+    </Typography.Title>
 );

@@ -1,10 +1,10 @@
 import { Dispatch } from 'react';
+import { Space } from 'antd';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 
-import { SIDER_SWITCH, SIDER_SWITCH_MOBILE } from './constants/constants';
+import { testIds } from '@components/SideBar/constants';
 
-import styles from './SiderSwitch.module.css';
-import { Space } from 'antd';
+import styles from './SiderSwitch.module.scss';
 
 interface SiderSwitchProps {
     collapsed: boolean;
@@ -17,7 +17,9 @@ export const SiderSwitch = ({ collapsed, setCollapsed, isAtBreakpoint }: SiderSw
 
     return (
         <Space
-            data-test-id={isAtBreakpoint ? SIDER_SWITCH_MOBILE : SIDER_SWITCH}
+            data-test-id={
+                isAtBreakpoint ? testIds.SIDER_SWITCH_MOBILE_TEST_ID : testIds.SIDER_SWITCH_TEST_ID
+            }
             className={styles.switch}
         >
             {collapsed ? (

@@ -6,7 +6,7 @@ import { Header } from '@components/Header';
 import { MainContent } from '@components/MainContent';
 import { MainFooter } from '@components/Footer';
 
-import styles from './MainPage.module.css';
+import styles from './MainPage.module.scss';
 
 export const MainPage: React.FC = () => (
     <Layout className={styles['page-container']}>

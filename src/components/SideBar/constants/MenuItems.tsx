@@ -1,35 +1,24 @@
 import { CalendarTwoTone, HeartTwoTone, IdcardTwoTone, TrophyTwoTone } from '@ant-design/icons';
 
-import styles from './MenuItems.module.css';
-
 export const MENU_ITEMS = [
     {
         key: 'calendar',
         label: 'Календарь',
-        icon: (
-            <CalendarTwoTone
-                className={styles['menu-icon']}
-                twoToneColor={['#061178', '#061178']}
-            />
-        ),
+        icon: <CalendarTwoTone twoToneColor={['#061178', '#061178']} />,
     },
     {
         key: 'workout',
         label: 'Тренировки',
-        icon: (
-            <HeartTwoTone className={styles['menu-icon']} twoToneColor={['#061178', '#061178']} />
-        ),
+        icon: <HeartTwoTone twoToneColor={['#061178', '#061178']} />,
     },
     {
         key: 'achievements',
-        icon: (
-            <TrophyTwoTone className={styles['menu-icon']} twoToneColor={['#061178', '#061178']} />
-        ),
+        icon: <TrophyTwoTone twoToneColor={['#061178', '#061178']} />,
         label: 'Достижения',
     },
     {
         key: 'profile',
-        icon: <IdcardTwoTone className={styles['menu-icon']} twoToneColor={['#061178', 'white']} />,
+        icon: <IdcardTwoTone twoToneColor={['#061178', '"ffffff']} />,
         label: 'Профиль',
     },
 ];

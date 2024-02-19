@@ -1,20 +1,15 @@
-import classNames from 'classnames/bind';
+import classNames from 'classnames';
 
 import { Logo } from '@components/Logo';
 
-import styles from './SiderLogo.module.css';
-
-const cx = classNames.bind(styles);
+import styles from './SiderLogo.module.scss';
 
 export const SiderLogo = ({ collapsed }: { collapsed: boolean }) => {
-    const logoClass = cx({
-        logo: true,
-        'logo-collapsed': collapsed,
-    });
+    const logoClass = classNames(styles['logo'], collapsed ? styles['logo-collapsed'] : null);
 
-  return (
-    <div className={logoClass}>
-        <Logo collapsed={collapsed} />
-    </div>
-  )
-}
+    return (
+        <div className={logoClass}>
+            <Logo collapsed={collapsed} />
+        </div>
+    );
+};

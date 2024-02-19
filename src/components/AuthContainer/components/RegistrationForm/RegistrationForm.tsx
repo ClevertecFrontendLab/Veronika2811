@@ -13,7 +13,7 @@ export const RegistrationForm = () => (
                 name={item.name}
                 rules={item.rules}
                 className={styles[item.className]}
-                dependencies={[item.dependencies] ?? []}
+                dependencies={[item.dependencies] || []}
                 help={item.help ?? ''}
             >
                 {item.children}

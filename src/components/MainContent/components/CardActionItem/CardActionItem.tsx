@@ -1,6 +1,6 @@
 import { Button, Card } from 'antd';
 
-import styles from './CardActionItem.module.css';
+import styles from './CardActionItem.module.scss';
 
 export const CardActionItem = ({
     item,
@@ -12,15 +12,15 @@ export const CardActionItem = ({
         title={item.title}
         bordered={false}
         headStyle={{
-            fontWeight: '400',
-            letterSpacing: '0.4px',
-            lineHeight: '130%',
             display: 'flex',
             justifyContent: 'center',
+            padding: '14px 24px 12px',
+            fontWeight: '400',
+            lineHeight: '130%',
         }}
-        bodyStyle={{ padding: '12px', display: 'flex', justifyContent: 'center' }}
+        bodyStyle={{ display: 'flex', justifyContent: 'center', padding: '12px' }}
     >
-        <Button type='text' icon={item.icon} className={styles['card-action-button']}>
+        <Button type='text' icon={item.icon}>
             {item.body}
         </Button>
     </Card>

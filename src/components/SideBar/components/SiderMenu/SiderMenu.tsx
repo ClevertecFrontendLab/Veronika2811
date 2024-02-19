@@ -2,22 +2,13 @@ import { Menu } from 'antd';
 
 import { MENU_ITEMS } from '../../constants';
 
-import styles from './SiderMenu.module.css';
+import styles from './SiderMenu.module.scss';
 
-interface SiderMenuProps {
-    collapsed: boolean;
-    isAtBreakpoint: boolean;
-}
-
-export const SiderMenu = ({ collapsed, isAtBreakpoint }: SiderMenuProps) => {
-    const inlineIndentCustom = isAtBreakpoint ? 0 : collapsed ? 25 : 17;
-
-    return (
-        <Menu
-            mode='inline'
-            items={MENU_ITEMS}
-            inlineIndent={inlineIndentCustom}
-            className={styles['sider-menu']}
-        />
-    );
-};
+export const SiderMenu = ({ collapsed }: { collapsed: boolean }) => (
+    <Menu
+        mode='vertical'
+        items={MENU_ITEMS}
+        className={styles['sider-menu']}
+        inlineCollapsed={collapsed}
+    />
+);

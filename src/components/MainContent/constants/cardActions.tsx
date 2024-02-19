@@ -2,21 +2,21 @@ import { CalendarTwoTone, HeartTwoTone, IdcardTwoTone } from '@ant-design/icons'
 
 export const CARD_ACTIONS = [
     {
-        key: 1,
+        key: 'schedule-workouts',
         title: ' Расписать тренировки',
         icon: <HeartTwoTone twoToneColor={['#2f54eb', '#2f54eb']} />,
         body: 'Тренировки',
     },
     {
-        key: 2,
+        key: 'assign-calendar',
         title: 'Назначить календарь',
         icon: <CalendarTwoTone twoToneColor={['#2f54eb', '#2f54eb']} />,
         body: 'Календарь',
     },
     {
-        key: 3,
+        key: 'fill-profile',
         title: 'Заполнить профиль',
-        icon: <IdcardTwoTone twoToneColor={'#2f54eb'} />,
+        icon: <IdcardTwoTone twoToneColor={['#2f54eb', '#ffffff']} />,
         body: 'Профиль',
     },
 ];

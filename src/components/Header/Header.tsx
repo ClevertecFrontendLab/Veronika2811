@@ -5,7 +5,7 @@ import { Title } from './components/Title';
 import { ButtonIconText } from './components/ButtonIconText';
 import { ButtonIconRound } from './components/ButtonIconRound';
 
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 
 const routes = [
     {
@@ -17,14 +17,11 @@ const routes = [
 export const Header = () => (
     <PageHeader
         className={styles.header}
+        ghost={false}
         breadcrumb={{ routes }}
         title={<Title />}
         extra={[
-            <ButtonIconText
-                key='setting'
-                label='Настройки'
-                icon={<SettingOutlined className={styles['header-button-icon']} />}
-            />,
+            <ButtonIconText key='setting' label='Настройки' icon={<SettingOutlined />} />,
             <ButtonIconRound
                 key='setting-mobile'
                 tooltipTitle='Настройки'

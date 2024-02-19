@@ -1,0 +1,16 @@
+[class*='ant-card'].description {
+    margin-bottom: 16px;
+
+    :global {
+        .ant-typography {
+            font-size: 20px;
+            line-height: 130%;
+        }
+
+        .ant-card-body {
+            @media (max-width: 479px) {
+                padding: 17px;
+            }
+        }
+    }
+}
