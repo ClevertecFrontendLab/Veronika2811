@@ -18,7 +18,7 @@ export const MENU_ITEMS = [
     },
     {
         key: 'profile',
-        icon: <IdcardTwoTone twoToneColor={['#061178', '"ffffff']} />,
+        icon: <IdcardTwoTone twoToneColor={['#061178', '#ffffff']} />,
         label: 'Профиль',
     },
 ];

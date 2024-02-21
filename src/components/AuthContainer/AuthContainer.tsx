@@ -1,13 +1,14 @@
 import { Logo } from '@components/Logo';
 import { AuthTabs } from './components/AuthTabs';
+import { AuthTypes } from '@type/auth/authTypes';
 
 import styles from './AuthContainer.module.scss';
 
-export const AuthContainer = () => (
+export const AuthContainer = ({ type }: { type: AuthTypes }) => (
     <>
         <div className={styles['auth-logo-wrapper']}>
             <Logo size='md' />
         </div>
-        <AuthTabs />
+        <AuthTabs type={type} />
     </>
 );

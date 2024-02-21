@@ -1,21 +1,18 @@
 import { Input } from 'antd';
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
 
+import { emailValidationRules, passwordValidationRules } from '../utils/fieldValidation';
+
 export const LOGIN_FIELDS = [
     {
         name: 'email',
-        rules: [
-            {
-                required: true,
-                message: 'Please input your e-mail!',
-            },
-        ],
+        rules: emailValidationRules,
         className: 'login-field',
-        children: <Input addonBefore='e-mail:' size='large' autoComplete='username' />,
+        children: <Input addonBefore='e-mail:' size='large' autoComplete='username' data-test-id='login-email' />,
     },
     {
         name: 'password',
-        rules: [{ required: true, message: 'Please input your password!' }],
+        rules: passwordValidationRules,
         className: 'login-field',
         children: (
             <Input.Password
@@ -23,6 +20,7 @@ export const LOGIN_FIELDS = [
                 size='large'
                 iconRender={(visible) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />)}
                 autoComplete='current-password'
+                data-test-id='login-password'
             />
         ),
     },

@@ -12,7 +12,7 @@ export const REGISTRATION_FIELDS = [
         name: 'email',
         rules: emailValidationRules,
         className: 'register-field',
-        children: <Input addonBefore='e-mail:' size='large' autoComplete='username' />,
+        children: <Input addonBefore='e-mail:' size='large' autoComplete='username' data-test-id='registration-email' />,
     },
     {
         name: 'password',
@@ -25,6 +25,7 @@ export const REGISTRATION_FIELDS = [
                 size='large'
                 iconRender={(visible) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />)}
                 autoComplete='current-password'
+                data-test-id='registration-password'
             />
         ),
     },
@@ -37,6 +38,8 @@ export const REGISTRATION_FIELDS = [
                 placeholder='Повторите пароль'
                 size='large'
                 iconRender={(visible) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />)}
+                autoComplete="new-password"
+                data-test-id='registration-confirm-password'
             />
         ),
         dependencies: 'password',

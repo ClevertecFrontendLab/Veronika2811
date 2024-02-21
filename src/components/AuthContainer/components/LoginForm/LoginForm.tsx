@@ -21,16 +21,16 @@ export const LoginForm = () => (
 
         <div className={styles['login-forgot']}>
             <Form.Item name='remember' valuePropName='checked' noStyle>
-                <Checkbox>Запомнить меня</Checkbox>
+                <Checkbox data-test-id='login-remember'>Запомнить меня</Checkbox>
             </Form.Item>
 
-            <a className={styles['login-forgot-link']} href='#'>
+            <a className={styles['login-forgot-link']} href='#' data-test-id='login-forgot-button'>
                 Забыли пароль?
             </a>
         </div>
 
         <Form.Item>
-            <AuthFormButtons label='Войти' />
+            <AuthFormButtons label='Войти' testId='login-submit-button' />
         </Form.Item>
     </>
 );

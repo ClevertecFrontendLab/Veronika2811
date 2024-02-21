@@ -1,9 +1,11 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createRoot } from 'react-dom/client';
+import { HistoryRouter } from 'redux-first-history/rr6';
 
-import { store } from '@redux/store';
 import { AppRouter } from './routes/AppRouter';
+import { store } from '@redux/store';
+import { history } from '@redux/store';
 
 import 'antd/dist/antd.css';
 import './styles/constants.scss';
@@ -15,7 +17,9 @@ const root = createRoot(domNode);
 root.render(
     <React.StrictMode>
         <Provider store={store}>
-            <AppRouter />
+            <HistoryRouter history={history}>
+                <AppRouter />
+            </HistoryRouter>
         </Provider>
     </React.StrictMode>,
 );

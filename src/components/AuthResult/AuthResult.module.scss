@@ -1,0 +1,17 @@
+[class*='ant-result'].auth-result {
+    padding: 0;
+
+    :global {
+        .ant-result-title {
+            line-height: 1.4;
+        }
+
+        .ant-result-subtitle {
+            line-height: 1.2;
+        }
+
+        .ant-btn-lg {
+            font-size: 14px;
+        }
+    }
+}

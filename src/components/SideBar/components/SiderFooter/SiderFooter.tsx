@@ -10,7 +10,7 @@ export const SiderFooter = ({ collapsed }: { collapsed: boolean }) => (
     <Footer className={styles['sider-footer']}>
         <Divider />
         <Menu
-            mode='vertical'
+            mode='inline'
             items={MENU_ITEMS_FOOTER}
             inlineCollapsed={collapsed}
             className={styles['sider-footer-menu']}
