@@ -8,8 +8,8 @@ const cx = classNames.bind(styles);
 
 export const FitLogo = ({ size = 'sm' }: { size?: LogoSizeType }) => {
     const logoClass = cx({
-        'fit-sm': size === 'sm',
-        'fit-md': size === 'md',
+        fit: true,
+        [`fit-${size}`]: true,
     });
 
     return (

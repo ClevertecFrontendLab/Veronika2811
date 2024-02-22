@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import Sider from 'antd/lib/layout/Sider';
+import { Layout } from 'antd';
 
-import { SiderLogo } from './components/SiderLogo';
-import { SiderMenu } from './components/SiderMenu';
-import { SiderFooter } from './components/SiderFooter';
-import { SiderSwitch } from './components/SiderSwitch';
 import { siderWidth } from './constants';
 
+import { SiderLogo, SiderMenu, SiderFooter, SiderSwitch } from './components';
+
 import styles from './SideBar.module.scss';
+
+const { Sider } = Layout;
 
 export const SideBar = () => {
     const [collapsed, setCollapsed] = useState(false);
@@ -32,8 +32,8 @@ export const SideBar = () => {
             className={styles['sider']}
         >
             <SiderLogo collapsed={collapsed} />
-            <SiderMenu collapsed={collapsed} />
-            <SiderFooter collapsed={collapsed} />
+            <SiderMenu />
+            <SiderFooter />
 
             <SiderSwitch
                 collapsed={collapsed}

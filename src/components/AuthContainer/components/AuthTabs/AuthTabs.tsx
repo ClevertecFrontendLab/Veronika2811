@@ -1,18 +1,20 @@
 import { Tabs } from 'antd';
 import { push } from 'redux-first-history';
 
-import { AUTH_FORM_TABS } from '@components/AuthContainer/constants';
-import { useAppDispatch } from '@hooks/typed-react-redux-hooks';
-import { AuthTypes } from '@type/auth/authTypes';
+import { AuthTypes } from 'src/type/auth/authTypes';
 import { Paths } from '@routes/constants/Paths';
-import { auth } from '@constants/index';
+import { useAppDispatch } from '@hooks/typed-react-redux-hooks';
+import { LOGIN } from '@constants/authConstants/auth';
+
+import { AUTH_FORM_TABS } from '@components/AuthContainer/constants';
 
 import styles from './AuthTabs.module.scss';
 
 export const AuthTabs = ({ type }: { type: AuthTypes }) => {
     const dispatch = useAppDispatch();
 
-    const onChange = (key: string) => dispatch(push(`${Paths.AUTH_MAIN}/${key !== auth.LOGIN ? key : ''}`));
+    const onChange = (key: string) =>
+        dispatch(push(`${Paths.AUTH_MAIN}/${key !== LOGIN ? key : ''}`));
 
     return (
         <Tabs

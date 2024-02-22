@@ -7,10 +7,14 @@ export const confirmPasswordValidationRules = [
     },
     ({ getFieldValue }: { getFieldValue: (fieldName: string) => string }) => ({
         validator(_: RuleObject, value: string) {
-            if (getFieldValue('password') === value) return Promise.resolve();
+            const password = getFieldValue('password');
 
-            if (getFieldValue('password') !== value)
-                return Promise.reject(new Error('Введённые вами пароли не совпадают!!'));
+            if (!password) return Promise.reject(new Error('Введите пароль!'));
+
+            if (password === value) return Promise.resolve();
+
+            if (password !== value)
+                return Promise.reject(new Error('Введённые вами пароли не совпадают!'));
         },
     }),
 ];

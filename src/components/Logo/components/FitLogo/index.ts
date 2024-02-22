@@ -1,0 +1,1 @@
+export { FitLogo } from './FitLogo';

@@ -1,5 +1,7 @@
 import { Form } from 'antd';
 
+import { REGISTRATION } from '@constants/authConstants/auth';
+
 import { AuthFormButtons } from '../AuthFormButtons';
 import { REGISTRATION_FIELDS } from '@components/AuthContainer/constants/registrationFields';
 
@@ -10,7 +12,7 @@ export const RegistrationForm = () => {
         <>
             {REGISTRATION_FIELDS.map((item) => (
                 <Form.Item
-                    key={`registration-${item.name}`}
+                    key={`${REGISTRATION}-${item.name}`}
                     name={item.name}
                     rules={item.rules}
                     className={styles[item.className]}
@@ -26,4 +28,4 @@ export const RegistrationForm = () => {
             </Form.Item>
         </>
     );
-}
+};

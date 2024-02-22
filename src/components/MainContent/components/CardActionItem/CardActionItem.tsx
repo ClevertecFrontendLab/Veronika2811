@@ -2,11 +2,15 @@ import { Button, Card } from 'antd';
 
 import styles from './CardActionItem.module.scss';
 
-export const CardActionItem = ({
-    item,
-}: {
-    item: { title: string; icon: JSX.Element; body: string };
-}) => (
+interface CardActionItemProps {
+    item: {
+        title: string;
+        icon: JSX.Element;
+        body: string;
+    };
+}
+
+export const CardActionItem = ({ item }: CardActionItemProps) => (
     <Card
         className={styles['card-action']}
         title={item.title}

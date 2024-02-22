@@ -6,13 +6,14 @@ import {
     emailValidationRules,
     passwordValidationRules,
 } from '../utils/fieldValidation';
+import { AuthTestIds } from './AuthTestIds';
 
 export const REGISTRATION_FIELDS = [
     {
         name: 'email',
         rules: emailValidationRules,
         className: 'register-field',
-        children: <Input addonBefore='e-mail:' size='large' autoComplete='username' data-test-id='registration-email' />,
+        children: <Input addonBefore='e-mail:' size='large' autoComplete='username' data-test-id={AuthTestIds.REGISTRATION_EMAIL} />,
     },
     {
         name: 'password',
@@ -25,12 +26,12 @@ export const REGISTRATION_FIELDS = [
                 size='large'
                 iconRender={(visible) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />)}
                 autoComplete='current-password'
-                data-test-id='registration-password'
+                data-test-id={AuthTestIds.REGISTRATION_PASSWORD}
             />
         ),
     },
     {
-        name: 'password-confirm',
+        name: 'passwordConfirm',
         rules: confirmPasswordValidationRules,
         className: 'password-confirm',
         children: (
@@ -39,7 +40,7 @@ export const REGISTRATION_FIELDS = [
                 size='large'
                 iconRender={(visible) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />)}
                 autoComplete="new-password"
-                data-test-id='registration-confirm-password'
+                data-test-id={AuthTestIds.REGISTRATION_PASSWORD_CONFIRM}
             />
         ),
         dependencies: 'password',

@@ -1,54 +1,63 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import { auth } from '@constants/index';
-
-interface AuthenticationData {
-    email: string;
-    password: string;
-    remember?: boolean;
-}
-
-// LOGIN RESPONSE
-interface LoginSuccessResponse {
-    accessToken: string;
-}
-
-interface LoginErrorResponse {
-    statusCode: number;
-    error: string;
-    message: string;
-}
-
-type LoginResponse = LoginSuccessResponse | LoginErrorResponse;
-
-// REGISTER RESPONSE
-interface RegistrationErrorResponse {
-    statusCode: number;
-    error: string;
-    message: string;
-}
+import { AUTH_BASE_URL, LOGIN, REGISTRATION } from '@constants/authConstants/auth';
+import { AuthError, LoginData, RegistrationData } from '@type/auth/authForm';
+import {
+    CheckEmailResponse,
+    EmailVerificationData,
+    LoginResponse,
+    PasswordConfirmationData,
+} from '@type/auth/authSliceTypes';
 
 export const authSlice = createApi({
     reducerPath: 'AUTH_SLICE',
     baseQuery: fetchBaseQuery({
-        baseUrl: auth.AUTH_BASE_URL,
+        baseUrl: AUTH_BASE_URL,
+        credentials: 'include',
     }),
     endpoints: (build) => ({
-        registrationUser: build.mutation<RegistrationErrorResponse, AuthenticationData>({
-            query: (data: AuthenticationData) => ({
-                url: `/${auth.REGISTRATION}`,
+        registerUser: build.mutation<AuthError, RegistrationData>({
+            query: (body: RegistrationData) => ({
+                url: `/${REGISTRATION}`,
                 method: 'POST',
-                body: data,
+                body,
             }),
         }),
-        loginUser: build.mutation<LoginResponse, AuthenticationData>({
-            query: (data: AuthenticationData) => ({
-                url: `/${auth.LOGIN}`,
+        loginUser: build.mutation<LoginResponse, LoginData>({
+            query: (body: LoginData) => ({
+                url: `/${LOGIN}`,
                 method: 'POST',
-                body: data,
+                body,
+            }),
+        }),
+        checkEmailExistence: build.mutation<CheckEmailResponse, { email: string }>({
+            query: (body: { email: string }) => ({
+                url: '/check-email',
+                method: 'POST',
+                body,
+            }),
+        }),
+        checkVerificationCode: build.mutation<CheckEmailResponse, EmailVerificationData>({
+            query: (body: EmailVerificationData) => ({
+                url: '/confirm-email',
+                method: 'POST',
+                body,
+            }),
+        }),
+        updatePassword: build.mutation<CheckEmailResponse, PasswordConfirmationData>({
+            query: (body: PasswordConfirmationData) => ({
+                url: '/change-password',
+                method: 'POST',
+                body,
             }),
         }),
     }),
 });
 
-export const { useRegistrationUserMutation, useLoginUserMutation } = authSlice;
+export const {
+    useRegisterUserMutation,
+    useLoginUserMutation,
+    useCheckEmailExistenceMutation,
+    useCheckVerificationCodeMutation,
+    useUpdatePasswordMutation,
+} = authSlice;

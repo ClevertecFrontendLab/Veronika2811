@@ -21,18 +21,19 @@
 .login-forgot {
     display: flex;
     justify-content: space-between;
-    padding: 25px 0 21px;
+    align-items: center;
+    padding: 20px 0;
 
-    @media (max-width: 555px) {
-        padding: 24px 0 23px;
-    }
-}
+    :global {
+        .ant-btn {
+            padding: 2px 0;
+            font-size: 16px;
+            color: var(--primary-light-6);
 
-.login-forgot-link {
-    font-size: 16px;
-
-    @media (max-width: 555px) {
-        padding-right: 7px;
-        font-size: 14px;
+            @media (max-width: 555px) {
+                padding-right: 7px;
+                font-size: 14px;
+            }
+        }
     }
 }

@@ -1,33 +1,51 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 interface TInitialState {
+    isAuth: boolean,
+    isLoading: boolean;
     registerUser: {
         email: string,
         password: string,
     },
-    userAuth: boolean,
+    newPassword: {
+        password: string,
+        confirmPassword: string,
+    },
+    resetPasswordEmail: string,
 }
 
 const initialState: TInitialState = {
+    isAuth: !!localStorage.getItem('token') || !!sessionStorage.getItem('token'),
+    isLoading: false,
     registerUser: {
         email: '',
         password: '',
     },
-    userAuth: !!localStorage.getItem('token'),
+    newPassword: {
+        password: '',
+        confirmPassword: '',
+    },
+    resetPasswordEmail: '',
 };
 
 const userInfoSlice = createSlice({
   name: 'USER_INFO_SLICE',
   initialState,
   reducers: {
-    registerUserCredentials: (state, action) => {
+    setUserLoggedIn: (state, action) => {
+        state.isAuth = action.payload;
+    },
+    setIsLoading: (state, action) => {
+        state.isLoading = action.payload
+    },
+    saveRegistrationData: (state, action) => {
       state.registerUser = action.payload;
     },
-    clearUserCredentials: (state) => {
-      state.registerUser = initialState.registerUser;
+    saveChangedPassword: (state, action) => {
+        state.newPassword = action.payload;
     },
-    changeUserAuth: (state, action) => {
-        state.userAuth = action.payload;
+    savePasswordRecoveryEmail: (state, action) => {
+        state.resetPasswordEmail = action.payload;
     },
   },
 });
@@ -35,9 +53,11 @@ const userInfoSlice = createSlice({
 const { actions, reducer } = userInfoSlice;
 
 export const {
-    registerUserCredentials,
-    clearUserCredentials,
-    changeUserAuth,
+    setUserLoggedIn,
+    setIsLoading,
+    saveRegistrationData,
+    saveChangedPassword,
+    savePasswordRecoveryEmail,
 } = actions;
 
 export default reducer;

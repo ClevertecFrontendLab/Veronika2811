@@ -1,5 +1,5 @@
 export * as siderWidth from './siderWidth';
-export * as testIds from './testIds';
+export * as sideBarTestIds from './sideBarTestIds';
 
-export { MENU_ITEMS_FOOTER } from './MenuItemsFooter';
-export { MENU_ITEMS } from './MenuItems';
+export { FOOTER_MENU_ITEMS } from './footerMenuItems';
+export { SIDER_MENU_ITEMS } from './siderMenuItems';

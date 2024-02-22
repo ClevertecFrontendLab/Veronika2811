@@ -20,15 +20,15 @@
         "paths": {
             "@public/*": ["./public/*"],
             "@components/*": ["./src/components/*"],
-            "@constants/*": ["./src/constants/*"],
+            "@constants/*": ["src/constants/*"],
             "@hooks/*": ["./src/hooks/*"],
             "@pages/*": ["./src/pages/*"],
             "@layouts/*": ["./src/layouts/*"],
             "@redux/*": ["./src/redux/*"],
-            "@types/*": ["./src/types/*"],
+            "@types/*": ["src/types/*"],
             "@utils/*": ["./src/utils/*"],
-            "@type/*": ["./src/type/*"],
-            "@routes/*": ["./src/routes/*"]
+            "@type/*": ["src/type/*"],
+            "@routes/*": ["./src/routes/*"],
         },
         "plugins": [
             {

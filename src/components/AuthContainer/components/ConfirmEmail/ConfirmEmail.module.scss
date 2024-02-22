@@ -1,0 +1,43 @@
+[class*='ant-result'].confirm-email {
+    padding: 0;
+    margin: 0 -32px;
+
+    :global {
+        .ant-result-title {
+            font-weight: 500;
+            line-height: 130%;
+        }
+
+        .ant-result-content {
+            background-color: transparent;
+            text-align: center;
+            margin: 0 auto;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding-bottom: 0;
+        }
+    }
+}
+
+.character,
+.character--inactive {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid var(--character-light-border);
+    border-radius: 2px;
+}
+
+.character-error {
+    border-color: var(--character-light-error);
+}
+
+.character--filled {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 130%;
+}

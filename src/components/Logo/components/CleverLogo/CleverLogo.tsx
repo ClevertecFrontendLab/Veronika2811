@@ -8,8 +8,8 @@ const cx = classNames.bind(styles);
 
 export const CleverLogo = ({ size = 'sm' }: { size?: LogoSizeType }) => {
     const logoClass = cx({
-        'clever-sm': size === 'sm',
-        'clever-md': size === 'md',
+        clever: true,
+        [`clever-${size}`]: true,
     });
 
     return (

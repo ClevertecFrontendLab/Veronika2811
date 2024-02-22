@@ -1,3 +1,3 @@
-import { auth } from '@constants/index';
+import { REGISTRATION, LOGIN } from '@constants/authConstants/auth';
 
-export type AuthTypes = typeof auth.LOGIN | typeof auth.REGISTRATION;
+export type AuthTypes = typeof LOGIN | typeof REGISTRATION;

@@ -1,20 +1,20 @@
-import React from 'react';
-import { Layout } from 'antd';
+import { RootState } from '@redux/store';
+import { useAppSelector } from '@hooks/typed-react-redux-hooks';
 
-import { SideBar } from '@components/SideBar';
 import { Header } from '@components/Header';
 import { MainContent } from '@components/MainContent';
 import { MainFooter } from '@components/Footer';
+import { Loader } from '@components/ui/Loader';
 
-import styles from './MainPage.module.scss';
+export const MainPage = () => {
+    const isLoading = useAppSelector((state: RootState) => state.userInfoSlice.isLoading);
 
-export const MainPage: React.FC = () => (
-    <Layout className={styles['page-container']}>
-        <SideBar />
-        <Layout className={styles['page-content']}>
+    return (
+        <>
+            {isLoading && <Loader />}
             <Header />
             <MainContent />
             <MainFooter />
-        </Layout>
-    </Layout>
-);
+        </>
+    );
+};

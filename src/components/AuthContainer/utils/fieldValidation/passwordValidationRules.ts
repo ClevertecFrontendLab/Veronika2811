@@ -13,14 +13,10 @@ export const passwordValidationRules = [
                 );
             }
 
-            if (!/^[a-zA-Z0-9]+$/.test(value)) {
+            if((!/^[a-zA-Z0-9]{8,}$/.test(value))) {
                 return Promise.reject(
-                    new Error('Пароль должен содержать только символы латинского алфавита!'),
+                    new Error('Пароль должен содержать только символы латинского алфавита и cодержать не менее 8 символов!'),
                 );
-            }
-
-            if (value.length < 8) {
-                return Promise.reject(new Error('Пароль должен содержать не менее 8 символов!'));
             }
 
             return Promise.resolve();
