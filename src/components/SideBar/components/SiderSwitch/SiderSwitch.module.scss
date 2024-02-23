@@ -1,0 +1,18 @@
+.switch {
+    position: absolute;
+    top: 47%;
+    right: -20px;
+    display: flex;
+    justify-content: center;
+    width: 20px;
+    height: 66px;
+    background-color: var(--character-light-primary-inverse);
+    clip-path: polygon(100% 10%, 100% 90%, 0 100%, 0 0);
+
+    @media (max-width: 479px) {
+        top: 24px;
+        right: -32px;
+        width: 32px;
+        height: 48px;
+    }
+}

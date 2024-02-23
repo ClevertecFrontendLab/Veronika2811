@@ -1,10 +1,8 @@
 import { Layout } from 'antd';
 
-import { CardAdvantages } from './components/CardAdvantages';
-import { CardDescription } from './components/CardDesciption';
-import { CardActions } from './components/CardActions';
+import { CardAdvantages, CardDescription, CardActions } from './components';
 
-import styles from './MainContent.module.css';
+import styles from './MainContent.module.scss';
 
 const { Content } = Layout;
 

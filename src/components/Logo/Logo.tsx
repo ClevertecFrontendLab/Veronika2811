@@ -1,9 +1,15 @@
-import { CleverLogo } from './components/CleverLogo/CleverLogo';
-import { FitLogo } from './components/FitLogo/FitLogo';
+import { LogoSizeType } from './types/types';
 
-export const Logo = ({ collapsed }: { collapsed: boolean }) => (
+import { CleverLogo, FitLogo } from './components';
+
+interface LogoProps {
+    collapsed?: boolean;
+    size?: LogoSizeType;
+}
+
+export const Logo = ({ collapsed = false, size }: LogoProps) => (
     <>
-        {!collapsed && <CleverLogo />}
-        <FitLogo />
+        {!collapsed && <CleverLogo size={size} />}
+        <FitLogo size={size} />
     </>
 );

@@ -1,22 +1,33 @@
+import { push } from 'redux-first-history';
 import { Divider, Layout, Menu } from 'antd';
 
-import { MENU_ITEMS_FOOTER } from '../../constants';
+import { useAppDispatch } from '@hooks/typed-react-redux-hooks';
+import { setUserLoggedIn } from '@redux/slice/userInfoSlice';
+import { FOOTER_MENU_ITEMS } from '../../constants';
 
-import styles from './SiderFooter.module.css';
+import styles from './SiderFooter.module.scss';
 
 const { Footer } = Layout;
 
-export const SiderFooter = ({ isAtBreakpoint }: { isAtBreakpoint: boolean }) => {
-    const inlineIndentCustom = !isAtBreakpoint ? 16 : 21;
+export const SiderFooter = () => {
+    const dispatch = useAppDispatch();
+
+    const handleLogout = () => {
+        localStorage.clear();
+        sessionStorage.clear();
+
+        dispatch(setUserLoggedIn(false));
+        dispatch(push('/auth'));
+    };
 
     return (
         <Footer className={styles['sider-footer']}>
-            <Divider className={styles['sider-divider']} />
+            <Divider />
             <Menu
                 mode='inline'
-                items={MENU_ITEMS_FOOTER}
-                inlineIndent={inlineIndentCustom}
+                items={FOOTER_MENU_ITEMS}
                 className={styles['sider-footer-menu']}
+                onClick={handleLogout}
             />
         </Footer>
     );

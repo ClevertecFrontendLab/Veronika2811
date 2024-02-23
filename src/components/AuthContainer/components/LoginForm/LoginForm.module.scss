@@ -1,0 +1,48 @@
+.login-field {
+    :global {
+        .ant-input-group-addon {
+            padding: 0 13px;
+        }
+
+        .ant-input-affix-wrapper-lg {
+            font-size: var(--font-size-14);
+        }
+
+        .ant-input-group-wrapper-status-error .ant-input-group-addon {
+            color: var(--character-light-title-85);
+        }
+
+        .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
+            border-left-color: var(--character-light-border);
+        }
+    }
+}
+
+.login-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+
+    @media (max-width: 555px) {
+        padding: 20px 0 16px;
+    }
+
+    :global {
+        .ant-btn {
+            padding: 2px 0;
+            font-size: var(--font-size-16);
+            color: var(--primary-light-6);
+
+            @media (max-width: 555px) {
+                padding-right: 7px;
+                font-size: var(--font-size-14);
+            }
+        }
+
+        .ant-checkbox-wrapper-checked .ant-checkbox-checked .ant-checkbox-inner {
+            background-color: var(--primary-light-6);
+            border-color: var(--primary-light-6);
+        }
+    }
+}

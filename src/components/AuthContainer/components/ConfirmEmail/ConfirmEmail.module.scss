@@ -1,0 +1,81 @@
+[class*='ant-result'].confirm-email {
+    padding: var(--padding-zero);
+    margin: 0 -32px;
+
+    @media (max-width: 555px) {
+        margin: 0 -17px;
+    }
+
+    :global {
+        .ant-result-icon {
+            margin-bottom: 30px;
+        }
+
+        .confirm-email-code {
+            font-weight: 500;
+            line-height: var(--line-height-130);
+        }
+
+        .ant-result-title {
+            font-weight: 500;
+            line-height: var(--line-height-130);
+
+            .confirm-email-code {
+                white-space: pre-line;
+            }
+
+            .confirm-email-code-error {
+                display: block;
+                padding: 0 27px;
+
+                @media (max-width: 555px) {
+                    padding: var(--padding-zero);
+                }
+            }
+        }
+
+        .ant-result-subtitle {
+            line-height: var(--line-height-130);
+
+            @media (max-width: 555px) {
+                padding: 0 30px;
+            }
+
+            .ant-typography {
+                color: var(--character-light-secondary-45);
+            }
+        }
+
+        .ant-result-content {
+            background-color: transparent;
+            text-align: center;
+            margin: 0 auto;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding-bottom: 0;
+
+            @media (max-width: 555px) {
+                padding: 24px 25px 0;
+            }
+
+            .ant-typography {
+                line-height: var(--line-height-130);
+                color: var(--character-light-secondary-45);
+
+                @media (max-width: 555px) {
+                    padding: 0 20px;
+                }
+            }
+        }
+    }
+}
+
+[class*='ant-result'][class*='ant-result-info'].confirm-email {
+    :global {
+        .ant-result-icon > .anticon {
+            color: var(--primary-light-6);
+        }
+    }
+}

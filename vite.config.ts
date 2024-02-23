@@ -16,9 +16,13 @@ export default defineConfig({
             '@constants': path.resolve(__dirname, 'src/constants'),
             '@hooks': path.resolve(__dirname, 'src/hooks'),
             '@pages': path.resolve(__dirname, 'src/pages'),
+            '@layouts': path.resolve(__dirname, 'src/layouts'),
             '@redux': path.resolve(__dirname, 'src/redux'),
             '@types': path.resolve(__dirname, 'src/types'),
             '@utils': path.resolve(__dirname, 'src/utils'),
+            '@type': path.resolve(__dirname, 'src/type'),
+            '@interfaces': path.resolve(__dirname, 'src/interfaces'),
+            '@routes': path.resolve(__dirname, 'src/routes'),
         },
     },
 });

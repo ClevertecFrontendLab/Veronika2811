@@ -1,18 +1,13 @@
 import { useState } from 'react';
-import Sider from 'antd/lib/layout/Sider';
+import { Layout } from 'antd';
 
-import { SiderLogo } from './components/SiderLogo';
-import { SiderMenu } from './components/SiderMenu';
-import { SiderFooter } from './components/SiderFooter';
-import { SiderSwitch } from './components/SiderSwitch';
-import {
-    SIDER_COLLAPSED_DESKTOP_WIDTH,
-    SIDER_COLLAPSED_MOBILE_WIDTH,
-    SIDER_DESKTOP_WIDTH,
-    SIDER_MOBILE_WIDTH,
-} from './constants';
+import { SiderLogo, SiderMenu, SiderFooter, SiderSwitch } from './components';
 
-import styles from './SideBar.module.css';
+import { siderWidth } from './constants';
+
+import styles from './SideBar.module.scss';
+
+const { Sider } = Layout;
 
 export const SideBar = () => {
     const [collapsed, setCollapsed] = useState(false);
@@ -26,17 +21,19 @@ export const SideBar = () => {
             trigger={null}
             collapsed={collapsed}
             collapsedWidth={
-                isAtBreakpoint ? SIDER_COLLAPSED_MOBILE_WIDTH : SIDER_COLLAPSED_DESKTOP_WIDTH
+                isAtBreakpoint
+                    ? siderWidth.SIDER_COLLAPSED_MOBILE_WIDTH
+                    : siderWidth.SIDER_COLLAPSED_DESKTOP_WIDTH
             }
             collapsible
             breakpoint='xs'
             onBreakpoint={handleBreakpointChange}
-            width={isAtBreakpoint ? SIDER_MOBILE_WIDTH : SIDER_DESKTOP_WIDTH}
+            width={isAtBreakpoint ? siderWidth.SIDER_MOBILE_WIDTH : siderWidth.SIDER_DESKTOP_WIDTH}
             className={styles['sider']}
         >
             <SiderLogo collapsed={collapsed} />
-            <SiderMenu isAtBreakpoint={isAtBreakpoint} collapsed={collapsed} />
-            <SiderFooter isAtBreakpoint={isAtBreakpoint} />
+            <SiderMenu />
+            <SiderFooter />
 
             <SiderSwitch
                 collapsed={collapsed}

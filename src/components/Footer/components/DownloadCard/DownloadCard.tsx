@@ -1,9 +1,9 @@
-import { Card, Space } from 'antd';
+import { Card } from 'antd';
 import { AndroidFilled, AppleFilled } from '@ant-design/icons';
 
 import { ButtonDownload } from '../ButtonDownload';
 
-import styles from './DownloadCard.module.css';
+import styles from './DownloadCard.module.scss';
 
 export const DownloadCard = () => (
     <Card
@@ -19,9 +19,7 @@ export const DownloadCard = () => (
         }}
         bodyStyle={{ padding: '12px 0' }}
     >
-        <Space size={4} className={styles['download-card-body']}>
-            <ButtonDownload icon={<AndroidFilled />} label='Android OS' />
-            <ButtonDownload icon={<AppleFilled />} label='Apple iOS' />
-        </Space>
+        <ButtonDownload icon={<AndroidFilled />} label='Android OS' />
+        <ButtonDownload icon={<AppleFilled />} label='Apple iOS' />
     </Card>
 );

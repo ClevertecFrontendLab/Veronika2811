@@ -1,6 +1,6 @@
 import { Button, Tooltip } from 'antd';
 
-import styles from './ButtonIconRound.module.css';
+import styles from './ButtonIconRound.module.scss';
 
 interface ButtonIconRoundProps {
     tooltipTitle: string;
@@ -9,6 +9,6 @@ interface ButtonIconRoundProps {
 
 export const ButtonIconRound = ({ tooltipTitle, icon }: ButtonIconRoundProps) => (
     <Tooltip title={tooltipTitle}>
-        <Button shape='circle' className={styles['header-button-round']} icon={icon} />
+        <Button shape='circle' className={styles['button-round']} icon={icon} />
     </Tooltip>
 );

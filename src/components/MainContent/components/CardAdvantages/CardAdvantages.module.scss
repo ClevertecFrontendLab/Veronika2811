@@ -1,0 +1,32 @@
+[class*='ant-card'].advantages {
+    margin-bottom: 24px;
+    font-size: var(--font-size-16);
+    line-height: var(--line-height-130);
+    color: var(--primary-light-9);
+
+    :global {
+        .ant-typography {
+            color: var(--primary-light-9);
+        }
+
+        .ant-list-item {
+            padding: var(--padding-zero);
+            font-size: var(--font-size-16);
+            line-height: var(--line-height-130);
+
+            .ant-typography {
+                color: var(--primary-light-9);
+
+                @media (max-width: 479px) {
+                    letter-spacing: 0.2px;
+                }
+            }
+        }
+
+        .ant-card-body {
+            @media (max-width: 479px) {
+                padding: 16px;
+            }
+        }
+    }
+}

@@ -1,9 +1,8 @@
 import { Col, Layout, Row } from 'antd';
 
-import { ButtonText } from './components/ButtonText';
-import { DownloadCard } from './components/DownloadCard';
+import { ButtonText, DownloadCard } from './components';
 
-import styles from './MainFooter.module.css';
+import styles from './MainFooter.module.scss';
 
 const { Footer } = Layout;
 

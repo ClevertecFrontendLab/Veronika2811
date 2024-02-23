@@ -1,20 +1,20 @@
-import React from 'react';
-import { Layout } from 'antd';
-
-import { SideBar } from '@components/SideBar';
 import { Header } from '@components/Header';
 import { MainContent } from '@components/MainContent';
 import { MainFooter } from '@components/Footer';
+import { Loader } from '@components/ui/Loader';
 
-import styles from './MainPage.module.css';
+import { isLoadingSelector } from '@redux/selectors';
+import { useAppSelector } from '@hooks/typed-react-redux-hooks';
 
-export const MainPage: React.FC = () => (
-    <Layout className={styles['page-container']}>
-        <SideBar />
-        <Layout className={styles['page-content']}>
+export const MainPage = () => {
+    const isLoading = useAppSelector(isLoadingSelector);
+
+    return (
+        <>
+            {isLoading && <Loader />}
             <Header />
             <MainContent />
             <MainFooter />
-        </Layout>
-    </Layout>
-);
+        </>
+    );
+};

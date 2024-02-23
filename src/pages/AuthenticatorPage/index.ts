@@ -1,0 +1,1 @@
+export { AuthenticatorPage } from './AuthenticatorPage';
