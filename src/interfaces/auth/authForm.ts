@@ -11,7 +11,10 @@ export interface LoginData extends Credentials {
     remember?: boolean;
 }
 
-export type AuthData = RegistrationData | LoginData;
+export interface AuthData extends Credentials {
+    passwordConfirm?: string;
+    remember?: boolean;
+}
 
 export interface AuthError {
     status: number;

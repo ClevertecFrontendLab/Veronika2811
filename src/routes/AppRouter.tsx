@@ -4,6 +4,7 @@ import { Paths } from './constants/Paths';
 import { LOGIN, REGISTRATION } from '@constants/authConstants/auth';
 import { AuthStatus } from '@constants/authConstants/authStatus';
 import { useAppSelector } from '@hooks/typed-react-redux-hooks';
+import { authUserSelector } from '@redux/selectors';
 
 import { NotFoundPage } from '@pages/NotFoundPage';
 import { MainPage } from '@pages/MainPage';
@@ -15,9 +16,11 @@ import { ChangePasswordForm } from '@components/AuthContainer/components/ChangeP
 import { LayoutMainPage } from '@layouts/LayoutMainPage';
 
 export const AppRouter = () => {
-    const { isAuth } = useAppSelector((state) => state.userInfoSlice);
+    const isAuthUser = useAppSelector(authUserSelector);
+
     const location = useLocation();
     const isRedirect = location.state?.fromRedirect;
+
     return (
         <Routes>
             <Route index element={<Navigate to={Paths.AUTH_MAIN} />} />
@@ -25,13 +28,13 @@ export const AppRouter = () => {
             <Route path={Paths.MAIN} element={<LayoutMainPage />}>
                 <Route
                     index
-                    element={isAuth ? <MainPage /> : <Navigate to={Paths.AUTH_MAIN} replace />}
+                    element={isAuthUser ? <MainPage /> : <Navigate to={Paths.AUTH_MAIN} replace />}
                 />
             </Route>
 
             <Route
                 path={Paths.AUTH_MAIN}
-                element={isAuth ? <Navigate to={Paths.MAIN} replace /> : <LayoutAuthPage />}
+                element={isAuthUser ? <Navigate to={Paths.MAIN} replace /> : <LayoutAuthPage />}
             >
                 <Route index element={<AuthenticatorPage type={LOGIN} />} />
                 <Route
@@ -47,7 +50,7 @@ export const AppRouter = () => {
                 element={
                     isRedirect ? (
                         <LayoutAuthPage />
-                    ) : isAuth ? (
+                    ) : isAuthUser ? (
                         <Navigate to={Paths.MAIN} replace />
                     ) : (
                         <Navigate to={Paths.AUTH_MAIN} replace />

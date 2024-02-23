@@ -1,9 +1,9 @@
 import { Button, Result } from 'antd';
 import { push } from 'redux-first-history';
 
-import { RESULTS } from './constants/results';
 import { Paths } from '@routes/constants/Paths';
 import { useAppDispatch } from '@hooks/typed-react-redux-hooks';
+import { RESULTS } from './constants/results';
 
 import styles from './AuthResult.module.scss';
 
@@ -21,8 +21,8 @@ export const AuthResult = ({ statusCode }: { statusCode: number | string }) => {
     };
 
     const classMap: ClassMap = {
-        [Paths.AUTH_SUB_RESULT_ERROR_CHECK_EMAIL_NO_EXIST]: styles['auth-check-result'],
-        [Paths.AUTH_SUB_RESULT_ERROR_CHECK_EMAIL]: styles['auth-check-result'],
+        [Paths.AUTH_SUB_RESULT_ERROR_CHECK_EMAIL_NO_EXIST]: styles['auth-check-no-exist'],
+        [Paths.AUTH_SUB_RESULT_ERROR_CHECK_EMAIL]: styles['auth-check-error'],
     };
 
     const changeClasses = classMap[statusCode] || styles['auth-result'];

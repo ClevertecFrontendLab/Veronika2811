@@ -4,8 +4,14 @@
     :global {
         .ant-btn {
             @media (max-width: 555px) {
-                font-size: 14px;
+                font-size: var(--font-size-14);
             }
+        }
+
+        .ant-btn-primary {
+            background: var(--primary-light-6);
+            border-color: var(--primary-light-6);;
+            box-shadow: var(--box-shadow-04);
         }
 
         .anticon {

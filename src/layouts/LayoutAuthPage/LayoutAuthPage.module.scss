@@ -10,7 +10,7 @@
         width: 539px;
         text-align: center;
         background: var(--character-light-primary-inverse);
-        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+        box-shadow: var(--box-shadow-15);
 
         @media (max-width: 555px) {
             width: 328px;

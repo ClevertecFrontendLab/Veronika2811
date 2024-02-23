@@ -1,14 +1,14 @@
 [class*='footer'].sider-footer {
     margin-top: auto;
-    padding: 0;
+    padding: var(--padding-zero);
 
     :global {
         .ant-divider-horizontal {
-            margin: 0;
+            margin: var(--margin-zero);
         }
 
         .ant-menu-item {
-            margin: 0;
+            margin: var(--margin-zero);
             padding-left: 16px !important;
 
             .anticon {

@@ -1,13 +1,13 @@
 .register-field {
     :global {
         .ant-form-item-explain {
-            padding-bottom: 24px;
-            font-size: 12px;
+            padding-bottom: 25px;
+            font-size: var(--font-size-12);
             color: var(--character-light-secondary-45);
             text-align: left;
 
             @media (max-width: 555px) {
-                line-height: 130%;
+                line-height: var(--line-height-130);
                 padding-bottom: 10px;
             }
         }
@@ -26,6 +26,14 @@
             ).ant-input:hover {
             border-left-color: var(--character-light-border);
         }
+
+        .ant-input-affix-wrapper > .ant-input {
+            font-size: var(--font-size-14);
+        }
+
+        .ant-input-group-addon {
+            padding: 0 13px;
+        }
     }
 }
 
@@ -38,5 +46,13 @@
                 margin-bottom: 57px;
             }
         }
+
+        .ant-input-affix-wrapper > .ant-input {
+            font-size: var(--font-size-14);
+        }
     }
+}
+
+[class*='ant-form'] [class*='ant-form-item'].registration-wrapper-buttons {
+    margin: var(--margin-zero);
 }

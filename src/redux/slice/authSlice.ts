@@ -1,13 +1,13 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { AUTH_BASE_URL, LOGIN, REGISTRATION } from '@constants/authConstants/auth';
-import { AuthError, LoginData, RegistrationData } from '@type/auth/authForm';
+import { AuthError, LoginData, RegistrationData } from '@interfaces/auth/authForm';
 import {
     CheckEmailResponse,
     EmailVerificationData,
     LoginResponse,
     PasswordConfirmationData,
-} from '@type/auth/authSliceTypes';
+} from '@interfaces/auth/authSliceTypes';
 
 export const authSlice = createApi({
     reducerPath: 'AUTH_SLICE',

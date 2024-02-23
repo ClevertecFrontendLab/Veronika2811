@@ -9,9 +9,13 @@ export const confirmPasswordValidationRules = [
         validator(_: RuleObject, value: string) {
             const password = getFieldValue('password');
 
-            if (!password) return Promise.reject(new Error('Введите пароль!'));
+            if (!password) {
+                return Promise.reject(new Error('Введите пароль!'));
+            }
 
-            if (password === value) return Promise.resolve();
+            if (password === value) {
+                return Promise.resolve();
+            }
 
             if (password !== value)
                 return Promise.reject(new Error('Введённые вами пароли не совпадают!'));

@@ -21,6 +21,7 @@ export default defineConfig({
             '@types': path.resolve(__dirname, 'src/types'),
             '@utils': path.resolve(__dirname, 'src/utils'),
             '@type': path.resolve(__dirname, 'src/type'),
+            '@interfaces': path.resolve(__dirname, 'src/interfaces'),
             '@routes': path.resolve(__dirname, 'src/routes'),
         },
     },

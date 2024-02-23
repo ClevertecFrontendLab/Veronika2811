@@ -1,17 +1,16 @@
 import { useState } from 'react';
-import VerificationInput from 'react-verification-input';
-import { Result, Typography } from 'antd';
-import classNames from 'classnames';
 import { push } from 'redux-first-history';
+import { Result, Typography } from 'antd';
 
-import { useCheckVerificationCodeMutation } from '@redux/slice/authSlice';
-import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
+import { ConfirmEmailTitle } from './components';
+import { CustomVerificationInput } from './components/CustomVerificationInput';
+
 import { Paths } from '@routes/constants/Paths';
-
-import { RootState } from '@redux/store';
+import { useCheckVerificationCodeMutation } from '@redux/slice/authSlice';
+import { verificationEmailSelector } from '@redux/selectors';
+import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
 
 import styles from './ConfirmEmail.module.scss';
-import { AuthTestIds } from '@components/AuthContainer/constants/AuthTestIds';
 
 export const ConfirmEmail = () => {
     const [incorrectVerificationCode, setIncorrectVerificationCode] = useState(false);
@@ -19,7 +18,7 @@ export const ConfirmEmail = () => {
 
     const [confirmEmail] = useCheckVerificationCodeMutation();
 
-    const resetPasswordEmail = useAppSelector((state: RootState) => state.userInfoSlice.resetPasswordEmail);
+    const verificationEmail = useAppSelector(verificationEmailSelector);
     const dispatch = useAppDispatch();
 
     const onCompleteVerificataion = async (code: string) => {
@@ -27,7 +26,7 @@ export const ConfirmEmail = () => {
 
         try {
             await confirmEmail({
-                email: resetPasswordEmail,
+                email: verificationEmail,
                 code,
             }).unwrap();
 
@@ -47,30 +46,19 @@ export const ConfirmEmail = () => {
         <Result
             className={styles['confirm-email']}
             status={!incorrectVerificationCode ? 'info' : 'error'}
-            title={
-                !incorrectVerificationCode
-                    ? 'Введите код для восстановления аккаунта'
-                    : 'Неверный код. Введите код для восстановления аккауанта'
+            title={<ConfirmEmailTitle incorrectVerificationCode={incorrectVerificationCode} />}
+            subTitle={
+                <Typography.Text>
+                    Мы отправили вам на e-mail <strong>{verificationEmail}</strong> шестизначный
+                    код. Введите его в поле ниже.
+                </Typography.Text>
             }
-            subTitle={`Мы отправили вам на e-mail ${resetPasswordEmail} шестизначный код. Введите его в поле ниже.`}
         >
-            <VerificationInput
-                value={verificationCode}
-                onChange={setVerificationCode}
-                validChars='0-9'
-                placeholder=''
-                classNames={{
-                    container: 'container',
-                    character: classNames(
-                        styles.character,
-                        incorrectVerificationCode ? styles['character-error'] : null,
-                    ),
-                    characterInactive: styles['character--inactive'],
-                    characterSelected: 'character--selected',
-                    characterFilled: styles['character--filled'],
-                }}
-                onComplete={onCompleteVerificataion}
-                inputProps={{ 'data-test-id': AuthTestIds.VERIFICATION_INPUT }}
+            <CustomVerificationInput
+                verificationCode={verificationCode}
+                setVerificationCode={setVerificationCode}
+                incorrectVerificationCode={incorrectVerificationCode}
+                onCompleteVerificataion={onCompleteVerificataion}
             />
             <Typography.Text>Не пришло письмо? Проверьте папку Спам.</Typography.Text>
         </Result>

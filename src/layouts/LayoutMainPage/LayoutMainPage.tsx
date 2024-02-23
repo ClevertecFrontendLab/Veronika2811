@@ -5,13 +5,11 @@ import { SideBar } from '@components/SideBar';
 
 import styles from './LayoutMainPage.module.scss';
 
-export const LayoutMainPage = () => {
-    return (
-        <Layout className={styles['page-container']}>
-            <SideBar />
-            <Layout className={styles['page-content']}>
-                <Outlet />
-            </Layout>
+export const LayoutMainPage = () => (
+    <Layout className={styles['page-container']}>
+        <SideBar />
+        <Layout className={styles['page-content']}>
+            <Outlet />
         </Layout>
-    );
-};
+    </Layout>
+);

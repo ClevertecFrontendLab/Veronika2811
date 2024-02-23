@@ -11,9 +11,13 @@ interface AuthFormButtonsProps {
 export const AuthFormButtons = ({ label, testId }: AuthFormButtonsProps) => (
     <Space direction='vertical' size={16} className={styles['auth-form-buttons']}>
         <Button htmlType='submit' type='primary' size='large' block data-test-id={testId}>
-            {label}
+            Войти
         </Button>
-        <Button size='large' block icon={<GooglePlusOutlined />}>
+        <Button
+            size='large'
+            block
+            icon={<GooglePlusOutlined />}
+        >
             {label} через Google
         </Button>
     </Space>

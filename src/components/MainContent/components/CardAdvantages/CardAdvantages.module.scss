@@ -1,7 +1,7 @@
 [class*='ant-card'].advantages {
     margin-bottom: 24px;
-    font-size: 16px;
-    line-height: 130%;
+    font-size: var(--font-size-16);
+    line-height: var(--line-height-130);
     color: var(--primary-light-9);
 
     :global {
@@ -10,9 +10,9 @@
         }
 
         .ant-list-item {
-            padding: 0;
-            font-size: 16px;
-            line-height: 130%;
+            padding: var(--padding-zero);
+            font-size: var(--font-size-16);
+            line-height: var(--line-height-130);
 
             .ant-typography {
                 color: var(--primary-light-9);

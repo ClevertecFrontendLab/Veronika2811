@@ -1,10 +1,10 @@
 import { Tabs } from 'antd';
 import { push } from 'redux-first-history';
 
-import { AuthTypes } from 'src/type/auth/authTypes';
 import { Paths } from '@routes/constants/Paths';
 import { useAppDispatch } from '@hooks/typed-react-redux-hooks';
 import { LOGIN } from '@constants/authConstants/auth';
+import { AuthTypes } from '@type/auth/authTypes';
 
 import { AUTH_FORM_TABS } from '@components/AuthContainer/constants';
 

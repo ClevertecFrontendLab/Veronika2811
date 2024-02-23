@@ -2,19 +2,19 @@ import { useEffect, useState } from 'react';
 import { push } from 'redux-first-history';
 import { Form } from 'antd';
 
+import { LoginForm } from '../LoginForm';
+import { RegistrationForm } from '../RegistrationForm';
+
+import { Paths } from '@routes/constants/Paths';
 import { useLoginUserMutation, useRegisterUserMutation } from '@redux/slice/authSlice';
-import { RootState } from '@redux/store';
+import { previousLocationSelector, registrationUserDataSelector  } from '@redux/selectors';
 import { setUserLoggedIn, saveRegistrationData, setIsLoading } from '@redux/slice/userInfoSlice';
 import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
 import { LOGIN, REGISTRATION } from '@constants/authConstants/auth';
 import { AuthStatus } from '@constants/authConstants/authStatus';
 import { ACCESS_TOKEN_KEY } from '@constants/authConstants/storageKeys';
 import { AuthTypes } from '@type/auth/authTypes';
-import { AuthData, AuthError, LoginData, RegistrationData } from '@type/auth/authForm';
-import { Paths } from '@routes/constants/Paths';
-
-import { LoginForm } from '../LoginForm';
-import { RegistrationForm } from '../RegistrationForm';
+import { AuthData, AuthError, LoginData, RegistrationData } from '@interfaces/auth/authForm';
 
 import styles from './AuthForm.module.scss';
 
@@ -29,14 +29,13 @@ export interface FieldData {
 export const AuthForm = ({ type }: { type: AuthTypes }) => {
     const [form] = Form.useForm();
 
-    const [isForgotPasswordButtonDisabled, setIsForgotPasswordButtonDisabled] =
-        useState<boolean>(false);
+    const [isForgotPasswordButtonDisabled, setIsForgotPasswordButtonDisabled] = useState(false);
 
     const [registrationUser, { isLoading: isLoadingRegister }] = useRegisterUserMutation();
     const [loginUser, { isLoading: isLoadingLogin }] = useLoginUserMutation();
 
-    const previousLocations = useAppSelector((state: RootState) => state.router.previousLocations);
-    const registerUser = useAppSelector((state: RootState) => state.userInfoSlice.registerUser);
+    const previousLocations = useAppSelector(previousLocationSelector);
+    const registrationUserData = useAppSelector(registrationUserDataSelector);
     const dispatch = useAppDispatch();
 
     const onFinish = (values: AuthData) => {
@@ -98,6 +97,7 @@ export const AuthForm = ({ type }: { type: AuthTypes }) => {
 
                 dispatch(setUserLoggedIn(true));
                 dispatch(push(Paths.AUTH_MAIN));
+                await new Promise(resolve => setTimeout(resolve, 500));
                 dispatch(setIsLoading(false));
             }
         } catch {
@@ -112,7 +112,10 @@ export const AuthForm = ({ type }: { type: AuthTypes }) => {
     const validateEmailField = async (_: FieldData[], allFields: FieldData[]) => {
         if (type === LOGIN) {
             const emailField = allFields.find((field) => {
-                if (Array.isArray(field.name)) return field.name[0] === 'email';
+                if (Array.isArray(field.name)) {
+                    return field.name[0] === 'email';
+                }
+
                 return field.name === 'email';
             });
 
@@ -124,7 +127,7 @@ export const AuthForm = ({ type }: { type: AuthTypes }) => {
         const previousRoute = previousLocations?.[1]?.location?.pathname;
 
         if (previousRoute === `${Paths.AUTH_MAIN_RESULTS}/${Paths.AUTH_SUB_RESULT_ERROR}`) {
-            handleRegistrationSubmission(registerUser);
+            handleRegistrationSubmission(registrationUserData);
         }
     }, [previousLocations]);
 

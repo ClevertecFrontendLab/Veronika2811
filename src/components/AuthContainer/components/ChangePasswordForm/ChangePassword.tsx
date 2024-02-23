@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
-import { Button, Form, Typography } from 'antd';
 import { push } from 'redux-first-history';
-
-import { useUpdatePasswordMutation } from '@redux/slice/authSlice';
-import { RootState } from '@redux/store';
-import { saveChangedPassword } from '@redux/slice/userInfoSlice';
-import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
-import { Paths } from '@routes/constants/Paths';
+import { Button, Form, Typography } from 'antd';
 
 import { CHANGE_PASSWORD_FIELDS } from '@components/AuthContainer/constants';
 import { AuthTestIds } from '@components/AuthContainer/constants/AuthTestIds';
+
+import { Paths } from '@routes/constants/Paths';
+import { useUpdatePasswordMutation } from '@redux/slice/authSlice';
+import { saveChangedPassword } from '@redux/slice/userInfoSlice';
+import { newPasswordSelector, previousLocationSelector } from '@redux/selectors';
+import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
 
 import styles from './ChangePasswordForm.module.scss';
 
@@ -23,10 +23,8 @@ export const ChangePasswordForm = () => {
 
     const [changePassword] = useUpdatePasswordMutation();
 
-    const previousLocations = useAppSelector((state: RootState) => state.router.previousLocations);
-    const newPassword = useAppSelector(
-        (state: RootState) => state.userInfoSlice.newPassword,
-    );
+    const previousLocations = useAppSelector(previousLocationSelector);
+    const newPassword = useAppSelector(newPasswordSelector);
     const dispatch = useAppDispatch();
 
     const onFinish = async (values: PasswordChangeData) => {

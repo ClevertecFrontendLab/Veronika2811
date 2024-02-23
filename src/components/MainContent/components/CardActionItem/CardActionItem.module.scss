@@ -1,7 +1,7 @@
 .card-action {
     :global {
         .ant-card-head-title {
-            padding: 0;
+            padding: var(--padding-zero);
             white-space: break-spaces;
         }
     }

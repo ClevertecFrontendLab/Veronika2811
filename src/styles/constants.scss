@@ -1,7 +1,16 @@
 :root {
+    --padding-zero: 0;
+    --margin-zero: 0;
     --font-family: 'Inter', sans-serif;
     --third-family: 'Montserrat', sans-serif;
     --font3: 'Roboto', sans-serif;
+    --font-size-14: 14px;
+    --font-size-16: 16px;
+    --font-size-20: 20px;
+    --font-size-24: 24px;
+    --line-height-130: 130%;
+    --line-height-1-4: 1.4;
+    --line-height-1-2: 1.2;
     --character-light-title-85: #262626;
     --character-light-primary-85: #262626;
     --character-light-secondary-45: #8c8c8c;
@@ -84,4 +93,6 @@
     --character-dark-link: #177ddc;
     --character-dark-red-4: #791a1f;
     --character-dark-sider-background: #111d2c;
+    --box-shadow-04: 0 2px 0 0 rgba(0, 0, 0, 0.04);
+    --box-shadow-15: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
 }

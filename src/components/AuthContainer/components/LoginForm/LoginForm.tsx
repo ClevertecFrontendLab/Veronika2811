@@ -2,18 +2,18 @@ import React, { useEffect } from 'react';
 import { push } from 'redux-first-history';
 import { Button, Checkbox, Form, FormInstance } from 'antd';
 
-import { RootState } from '@redux/store';
-import { useCheckEmailExistenceMutation } from '@redux/slice/authSlice';
-import { savePasswordRecoveryEmail } from '@redux/slice/userInfoSlice';
-import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
-import { Paths } from '@routes/constants/Paths';
-import { AuthStatus } from '@constants/authConstants/authStatus';
-import { LOGIN } from '@constants/authConstants/auth';
-import { AuthError } from '@type/auth/authForm';
-
 import { LOGIN_FIELDS } from '@components/AuthContainer/constants/loginFields';
 import { AuthFormButtons } from '../AuthFormButtons';
 import { AuthTestIds } from '@components/AuthContainer/constants/AuthTestIds';
+
+import { Paths } from '@routes/constants/Paths';
+import { useCheckEmailExistenceMutation } from '@redux/slice/authSlice';
+import { saveEmailRecoveryPassword } from '@redux/slice/userInfoSlice';
+import { previousLocationSelector, verificationEmailSelector } from '@redux/selectors';
+import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
+import { AuthStatus } from '@constants/authConstants/authStatus';
+import { LOGIN } from '@constants/authConstants/auth';
+import { AuthError } from '@interfaces/auth/authForm';
 
 import styles from './LoginForm.module.scss';
 
@@ -30,8 +30,8 @@ export const LoginForm = ({
 }: LoginFormProps) => {
     const [checkUser] = useCheckEmailExistenceMutation();
 
-    const previousLocations = useAppSelector((state: RootState) => state.router.previousLocations);
-    const resetPasswordEmail = useAppSelector((state: RootState) => state.userInfoSlice.resetPasswordEmail);
+    const previousLocations = useAppSelector(previousLocationSelector);
+    const verificationEmail = useAppSelector(verificationEmailSelector);
     const dispatch = useAppDispatch();
 
     const validateEmailFieldOnClick = async () => {
@@ -46,7 +46,7 @@ export const LoginForm = ({
     };
 
     const checkEmailRegistration = async (email: string) => {
-        dispatch(savePasswordRecoveryEmail(email));
+        dispatch(saveEmailRecoveryPassword(email));
 
         try {
             await checkUser({ email }).unwrap();
@@ -60,12 +60,12 @@ export const LoginForm = ({
     };
 
     const checkEmailRegistrationError = (err: unknown) => {
-        const {
-            status,
-            data,
-        } = err as AuthError;
+        const { status, data } = err as AuthError;
 
-        if (status === AuthStatus.STATUS_ERROR_CHECK_EMAIL_404 && data.message === 'Email не найден') {
+        if (
+            status === AuthStatus.STATUS_ERROR_CHECK_EMAIL_404 &&
+            data.message === 'Email не найден'
+        ) {
             dispatch(
                 push(
                     `${Paths.AUTH_MAIN_RESULTS}/${Paths.AUTH_SUB_RESULT_ERROR_CHECK_EMAIL_NO_EXIST}`,
@@ -87,7 +87,7 @@ export const LoginForm = ({
         if (
             previousPath === `${Paths.AUTH_MAIN_RESULTS}/${Paths.AUTH_SUB_RESULT_ERROR_CHECK_EMAIL}`
         ) {
-            checkEmailRegistration(resetPasswordEmail);
+            checkEmailRegistration(verificationEmail);
         }
     }, [previousLocations]);
 

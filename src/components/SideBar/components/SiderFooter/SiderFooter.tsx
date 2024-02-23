@@ -1,5 +1,5 @@
-import { Divider, Layout, Menu } from 'antd';
 import { push } from 'redux-first-history';
+import { Divider, Layout, Menu } from 'antd';
 
 import { useAppDispatch } from '@hooks/typed-react-redux-hooks';
 import { setUserLoggedIn } from '@redux/slice/userInfoSlice';

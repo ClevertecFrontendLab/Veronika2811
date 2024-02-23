@@ -1,4 +1,4 @@
-import { AuthTypes } from 'src/type/auth/authTypes';
+import { AuthTypes } from '@type/auth/authTypes';
 
 import { Logo } from '@components/Logo';
 import { AuthTabs } from './components/AuthTabs';

@@ -1,21 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 interface TInitialState {
-    isAuth: boolean,
+    isAuthUser: boolean;
     isLoading: boolean;
     registerUser: {
-        email: string,
-        password: string,
-    },
+        email: string;
+        password: string;
+    };
     newPassword: {
-        password: string,
-        confirmPassword: string,
-    },
-    resetPasswordEmail: string,
+        password: string;
+        confirmPassword: string;
+    };
+    verificationEmail: string;
 }
 
 const initialState: TInitialState = {
-    isAuth: !!localStorage.getItem('token') || !!sessionStorage.getItem('token'),
+    isAuthUser: !!localStorage.getItem('token') || !!sessionStorage.getItem('token'),
     isLoading: false,
     registerUser: {
         email: '',
@@ -25,29 +25,29 @@ const initialState: TInitialState = {
         password: '',
         confirmPassword: '',
     },
-    resetPasswordEmail: '',
+    verificationEmail: '',
 };
 
 const userInfoSlice = createSlice({
-  name: 'USER_INFO_SLICE',
-  initialState,
-  reducers: {
-    setUserLoggedIn: (state, action) => {
-        state.isAuth = action.payload;
+    name: 'USER_INFO_SLICE',
+    initialState,
+    reducers: {
+        setUserLoggedIn: (state, action) => {
+            state.isAuthUser = action.payload;
+        },
+        setIsLoading: (state, action) => {
+            state.isLoading = action.payload;
+        },
+        saveRegistrationData: (state, action) => {
+            state.registerUser = action.payload;
+        },
+        saveChangedPassword: (state, action) => {
+            state.newPassword = action.payload;
+        },
+        saveEmailRecoveryPassword: (state, action) => {
+            state.verificationEmail = action.payload;
+        },
     },
-    setIsLoading: (state, action) => {
-        state.isLoading = action.payload
-    },
-    saveRegistrationData: (state, action) => {
-      state.registerUser = action.payload;
-    },
-    saveChangedPassword: (state, action) => {
-        state.newPassword = action.payload;
-    },
-    savePasswordRecoveryEmail: (state, action) => {
-        state.resetPasswordEmail = action.payload;
-    },
-  },
 });
 
 const { actions, reducer } = userInfoSlice;
@@ -57,7 +57,7 @@ export const {
     setIsLoading,
     saveRegistrationData,
     saveChangedPassword,
-    savePasswordRecoveryEmail,
+    saveEmailRecoveryPassword,
 } = actions;
 
 export default reducer;

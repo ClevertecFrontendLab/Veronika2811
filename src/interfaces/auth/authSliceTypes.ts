@@ -4,17 +4,13 @@ interface EmailData {
     email: string;
 }
 
-interface LoginSuccessResponse {
+export interface LoginResponse extends AuthError {
     accessToken: string;
 }
 
-export type LoginResponse = LoginSuccessResponse | AuthError;
-
-interface CheckEmailSuccessResponse extends EmailData {
+export interface CheckEmailResponse extends EmailData, AuthError {
     message: string;
 }
-
-export type CheckEmailResponse = CheckEmailSuccessResponse | AuthError;
 
 export interface EmailVerificationData extends EmailData {
     code: string;
