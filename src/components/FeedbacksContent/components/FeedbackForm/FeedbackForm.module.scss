@@ -1,0 +1,11 @@
+.feedback-form {
+    :global {
+        .ant-modal-body {
+            padding: 20px 16px 0;
+        }
+
+        .ant-form-item:first-child {
+            margin-bottom: 10px;
+        }
+    }
+}
