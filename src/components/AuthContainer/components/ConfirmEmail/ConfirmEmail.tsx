@@ -5,21 +5,21 @@ import { Result, Typography } from 'antd';
 import { ConfirmEmailTitle } from './components';
 import { CustomVerificationInput } from './components/CustomVerificationInput';
 
-import { Paths } from '@routes/constants/Paths';
-import { useCheckVerificationCodeMutation } from '@redux/slice/authSlice';
+import { useCheckVerificationCodeMutation } from '@redux/api/auth.api';
 import { verificationEmailSelector } from '@redux/selectors';
-import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
+import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks';
+import { Paths } from '@routes/constants/Paths';
 
 import styles from './ConfirmEmail.module.scss';
 
 export const ConfirmEmail = () => {
-    const [incorrectVerificationCode, setIncorrectVerificationCode] = useState(false);
-    const [verificationCode, setVerificationCode] = useState('');
-
     const [confirmEmail] = useCheckVerificationCodeMutation();
 
     const verificationEmail = useAppSelector(verificationEmailSelector);
     const dispatch = useAppDispatch();
+
+    const [incorrectVerificationCode, setIncorrectVerificationCode] = useState(false);
+    const [verificationCode, setVerificationCode] = useState('');
 
     const onCompleteVerificataion = async (code: string) => {
         setVerificationCode(code);

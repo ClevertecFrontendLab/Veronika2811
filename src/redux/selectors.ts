@@ -1,9 +1,9 @@
 import { RootState } from './store';
 
-export const registrationUserDataSelector = (state: RootState) => state.userInfoSlice.registerUser;
-export const newPasswordSelector = (state: RootState) => state.userInfoSlice.newPassword;
-export const verificationEmailSelector = (state: RootState) => state.userInfoSlice.verificationEmail;
-export const isLoadingSelector = (state: RootState) => state.userInfoSlice.isLoading;
-export const authUserSelector = (state: RootState) => state.userInfoSlice.isAuthUser;
+export const registrationUserDataSelector = (state: RootState) => state.authSlice.registerUser;
+export const newPasswordSelector = (state: RootState) => state.authSlice.newPassword;
+export const verificationEmailSelector = (state: RootState) => state.authSlice.verificationEmail;
+export const isLoadingSelector = (state: RootState) => state.authSlice.isLoading;
+export const accessTokenSelector = (state: RootState) => state.authSlice.accessToken;
 
 export const previousLocationSelector = (state: RootState) => state.router.previousLocations;

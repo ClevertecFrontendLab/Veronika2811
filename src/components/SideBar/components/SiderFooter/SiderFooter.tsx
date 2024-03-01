@@ -1,8 +1,9 @@
 import { push } from 'redux-first-history';
 import { Divider, Layout, Menu } from 'antd';
 
-import { useAppDispatch } from '@hooks/typed-react-redux-hooks';
-import { setUserLoggedIn } from '@redux/slice/userInfoSlice';
+import { setAccessToken } from '@redux/slice/authSlice';
+import { useAppDispatch } from '@hooks/reduxHooks';
+import { Paths } from '@routes/constants/Paths';
 import { FOOTER_MENU_ITEMS } from '../../constants';
 
 import styles from './SiderFooter.module.scss';
@@ -14,10 +15,9 @@ export const SiderFooter = () => {
 
     const handleLogout = () => {
         localStorage.clear();
-        sessionStorage.clear();
 
-        dispatch(setUserLoggedIn(false));
-        dispatch(push('/auth'));
+        dispatch(setAccessToken(''));
+        dispatch(push(Paths.AUTH_MAIN));
     };
 
     return (

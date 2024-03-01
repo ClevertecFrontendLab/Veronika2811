@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import { Logo } from '@components/Logo';
+import { Logo } from '@components/ui/Logo';
 
 import styles from './SiderLogo.module.scss';
 

@@ -2,7 +2,6 @@ import { Input } from 'antd';
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
 
 import { emailValidationRules, passwordValidationRules } from '../utils/fieldValidation';
-
 import { AuthTestIds } from './AuthTestIds';
 
 export const LOGIN_FIELDS = [

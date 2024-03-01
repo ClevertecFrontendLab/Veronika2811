@@ -6,7 +6,7 @@ import { sideBarTestIds } from '@components/SideBar/constants';
 
 import styles from './SiderSwitch.module.scss';
 
-interface SiderSwitchProps {
+type SiderSwitchProps = {
     collapsed: boolean;
     setCollapsed: Dispatch<React.SetStateAction<boolean>>;
     isAtBreakpoint: boolean;

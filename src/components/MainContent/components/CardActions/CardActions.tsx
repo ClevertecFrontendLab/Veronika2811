@@ -1,7 +1,8 @@
 import { Col, Row } from 'antd';
 
-import { CARD_ACTIONS } from '@components/MainContent/constants/cardActions';
 import { CardActionItem } from '../CardActionItem';
+
+import { CARD_ACTIONS } from '@components/MainContent/constants/cardActions';
 
 export const CardActions = () => (
     <Row gutter={[16, 5]}>

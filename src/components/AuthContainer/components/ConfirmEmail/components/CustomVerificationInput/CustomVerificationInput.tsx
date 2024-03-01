@@ -6,7 +6,7 @@ import { AuthTestIds } from '@components/AuthContainer/constants/AuthTestIds';
 
 import styles from './CustomVerificationInput.module.scss';
 
-interface CustomVerificationInputProps {
+type CustomVerificationInputProps = {
     verificationCode: string;
     setVerificationCode: React.Dispatch<React.SetStateAction<string>>;
     incorrectVerificationCode: boolean;
