@@ -1,0 +1,31 @@
+.author-info {
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 900px) {
+        flex-direction: row;
+    }
+
+    :global {
+        .ant-card-meta-avatar {
+            padding-right: 0;
+        }
+
+        .ant-card-meta-detail {
+            padding-top: 13px;
+
+            @media (max-width: 900px) {
+                padding-top: 0;
+                padding-left: 16px;
+                text-align: start;
+            }
+
+            .ant-typography {
+                margin: 0;
+                font-weight: 400;
+                line-height: var(--line-height-130);
+                white-space: break-spaces;
+            }
+        }
+    }
+}

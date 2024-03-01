@@ -1,0 +1,33 @@
+.rating-review {
+    & .rate {
+        :global {
+            .anticon-star {
+                width: 16px;
+                height: 16px;
+            }
+
+            .ant-rate-star:not(:last-child) {
+                margin-right: 4px;
+            }
+        }
+    }
+}
+
+[class*='ant-space'].rating-review-item {
+    :global {
+        .ant-space-item {
+            display: flex;
+            align-items: baseline;
+        }
+    }
+}
+
+[class*='ant-typography'].rate-date {
+    font-size: 12px;
+    color: var(--character-light-disable-25);
+}
+
+[class*='ant-typography'].review {
+    line-height: var(--line-height-130);
+    color: var(--character-light-secondary-45);
+}
