@@ -1,27 +1,29 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { push } from 'redux-first-history';
 import { Button, Checkbox, Form, FormInstance } from 'antd';
 
-import { LOGIN_FIELDS } from '@components/AuthContainer/constants/loginFields';
 import { AuthFormButtons } from '../AuthFormButtons';
+import { LOGIN_FIELDS } from '@components/AuthContainer/constants/loginFields';
 import { AuthTestIds } from '@components/AuthContainer/constants/AuthTestIds';
 
-import { Paths } from '@routes/constants/Paths';
-import { useCheckEmailExistenceMutation } from '@redux/slice/authSlice';
-import { saveEmailRecoveryPassword } from '@redux/slice/userInfoSlice';
+import { BASE_URL } from '@redux/api/constants/baseUrl';
+import { useCheckEmailExistenceMutation } from '@redux/api/auth.api';
+import { saveEmailRecoveryPassword } from '@redux/slice/authSlice';
 import { previousLocationSelector, verificationEmailSelector } from '@redux/selectors';
-import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
-import { AuthStatus } from '@constants/authConstants/authStatus';
-import { LOGIN } from '@constants/authConstants/auth';
-import { AuthError } from '@interfaces/auth/authForm';
+import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks';
+import { Paths } from '@routes/constants/Paths';
+import { AuthStatus } from '@constants/auth/authStatusConstants';
+import { LOGIN } from '@constants/auth/authConstants';
+import { ErrorTypes } from '@src/types/errorTypes';
+import { EmailData } from '@src/types/auth';
 
 import styles from './LoginForm.module.scss';
 
-interface LoginFormProps {
+type LoginFormProps = {
     form: FormInstance;
     isForgotPasswordButtonDisabled: boolean;
     setIsForgotPasswordButtonDisabled: React.Dispatch<React.SetStateAction<boolean>>;
-}
+};
 
 export const LoginForm = ({
     form,
@@ -37,7 +39,7 @@ export const LoginForm = ({
     const validateEmailFieldOnClick = async () => {
         await form
             .validateFields(['email'])
-            .then((value: { email: string }) => {
+            .then((value: EmailData) => {
                 checkEmailRegistration(value.email);
             })
             .catch(() => {
@@ -45,40 +47,52 @@ export const LoginForm = ({
             });
     };
 
-    const checkEmailRegistration = async (email: string) => {
-        dispatch(saveEmailRecoveryPassword(email));
+    const checkEmailRegistrationError = useCallback(
+        (err: unknown) => {
+            const { status, data } = err as ErrorTypes;
 
-        try {
-            await checkUser({ email }).unwrap();
+            if (
+                status === AuthStatus.STATUS_ERROR_CHECK_EMAIL_404 &&
+                data.message === 'Email не найден'
+            ) {
+                dispatch(
+                    push(
+                        `${Paths.AUTH_MAIN_RESULTS}/${Paths.AUTH_SUB_RESULT_ERROR_CHECK_EMAIL_NO_EXIST}`,
+                        { fromRedirect: true },
+                    ),
+                );
+            } else {
+                dispatch(
+                    push(`${Paths.AUTH_MAIN_RESULTS}/${Paths.AUTH_SUB_RESULT_ERROR_CHECK_EMAIL}`, {
+                        fromRedirect: true,
+                    }),
+                );
+            }
+        },
+        [dispatch],
+    );
 
-            dispatch(
-                push(`${Paths.AUTH_MAIN}/${Paths.AUTH_SUB_CONFIRM_EMAIL}`, { fromRedirect: true }),
-            );
-        } catch (err: unknown) {
-            checkEmailRegistrationError(err);
-        }
-    };
+    const checkEmailRegistration = useCallback(
+        async (email: string) => {
+            dispatch(saveEmailRecoveryPassword(email));
 
-    const checkEmailRegistrationError = (err: unknown) => {
-        const { status, data } = err as AuthError;
+            try {
+                await checkUser({ email }).unwrap();
 
-        if (
-            status === AuthStatus.STATUS_ERROR_CHECK_EMAIL_404 &&
-            data.message === 'Email не найден'
-        ) {
-            dispatch(
-                push(
-                    `${Paths.AUTH_MAIN_RESULTS}/${Paths.AUTH_SUB_RESULT_ERROR_CHECK_EMAIL_NO_EXIST}`,
-                    { fromRedirect: true },
-                ),
-            );
-        } else {
-            dispatch(
-                push(`${Paths.AUTH_MAIN_RESULTS}/${Paths.AUTH_SUB_RESULT_ERROR_CHECK_EMAIL}`, {
-                    fromRedirect: true,
-                }),
-            );
-        }
+                dispatch(
+                    push(`${Paths.AUTH_MAIN}/${Paths.AUTH_SUB_CONFIRM_EMAIL}`, {
+                        fromRedirect: true,
+                    }),
+                );
+            } catch (err: unknown) {
+                checkEmailRegistrationError(err);
+            }
+        },
+        [checkEmailRegistrationError, checkUser, dispatch],
+    );
+
+    const handleGoogleLogin = () => {
+        window.location.href = `${BASE_URL}/auth/google`;
     };
 
     useEffect(() => {
@@ -89,7 +103,7 @@ export const LoginForm = ({
         ) {
             checkEmailRegistration(verificationEmail);
         }
-    }, [previousLocations]);
+    }, [checkEmailRegistration, previousLocations, verificationEmail]);
 
     return (
         <>
@@ -121,7 +135,11 @@ export const LoginForm = ({
             </div>
 
             <Form.Item>
-                <AuthFormButtons label='Войти' testId='login-submit-button' />
+                <AuthFormButtons
+                    label='Войти'
+                    testId='login-submit-button'
+                    onClickGoogleLogin={handleGoogleLogin}
+                />
             </Form.Item>
         </>
     );

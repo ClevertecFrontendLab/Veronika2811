@@ -1,40 +1,55 @@
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 
 import { Paths } from './constants/Paths';
-import { LOGIN, REGISTRATION } from '@constants/authConstants/auth';
-import { AuthStatus } from '@constants/authConstants/authStatus';
-import { useAppSelector } from '@hooks/typed-react-redux-hooks';
-import { authUserSelector } from '@redux/selectors';
+import { AuthRedirectHandler } from './components/AuthRedirectHandler';
 
+import { LayoutMainPage } from '@layouts/LayoutMainPage';
+import { LayoutAuthPage } from '@layouts/LayoutAuthPage';
 import { NotFoundPage } from '@pages/NotFoundPage';
 import { MainPage } from '@pages/MainPage';
 import { AuthenticatorPage } from '@pages/AuthenticatorPage';
-import { LayoutAuthPage } from '@layouts/LayoutAuthPage';
+import { FeedbacksPage } from '@pages/FeedbacksPage';
 import { ConfirmEmail } from '@components/AuthContainer/components/ConfirmEmail';
-import { AuthResult } from '@components/AuthContainer/components/AuthResult';
 import { ChangePasswordForm } from '@components/AuthContainer/components/ChangePasswordForm';
-import { LayoutMainPage } from '@layouts/LayoutMainPage';
+import { ResultCustom } from '@components/ResultCustom';
+
+import { useAppSelector } from '@hooks/reduxHooks';
+import { accessTokenSelector } from '@redux/selectors';
+import { LOGIN, REGISTRATION } from '@constants/auth/authConstants';
+import { AuthStatus } from '@constants/auth/authStatusConstants';
 
 export const AppRouter = () => {
-    const isAuthUser = useAppSelector(authUserSelector);
+    const accessToken = useAppSelector(accessTokenSelector);
 
     const location = useLocation();
     const isRedirect = location.state?.fromRedirect;
 
     return (
         <Routes>
-            <Route index element={<Navigate to={Paths.AUTH_MAIN} />} />
+            <Route
+                path={Paths.ROOT}
+                element={<AuthRedirectHandler element={<Navigate to={Paths.MAIN} replace />} />}
+            />
 
             <Route path={Paths.MAIN} element={<LayoutMainPage />}>
                 <Route
                     index
-                    element={isAuthUser ? <MainPage /> : <Navigate to={Paths.AUTH_MAIN} replace />}
+                    element={accessToken ? <MainPage /> : <Navigate to={Paths.AUTH_MAIN} replace />}
+                />
+            </Route>
+
+            <Route path={Paths.FEEDBACKS} element={<LayoutMainPage />}>
+                <Route
+                    index
+                    element={
+                        accessToken ? <FeedbacksPage /> : <Navigate to={Paths.AUTH_MAIN} replace />
+                    }
                 />
             </Route>
 
             <Route
                 path={Paths.AUTH_MAIN}
-                element={isAuthUser ? <Navigate to={Paths.MAIN} replace /> : <LayoutAuthPage />}
+                element={accessToken ? <Navigate to={Paths.MAIN} replace /> : <LayoutAuthPage />}
             >
                 <Route index element={<AuthenticatorPage type={LOGIN} />} />
                 <Route
@@ -50,7 +65,7 @@ export const AppRouter = () => {
                 element={
                     isRedirect ? (
                         <LayoutAuthPage />
-                    ) : isAuthUser ? (
+                    ) : accessToken ? (
                         <Navigate to={Paths.MAIN} replace />
                     ) : (
                         <Navigate to={Paths.AUTH_MAIN} replace />
@@ -59,37 +74,39 @@ export const AppRouter = () => {
             >
                 <Route
                     path={Paths.AUTH_SUB_RESULT_409}
-                    element={<AuthResult statusCode={AuthStatus.STATUS_ERROR_409} />}
+                    element={<ResultCustom statusCode={AuthStatus.STATUS_ERROR_409} />}
                 />
                 <Route
                     path={Paths.AUTH_SUB_RESULT_ERROR}
-                    element={<AuthResult statusCode={AuthStatus.STATUS_ERROR} />}
+                    element={<ResultCustom statusCode={AuthStatus.STATUS_ERROR} />}
                 />
                 <Route
                     path={Paths.AUTH_SUB_RESULT_SUCCESS}
-                    element={<AuthResult statusCode={AuthStatus.STATUS_SUCCESS} />}
+                    element={<ResultCustom statusCode={AuthStatus.STATUS_SUCCESS} />}
                 />
                 <Route
                     path={Paths.AUTH_SUB_RESULT_ERROR_LOGIN}
-                    element={<AuthResult statusCode={AuthStatus.STATUS_ERROR_LOGIN} />}
+                    element={<ResultCustom statusCode={AuthStatus.STATUS_ERROR_LOGIN} />}
                 />
                 <Route
                     path={Paths.AUTH_SUB_RESULT_ERROR_CHECK_EMAIL}
-                    element={<AuthResult statusCode={AuthStatus.STATUS_ERROR_CHECK_EMAIL} />}
+                    element={<ResultCustom statusCode={AuthStatus.STATUS_ERROR_CHECK_EMAIL} />}
                 />
                 <Route
                     path={Paths.AUTH_SUB_RESULT_ERROR_CHECK_EMAIL_NO_EXIST}
                     element={
-                        <AuthResult statusCode={AuthStatus.STATUS_ERROR_CHECK_EMAIL_NO_EXIST} />
+                        <ResultCustom statusCode={AuthStatus.STATUS_ERROR_CHECK_EMAIL_NO_EXIST} />
                     }
                 />
                 <Route
                     path={Paths.AUTH_SUB_RESULT_ERROR_CHANGE_PASSWORD}
-                    element={<AuthResult statusCode={AuthStatus.STATUS_ERROR_CHANGE_PASSWORD} />}
+                    element={<ResultCustom statusCode={AuthStatus.STATUS_ERROR_CHANGE_PASSWORD} />}
                 />
                 <Route
                     path={Paths.AUTH_SUB_RESULT_SUCCESS_CHANGE_PASSWORD}
-                    element={<AuthResult statusCode={AuthStatus.STATUS_SUCCESS_CHANGE_PASSWORD} />}
+                    element={
+                        <ResultCustom statusCode={AuthStatus.STATUS_SUCCESS_CHANGE_PASSWORD} />
+                    }
                 />
             </Route>
 
