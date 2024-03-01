@@ -1,18 +1,20 @@
-[class*='ant-page-header'].header {
-    padding: 16px 15px 0px 24px;
+[class*='ant-page-header'].header-main {
+    padding: 0 15px 0 24px;
     background: var(--primary-light-1);
 
     @media (max-width: 835px) {
-        padding-bottom: 6px;
+        padding-bottom: 7px;
+    }
+
+    @media (max-width: 550px) {
+        margin-top: -15px;
+        padding-top: 7px;
     }
 
     :global {
-        .ant-breadcrumb + .ant-page-header-heading {
-            margin-top: 9px;
-
-            @media (max-width: 550px) {
-                margin-top: 2px;
-            }
+        .ant-page-header-heading-left,
+        .ant-page-header-heading-extra {
+            margin: -2px 0 2px;
         }
 
         h1.ant-typography {

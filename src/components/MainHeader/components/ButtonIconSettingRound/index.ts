@@ -1,0 +1,1 @@
+export { ButtonIconSettingRound } from './ButtonIconSettingRound';

@@ -1,1 +1,0 @@
-export { ButtonIconText } from './ButtonIconText';
