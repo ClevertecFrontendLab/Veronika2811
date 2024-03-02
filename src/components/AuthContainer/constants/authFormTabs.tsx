@@ -1,4 +1,4 @@
-import { LOGIN, REGISTRATION } from '@constants/authConstants/auth';
+import { LOGIN, REGISTRATION } from '@constants/auth/authConstants';
 
 import { AuthForm } from '../components/AuthForm';
 

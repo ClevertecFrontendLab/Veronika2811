@@ -2,16 +2,16 @@ import { AuthContainer } from '@components/AuthContainer';
 import { Loader } from '@components/ui/Loader';
 
 import { isLoadingSelector } from '@redux/selectors';
-import { useAppSelector } from '@hooks/typed-react-redux-hooks';
-import { AuthTypes } from '@type/auth/authTypes';
+import { useAppSelector } from '@hooks/reduxHooks';
+import { AuthComponentTypes } from '@src/types/auth';
 
-export const AuthenticatorPage = ({ type }: { type: AuthTypes }) => {
+export const AuthenticatorPage = ({ type }: { type: AuthComponentTypes }) => {
     const isLoading = useAppSelector(isLoadingSelector);
 
     return (
         <>
-            <AuthContainer type={type} />
             {isLoading && <Loader />}
+            <AuthContainer type={type} />
         </>
     );
 };

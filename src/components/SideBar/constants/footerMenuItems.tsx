@@ -1,4 +1,4 @@
-import { ExitIconCustom } from '@components/ui/icon';
+import { ExitIconCustom } from '@components/ui/icons';
 
 export const FOOTER_MENU_ITEMS = [
     {

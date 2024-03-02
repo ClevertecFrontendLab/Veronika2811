@@ -1,9 +1,16 @@
-[class*="ant-layout"].page-container {
+[class*='ant-layout'].page-container {
     flex-direction: row;
-    min-height: 100%;
+    height: 100vh;
     background: url('/images/background-image-light.jpg') no-repeat center / cover;
 
     .page-content {
         background-color: transparent;
+
+        :global {
+            .ant-breadcrumb {
+                padding: 14px 24px;
+                background: var(--primary-light-1);
+            }
+        }
     }
 }

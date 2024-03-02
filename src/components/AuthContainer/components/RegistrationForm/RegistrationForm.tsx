@@ -3,7 +3,7 @@ import { Form } from 'antd';
 import { AuthFormButtons } from '../AuthFormButtons';
 import { REGISTRATION_FIELDS } from '@components/AuthContainer/constants/registrationFields';
 
-import { REGISTRATION } from '@constants/authConstants/auth';
+import { REGISTRATION } from '@constants/auth/authConstants';
 
 import styles from './RegistrationForm.module.scss';
 

@@ -1,0 +1,10 @@
+[class*='ant-btn'].button-icon-setting-round {
+    display: none;
+    box-shadow: var(--box-shadow-04);
+
+    @media (max-width: 550px) {
+        display: block;
+        margin-top: -11px;
+        margin-right: 9px;
+    }
+}

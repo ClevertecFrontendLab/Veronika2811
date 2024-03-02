@@ -1,35 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { push } from 'redux-first-history';
 import { Form } from 'antd';
 
 import { LoginForm } from '../LoginForm';
 import { RegistrationForm } from '../RegistrationForm';
 
+import { useLoginUserMutation, useRegisterUserMutation } from '@redux/api/auth.api';
+import { previousLocationSelector, registrationUserDataSelector } from '@redux/selectors';
+import { saveRegistrationData, setAccessToken, setIsLoading } from '@redux/slice/authSlice';
+import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks';
 import { Paths } from '@routes/constants/Paths';
-import { useLoginUserMutation, useRegisterUserMutation } from '@redux/slice/authSlice';
-import { previousLocationSelector, registrationUserDataSelector  } from '@redux/selectors';
-import { setUserLoggedIn, saveRegistrationData, setIsLoading } from '@redux/slice/userInfoSlice';
-import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
-import { LOGIN, REGISTRATION } from '@constants/authConstants/auth';
-import { AuthStatus } from '@constants/authConstants/authStatus';
-import { ACCESS_TOKEN_KEY } from '@constants/authConstants/storageKeys';
-import { AuthTypes } from '@type/auth/authTypes';
-import { AuthData, AuthError, LoginData, RegistrationData } from '@interfaces/auth/authForm';
+import { LOGIN, REGISTRATION } from '@constants/auth/authConstants';
+import { AuthStatus } from '@constants/auth/authStatusConstants';
+import { ACCESS_TOKEN_KEY } from '@constants/storageKeys';
+import { AuthComponentTypes } from '@src/types/auth/authComponentTypes';
+import { AuthData, LoginData, RegistrationData } from '@src/types/auth/authFormTypes';
+import { ErrorTypes } from '@src/types/errorTypes';
+import { FieldData } from '@src/types/fieldData';
 
 import styles from './AuthForm.module.scss';
 
-export interface FieldData {
-    name: string | number | (string | number)[];
-    value?: string;
-    touched?: boolean;
-    validating?: boolean;
-    errors?: string[];
-}
-
-export const AuthForm = ({ type }: { type: AuthTypes }) => {
+export const AuthForm = ({ type }: { type: AuthComponentTypes }) => {
     const [form] = Form.useForm();
-
-    const [isForgotPasswordButtonDisabled, setIsForgotPasswordButtonDisabled] = useState(false);
 
     const [registrationUser, { isLoading: isLoadingRegister }] = useRegisterUserMutation();
     const [loginUser, { isLoading: isLoadingLogin }] = useLoginUserMutation();
@@ -37,6 +29,8 @@ export const AuthForm = ({ type }: { type: AuthTypes }) => {
     const previousLocations = useAppSelector(previousLocationSelector);
     const registrationUserData = useAppSelector(registrationUserDataSelector);
     const dispatch = useAppDispatch();
+
+    const [isForgotPasswordButtonDisabled, setIsForgotPasswordButtonDisabled] = useState(false);
 
     const onFinish = (values: AuthData) => {
         if (type === REGISTRATION) {
@@ -46,58 +40,64 @@ export const AuthForm = ({ type }: { type: AuthTypes }) => {
         }
     };
 
-    const handleRegistrationSubmission = async (formData: RegistrationData) => {
-        const { email, password } = formData;
+    const handleRegistrationError = useCallback(
+        (err: unknown, formData: RegistrationData) => {
+            const { status } = err as ErrorTypes;
+            const authSubResultPath =
+                status === AuthStatus.STATUS_ERROR_409
+                    ? Paths.AUTH_SUB_RESULT_409
+                    : Paths.AUTH_SUB_RESULT_ERROR;
 
-        try {
-            await registrationUser({
-                email,
-                password,
-            }).unwrap();
+            const errorPath = `${Paths.AUTH_MAIN_RESULTS}/${authSubResultPath}`;
 
-            dispatch(
-                push(`${Paths.AUTH_MAIN_RESULTS}/${Paths.AUTH_SUB_RESULT_SUCCESS}`, {
-                    fromRedirect: true,
-                }),
-            );
-        } catch (err: unknown) {
-            handleRegistrationError(err, formData);
-        }
-    };
+            dispatch(saveRegistrationData(formData));
+            dispatch(push(errorPath, { fromRedirect: true }));
+        },
+        [dispatch],
+    );
 
-    const handleRegistrationError = (err: unknown, formData: RegistrationData) => {
-        const { status } = err as AuthError;
-        const errorPath = `${Paths.AUTH_MAIN_RESULTS}/${
-            status === AuthStatus.STATUS_ERROR_409
-                ? Paths.AUTH_SUB_RESULT_409
-                : Paths.AUTH_SUB_RESULT_ERROR
-        }`;
+    const handleRegistrationSubmission = useCallback(
+        async (formData: RegistrationData) => {
+            const { email, password } = formData;
 
-        dispatch(saveRegistrationData(formData));
-        dispatch(push(errorPath, { fromRedirect: true }));
-    };
+            try {
+                await registrationUser({
+                    email,
+                    password,
+                }).unwrap();
+
+                dispatch(
+                    push(`${Paths.AUTH_MAIN_RESULTS}/${Paths.AUTH_SUB_RESULT_SUCCESS}`, {
+                        fromRedirect: true,
+                    }),
+                );
+            } catch (err: unknown) {
+                handleRegistrationError(err, formData);
+            }
+        },
+        [dispatch, handleRegistrationError, registrationUser],
+    );
 
     const handleLoginSubmission = async (formData: LoginData) => {
-        const { email, password } = formData;
+        const { email, password, remember } = formData;
 
         try {
             const result = await loginUser({
                 email,
                 password,
+                remember: false,
             }).unwrap();
 
             if ('accessToken' in result) {
                 const accessToken = result.accessToken as string;
 
-                if (formData.remember) {
+                if (remember) {
                     localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
-                } else {
-                    sessionStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
                 }
 
-                dispatch(setUserLoggedIn(true));
+                dispatch(setAccessToken(accessToken));
                 dispatch(push(Paths.AUTH_MAIN));
-                await new Promise(resolve => setTimeout(resolve, 500));
+                await new Promise((resolve) => setTimeout(resolve, 500));
                 dispatch(setIsLoading(false));
             }
         } catch {
@@ -129,11 +129,11 @@ export const AuthForm = ({ type }: { type: AuthTypes }) => {
         if (previousRoute === `${Paths.AUTH_MAIN_RESULTS}/${Paths.AUTH_SUB_RESULT_ERROR}`) {
             handleRegistrationSubmission(registrationUserData);
         }
-    }, [previousLocations]);
+    }, [handleRegistrationSubmission, previousLocations, registrationUserData]);
 
     useEffect(() => {
         dispatch(setIsLoading(isLoadingRegister || isLoadingLogin));
-    }, [isLoadingRegister, isLoadingLogin]);
+    }, [isLoadingRegister, isLoadingLogin, dispatch]);
 
     return (
         <Form
@@ -143,7 +143,7 @@ export const AuthForm = ({ type }: { type: AuthTypes }) => {
             autoComplete='off'
             scrollToFirstError
             className={styles['auth-form']}
-            initialValues={{ remember: true }}
+            initialValues={{ remember: false }}
             onFieldsChange={validateEmailField}
         >
             {type === LOGIN ? (

@@ -1,9 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 import { createReduxHistoryContext } from 'redux-first-history';
 import { createBrowserHistory } from 'history';
-import { authSlice } from './slice/authSlice';
-import reducer from './slice/userInfoSlice';
+
+import { authApi } from './api/auth.api';
+import { feedbacksApi } from './api/feedbacks.api';
+import reducer from './slice/authSlice';
 
 const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHistoryContext({
     history: createBrowserHistory(),
@@ -13,13 +15,15 @@ const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHisto
 export const store = configureStore({
     reducer: combineReducers({
         router: routerReducer,
-        userInfoSlice: reducer,
-        [authSlice.reducerPath]: authSlice.reducer,
+        authSlice: reducer,
+        [authApi.reducerPath]: authApi.reducer,
+        [feedbacksApi.reducerPath]: feedbacksApi.reducer,
     }),
     middleware: (getDefaultMiddleware) => {
         return getDefaultMiddleware()
             .concat(routerMiddleware)
-            .concat(authSlice.middleware);
+            .concat(authApi.middleware)
+            .concat(feedbacksApi.middleware);
     }
 });
 

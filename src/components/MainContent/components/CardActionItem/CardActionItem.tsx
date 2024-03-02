@@ -2,7 +2,7 @@ import { Button, Card } from 'antd';
 
 import styles from './CardActionItem.module.scss';
 
-interface CardActionItemProps {
+type CardActionItemProps = {
     item: {
         title: string;
         icon: JSX.Element;

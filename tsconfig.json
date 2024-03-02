@@ -22,14 +22,12 @@
             "@components/*": ["./src/components/*"],
             "@constants/*": ["src/constants/*"],
             "@hooks/*": ["./src/hooks/*"],
-            "@pages/*": ["./src/pages/*"],
             "@layouts/*": ["./src/layouts/*"],
+            "@pages/*": ["./src/pages/*"],
             "@redux/*": ["./src/redux/*"],
-            "@types/*": ["src/types/*"],
-            "@utils/*": ["./src/utils/*"],
-            "@type/*": ["src/type/*"],
-            "@interfaces/*": ["src/interfaces/*"],
             "@routes/*": ["./src/routes/*"],
+            "@src/types/*": ["./src/types/*"],
+            "@utils/*": ["./src/utils/*"],
         },
         "plugins": [
             {

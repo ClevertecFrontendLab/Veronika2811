@@ -1,22 +1,22 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { push } from 'redux-first-history';
 import { Button, Form, Typography } from 'antd';
 
 import { CHANGE_PASSWORD_FIELDS } from '@components/AuthContainer/constants';
 import { AuthTestIds } from '@components/AuthContainer/constants/AuthTestIds';
 
-import { Paths } from '@routes/constants/Paths';
-import { useUpdatePasswordMutation } from '@redux/slice/authSlice';
-import { saveChangedPassword } from '@redux/slice/userInfoSlice';
+import { useUpdatePasswordMutation } from '@redux/api/auth.api';
+import { saveChangedPassword } from '@redux/slice/authSlice';
 import { newPasswordSelector, previousLocationSelector } from '@redux/selectors';
-import { useAppDispatch, useAppSelector } from '@hooks/typed-react-redux-hooks';
+import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks';
+import { Paths } from '@routes/constants/Paths';
 
 import styles from './ChangePasswordForm.module.scss';
 
-interface PasswordChangeData {
+type PasswordChangeData = {
     password: string;
     confirmPassword: string;
-}
+};
 
 export const ChangePasswordForm = () => {
     const [form] = Form.useForm();
@@ -27,27 +27,31 @@ export const ChangePasswordForm = () => {
     const newPassword = useAppSelector(newPasswordSelector);
     const dispatch = useAppDispatch();
 
-    const onFinish = async (values: PasswordChangeData) => {
-        try {
-            await changePassword(values).unwrap();
+    const onFinish = useCallback(
+        async (values: PasswordChangeData) => {
+            try {
+                await changePassword(values).unwrap();
 
-            dispatch(
-                push(
-                    `${Paths.AUTH_MAIN_RESULTS}/${Paths.AUTH_SUB_RESULT_SUCCESS_CHANGE_PASSWORD}`,
-                    {
-                        fromRedirect: true,
-                    },
-                ),
-            );
-        } catch (err: unknown) {
-            dispatch(saveChangedPassword(values));
-            dispatch(
-                push(`${Paths.AUTH_MAIN_RESULTS}/${Paths.AUTH_SUB_RESULT_ERROR_CHANGE_PASSWORD}`, {
-                    fromRedirect: true,
-                }),
-            );
-        }
-    };
+                dispatch(
+                    push(
+                        `${Paths.AUTH_MAIN_RESULTS}/${Paths.AUTH_SUB_RESULT_SUCCESS_CHANGE_PASSWORD}`,
+                        { fromRedirect: true },
+                    ),
+                );
+            } catch (err: unknown) {
+                dispatch(saveChangedPassword(values));
+                dispatch(
+                    push(
+                        `${Paths.AUTH_MAIN_RESULTS}/${Paths.AUTH_SUB_RESULT_ERROR_CHANGE_PASSWORD}`,
+                        {
+                            fromRedirect: true,
+                        },
+                    ),
+                );
+            }
+        },
+        [changePassword, dispatch],
+    );
 
     useEffect(() => {
         const previousPath = previousLocations?.[1]?.location?.pathname;
@@ -58,7 +62,7 @@ export const ChangePasswordForm = () => {
         ) {
             onFinish(newPassword);
         }
-    }, [previousLocations]);
+    }, [newPassword, onFinish, previousLocations]);
 
     return (
         <Form

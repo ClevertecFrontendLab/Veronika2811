@@ -1,63 +1,65 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createSlice } from '@reduxjs/toolkit';
 
-import { AUTH_BASE_URL, LOGIN, REGISTRATION } from '@constants/authConstants/auth';
-import { AuthError, LoginData, RegistrationData } from '@interfaces/auth/authForm';
-import {
-    CheckEmailResponse,
-    EmailVerificationData,
-    LoginResponse,
-    PasswordConfirmationData,
-} from '@interfaces/auth/authSliceTypes';
+import { ACCESS_TOKEN_KEY } from '@constants/storageKeys';
 
-export const authSlice = createApi({
-    reducerPath: 'AUTH_SLICE',
-    baseQuery: fetchBaseQuery({
-        baseUrl: AUTH_BASE_URL,
-        credentials: 'include',
-    }),
-    endpoints: (build) => ({
-        registerUser: build.mutation<AuthError, RegistrationData>({
-            query: (body: RegistrationData) => ({
-                url: `/${REGISTRATION}`,
-                method: 'POST',
-                body,
-            }),
-        }),
-        loginUser: build.mutation<LoginResponse, LoginData>({
-            query: (body: LoginData) => ({
-                url: `/${LOGIN}`,
-                method: 'POST',
-                body,
-            }),
-        }),
-        checkEmailExistence: build.mutation<CheckEmailResponse, { email: string }>({
-            query: (body: { email: string }) => ({
-                url: '/check-email',
-                method: 'POST',
-                body,
-            }),
-        }),
-        checkVerificationCode: build.mutation<CheckEmailResponse, EmailVerificationData>({
-            query: (body: EmailVerificationData) => ({
-                url: '/confirm-email',
-                method: 'POST',
-                body,
-            }),
-        }),
-        updatePassword: build.mutation<CheckEmailResponse, PasswordConfirmationData>({
-            query: (body: PasswordConfirmationData) => ({
-                url: '/change-password',
-                method: 'POST',
-                body,
-            }),
-        }),
-    }),
+type TInitialState = {
+    isLoading: boolean;
+    accessToken: string | null;
+    registerUser: {
+        email: string;
+        password: string;
+    };
+    newPassword: {
+        password: string;
+        confirmPassword: string;
+    };
+    verificationEmail: string;
+}
+
+const initialState: TInitialState = {
+    isLoading: false,
+    accessToken: localStorage.getItem(ACCESS_TOKEN_KEY),
+    registerUser: {
+        email: '',
+        password: '',
+    },
+    newPassword: {
+        password: '',
+        confirmPassword: '',
+    },
+    verificationEmail: '',
+};
+
+const authSlice = createSlice({
+    name: 'AUTH_SLICE',
+    initialState,
+    reducers: {
+        setIsLoading: (state, action) => {
+            state.isLoading = action.payload;
+        },
+        setAccessToken: (state, action) => {
+            state.accessToken = action.payload;
+        },
+        saveRegistrationData: (state, action) => {
+            state.registerUser = action.payload;
+        },
+        saveChangedPassword: (state, action) => {
+            state.newPassword = action.payload;
+        },
+        saveEmailRecoveryPassword: (state, action) => {
+            state.verificationEmail = action.payload;
+        },
+    },
 });
 
+const { actions, reducer } = authSlice;
+
 export const {
-    useRegisterUserMutation,
-    useLoginUserMutation,
-    useCheckEmailExistenceMutation,
-    useCheckVerificationCodeMutation,
-    useUpdatePasswordMutation,
-} = authSlice;
+    setIsLoading,
+    setAccessToken,
+    saveRegistrationData,
+    saveChangedPassword,
+    saveEmailRecoveryPassword,
+} = actions;
+
+export default reducer;
