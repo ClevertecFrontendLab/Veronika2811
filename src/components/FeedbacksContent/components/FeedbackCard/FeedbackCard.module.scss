@@ -1,30 +1,44 @@
-[class*='ant-card-grid'].feedback-card-author {
-    padding: 20px 0 20px 8px;
-    width: 15%;
-    text-align: center;
-    box-shadow: none;
+.feedback-card {
+    :global {
+        .ant-card-body {
+            padding: 14px 24px 24px;
 
-    @media (max-width: 900px) {
-        width: 20%;
-    }
+            @media (max-width: 540px) {
+                padding: 14px 16px 24px;
+            }
+        }
 
-    @media (max-width: 830px) {
-        padding: 20px 0 0 17px;
-        width: 100%;
-    }
-}
+        .ant-comment-inner {
+            padding: 0;
 
-[class*='ant-card-grid'].feedback-card-comment {
-    padding: 13px 16px 0 4px;
-    width: 85%;
-    box-shadow: none;
+            @media (max-width: 540px) {
+                flex-direction: column;
+            }
+        }
 
-    @media (max-width: 900px) {
-        width: 80%;
-    }
+        .ant-comment-avatar {
+            min-width: 166px;
+            text-align: center;
+        }
 
-    @media (max-width: 830px) {
-        padding: 8px 16px 0;
-        width: 100%;
+        .ant-rate {
+            font-size: 14px;
+        }
+
+        .ant-rate-star:not(:last-child) {
+            margin-right: 6px;
+        }
+
+        .ant-comment-content-author > span {
+            padding-right: 17px;
+        }
+
+        .ant-comment-content-author {
+            margin-bottom: 9px;
+        }
+
+        .ant-comment-content-detail .ant-typography {
+            color: var(--character-light-secondary-45);
+        }
     }
 }

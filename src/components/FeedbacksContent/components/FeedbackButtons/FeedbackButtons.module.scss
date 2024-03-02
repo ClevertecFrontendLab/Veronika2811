@@ -1,7 +1,7 @@
 .feedback-buttons {
     padding-top: 108px;
 
-    @media (max-width: 479px) {
+    @media (max-width: 610px) {
         padding-top: 27px;
         flex-direction: column;
         width: 100%;
@@ -9,13 +9,13 @@
 
     :global {
         .ant-space-item {
-            @media (max-width: 479px) {
+            @media (max-width: 610px) {
                 width: 100%;
             }
         }
 
         .ant-btn {
-            @media (max-width: 479px) {
+            @media (max-width: 610px) {
                 width: 100%;
             }
         }
@@ -29,7 +29,7 @@
             font-size: var(--font-size-16);
             color: var(--primary-light-6);
 
-            @media (max-width: 479px) {
+            @media (max-width: 610px) {
                 margin-top: 10px;
             }
         }

@@ -1,1 +1,0 @@
-export { RatingReviewContent } from './RatingReviewContent';
