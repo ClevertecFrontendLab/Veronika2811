@@ -1,11 +1,15 @@
 .feedback-form {
     :global {
         .ant-modal-body {
-            padding: 20px 16px 0;
+            padding: 15px 16px 0;
         }
 
         .ant-form-item:first-child {
             margin-bottom: 10px;
+        }
+
+        .ant-form-item .ant-rate {
+            font-size: 22px;
         }
     }
 }

@@ -7,15 +7,13 @@ import { FeedbacksRefetch } from '@components/FeedbacksContent/types/feedbacksTy
 type FeedbackButtonsProps = FeedbacksRefetch & {
     showAll: boolean;
     handleClickShowAll: () => void;
-}
-
-export const FeedbackButtons = ({ showAll, handleClickShowAll, refetch }: FeedbackButtonsProps) => {
-    return (
-        <Space className={styles['feedback-buttons']}>
-            <FeedbackWriteButton refetch={refetch} />
-            <Button type='text' onClick={handleClickShowAll} data-test-id='all-reviews-button'>
-                {!showAll ? 'Развернуть все отзывы' : 'Свернуть все отзывы'}
-            </Button>
-        </Space>
-    );
 };
+
+export const FeedbackButtons = ({ showAll, handleClickShowAll, refetch }: FeedbackButtonsProps) => (
+    <Space className={styles['feedback-buttons']}>
+        <FeedbackWriteButton refetch={refetch} />
+        <Button type='text' onClick={handleClickShowAll} data-test-id='all-reviews-button'>
+            {!showAll ? 'Развернуть все отзывы' : 'Свернуть все отзывы'}
+        </Button>
+    </Space>
+);

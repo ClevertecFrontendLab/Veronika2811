@@ -1,13 +1,3 @@
-.feedback-card {
-    :global {
-        .ant-card-body {
-            @media (max-width: 900px) {
-                flex-direction: column;
-            }
-        }
-    }
-}
-
 [class*='ant-card-grid'].feedback-card-author {
     padding: 20px 0 20px 8px;
     width: 15%;
@@ -15,17 +5,25 @@
     box-shadow: none;
 
     @media (max-width: 900px) {
+        width: 20%;
+    }
+
+    @media (max-width: 830px) {
         padding: 20px 0 0 17px;
         width: 100%;
     }
 }
 
 [class*='ant-card-grid'].feedback-card-comment {
-    padding: 8px 16px 0 3px;
+    padding: 13px 16px 0 4px;
     width: 85%;
     box-shadow: none;
 
     @media (max-width: 900px) {
+        width: 80%;
+    }
+
+    @media (max-width: 830px) {
         padding: 8px 16px 0;
         width: 100%;
     }

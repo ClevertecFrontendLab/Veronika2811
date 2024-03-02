@@ -133,5 +133,11 @@
         .ant-result-extra .ant-btn-primary {
             width: 74px;
         }
+
+        .ant-result-subtitle {
+            @media (max-width: 555px) {
+                padding: 0 46px;
+            }
+        }
     }
 }

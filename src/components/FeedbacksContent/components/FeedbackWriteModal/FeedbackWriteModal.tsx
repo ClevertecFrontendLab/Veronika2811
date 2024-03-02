@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Button, Modal } from 'antd';
 
 import { FeedbackForm } from '../FeedbackForm';
@@ -9,7 +10,7 @@ type FeedbackModalProps = FeedbacksRefetch & {
     isModalVisible: boolean;
     toggleModalVisibility: () => void;
     setIsModalResult: React.Dispatch<React.SetStateAction<string>>;
-}
+};
 
 export const FeedbackWriteModal = ({
     isModalVisible,
@@ -17,6 +18,12 @@ export const FeedbackWriteModal = ({
     refetch,
     setIsModalResult,
 }: FeedbackModalProps) => {
+    const [disabledButton, setDisabledButton] = useState(true);
+
+    const changeDisabledButton = (state: boolean) => {
+        setDisabledButton(state);
+    };
+
     return (
         <Modal
             title='Ваш отзыв'
@@ -35,6 +42,7 @@ export const FeedbackWriteModal = ({
                     form='review-form'
                     className={styles['feedback-form-button']}
                     data-test-id='new-review-submit-button'
+                    disabled={disabledButton}
                 >
                     Опубликовать
                 </Button>,
@@ -44,6 +52,7 @@ export const FeedbackWriteModal = ({
                 refetch={refetch}
                 toggleModalVisibility={toggleModalVisibility}
                 setIsModalResult={setIsModalResult}
+                changeDisabledButton={changeDisabledButton}
             />
         </Modal>
     );

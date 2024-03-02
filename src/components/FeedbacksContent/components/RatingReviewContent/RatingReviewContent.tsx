@@ -1,5 +1,7 @@
 import { Rate, Space, Typography } from 'antd';
 
+import { characterRender } from '@components/FeedbacksContent/utils/characterRateRender';
+
 import { Feedback } from '@src/types/feedbacks';
 
 import styles from './RatingReviewContent.module.scss';
@@ -13,9 +15,13 @@ export const RatingReviewContent = ({ feedback }: { feedback: Feedback }) => {
     const formattedDate = `${day}.${month}.${year}`;
 
     return (
-        <Space direction='vertical' className={styles['rating-review']} size={6}>
+        <Space direction='vertical' className={styles['rating-review']} size={10}>
             <Space size='middle' className={styles['rating-review-item']}>
-                <Rate disabled className={styles['rate']} defaultValue={feedback.rating} />
+                <Rate
+                    value={feedback.rating}
+                    disabled
+                    character={({ index }) => characterRender(index, feedback.rating)}
+                />
                 <Typography.Text className={styles['rate-date']}>{formattedDate}</Typography.Text>
             </Space>
             <Typography.Paragraph className={styles['review']}>

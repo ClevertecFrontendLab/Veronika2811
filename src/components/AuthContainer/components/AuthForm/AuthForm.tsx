@@ -16,16 +16,9 @@ import { ACCESS_TOKEN_KEY } from '@constants/storageKeys';
 import { AuthComponentTypes } from '@src/types/auth/authComponentTypes';
 import { AuthData, LoginData, RegistrationData } from '@src/types/auth/authFormTypes';
 import { ErrorTypes } from '@src/types/errorTypes';
+import { FieldData } from '@src/types/fieldData';
 
 import styles from './AuthForm.module.scss';
-
-type FieldData = {
-    name: string | number | (string | number)[];
-    value?: string;
-    touched?: boolean;
-    validating?: boolean;
-    errors?: string[];
-};
 
 export const AuthForm = ({ type }: { type: AuthComponentTypes }) => {
     const [form] = Form.useForm();

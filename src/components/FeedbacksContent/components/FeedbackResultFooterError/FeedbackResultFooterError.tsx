@@ -15,27 +15,24 @@ export const FeedbackResultFooterError = ({
     };
 
     return (
-        <>
-            <Space>
-                <Button
-                    type='primary'
-                    key='button-result-write'
-                    size='large'
-                    onClick={writeFeedback}
-                    data-test-id='write-review-not-saved-modal'
-                >
-                    Написать отзыв
-                </Button>
-                <Button
-                    type='default'
-                    key='button-result-close'
-                    size='large'
-                    onClick={closeModalResult}
-                >
-                    Закрыть
-                </Button>
-            </Space>
-            ,
-        </>
+        <Space>
+            <Button
+                type='primary'
+                key='button-result-write'
+                size='large'
+                onClick={writeFeedback}
+                data-test-id='write-review-not-saved-modal'
+            >
+                Написать отзыв
+            </Button>
+            <Button
+                type='default'
+                key='button-result-close'
+                size='large'
+                onClick={closeModalResult}
+            >
+                Закрыть
+            </Button>
+        </Space>
     );
 };
