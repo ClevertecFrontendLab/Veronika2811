@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { Button } from 'antd';
 
-import { FeedbackWriteModal } from '../FeedbackWriteModal';
-import { FeedbackResultFooterError } from '../FeedbackResultFooterError';
 import { FeedbacksRefetch } from '@components/FeedbacksContent/types/feedbacksTypes';
 import { ResultCustom } from '@components/ResultCustom';
 import { ModalCustom } from '@components/ui/ModalCustom';
+
+import { FeedbackResultFooterError } from '../FeedbackResultFooterError';
+import { FeedbackWriteModal } from '../FeedbackWriteModal';
 
 import { FeedbacksStatus } from '@constants/feedbacks/feedbacksConstants';
 
@@ -43,7 +44,7 @@ export const FeedbackWriteButton = ({ refetch }: FeedbacksRefetch) => {
                         statusCode={FeedbacksStatus.STATUS_ERROR}
                         footer={[
                             <FeedbackResultFooterError
-                                key="result-footer-error"
+                                key='result-footer-error'
                                 closeModalResult={closeModalResult}
                                 setIsModalFormVisible={setIsModalFormVisible}
                             />,

@@ -1,1 +1,1 @@
-export { ModalCustom } from './ModalCustom'
+export { ModalCustom } from './ModalCustom';

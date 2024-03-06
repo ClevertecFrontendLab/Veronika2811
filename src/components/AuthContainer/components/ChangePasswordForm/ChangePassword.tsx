@@ -6,8 +6,8 @@ import { CHANGE_PASSWORD_FIELDS } from '@components/AuthContainer/constants';
 import { AuthTestIds } from '@components/AuthContainer/constants/AuthTestIds';
 
 import { useUpdatePasswordMutation } from '@redux/api/auth.api';
-import { saveChangedPassword } from '@redux/slice/authSlice';
 import { newPasswordSelector, previousLocationSelector } from '@redux/selectors';
+import { saveChangedPassword } from '@redux/slice/authSlice';
 import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks';
 import { Paths } from '@routes/constants/Paths';
 

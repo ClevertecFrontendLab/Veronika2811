@@ -10,13 +10,13 @@ import { previousLocationSelector, registrationUserDataSelector } from '@redux/s
 import { saveRegistrationData, setAccessToken, setIsLoading } from '@redux/slice/authSlice';
 import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks';
 import { Paths } from '@routes/constants/Paths';
+import { AuthComponentTypes } from '@/types/auth/authComponentTypes';
+import { AuthData, LoginData, RegistrationData } from '@/types/auth/authFormTypes';
+import { ErrorTypes } from '@/types/errorTypes';
+import { FieldData } from '@/types/fieldData';
 import { LOGIN, REGISTRATION } from '@constants/auth/authConstants';
 import { AuthStatus } from '@constants/auth/authStatusConstants';
 import { ACCESS_TOKEN_KEY } from '@constants/storageKeys';
-import { AuthComponentTypes } from '@src/types/auth/authComponentTypes';
-import { AuthData, LoginData, RegistrationData } from '@src/types/auth/authFormTypes';
-import { ErrorTypes } from '@src/types/errorTypes';
-import { FieldData } from '@src/types/fieldData';
 
 import styles from './AuthForm.module.scss';
 

@@ -1,12 +1,12 @@
-import { Tabs } from 'antd';
 import { push } from 'redux-first-history';
+import { Tabs } from 'antd';
+
+import { AUTH_FORM_TABS } from '@components/AuthContainer/constants';
 
 import { useAppDispatch } from '@hooks/reduxHooks';
 import { Paths } from '@routes/constants/Paths';
+import { AuthComponentTypes } from '@/types/auth';
 import { LOGIN } from '@constants/auth/authConstants';
-import { AuthComponentTypes } from '@src/types/auth';
-
-import { AUTH_FORM_TABS } from '@components/AuthContainer/constants';
 
 import styles from './CustomTabs.module.scss';
 

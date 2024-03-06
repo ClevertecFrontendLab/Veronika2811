@@ -1,8 +1,10 @@
 import { Button, Space } from 'antd';
 
-import styles from './FeedbackButtons.module.scss';
-import { FeedbackWriteButton } from '../FeedbackWriteButton';
 import { FeedbacksRefetch } from '@components/FeedbacksContent/types/feedbacksTypes';
+
+import { FeedbackWriteButton } from '../FeedbackWriteButton';
+
+import styles from './FeedbackButtons.module.scss';
 
 type FeedbackButtonsProps = FeedbacksRefetch & {
     showAll: boolean;

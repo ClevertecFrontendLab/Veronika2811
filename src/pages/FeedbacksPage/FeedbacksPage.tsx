@@ -1,18 +1,18 @@
 import { useCallback, useEffect, useState } from 'react';
-import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { SerializedError } from '@reduxjs/toolkit';
+import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { push } from 'redux-first-history';
 
-import { Loader } from '@components/ui/Loader';
 import { FeedbacksContent } from '@components/FeedbacksContent';
 import { ResultCustom } from '@components/ResultCustom';
+import { Loader } from '@components/ui/Loader';
 import { ModalCustom } from '@components/ui/ModalCustom';
 
 import { useLazyGetFeedbacksQuery } from '@redux/api/feedbacks.api';
 import { useAppDispatch } from '@hooks/reduxHooks';
 import { Paths } from '@routes/constants/Paths';
-import { ACCESS_TOKEN_KEY } from '@constants/storageKeys';
 import { FeedbacksStatus } from '@constants/feedbacks/feedbacksConstants';
+import { ACCESS_TOKEN_KEY } from '@constants/storageKeys';
 
 import styles from './FeedbacksPage.module.scss';
 

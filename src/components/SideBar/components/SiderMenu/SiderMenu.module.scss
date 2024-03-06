@@ -1,10 +1,8 @@
 [class*='menu'].sider-menu {
     :global {
         .ant-menu-item:not(.ant-menu-inline-collapsed) {
-            padding: 0 17px !important;
-
             @media (max-width: 479px) {
-                padding: var(--padding-zero) !important;
+                padding: var(--padding-zero);
             }
 
             &:not(:last-child) {
@@ -20,12 +18,6 @@
                 @media (max-width: 479px) {
                     display: none;
                 }
-            }
-        }
-
-        .ant-menu-item-icon + span {
-            @media (max-width: 479px) {
-                margin-left: 15px;
             }
         }
     }

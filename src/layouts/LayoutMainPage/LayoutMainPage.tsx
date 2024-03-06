@@ -1,8 +1,8 @@
-import { Layout } from 'antd';
 import { Outlet } from 'react-router-dom';
+import { Layout } from 'antd';
 
-import { SideBar } from '@components/SideBar';
 import { BreadcrumbCustom } from '@components/BreadcrumbCustom';
+import { SideBar } from '@components/SideBar';
 
 import styles from './LayoutMainPage.module.scss';
 

@@ -2,20 +2,21 @@ import React, { useCallback, useEffect } from 'react';
 import { push } from 'redux-first-history';
 import { Button, Checkbox, Form, FormInstance } from 'antd';
 
-import { AuthFormButtons } from '../AuthFormButtons';
-import { LOGIN_FIELDS } from '@components/AuthContainer/constants/loginFields';
 import { AuthTestIds } from '@components/AuthContainer/constants/AuthTestIds';
+import { LOGIN_FIELDS } from '@components/AuthContainer/constants/loginFields';
 
-import { BASE_URL } from '@redux/api/constants/baseUrl';
+import { AuthFormButtons } from '../AuthFormButtons';
+
 import { useCheckEmailExistenceMutation } from '@redux/api/auth.api';
-import { saveEmailRecoveryPassword } from '@redux/slice/authSlice';
+import { BASE_URL } from '@redux/api/constants/baseUrl';
 import { previousLocationSelector, verificationEmailSelector } from '@redux/selectors';
+import { saveEmailRecoveryPassword } from '@redux/slice/authSlice';
 import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks';
 import { Paths } from '@routes/constants/Paths';
-import { AuthStatus } from '@constants/auth/authStatusConstants';
+import { EmailData } from '@/types/auth';
+import { ErrorTypes } from '@/types/errorTypes';
 import { LOGIN } from '@constants/auth/authConstants';
-import { ErrorTypes } from '@src/types/errorTypes';
-import { EmailData } from '@src/types/auth';
+import { AuthStatus } from '@constants/auth/authStatusConstants';
 
 import styles from './LoginForm.module.scss';
 

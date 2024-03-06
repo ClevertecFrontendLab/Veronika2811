@@ -3,8 +3,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { BASE_URL } from './constants/baseUrl';
 
 import { RootState } from '@redux/store';
-import { Feedback, FeedbackData } from '@src/types/feedbacks';
-import { ErrorTypes } from '@src/types/errorTypes';
+import { ErrorTypes } from '@/types/errorTypes';
+import { Feedback, FeedbackData } from '@/types/feedbacks';
 
 export const feedbacksApi = createApi({
     reducerPath: 'FEEDBACKS_SLICE',
@@ -12,8 +12,7 @@ export const feedbacksApi = createApi({
         baseUrl: `${BASE_URL}`,
         credentials: 'include',
         prepareHeaders: (headers, { getState }) => {
-            const accessToken =
-                (getState() as RootState).authSlice.accessToken;
+            const accessToken = (getState() as RootState).authSlice.accessToken;
             if (!accessToken) {
                 throw new Error('Отсутствует токен доступа');
             }

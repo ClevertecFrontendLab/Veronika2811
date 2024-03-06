@@ -11,7 +11,7 @@ type CustomVerificationInputProps = {
     setVerificationCode: React.Dispatch<React.SetStateAction<string>>;
     incorrectVerificationCode: boolean;
     onCompleteVerificataion: (code: string) => Promise<void>;
-}
+};
 
 export const CustomVerificationInput = ({
     verificationCode,

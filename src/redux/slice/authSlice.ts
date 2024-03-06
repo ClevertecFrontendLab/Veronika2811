@@ -14,7 +14,7 @@ type TInitialState = {
         confirmPassword: string;
     };
     verificationEmail: string;
-}
+};
 
 const initialState: TInitialState = {
     isLoading: false,

@@ -3,7 +3,7 @@ import { Loader } from '@components/ui/Loader';
 
 import { isLoadingSelector } from '@redux/selectors';
 import { useAppSelector } from '@hooks/reduxHooks';
-import { AuthComponentTypes } from '@src/types/auth';
+import { AuthComponentTypes } from '@/types/auth';
 
 export const AuthenticatorPage = ({ type }: { type: AuthComponentTypes }) => {
     const isLoading = useAppSelector(isLoadingSelector);

@@ -8,7 +8,7 @@ type CardActionItemProps = {
         icon: JSX.Element;
         body: string;
     };
-}
+};
 
 export const CardActionItem = ({ item }: CardActionItemProps) => (
     <Card

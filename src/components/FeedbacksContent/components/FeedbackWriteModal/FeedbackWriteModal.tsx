@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Button, Modal } from 'antd';
 
-import { FeedbackForm } from '../FeedbackForm';
 import { FeedbacksRefetch } from '@components/FeedbacksContent/types/feedbacksTypes';
+
+import { FeedbackForm } from '../FeedbackForm';
 
 import styles from './FeedbackWriteModal.module.scss';
 

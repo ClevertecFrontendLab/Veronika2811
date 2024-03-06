@@ -1,20 +1,20 @@
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 
-import { Paths } from './constants/Paths';
-import { AuthRedirectHandler } from './components/AuthRedirectHandler';
-
-import { LayoutMainPage } from '@layouts/LayoutMainPage';
-import { LayoutAuthPage } from '@layouts/LayoutAuthPage';
-import { NotFoundPage } from '@pages/NotFoundPage';
-import { MainPage } from '@pages/MainPage';
 import { AuthenticatorPage } from '@pages/AuthenticatorPage';
 import { FeedbacksPage } from '@pages/FeedbacksPage';
-import { ConfirmEmail } from '@components/AuthContainer/components/ConfirmEmail';
+import { MainPage } from '@pages/MainPage';
+import { NotFoundPage } from '@pages/NotFoundPage';
+import { LayoutAuthPage } from '@layouts/LayoutAuthPage';
+import { LayoutMainPage } from '@layouts/LayoutMainPage';
 import { ChangePasswordForm } from '@components/AuthContainer/components/ChangePasswordForm';
+import { ConfirmEmail } from '@components/AuthContainer/components/ConfirmEmail';
 import { ResultCustom } from '@components/ResultCustom';
 
-import { useAppSelector } from '@hooks/reduxHooks';
+import { AuthRedirectHandler } from './components/AuthRedirectHandler';
+import { Paths } from './constants/Paths';
+
 import { accessTokenSelector } from '@redux/selectors';
+import { useAppSelector } from '@hooks/reduxHooks';
 import { LOGIN, REGISTRATION } from '@constants/auth/authConstants';
 import { AuthStatus } from '@constants/auth/authStatusConstants';
 

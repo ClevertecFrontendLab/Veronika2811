@@ -1,5 +1,5 @@
-import { Button } from 'antd';
 import { push } from 'redux-first-history';
+import { Button } from 'antd';
 
 import { useAppDispatch } from '@hooks/reduxHooks';
 import { Paths } from '@routes/constants/Paths';

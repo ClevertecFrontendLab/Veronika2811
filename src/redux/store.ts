@@ -24,7 +24,7 @@ export const store = configureStore({
             .concat(routerMiddleware)
             .concat(authApi.middleware)
             .concat(feedbacksApi.middleware);
-    }
+    },
 });
 
 export const history = createReduxHistory(store);

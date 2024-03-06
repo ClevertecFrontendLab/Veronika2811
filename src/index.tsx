@@ -1,9 +1,10 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
 import { HistoryRouter } from 'redux-first-history/rr6';
 
 import { AppRouter } from './routes/AppRouter';
+
 import { store } from '@redux/store';
 import { history } from '@redux/store';
 

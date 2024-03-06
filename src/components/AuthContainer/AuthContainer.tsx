@@ -1,8 +1,8 @@
-import { CustomTabs } from './components/CustomTabs';
-
 import { Logo } from '@components/ui/Logo';
 
-import { AuthComponentTypes } from '@src/types/auth';
+import { CustomTabs } from './components/CustomTabs';
+
+import { AuthComponentTypes } from '@/types/auth';
 
 import styles from './AuthContainer.module.scss';
 

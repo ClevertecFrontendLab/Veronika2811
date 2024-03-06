@@ -1,7 +1,8 @@
 import { Card, Typography } from 'antd';
 
-import { FeedbackWriteButton } from '../FeedbackWriteButton';
 import { FeedbacksRefetch } from '@components/FeedbacksContent/types/feedbacksTypes';
+
+import { FeedbackWriteButton } from '../FeedbackWriteButton';
 
 import styles from './FeedbacksDefault.module.scss';
 

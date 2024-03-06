@@ -1,11 +1,12 @@
-import { Button, Result } from 'antd';
 import { push } from 'redux-first-history';
 import classNames from 'classnames';
+import { Button, Result } from 'antd';
+
+import { RESULTS } from './constants/results';
 
 import { useAppDispatch } from '@hooks/reduxHooks';
 import { Paths } from '@routes/constants/Paths';
 import { FeedbacksStatus } from '@constants/feedbacks/feedbacksConstants';
-import { RESULTS } from './constants/results';
 
 import styles from './ResultCustom.module.scss';
 

@@ -10,7 +10,7 @@ type SiderSwitchProps = {
     collapsed: boolean;
     setCollapsed: Dispatch<React.SetStateAction<boolean>>;
     isAtBreakpoint: boolean;
-}
+};
 
 export const SiderSwitch = ({ collapsed, setCollapsed, isAtBreakpoint }: SiderSwitchProps) => {
     const toggleSider = () => setCollapsed(!collapsed);

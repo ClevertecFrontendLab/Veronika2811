@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Layout } from 'antd';
 
-import { SiderLogo, SiderMenu, SiderFooter, SiderSwitch } from './components';
-
+import { SiderFooter, SiderLogo, SiderMenu, SiderSwitch } from './components';
 import { siderWidth } from './constants';
 
 import styles from './SideBar.module.scss';

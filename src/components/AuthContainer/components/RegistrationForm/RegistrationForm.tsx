@@ -1,7 +1,8 @@
 import { Form } from 'antd';
 
-import { AuthFormButtons } from '../AuthFormButtons';
 import { REGISTRATION_FIELDS } from '@components/AuthContainer/constants/registrationFields';
+
+import { AuthFormButtons } from '../AuthFormButtons';
 
 import { REGISTRATION } from '@constants/auth/authConstants';
 
