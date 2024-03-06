@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 
 import { AuthenticatorPage } from '@pages/AuthenticatorPage';
+import { CalendarPage } from '@pages/CalendarPage';
 import { FeedbacksPage } from '@pages/FeedbacksPage';
 import { MainPage } from '@pages/MainPage';
 import { NotFoundPage } from '@pages/NotFoundPage';
@@ -44,6 +45,13 @@ export const AppRouter = () => {
                     element={
                         accessToken ? <FeedbacksPage /> : <Navigate to={Paths.AUTH_MAIN} replace />
                     }
+                />
+            </Route>
+
+            <Route path={Paths.CALENDAR} element={<LayoutMainPage />}>
+                <Route
+                    index
+                    element={accessToken ? <CalendarPage /> : <Navigate to={Paths.AUTH_MAIN} replace />}
                 />
             </Route>
 

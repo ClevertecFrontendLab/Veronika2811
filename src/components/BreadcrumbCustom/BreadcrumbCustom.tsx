@@ -9,6 +9,7 @@ export const BreadcrumbCustom = () => {
 
     const breadcrumbNameMap: Record<string, string> = {
         [Paths.FEEDBACKS]: 'Отзывы пользователей',
+        [Paths.CALENDAR]: 'Календарь',
     };
 
     const extraBreadcrumbItems = pathSnippets.map((_, index) => {

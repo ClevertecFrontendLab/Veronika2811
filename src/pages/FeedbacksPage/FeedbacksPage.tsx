@@ -49,12 +49,12 @@ export const FeedbacksPage = () => {
     return (
         <div className={styles['feedbacks-page']}>
             {(isLoading || isFetching) && <Loader />}
-            <ModalCustom open={openErrorModal}>
-                <ResultCustom statusCode={FeedbacksStatus.STATUS_ERROR_SERVER} />
-            </ModalCustom>
             {feedbacksList && (
                 <FeedbacksContent feedbacksList={feedbacksList} refetch={fetchFeedbacks} />
             )}
+            <ModalCustom open={openErrorModal}>
+                <ResultCustom statusCode={FeedbacksStatus.STATUS_ERROR_SERVER} />
+            </ModalCustom>
         </div>
     );
 };
