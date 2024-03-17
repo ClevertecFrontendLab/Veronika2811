@@ -19,6 +19,16 @@ export default defineConfig({
             '@redux': path.resolve(__dirname, 'src/redux'),
             '@routes': path.resolve(__dirname, 'src/routes'),
             '@/types': path.resolve(__dirname, 'src/types'),
+            '@styles': path.resolve(__dirname, 'src/styles'),
+        },
+    },
+    css: {
+        preprocessorOptions: {
+            less: {
+                math: 'always',
+                relativeUrls: true,
+                javascriptEnabled: true,
+            },
         },
     },
 });
