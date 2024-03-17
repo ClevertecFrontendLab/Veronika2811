@@ -1,25 +1,31 @@
 import { push } from 'redux-first-history';
 import { Button, Card } from 'antd';
 
+import { setActiveMenuKey } from '@redux/slice/mainSlice';
 import { useAppDispatch } from '@hooks/reduxHooks';
 
-import styles from './CardActionItem.module.scss';
+import styles from './CardActionItem.module.less';
 
 type CardActionItemProps = {
     item: {
+        key: string;
         title: string;
         icon: JSX.Element;
         body: string;
         pathRedirect: string;
+        testIds: string;
     };
 };
 
 export const CardActionItem = ({ item }: CardActionItemProps) => {
     const dispatch = useAppDispatch();
 
-    const { title, icon, body, pathRedirect } = item;
+    const { key, title, icon, body, pathRedirect, testIds } = item;
 
-    const handleRedirect = () => dispatch(push(pathRedirect));
+    const handleRedirect = () => {
+        dispatch(setActiveMenuKey(key));
+        dispatch(push(pathRedirect));
+    };
 
     return (
         <Card
@@ -35,7 +41,7 @@ export const CardActionItem = ({ item }: CardActionItemProps) => {
             }}
             bodyStyle={{ display: 'flex', justifyContent: 'center', padding: '12px' }}
         >
-            <Button type='text' icon={icon} onClick={handleRedirect}>
+            <Button type='text' icon={icon} onClick={handleRedirect} data-test-id={testIds}>
                 {body}
             </Button>
         </Card>

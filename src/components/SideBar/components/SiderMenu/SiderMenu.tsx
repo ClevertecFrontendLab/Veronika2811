@@ -3,14 +3,18 @@ import { Menu } from 'antd';
 
 import { SIDER_MENU_ITEMS } from '../../constants';
 
-import { useAppDispatch } from '@hooks/reduxHooks';
+import { activeKeyMenuSelector } from '@redux/selectors';
+import { setActiveMenuKey } from '@redux/slice/mainSlice';
+import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks';
 
-import styles from './SiderMenu.module.scss';
+import styles from './SiderMenu.module.less';
 
 export const SiderMenu = () => {
+    const activeKeys = useAppSelector(activeKeyMenuSelector)
     const dispatch = useAppDispatch();
 
     const handleItemClick = ({ key }: { key: string }) => {
+        dispatch(setActiveMenuKey(key))
         dispatch(push(`/${key}`))
     };
 
@@ -20,6 +24,7 @@ export const SiderMenu = () => {
             items={SIDER_MENU_ITEMS}
             className={styles['sider-menu']}
             onClick={handleItemClick}
+            selectedKeys={activeKeys}
         />
     );
 };
