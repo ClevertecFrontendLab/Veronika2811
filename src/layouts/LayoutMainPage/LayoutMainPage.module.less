@@ -1,3 +1,5 @@
+@import '@styles/constants.less';
+
 [class*='ant-layout'].page-container {
     flex-direction: row;
     height: 100vh;
@@ -5,11 +7,12 @@
 
     .page-content {
         background-color: transparent;
+        overflow: scroll;
 
         :global {
             .ant-breadcrumb {
                 padding: 14px 24px;
-                background: var(--primary-light-1);
+                background: @primary-light-1;
             }
         }
     }

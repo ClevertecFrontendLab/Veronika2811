@@ -3,17 +3,36 @@ import { Modal } from 'antd';
 
 type ModalCustomProps = {
     open: boolean;
-    children: ReactNode;
+    closeIcon?: ReactNode;
+    className?: string;
+    children?: ReactNode;
+    closable?: boolean;
+    width?: number;
+    testIds?: string;
+    onCancel?: () => void;
 };
 
-export const ModalCustom = ({ open, children }: ModalCustomProps) => (
+export const ModalCustom = ({
+    open,
+    closable = false,
+    children,
+    width = 539,
+    testIds,
+    onCancel,
+    closeIcon,
+    className,
+}: ModalCustomProps) => (
     <Modal
         centered
-        width={539}
+        width={width}
         open={open}
         footer={null}
-        closable={false}
+        closable={closable}
         maskStyle={{ backdropFilter: 'blur(4px)', background: 'rgba(121, 156, 212, 0.5)' }}
+        onCancel={onCancel}
+        data-test-id={testIds}
+        closeIcon={closeIcon}
+        className={className}
     >
         {children}
     </Modal>
