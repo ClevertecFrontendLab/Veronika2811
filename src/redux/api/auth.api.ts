@@ -16,7 +16,7 @@ import { ErrorTypes } from '@/types/errorTypes';
 import { LOGIN, REGISTRATION } from '@constants/auth/authConstants';
 
 export const authApi = createApi({
-    reducerPath: 'AUTH_SLICE',
+    reducerPath: 'AUTH_API',
     baseQuery: fetchBaseQuery({
         baseUrl: `${BASE_URL}${Paths.AUTH_MAIN}`,
         credentials: 'include',
