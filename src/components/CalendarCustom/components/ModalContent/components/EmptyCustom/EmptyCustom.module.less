@@ -1,0 +1,23 @@
+@import '@styles/constants.less';
+
+[class*='ant-empty'].empty {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 30px;
+    margin: 0;
+
+    :global {
+        .ant-empty-image {
+            margin: 0 auto;
+        }
+
+        .ant-empty-image img {
+            width: 100%;
+        }
+
+        .ant-empty-description {
+            color: @neutral-7;
+            text-align: left;
+        }
+    }
+}
