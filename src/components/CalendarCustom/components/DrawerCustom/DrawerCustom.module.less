@@ -1,0 +1,66 @@
+@import '@styles/constants.less';
+
+.drawer {
+    :global {
+        .ant-drawer-content,
+        .ant-drawer-content-wrapper {
+            border-radius: 8px 0 0 8px;
+
+            @media (max-width: 575px) {
+                border-radius: 24px 24px 0 0;
+            }
+        }
+
+        .ant-drawer-content-wrapper {
+            @media (max-width: 575px) {
+                height: 555px;
+            }
+        }
+
+        .ant-drawer-title {
+            font-size: 20px;
+        }
+
+        .anticon {
+            font-size: 14px;
+        }
+
+        .drawer-close-icon {
+            color: @neutral-7;
+        }
+
+        .ant-drawer-header {
+            padding: 26px 27px 10px 32px;
+            border-bottom: none;
+            align-items: flex-start;
+
+            @media (max-width: 575px) {
+                padding: 26px 12px 10px 16px;
+            }
+
+            .ant-typography {
+                padding-left: 10px;
+            }
+        }
+
+        .ant-drawer-body {
+            padding: 20px 32px;
+
+            @media (max-width: 575px) {
+                padding: 20px 15px;
+            }
+        }
+
+        .ant-drawer-footer {
+            border-top: none;
+            max-width: 350px;
+            text-align: center;
+            margin: 0 auto;
+
+            .ant-typography {
+                color: @neutral-7;
+                line-height: 130%;
+            }
+        }
+    }
+}

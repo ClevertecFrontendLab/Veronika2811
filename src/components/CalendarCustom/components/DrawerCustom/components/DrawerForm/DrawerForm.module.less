@@ -1,0 +1,126 @@
+@import '@styles/constants.less';
+
+.exercise-item {
+    width: 100%;
+
+    :global {
+        .exercise-name {
+            margin-bottom: 8px;
+        }
+
+        .ant-form-item {
+            margin-bottom: 6px;
+        }
+
+        .ant-form-item-control-input-content {
+            display: flex;
+        }
+
+        .exercise-inputs {
+            height: 54px;
+            margin-bottom: 18px;
+
+            @media (max-width: 575px) {
+                margin-bottom: 25px;
+            }
+
+            .ant-form-item-row {
+                flex-direction: column;
+            }
+        }
+
+        .ant-form-item-control-input {
+            min-height: 24px;
+        }
+
+        .ant-form-item-label {
+            text-align: left;
+            margin-bottom: 6px;
+
+            @media (max-width: 575px) {
+                margin-bottom: 0;
+            }
+        }
+
+        .ant-form-item-label > label {
+            height: 24px;
+            font-size: 12px;
+            background-color: @neutral-4;
+            border-radius: 2px;
+            padding-left: 8px;
+            width: 100%;
+        }
+    }
+}
+
+[class*='ant-form-item'].approaches {
+    width: 120px;
+    margin-right: 32px;
+
+    @media (max-width: 575px) {
+        margin-right: 16px;
+    }
+
+    :global {
+        .ant-input-number-group-addon {
+            padding-right: 14px;
+        }
+    }
+}
+
+.weight,
+.replays {
+    width: 89px;
+}
+
+[class*='ant-form-item'].weight {
+    margin-right: 13px;
+    position: relative;
+
+    &:after {
+        content: 'x';
+        position: absolute;
+        right: -10px;
+        color: @neutral-6;
+
+        @media (max-width: 575px) {
+            bottom: 0;
+        }
+    }
+}
+
+[class*='ant-form-item'].replays {
+    position: relative;
+}
+
+.drawer-buttons,
+.drawer-button-only {
+    border-radius: 0 0 6px 6px;
+    background: @neutral-4;
+}
+
+.drawer-buttons {
+    :global {
+        .ant-form-item-control-input-content {
+            display: flex;
+        }
+
+        .drawer-button-remove {
+            color: @neutral-10;
+        }
+
+        .ant-btn {
+            font-size: 14px;
+        }
+    }
+}
+
+.drawer-button-only {
+    :global {
+        .ant-btn {
+            font-size: 14px;
+            text-align: left;
+            padding-left: 11px;
+        }
+    }
+}
