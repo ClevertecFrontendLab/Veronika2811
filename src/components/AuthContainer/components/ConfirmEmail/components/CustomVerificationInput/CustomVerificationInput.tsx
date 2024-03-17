@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import { AuthTestIds } from '@components/AuthContainer/constants/AuthTestIds';
 
-import styles from './CustomVerificationInput.module.scss';
+import styles from './CustomVerificationInput.module.less';
 
 type CustomVerificationInputProps = {
     verificationCode: string;

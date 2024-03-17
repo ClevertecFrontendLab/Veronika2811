@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { Button, Modal } from 'antd';
 
+import { FeedbacksTestIds } from '@components/FeedbacksContent/constants/feedbacksTestId';
 import { FeedbacksRefetch } from '@components/FeedbacksContent/types/feedbacksTypes';
 
 import { FeedbackForm } from '../FeedbackForm';
 
-import styles from './FeedbackWriteModal.module.scss';
+import styles from './FeedbackWriteModal.module.less';
 
 type FeedbackModalProps = FeedbacksRefetch & {
     isModalVisible: boolean;
@@ -42,7 +43,7 @@ export const FeedbackWriteModal = ({
                     type='primary'
                     form='review-form'
                     className={styles['feedback-form-button']}
-                    data-test-id='new-review-submit-button'
+                    data-test-id={FeedbacksTestIds.NEW_REVIEW_SUBMIT_BUTTON}
                     disabled={disabledButton}
                 >
                     Опубликовать

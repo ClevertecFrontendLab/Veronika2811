@@ -4,7 +4,7 @@ import { Button } from 'antd';
 import { useAppDispatch } from '@hooks/reduxHooks';
 import { Paths } from '@routes/constants/Paths';
 
-import styles from './ButtonSeeReviews.module.scss';
+import styles from './ButtonSeeReviews.module.less';
 
 export const ButtonSeeReviews = () => {
     const dispatch = useAppDispatch();
@@ -15,7 +15,7 @@ export const ButtonSeeReviews = () => {
 
     return (
         <Button
-            type='text'
+            type='link'
             className={styles['footer-button']}
             onClick={handleSeeReviewsClick}
             data-test-id='see-reviews'

@@ -1,3 +1,5 @@
+@import '@styles/constants.less';
+
 .switch {
     position: absolute;
     top: 47%;
@@ -7,7 +9,7 @@
     justify-content: center;
     width: 20px;
     height: 66px;
-    background-color: var(--character-light-primary-inverse);
+    background-color: @neutral-1;
     clip-path: polygon(100% 10%, 100% 90%, 0 100%, 0 0);
 
     @media (max-width: 479px) {

@@ -4,7 +4,7 @@ import { FeedbacksRefetch } from '@components/FeedbacksContent/types/feedbacksTy
 
 import { FeedbackWriteButton } from '../FeedbackWriteButton';
 
-import styles from './FeedbacksDefault.module.scss';
+import styles from './FeedbacksDefault.module.less';
 
 export const FeedbacksDefault = ({ refetch }: FeedbacksRefetch) => (
     <div className={styles['reedback-default-wrapper']}>

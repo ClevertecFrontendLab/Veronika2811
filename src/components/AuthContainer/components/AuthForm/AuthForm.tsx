@@ -7,7 +7,8 @@ import { RegistrationForm } from '../RegistrationForm';
 
 import { useLoginUserMutation, useRegisterUserMutation } from '@redux/api/auth.api';
 import { previousLocationSelector, registrationUserDataSelector } from '@redux/selectors';
-import { saveRegistrationData, setAccessToken, setIsLoading } from '@redux/slice/authSlice';
+import { saveRegistrationData, setAccessToken } from '@redux/slice/authSlice';
+import { setIsLoading } from '@redux/slice/mainSlice';
 import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks';
 import { Paths } from '@routes/constants/Paths';
 import { AuthComponentTypes } from '@/types/auth/authComponentTypes';
@@ -18,7 +19,7 @@ import { LOGIN, REGISTRATION } from '@constants/auth/authConstants';
 import { AuthStatus } from '@constants/auth/authStatusConstants';
 import { ACCESS_TOKEN_KEY } from '@constants/storageKeys';
 
-import styles from './AuthForm.module.scss';
+import styles from './AuthForm.module.less';
 
 export const AuthForm = ({ type }: { type: AuthComponentTypes }) => {
     const [form] = Form.useForm();
@@ -97,7 +98,6 @@ export const AuthForm = ({ type }: { type: AuthComponentTypes }) => {
 
                 dispatch(setAccessToken(accessToken));
                 dispatch(push(Paths.AUTH_MAIN));
-                await new Promise((resolve) => setTimeout(resolve, 500));
                 dispatch(setIsLoading(false));
             }
         } catch {

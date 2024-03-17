@@ -3,7 +3,7 @@ import { SettingOutlined } from '@ant-design/icons';
 
 import { ButtonIconSettingRound,ButtonIconSettingText, Title } from './components';
 
-import styles from './MainHeader.module.scss';
+import styles from './MainHeader.module.less';
 
 export const MainHeader = () => (
     <PageHeader

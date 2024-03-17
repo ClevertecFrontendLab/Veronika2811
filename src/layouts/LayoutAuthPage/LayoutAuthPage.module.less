@@ -1,3 +1,5 @@
+@import '@styles/constants.less';
+
 .auth-page-container {
     height: 100vh;
     display: flex;
@@ -9,8 +11,8 @@
         padding: 64px 85.5px;
         width: 539px;
         text-align: center;
-        background: var(--character-light-primary-inverse);
-        box-shadow: var(--box-shadow-15);
+        background: @neutral-1;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
 
         @media (max-width: 555px) {
             width: 328px;

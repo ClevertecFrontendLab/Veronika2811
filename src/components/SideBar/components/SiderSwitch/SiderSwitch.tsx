@@ -4,7 +4,7 @@ import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 
 import { sideBarTestIds } from '@components/SideBar/constants';
 
-import styles from './SiderSwitch.module.scss';
+import styles from './SiderSwitch.module.less';
 
 type SiderSwitchProps = {
     collapsed: boolean;

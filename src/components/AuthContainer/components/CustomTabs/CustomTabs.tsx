@@ -8,7 +8,7 @@ import { Paths } from '@routes/constants/Paths';
 import { AuthComponentTypes } from '@/types/auth';
 import { LOGIN } from '@constants/auth/authConstants';
 
-import styles from './CustomTabs.module.scss';
+import styles from './CustomTabs.module.less';
 
 export const CustomTabs = ({ type }: { type: AuthComponentTypes }) => {
     const dispatch = useAppDispatch();

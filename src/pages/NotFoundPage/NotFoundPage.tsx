@@ -4,7 +4,7 @@ import { Content } from 'antd/lib/layout/layout';
 
 import { Logo } from '@components/ui/Logo';
 
-import styles from './NotFoundPage.module.scss';
+import styles from './NotFoundPage.module.less';
 
 export const NotFoundPage: React.FC = () => (
     <Content className={styles['not-found-page']}>

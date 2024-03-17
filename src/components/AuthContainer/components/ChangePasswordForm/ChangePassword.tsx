@@ -11,7 +11,7 @@ import { saveChangedPassword } from '@redux/slice/authSlice';
 import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks';
 import { Paths } from '@routes/constants/Paths';
 
-import styles from './ChangePasswordForm.module.scss';
+import styles from './ChangePasswordForm.module.less';
 
 type PasswordChangeData = {
     password: string;

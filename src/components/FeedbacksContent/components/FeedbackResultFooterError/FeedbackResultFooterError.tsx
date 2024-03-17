@@ -1,5 +1,7 @@
 import { Button, Space } from 'antd';
 
+import { FeedbacksTestIds } from '@components/FeedbacksContent/constants/feedbacksTestId';
+
 type FeedbackResultFooterErrorProps = {
     closeModalResult: () => void;
     setIsModalFormVisible: React.Dispatch<React.SetStateAction<boolean>>;
@@ -21,7 +23,7 @@ export const FeedbackResultFooterError = ({
                 key='button-result-write'
                 size='large'
                 onClick={writeFeedback}
-                data-test-id='write-review-not-saved-modal'
+                data-test-id={FeedbacksTestIds.WRITE_REVIEW_NOT_SAVED_MODAL}
             >
                 Написать отзыв
             </Button>

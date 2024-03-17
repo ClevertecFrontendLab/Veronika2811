@@ -18,7 +18,7 @@ import { ErrorTypes } from '@/types/errorTypes';
 import { LOGIN } from '@constants/auth/authConstants';
 import { AuthStatus } from '@constants/auth/authStatusConstants';
 
-import styles from './LoginForm.module.scss';
+import styles from './LoginForm.module.less';
 
 type LoginFormProps = {
     form: FormInstance;
@@ -126,7 +126,7 @@ export const LoginForm = ({
                 </Form.Item>
 
                 <Button
-                    type='text'
+                    type='link'
                     data-test-id={AuthTestIds.LOGIN_FORGOT_BUTTON}
                     disabled={isForgotPasswordButtonDisabled}
                     onClick={validateEmailFieldOnClick}

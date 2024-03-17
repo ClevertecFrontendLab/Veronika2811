@@ -6,7 +6,7 @@ import { AuthorInfo } from '../AuthorInfo';
 
 import { Feedback } from '@/types/feedbacks';
 
-import styles from './FeedbackCard.module.scss';
+import styles from './FeedbackCard.module.less';
 
 export const FeedbackCard = ({ feedback }: { feedback: Feedback }) => {
     const date = new Date(feedback.createdAt);

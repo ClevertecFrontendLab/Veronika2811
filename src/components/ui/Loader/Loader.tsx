@@ -2,7 +2,7 @@ import Lottie from 'lottie-react';
 
 import animationData from './animations/animations.json';
 
-import styles from './Loader.module.scss';
+import styles from './Loader.module.less';
 
 export const Loader = () => (
     <div className={styles['loader-container']} data-test-id='loader'>

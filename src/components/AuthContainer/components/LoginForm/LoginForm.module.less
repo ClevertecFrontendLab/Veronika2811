@@ -1,3 +1,5 @@
+@import '@styles/constants.less';
+
 .login-field {
     :global {
         .ant-input-group-addon {
@@ -5,15 +7,15 @@
         }
 
         .ant-input-affix-wrapper-lg {
-            font-size: var(--font-size-14);
+            font-size: 14px;
         }
 
         .ant-input-group-wrapper-status-error .ant-input-group-addon {
-            color: var(--character-light-title-85);
+            color: @neutral-10;
         }
 
         .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
-            border-left-color: var(--character-light-border);
+            border-left-color: @neutral-5;
         }
     }
 }
@@ -31,18 +33,12 @@
     :global {
         .ant-btn {
             padding: 2px 0;
-            font-size: var(--font-size-16);
-            color: var(--primary-light-6);
+            font-size: 16px;
 
             @media (max-width: 555px) {
                 padding-right: 7px;
-                font-size: var(--font-size-14);
+                font-size: 14px;
             }
-        }
-
-        .ant-checkbox-wrapper-checked .ant-checkbox-checked .ant-checkbox-inner {
-            background-color: var(--primary-light-6);
-            border-color: var(--primary-light-6);
         }
     }
 }

@@ -7,7 +7,7 @@ import { setAccessToken } from '@redux/slice/authSlice';
 import { useAppDispatch } from '@hooks/reduxHooks';
 import { Paths } from '@routes/constants/Paths';
 
-import styles from './SiderFooter.module.scss';
+import styles from './SiderFooter.module.less';
 
 const { Footer } = Layout;
 

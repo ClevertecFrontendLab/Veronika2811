@@ -3,7 +3,7 @@ import { AndroidFilled, AppleFilled } from '@ant-design/icons';
 
 import { ButtonDownload } from '../ButtonDownload';
 
-import styles from './DownloadCard.module.scss';
+import styles from './DownloadCard.module.less';
 
 export const DownloadCard = () => (
     <Card

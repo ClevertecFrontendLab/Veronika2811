@@ -7,7 +7,7 @@ import { CardActionItem } from '../CardActionItem';
 export const CardActions = () => (
     <Row gutter={[16, 5]}>
         {CARD_ACTIONS.map((item) => (
-            <Col xs={{ span: 24 }} sm={{ span: 8 }} key={item.key}>
+            <Col xs={{ span: 24 }} sm={{ span: 8 }} key={`card-action-${item.key}`}>
                 <CardActionItem item={item} />
             </Col>
         ))}

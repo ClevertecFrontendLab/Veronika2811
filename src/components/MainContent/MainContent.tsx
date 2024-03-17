@@ -2,7 +2,7 @@ import { Layout } from 'antd';
 
 import { CardActions,CardAdvantages, CardDescription } from './components';
 
-import styles from './MainContent.module.scss';
+import styles from './MainContent.module.less';
 
 const { Content } = Layout;
 

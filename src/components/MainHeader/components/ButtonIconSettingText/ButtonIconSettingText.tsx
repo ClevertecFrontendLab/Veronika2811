@@ -1,6 +1,6 @@
 import { Button } from 'antd';
 
-import styles from './ButtonIconSettingText.module.scss';
+import styles from './ButtonIconSettingText.module.less';
 
 type ButtonIconSettingTextProps = {
     label: string;

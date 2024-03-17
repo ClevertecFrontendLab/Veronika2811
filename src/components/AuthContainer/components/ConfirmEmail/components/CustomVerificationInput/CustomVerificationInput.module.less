@@ -1,3 +1,5 @@
+@import '@styles/constants.less';
+
 .container {
     gap: 12px;
 
@@ -12,23 +14,23 @@
     width: 40px;
     height: 40px;
     background-color: transparent;
-    border: 1px solid var(--character-light-border);
+    border: 1px solid @neutral-5;
     border-radius: 2px;
 }
 
 .character-error {
-    border-color: var(--character-light-error);
+    border-color: @error-color;
 }
 
 .character--selected {
     outline: none;
-    border: 1px solid var(--primary-light-5);
+    border: 1px solid @primary-light-5;
 }
 
 .character--filled {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: var(--font-size-14);
-    line-height: var(--line-height-130);
+    font-size: 14px;
+    line-height: 130%;
 }

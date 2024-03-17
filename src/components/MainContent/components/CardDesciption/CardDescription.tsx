@@ -1,6 +1,6 @@
 import { Card, Typography } from 'antd';
 
-import styles from './CardDescription.module.scss';
+import styles from './CardDescription.module.less';
 
 export const CardDescription = () => (
     <Card bordered={false} className={styles['description']}>

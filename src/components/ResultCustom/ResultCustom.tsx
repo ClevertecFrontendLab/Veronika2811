@@ -7,12 +7,11 @@ import { RESULTS } from './constants/results';
 import { useAppDispatch } from '@hooks/reduxHooks';
 import { Paths } from '@routes/constants/Paths';
 import { FeedbacksStatus } from '@constants/feedbacks/feedbacksConstants';
+import { TRAINING_STATUS_ERROR } from '@constants/training/trainingStatusConstants';
 
-import styles from './ResultCustom.module.scss';
+import styles from './ResultCustom.module.less';
 
-type ResultClassMap = {
-    [key: string]: string;
-};
+type ResultClassMap = Record<string, string>;
 
 type ResultCustomProps = {
     statusCode: number | string;
@@ -37,6 +36,10 @@ export const ResultCustom = ({ statusCode, footer, onClick }: ResultCustomProps)
         [FeedbacksStatus.STATUS_ERROR]: styles['feedback-result'],
         [FeedbacksStatus.STATUS_SUCCESS]: styles['feedback-result'],
         [FeedbacksStatus.STATUS_ERROR_SERVER]: classNames(
+            styles['feedback-result'],
+            'feedback-result-server',
+        ),
+        [TRAINING_STATUS_ERROR]: classNames(
             styles['feedback-result'],
             'feedback-result-server',
         ),

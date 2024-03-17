@@ -4,12 +4,12 @@ import { Layout } from 'antd';
 import { SiderFooter, SiderLogo, SiderMenu, SiderSwitch } from './components';
 import { siderWidth } from './constants';
 
-import styles from './SideBar.module.scss';
+import styles from './SideBar.module.less';
 
 const { Sider } = Layout;
 
 export const SideBar = () => {
-    const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(true);
     const [isAtBreakpoint, setIsAtBreakpoint] = useState(false);
 
     const handleBreakpointChange = (broken: boolean) => setIsAtBreakpoint(broken);

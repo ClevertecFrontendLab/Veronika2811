@@ -6,7 +6,7 @@ import { FeedbacksProps } from '@components/FeedbacksContent/types/feedbacksType
 import { FeedbackButtons } from '../FeedbackButtons';
 import { FeedbackCard } from '../FeedbackCard';
 
-import styles from './FeedbacksList.module.scss';
+import styles from './FeedbacksList.module.less';
 
 export const FeedbacksList = ({ feedbacksList, refetch }: FeedbacksProps) => {
     const [showAll, setShowAll] = useState(false);

@@ -3,7 +3,7 @@ import { UserOutlined } from '@ant-design/icons';
 
 import { Feedback } from '@/types/feedbacks';
 
-import styles from './AuthorInfo.module.scss';
+import styles from './AuthorInfo.module.less';
 
 const { Meta } = Card;
 

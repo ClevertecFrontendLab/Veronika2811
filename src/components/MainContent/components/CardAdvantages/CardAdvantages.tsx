@@ -2,7 +2,7 @@ import { Card, List, Typography } from 'antd';
 
 import { APP_ADVANTAGES } from '@components/MainContent/constants/appAdvantages';
 
-import styles from './CardAdvantages.module.scss';
+import styles from './CardAdvantages.module.less';
 
 export const CardAdvantages = () => (
     <Card bordered={false} className={styles['advantages']}>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from 'antd';
 
+import { FeedbacksTestIds } from '@components/FeedbacksContent/constants/feedbacksTestId';
 import { FeedbacksRefetch } from '@components/FeedbacksContent/types/feedbacksTypes';
 import { ResultCustom } from '@components/ResultCustom';
 import { ModalCustom } from '@components/ui/ModalCustom';
@@ -28,7 +29,7 @@ export const FeedbackWriteButton = ({ refetch }: FeedbacksRefetch) => {
                 type='primary'
                 size='large'
                 onClick={toggleModalVisibility}
-                data-test-id='write-review'
+                data-test-id={FeedbacksTestIds.WRITE_REVIEW}
             >
                 Написать отзыв
             </Button>
