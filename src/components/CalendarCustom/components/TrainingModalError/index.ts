@@ -1,1 +1,1 @@
-export { TrainingModalError } from './TrainingModalError'
+export { TrainingModalError } from './TrainingModalError';

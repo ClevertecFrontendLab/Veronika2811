@@ -7,4 +7,4 @@ export const isPastDate = (date: Moment) => {
     const isToday = date.isSame(today, 'day');
 
     return isPastDay || isToday;
-}
+};

@@ -1,1 +1,1 @@
-export { ModalTitle } from './ModalTitle'
+export { ModalTitle } from './ModalTitle';

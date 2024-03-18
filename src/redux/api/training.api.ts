@@ -18,18 +18,24 @@ export const trainingApi = createApi({
         getUserTrainingData: build.query<TrainingResponse[], void>({
             query: () => '/training',
         }),
-        addUserTraining: build.mutation<TrainingResponse, {
-            name: string | null,
-            date: Moment,
-            exercises: CurrentTraining[] | null,
-        }>({
+        addUserTraining: build.mutation<
+            TrainingResponse,
+            {
+                name: string | null;
+                date: Moment;
+                exercises: CurrentTraining[] | null;
+            }
+        >({
             query: (body) => ({
                 url: '/training',
                 method: 'POST',
                 body: body,
             }),
         }),
-        editUserTraining: build.mutation<TrainingResponse, { trainingId: string, body: TrainingEditData}>({
+        editUserTraining: build.mutation<
+            TrainingResponse,
+            { trainingId: string; body: TrainingEditData }
+        >({
             query: ({ trainingId, body }) => ({
                 url: `/training/${trainingId}`,
                 method: 'PUT',

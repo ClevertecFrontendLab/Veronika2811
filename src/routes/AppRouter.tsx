@@ -51,7 +51,9 @@ export const AppRouter = () => {
             <Route path={Paths.CALENDAR} element={<LayoutMainPage />}>
                 <Route
                     index
-                    element={accessToken ? <CalendarPage /> : <Navigate to={Paths.AUTH_MAIN} replace />}
+                    element={
+                        accessToken ? <CalendarPage /> : <Navigate to={Paths.AUTH_MAIN} replace />
+                    }
                 />
             </Route>
 

@@ -5,17 +5,18 @@ import { DATE_FORMAT } from '@components/CalendarCustom/constants/dateFormat';
 import { TrainingTestIds } from '@components/CalendarCustom/constants/trainingTestId';
 import { TitleProps } from '@components/CalendarCustom/types/modalTitle';
 
-import { useBreakpoints } from '@hooks/useBreakpoints';
+import styles from './Title.module.less';
 
 export const Title = ({ date, closeModal }: TitleProps) => {
-    const { isXs } = useBreakpoints();
-
     const formattedDate = date.format(DATE_FORMAT);
 
     return (
-        <Space size={!isXs ? 33 : 79}>
+        <Space className={styles['modal-title']}>
             <Typography.Text>Тренировки на {formattedDate}</Typography.Text>
-            <CloseOutlined onClick={closeModal} data-test-id={TrainingTestIds.MODAL_CREATE_BUTTON_CLOSE} />
+            <CloseOutlined
+                onClick={closeModal}
+                data-test-id={TrainingTestIds.MODAL_CREATE_BUTTON_CLOSE}
+            />
         </Space>
     );
-}
+};

@@ -1,6 +1,6 @@
 import { Layout } from 'antd';
 
-import { CardActions,CardAdvantages, CardDescription } from './components';
+import { CardActions, CardAdvantages, CardDescription } from './components';
 
 import styles from './MainContent.module.less';
 

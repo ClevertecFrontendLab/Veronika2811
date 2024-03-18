@@ -1,1 +1,1 @@
-export { DrawerCustom } from './DrawerCustom'
+export { DrawerCustom } from './DrawerCustom';

@@ -26,13 +26,13 @@ export const BreadcrumbCustom = () => {
         );
     });
 
-    const removeActiveMenuKey = () => {
-        dispatch(setActiveMenuKey(''));
-    }
+    const removeActiveMenuKey = () => dispatch(setActiveMenuKey(''));
 
     const breadcrumbItems = [
         <Breadcrumb.Item key='main'>
-            <Link to='/main' onClick={removeActiveMenuKey}>Главная</Link>
+            <Link to='/main' onClick={removeActiveMenuKey}>
+                Главная
+            </Link>
         </Breadcrumb.Item>,
     ].concat(extraBreadcrumbItems);
 

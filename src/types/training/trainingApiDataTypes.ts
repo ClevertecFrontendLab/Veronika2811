@@ -9,7 +9,7 @@ type TrainingParameters = {
     period: number;
     jointTraining: boolean;
     participants: [string];
-}
+};
 
 export type ExercisesItem = {
     name: string;
@@ -18,7 +18,7 @@ export type ExercisesItem = {
     approaches: number;
     _id?: string;
     isImplementation?: boolean;
-}
+};
 
 export type TrainingResponse = ErrorTypes & {
     _id: string;
@@ -31,8 +31,8 @@ export type TrainingResponse = ErrorTypes & {
 };
 
 export type TrainingEditData = {
-    name: string | null,
-    date: Moment,
-    exercises: CurrentTraining[] | null,
-    isImplementation?: boolean,
-}
+    name: string | null;
+    date: Moment;
+    exercises: CurrentTraining[] | null;
+    isImplementation?: boolean;
+};

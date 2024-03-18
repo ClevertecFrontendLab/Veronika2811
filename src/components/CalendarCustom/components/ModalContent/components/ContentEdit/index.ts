@@ -1,1 +1,1 @@
-export { ContentEdit } from './ContentEdit'
+export { ContentEdit } from './ContentEdit';

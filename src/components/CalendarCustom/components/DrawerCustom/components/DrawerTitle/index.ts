@@ -1,1 +1,1 @@
-export { DrawerTitle } from './DrawerTitle'
+export { DrawerTitle } from './DrawerTitle';

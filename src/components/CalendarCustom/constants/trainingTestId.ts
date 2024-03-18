@@ -17,4 +17,4 @@ export const TrainingTestIds = {
     MODAL_DRAWER_INPUT_APPROACH: 'modal-drawer-right-input-approach',
     MODAL_DRAWER_INPUT_WEIGHT: 'modal-drawer-right-input-weight',
     MODAL_DRAWER_INPUT_QUANTITY: 'modal-drawer-right-input-quantity',
-}
+};

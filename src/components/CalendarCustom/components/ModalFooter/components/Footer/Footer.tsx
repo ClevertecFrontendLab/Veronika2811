@@ -1,5 +1,4 @@
 import type { Moment } from 'moment';
-import moment from 'moment';
 import { Button } from 'antd';
 
 import { isPastDate } from '@components/CalendarCustom/utils/isPastDate';
@@ -20,8 +19,7 @@ export const Footer = ({ date, cellContent }: FooterProps) => {
 
     const openEditMode = () => dispatch(setEditMode(true));
 
-    const disabledButton =
-        cellContent.length === catalogTrainingList.length || isPastDate(date);
+    const disabledButton = cellContent.length === catalogTrainingList.length || isPastDate(date);
 
     return (
         <Button type='primary' block size='large' onClick={openEditMode} disabled={disabledButton}>

@@ -51,7 +51,7 @@ export const CalendarCustom = ({ refetchUserTrainingList }: CalendarCustomProps)
             const bodyHTMLElement: HTMLDivElement | null = target.closest('.ant-picker-body');
 
             if (date.month() === selectedDate.month()) {
-                if(!isXs && cellHTMLElement instanceof HTMLTableCellElement) {
+                if (!isXs && cellHTMLElement instanceof HTMLTableCellElement) {
                     setSelectedCellInfo({
                         cellHTMLElement: cellHTMLElement,
                         cellContent: listWorkouts,
@@ -77,11 +77,11 @@ export const CalendarCustom = ({ refetchUserTrainingList }: CalendarCustomProps)
         const responsiveClassName = isUserTraningInSelectedDay && isXs ? 'mobile-date' : '';
 
         const onCellClick = (event: React.MouseEvent) => {
-            if(!isXs) {
+            if (!isXs) {
                 event.stopPropagation();
             }
 
-            handleCellClick(event, date, trainingList)
+            handleCellClick(event, date, trainingList);
         };
 
         return (
@@ -99,8 +99,7 @@ export const CalendarCustom = ({ refetchUserTrainingList }: CalendarCustomProps)
         );
     };
 
-    const shouldShowTrainingModal =
-        selectedCellInfo && userTrainingListData.length && isModalVisible;
+    const shouldShowTrainingModal = selectedCellInfo && isModalVisible;
 
     return (
         <>
@@ -109,6 +108,7 @@ export const CalendarCustom = ({ refetchUserTrainingList }: CalendarCustomProps)
                 dateFullCellRender={dateFullCellRender}
                 className={styles.calendar}
                 fullscreen={!isXs}
+                // onSelect={onTrainingModalClose}
             />
 
             {shouldShowTrainingModal && (

@@ -39,10 +39,7 @@ export const ResultCustom = ({ statusCode, footer, onClick }: ResultCustomProps)
             styles['feedback-result'],
             'feedback-result-server',
         ),
-        [TRAINING_STATUS_ERROR]: classNames(
-            styles['feedback-result'],
-            'feedback-result-server',
-        ),
+        [TRAINING_STATUS_ERROR]: classNames(styles['feedback-result'], 'feedback-result-server'),
     };
 
     const changeClasses = classMap[statusCode] || styles['auth-result'];

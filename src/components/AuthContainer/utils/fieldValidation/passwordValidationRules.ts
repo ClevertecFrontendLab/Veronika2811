@@ -1,5 +1,11 @@
 import { RuleObject } from 'antd/lib/form';
 
+import {
+    PASSWORD_REGEX_DIGIT,
+    PASSWORD_REGEX_LENGTH,
+    PASSWORD_REGEX_UPPERCASE,
+} from '@components/AuthContainer/constants/authFormValidationRegex';
+
 export const passwordValidationRules = [
     {
         required: true,
@@ -7,13 +13,13 @@ export const passwordValidationRules = [
     },
     {
         validator(_: RuleObject, value: string) {
-            if (!/[A-Z]/.test(value) || !/\d/.test(value)) {
+            if (!PASSWORD_REGEX_UPPERCASE.test(value) || !PASSWORD_REGEX_DIGIT.test(value)) {
                 return Promise.reject(
                     new Error('Пароль должен содержать хотя бы одну заглавную букву и одну цифру!'),
                 );
             }
 
-            if (!/^[a-zA-Z0-9]{8,}$/.test(value)) {
+            if (!PASSWORD_REGEX_LENGTH.test(value)) {
                 return Promise.reject(
                     new Error(
                         'Пароль должен содержать только символы латинского алфавита и cодержать не менее 8 символов!',

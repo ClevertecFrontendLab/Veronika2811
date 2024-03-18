@@ -3,4 +3,4 @@ export const MENU_KEYS = {
     workouts: 'workouts',
     achievements: 'achievements',
     profile: 'profile',
-}
+};

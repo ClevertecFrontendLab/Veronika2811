@@ -1,6 +1,6 @@
-export const TRAINING_MODAL_WIDTH ={
+export const TRAINING_MODAL_WIDTH = {
     default: 264,
-    mobile: 310,
+    mobile: '100%',
     drawer: 408,
     drawer_mobile: '100%',
-}
+};

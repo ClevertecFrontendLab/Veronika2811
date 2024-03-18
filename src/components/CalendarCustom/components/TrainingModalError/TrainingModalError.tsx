@@ -23,7 +23,8 @@ export const TrainingModalError = ({
     onCancel,
     onClickButton,
 }: TrainingModalErrorProps) => {
-    const { width, closable, className, title, subtitle, buttonText, buttonSize } = TRAINING_ERROR_MODAL_CONTENT[type];
+    const { width, closable, className, title, subtitle, buttonText, buttonSize } =
+        TRAINING_ERROR_MODAL_CONTENT[type];
 
     return (
         <ModalCustom

@@ -1,7 +1,7 @@
 import { PageHeader } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
 
-import { ButtonIconSettingRound,ButtonIconSettingText, Title } from './components';
+import { ButtonIconSettingRound, ButtonIconSettingText, Title } from './components';
 
 import styles from './MainHeader.module.less';
 

@@ -15,7 +15,7 @@ export const SiderLogo = ({ collapsed }: { collapsed: boolean }) => {
         [styles['logo-collapsed']]: collapsed,
     });
 
-    const redirectToMainPath = () => dispatch(push(Paths.MAIN))
+    const redirectToMainPath = () => dispatch(push(Paths.MAIN));
 
     return (
         <div className={logoClass} onClick={redirectToMainPath}>

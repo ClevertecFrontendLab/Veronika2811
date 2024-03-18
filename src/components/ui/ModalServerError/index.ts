@@ -1,1 +1,1 @@
-export { ModalServerError } from './ModalServerError'
+export { ModalServerError } from './ModalServerError';

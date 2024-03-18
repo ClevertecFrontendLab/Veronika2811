@@ -3,13 +3,13 @@ import { RootState } from '@redux/store';
 type PrepareHeadersT = (
     headers: Headers,
     api: {
-      getState: () => unknown
-      extra?: unknown
-      endpoint?: string
-      type?: 'query' | 'mutation'
-      forced?: boolean | undefined
+        getState: () => unknown;
+        extra?: unknown;
+        endpoint?: string;
+        type?: 'query' | 'mutation';
+        forced?: boolean | undefined;
     },
-  ) => Headers | void;
+) => Headers | void;
 
 const prepareHeaders: PrepareHeadersT = (headers, { getState }) => {
     const state = getState() as RootState;
@@ -23,6 +23,6 @@ const prepareHeaders: PrepareHeadersT = (headers, { getState }) => {
     headers.set('Authorization', `Bearer ${accessToken}`);
 
     return headers;
-}
+};
 
-export default prepareHeaders
+export default prepareHeaders;

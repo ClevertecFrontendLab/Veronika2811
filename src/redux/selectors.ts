@@ -11,7 +11,8 @@ export const activeKeyMenuSelector = (state: RootState) => state.mainSlice.activ
 export const isLoadingSelector = (state: RootState) => state.mainSlice.isLoading;
 
 export const userTrainingListSelector = (state: RootState) => state.trainingSlice.userTrainingList;
-export const userTrainingListErrorSelector = (state: RootState) => state.trainingSlice.userTrainingListError;
+export const userTrainingListErrorSelector = (state: RootState) =>
+    state.trainingSlice.userTrainingListError;
 export const isModalVisibleSelector = (state: RootState) => state.trainingSlice.isModalVisible;
 export const isEditModeSelector = (state: RootState) => state.trainingSlice.isEditMode;
 export const editTrainingSelector = (state: RootState) => state.trainingSlice.editTraining;
@@ -19,4 +20,5 @@ export const isDrawerVisibleSelector = (state: RootState) => state.trainingSlice
 export const typeTrainingSelector = (state: RootState) => state.trainingSlice.typeTraining;
 export const currentTrainingSelector = (state: RootState) => state.trainingSlice.currentTraining;
 
-export const catalogTrainingListSelector = (state: RootState) => state.catalogSlice.catalogTrainingList;
+export const catalogTrainingListSelector = (state: RootState) =>
+    state.catalogSlice.catalogTrainingList;

@@ -1,1 +1,1 @@
-export { BadgeCustom } from './BadgeCustom'
+export { BadgeCustom } from './BadgeCustom';

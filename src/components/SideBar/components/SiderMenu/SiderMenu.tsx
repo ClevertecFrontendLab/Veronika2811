@@ -10,12 +10,12 @@ import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks';
 import styles from './SiderMenu.module.less';
 
 export const SiderMenu = () => {
-    const activeKeys = useAppSelector(activeKeyMenuSelector)
+    const activeKeys = useAppSelector(activeKeyMenuSelector);
     const dispatch = useAppDispatch();
 
     const handleItemClick = ({ key }: { key: string }) => {
-        dispatch(setActiveMenuKey(key))
-        dispatch(push(`/${key}`))
+        dispatch(setActiveMenuKey(key));
+        dispatch(push(`/${key}`));
     };
 
     return (
