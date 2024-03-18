@@ -1,36 +1,26 @@
-import {
-    CalendarTwoTone,
-    HeartTwoTone,
-    IdcardTwoTone,
-    TrophyTwoTone,
-    TwoToneColor,
-} from '@ant-design/icons';
+import { CalendarTwoTone, HeartTwoTone, IdcardOutlined, TrophyTwoTone } from '@ant-design/icons';
 
-const primaryColor = '#061178';
-const secondaryColor = '#ffffff';
-
-const iconColors: TwoToneColor = [primaryColor, primaryColor];
-const iconColorsProfile: TwoToneColor = [primaryColor, secondaryColor];
+import { MENU_KEYS } from '@constants/main/menuKeys';
 
 export const SIDER_MENU_ITEMS = [
     {
-        key: 'calendar',
+        key: MENU_KEYS.calendar,
         label: 'Календарь',
-        icon: <CalendarTwoTone twoToneColor={iconColors} />,
+        icon: <CalendarTwoTone />,
     },
     {
-        key: 'workout',
+        key: MENU_KEYS.workouts,
         label: 'Тренировки',
-        icon: <HeartTwoTone twoToneColor={iconColors} />,
+        icon: <HeartTwoTone />,
     },
     {
-        key: 'achievements',
+        key: MENU_KEYS.achievements,
         label: 'Достижения',
-        icon: <TrophyTwoTone twoToneColor={iconColors} />,
+        icon: <TrophyTwoTone />,
     },
     {
-        key: 'profile',
+        key: MENU_KEYS.profile,
         label: 'Профиль',
-        icon: <IdcardTwoTone twoToneColor={iconColorsProfile} />,
+        icon: <IdcardOutlined />,
     },
 ];

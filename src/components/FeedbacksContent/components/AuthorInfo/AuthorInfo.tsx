@@ -1,9 +1,9 @@
 import { Avatar, Card, Typography } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
-import { Feedback } from '@src/types/feedbacks';
+import { Feedback } from '@/types/feedbacks';
 
-import styles from './AuthorInfo.module.scss';
+import styles from './AuthorInfo.module.less';
 
 const { Meta } = Card;
 

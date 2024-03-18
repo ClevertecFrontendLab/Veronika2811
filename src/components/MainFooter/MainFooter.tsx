@@ -2,7 +2,7 @@ import { Col, Layout, Row } from 'antd';
 
 import { ButtonSeeReviews, DownloadCard } from './components';
 
-import styles from './MainFooter.module.scss';
+import styles from './MainFooter.module.less';
 
 const { Footer } = Layout;
 

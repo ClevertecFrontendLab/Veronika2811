@@ -1,7 +1,7 @@
-import { FeedbacksProps } from './types/feedbacksTypes';
+import { FeedbacksList } from '@components/FeedbacksContent/components/FeedbacksList';
 
 import { FeedbacksDefault } from './components/FeedbacksDefault';
-import { FeedbacksList } from '@components/FeedbacksContent/components/FeedbacksList';
+import { FeedbacksProps } from './types/feedbacksTypes';
 
 export const FeedbacksContent = ({ feedbacksList, refetch }: FeedbacksProps) => {
     if (!feedbacksList.length) {

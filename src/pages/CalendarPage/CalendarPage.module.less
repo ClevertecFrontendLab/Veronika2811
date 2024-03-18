@@ -1,0 +1,132 @@
+@import '@styles/constants.less';
+
+.calendar-wrapper {
+    padding-bottom: 50px;
+
+    :global {
+        .ant-page-header-heading {
+            justify-content: flex-end;
+        }
+
+        .ant-page-header-heading-left {
+            display: none;
+        }
+
+        .ant-picker-calendar,
+        .ant-picker-calendar-full .ant-picker-panel {
+            background: @primary-light-1;
+        }
+
+        .ant-picker-calendar {
+            padding: 13px 24px 93px;
+
+            @media (max-width: 834px) {
+                padding: 6px 25px 131px;
+            }
+
+            @media (max-width: 575px) {
+                padding-bottom: 23px;
+            }
+        }
+
+        .ant-picker-calendar-full .ant-picker-panel .ant-picker-calendar-date {
+            padding-top: 0;
+            padding-bottom: 30px;
+
+            @media (max-width: 834px) {
+                padding: 0 5px 30px;
+            }
+        }
+
+        .ant-picker-calendar .ant-picker-panel .ant-picker-body {
+            padding: 0;
+        }
+
+        .ant-picker-cell-inner {
+            background: @neutral-1;
+        }
+
+        .ant-picker-cell-today {
+            border-top: 2px solid @blue-dark-6;
+
+            @media (max-width: 575px) {
+                border-top: none;
+            }
+        }
+
+        .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner:not(.mobile-date) {
+            @media (max-width: 575px) {
+                background: transparent;
+            }
+        }
+
+        .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner {
+            @media (max-width: 575px) {
+                color: @neutral-10;
+            }
+        }
+
+        .ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner:before {
+            border: none;
+        }
+
+        .ant-picker-calendar-full
+            .ant-picker-panel
+            .ant-picker-cell-selected
+            .ant-picker-calendar-date
+            .ant-picker-calendar-date-value {
+            color: @neutral-10;
+        }
+
+        .ant-btn.ant-btn-circle {
+            margin-top: 1px;
+            border: none;
+            background-color: transparent;
+            box-shadow: none;
+
+            .anticon-setting {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.modal-error {
+    :global {
+        .ant-modal-confirm .ant-modal-body {
+            padding: 15px 24px;
+        }
+
+        .ant-modal-confirm .ant-modal-confirm-btns {
+            margin-top: 12px;
+        }
+
+        .anticon-close-circle svg {
+            font-size: 24px;
+        }
+        .ant-modal-close-icon {
+            font-size: 14px;
+        }
+
+        .ant-modal-close-x {
+            line-height: 50px;
+        }
+
+        .ant-modal-close {
+            padding: 0 10px;
+        }
+
+        .ant-modal-confirm-title {
+            padding-right: 60px;
+        }
+
+        .ant-modal-confirm-body > .anticon + .ant-modal-confirm-title + .ant-modal-confirm-content {
+            margin-left: 40px;
+        }
+
+        .ant-modal-confirm-body .ant-modal-confirm-content {
+            margin-top: 4px;
+            color: @neutral-7;
+        }
+    }
+}

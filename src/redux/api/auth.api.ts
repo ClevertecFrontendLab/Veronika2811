@@ -3,8 +3,6 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { BASE_URL } from './constants/baseUrl';
 
 import { Paths } from '@routes/constants/Paths';
-import { LOGIN, REGISTRATION } from '@constants/auth/authConstants';
-import { ErrorTypes } from '@src/types/errorTypes';
 import {
     CheckEmailResponse,
     EmailData,
@@ -13,10 +11,12 @@ import {
     LoginResponse,
     PasswordConfirmationData,
     RegistrationData,
-} from '@src/types/auth';
+} from '@/types/auth';
+import { ErrorTypes } from '@/types/errorTypes';
+import { LOGIN, REGISTRATION } from '@constants/auth/authConstants';
 
 export const authApi = createApi({
-    reducerPath: 'AUTH_SLICE',
+    reducerPath: 'AUTH_API',
     baseQuery: fetchBaseQuery({
         baseUrl: `${BASE_URL}${Paths.AUTH_MAIN}`,
         credentials: 'include',

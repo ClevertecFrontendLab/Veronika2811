@@ -1,0 +1,31 @@
+.feedback-modal {
+    :global {
+        .ant-modal-content {
+            @media (max-width: 479px) {
+                margin: 0 8px;
+            }
+        }
+
+        .ant-modal-header {
+            @media (max-width: 479px) {
+                padding: 16px;
+            }
+        }
+
+        .ant-modal-body {
+            padding: 20px 16px 0;
+
+            @media (max-width: 479px) {
+                padding: 16px 16px 0;
+            }
+        }
+    }
+}
+
+[class*='ant-btn'].feedback-form-button {
+    font-size: 14px;
+
+    @media (max-width: 479px) {
+        width: 100%;
+    }
+}

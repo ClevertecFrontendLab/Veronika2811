@@ -2,15 +2,14 @@ import { useState } from 'react';
 import { push } from 'redux-first-history';
 import { Result, Typography } from 'antd';
 
-import { ConfirmEmailTitle } from './components';
-import { CustomVerificationInput } from './components/CustomVerificationInput';
+import { ConfirmEmailTitle, CustomVerificationInput } from './components';
 
 import { useCheckVerificationCodeMutation } from '@redux/api/auth.api';
 import { verificationEmailSelector } from '@redux/selectors';
 import { useAppDispatch, useAppSelector } from '@hooks/reduxHooks';
 import { Paths } from '@routes/constants/Paths';
 
-import styles from './ConfirmEmail.module.scss';
+import styles from './ConfirmEmail.module.less';
 
 export const ConfirmEmail = () => {
     const [confirmEmail] = useCheckVerificationCodeMutation();

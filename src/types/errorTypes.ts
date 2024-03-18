@@ -5,4 +5,4 @@ export type ErrorTypes = {
         error: string;
         message: string;
     };
-}
+};

@@ -5,11 +5,11 @@ import { FeedbacksRefetch } from '@components/FeedbacksContent/types/feedbacksTy
 import { characterRender } from '@components/FeedbacksContent/utils/characterRateRender';
 
 import { useAddFeedbackMutation } from '@redux/api/feedbacks.api';
-import { setIsLoading } from '@redux/slice/authSlice';
+import { setIsLoading } from '@redux/slice/mainSlice';
 import { useAppDispatch } from '@hooks/reduxHooks';
 import { FeedbacksStatus } from '@constants/feedbacks/feedbacksConstants';
 
-import styles from './FeedbackForm.module.scss';
+import styles from './FeedbackForm.module.less';
 
 export type FeedbackFormValues = {
     rating: number;

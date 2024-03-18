@@ -7,4 +7,4 @@ export type LoginResponse = ErrorTypes & {
 export type CheckEmailResponse = ErrorTypes & {
     email: string;
     message: string;
-}
+};

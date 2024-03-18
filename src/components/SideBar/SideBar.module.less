@@ -1,0 +1,17 @@
+.sider {
+    height: auto;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);;
+}
+
+.sider [class*='ant-layout-sider-children'] {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 500px) {
+    [class*='ant-layout-sider'].sider {
+        position: fixed;
+        z-index: 4;
+        height: 100%;
+    }
+}

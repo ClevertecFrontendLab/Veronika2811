@@ -1,6 +1,6 @@
 import { Button, Tooltip } from 'antd';
 
-import styles from './ButtonIconSettingRound.module.scss';
+import styles from './ButtonIconSettingRound.module.less';
 
 type ButtonIconSettingRoundProps = {
     tooltipTitle: string;

@@ -1,1 +1,1 @@
-export { FeedbackWriteButton } from './FeedbackWriteButton'
+export { FeedbackWriteButton } from './FeedbackWriteButton';

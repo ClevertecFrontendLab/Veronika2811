@@ -1,20 +1,20 @@
 import { useCallback, useEffect, useState } from 'react';
-import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { SerializedError } from '@reduxjs/toolkit';
+import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { push } from 'redux-first-history';
 
-import { Loader } from '@components/ui/Loader';
 import { FeedbacksContent } from '@components/FeedbacksContent';
 import { ResultCustom } from '@components/ResultCustom';
 import { ModalCustom } from '@components/ui/ModalCustom';
 
 import { useLazyGetFeedbacksQuery } from '@redux/api/feedbacks.api';
+import { setIsLoading } from '@redux/slice/mainSlice';
 import { useAppDispatch } from '@hooks/reduxHooks';
 import { Paths } from '@routes/constants/Paths';
-import { ACCESS_TOKEN_KEY } from '@constants/storageKeys';
 import { FeedbacksStatus } from '@constants/feedbacks/feedbacksConstants';
+import { ACCESS_TOKEN_KEY } from '@constants/storageKeys';
 
-import styles from './FeedbacksPage.module.scss';
+import styles from './FeedbacksPage.module.less';
 
 export const FeedbacksPage = () => {
     const [fetchFeedbacks, { data: feedbacksList, error, isLoading, isFetching }] =
@@ -46,15 +46,18 @@ export const FeedbacksPage = () => {
         handleFeedbacksError(error);
     }, [error, handleFeedbacksError]);
 
+    useEffect(() => {
+        dispatch(setIsLoading(isLoading || isFetching));
+    }, [isLoading, isFetching, dispatch]);
+
     return (
         <div className={styles['feedbacks-page']}>
-            {(isLoading || isFetching) && <Loader />}
-            <ModalCustom open={openErrorModal}>
-                <ResultCustom statusCode={FeedbacksStatus.STATUS_ERROR_SERVER} />
-            </ModalCustom>
             {feedbacksList && (
                 <FeedbacksContent feedbacksList={feedbacksList} refetch={fetchFeedbacks} />
             )}
+            <ModalCustom open={openErrorModal}>
+                <ResultCustom statusCode={FeedbacksStatus.STATUS_ERROR_SERVER} />
+            </ModalCustom>
         </div>
     );
 };

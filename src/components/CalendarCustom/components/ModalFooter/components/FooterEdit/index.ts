@@ -1,0 +1,1 @@
+export { FooterEdit } from './FooterEdit';

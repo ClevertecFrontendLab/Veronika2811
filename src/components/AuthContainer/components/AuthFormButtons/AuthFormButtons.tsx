@@ -1,7 +1,7 @@
 import { Button, Space } from 'antd';
 import { GooglePlusOutlined } from '@ant-design/icons';
 
-import styles from './AuthFormButtons.module.scss';
+import styles from './AuthFormButtons.module.less';
 
 type AuthFormButtonsProps = {
     label: string;

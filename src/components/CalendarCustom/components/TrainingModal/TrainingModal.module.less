@@ -1,0 +1,164 @@
+@import '@styles/constants.less';
+
+[class*='ant-modal-wrap'].modal {
+    position: absolute;
+    top: 2px;
+    bottom: auto;
+    overflow: visible;
+
+    :global {
+        .ant-modal {
+            position: static;
+            min-height: 200px;
+        }
+    }
+}
+
+[class*='ant-modal-wrap'].position-left {
+    :global {
+        .ant-modal {
+            left: 4px;
+            top: 0;
+            position: absolute;
+        }
+    }
+}
+
+[class*='ant-modal-wrap'].position-right {
+    :global {
+        .ant-modal {
+            right: 4px;
+            position: absolute;
+            top: 0;
+        }
+    }
+}
+
+[class*='ant-modal-wrap'].position-bottom {
+    :global {
+        .ant-modal {
+            position: absolute;
+            bottom: 20px;
+        }
+    }
+}
+
+.workout-card-list,
+.workout-card-empty {
+    :global {
+        .ant-modal-header {
+            border-bottom: none;
+
+            .ant-typography {
+                font-size: 14px;
+                font-weight: 700;
+            }
+
+            .anticon {
+                font-size: 10px;
+            }
+        }
+
+        .ant-modal-footer {
+            padding: 10px;
+        }
+
+        .ant-btn-primary {
+            font-size: 14px;
+        }
+    }
+}
+
+.workout-card-empty {
+    :global {
+        .ant-modal-header {
+            padding: 10px 16px 2px 12px;
+        }
+
+        .ant-modal-body {
+            padding: 0 13px 16px;
+        }
+    }
+}
+
+.workout-card-list {
+    :global {
+        .ant-badge .ant-badge-status-text {
+            font-size: 14px;
+        }
+
+        .ant-modal-header {
+            padding: 14px 16px 14px 12px;
+        }
+
+        .ant-modal-body {
+            padding: 14px 0;
+            min-height: 100px;
+
+            .ant-btn-icon-only {
+                height: 24px;
+            }
+
+            .anticon {
+                font-size: 16px;
+            }
+        }
+
+        .ant-list-item {
+            padding: 0 4px 0 13px;
+        }
+
+        .ant-list-item:hover {
+            background-color: @neutral-3;
+        }
+    }
+}
+
+.workout-edit-empty,
+.workout-edit-list {
+    :global {
+        .ant-modal-title {
+            display: flex;
+        }
+
+        .ant-modal-header {
+            padding: 7px 16px 11px 9px;
+        }
+
+        .ant-modal-footer {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+
+            .ant-btn + .ant-btn:not(.ant-dropdown-trigger) {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+.workout-edit-empty {
+    :global {
+        .ant-modal-body {
+            padding: 29px;
+        }
+    }
+}
+
+.workout-edit-list {
+    :global {
+        .ant-modal-body {
+            min-height: 90px;
+            padding: 24px 0;
+
+            .ant-typography {
+                color: @neutral-7;
+            }
+
+            .ant-list-item {
+                padding: 0 24px;
+            }
+        }
+    }
+}

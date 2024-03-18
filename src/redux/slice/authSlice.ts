@@ -3,7 +3,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import { ACCESS_TOKEN_KEY } from '@constants/storageKeys';
 
 type TInitialState = {
-    isLoading: boolean;
     accessToken: string | null;
     registerUser: {
         email: string;
@@ -14,10 +13,9 @@ type TInitialState = {
         confirmPassword: string;
     };
     verificationEmail: string;
-}
+};
 
 const initialState: TInitialState = {
-    isLoading: false,
     accessToken: localStorage.getItem(ACCESS_TOKEN_KEY),
     registerUser: {
         email: '',
@@ -34,9 +32,6 @@ const authSlice = createSlice({
     name: 'AUTH_SLICE',
     initialState,
     reducers: {
-        setIsLoading: (state, action) => {
-            state.isLoading = action.payload;
-        },
         setAccessToken: (state, action) => {
             state.accessToken = action.payload;
         },
@@ -52,14 +47,13 @@ const authSlice = createSlice({
     },
 });
 
-const { actions, reducer } = authSlice;
+const { actions, reducer: reducerAuth } = authSlice;
 
 export const {
-    setIsLoading,
     setAccessToken,
     saveRegistrationData,
     saveChangedPassword,
     saveEmailRecoveryPassword,
 } = actions;
 
-export default reducer;
+export default reducerAuth;

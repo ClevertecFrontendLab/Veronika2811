@@ -4,14 +4,14 @@ import classNames from 'classnames';
 
 import { AuthTestIds } from '@components/AuthContainer/constants/AuthTestIds';
 
-import styles from './CustomVerificationInput.module.scss';
+import styles from './CustomVerificationInput.module.less';
 
 type CustomVerificationInputProps = {
     verificationCode: string;
     setVerificationCode: React.Dispatch<React.SetStateAction<string>>;
     incorrectVerificationCode: boolean;
     onCompleteVerificataion: (code: string) => Promise<void>;
-}
+};
 
 export const CustomVerificationInput = ({
     verificationCode,

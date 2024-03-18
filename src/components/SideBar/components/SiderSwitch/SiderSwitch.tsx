@@ -4,13 +4,13 @@ import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 
 import { sideBarTestIds } from '@components/SideBar/constants';
 
-import styles from './SiderSwitch.module.scss';
+import styles from './SiderSwitch.module.less';
 
 type SiderSwitchProps = {
     collapsed: boolean;
     setCollapsed: Dispatch<React.SetStateAction<boolean>>;
     isAtBreakpoint: boolean;
-}
+};
 
 export const SiderSwitch = ({ collapsed, setCollapsed, isAtBreakpoint }: SiderSwitchProps) => {
     const toggleSider = () => setCollapsed(!collapsed);

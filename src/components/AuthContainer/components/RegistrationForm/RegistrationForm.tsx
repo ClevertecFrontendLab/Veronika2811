@@ -1,11 +1,12 @@
 import { Form } from 'antd';
 
-import { AuthFormButtons } from '../AuthFormButtons';
 import { REGISTRATION_FIELDS } from '@components/AuthContainer/constants/registrationFields';
+
+import { AuthFormButtons } from '../AuthFormButtons';
 
 import { REGISTRATION } from '@constants/auth/authConstants';
 
-import styles from './RegistrationForm.module.scss';
+import styles from './RegistrationForm.module.less';
 
 export const RegistrationForm = () => (
     <>

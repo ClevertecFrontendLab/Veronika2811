@@ -4,6 +4,7 @@ import { ResultStatusType } from 'antd/lib/result';
 import { Paths } from '@routes/constants/Paths';
 import { AuthStatus } from '@constants/auth/authStatusConstants';
 import { FeedbacksStatus } from '@constants/feedbacks/feedbacksConstants';
+import { TRAINING_STATUS_ERROR } from '@constants/training/trainingStatusConstants';
 
 type ResultsInfo = {
     statusCode: number | string;
@@ -109,5 +110,19 @@ export const RESULTS: ResultsInfo[] = [
         status: 'success',
         title: 'Отзыв успешно опубликован',
         button: 'Отлично',
+    },
+    {
+        statusCode: FeedbacksStatus.STATUS_SUCCESS,
+        status: 'success',
+        title: 'Отзыв успешно опубликован',
+        button: 'Отлично',
+    },
+    {
+        statusCode: TRAINING_STATUS_ERROR,
+        status: '500',
+        title: 'Что-то пошло не так',
+        subtitle: 'Произошла ошибка, попробуйте ещё раз.',
+        button: 'Назад',
+        redirect: Paths.MAIN,
     },
 ];

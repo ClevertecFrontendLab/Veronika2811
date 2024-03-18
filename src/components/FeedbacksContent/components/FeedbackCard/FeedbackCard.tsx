@@ -1,11 +1,12 @@
 import { Card, Comment, Rate, Typography } from 'antd';
 
-import { AuthorInfo } from '../AuthorInfo';
 import { characterRender } from '@components/FeedbacksContent/utils/characterRateRender';
 
-import { Feedback } from '@src/types/feedbacks';
+import { AuthorInfo } from '../AuthorInfo';
 
-import styles from './FeedbackCard.module.scss';
+import { Feedback } from '@/types/feedbacks';
+
+import styles from './FeedbackCard.module.less';
 
 export const FeedbackCard = ({ feedback }: { feedback: Feedback }) => {
     const date = new Date(feedback.createdAt);

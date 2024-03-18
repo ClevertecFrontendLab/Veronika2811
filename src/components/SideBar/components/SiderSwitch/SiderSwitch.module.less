@@ -1,0 +1,21 @@
+@import '@styles/constants.less';
+
+.switch {
+    position: absolute;
+    top: 47%;
+    right: -20px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    width: 20px;
+    height: 66px;
+    background-color: @neutral-1;
+    clip-path: polygon(100% 10%, 100% 90%, 0 100%, 0 0);
+
+    @media (max-width: 479px) {
+        top: 24px;
+        right: -32px;
+        width: 32px;
+        height: 48px;
+    }
+}

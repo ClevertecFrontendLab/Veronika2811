@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { Content } from 'antd/lib/layout/layout';
 
-import styles from './LayoutAuthPage.module.scss';
+import styles from './LayoutAuthPage.module.less';
 
 export const LayoutAuthPage = () => (
     <Content className={styles['auth-page-container']}>

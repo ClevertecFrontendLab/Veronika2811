@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 
 import { LogoSizeType } from '@components/ui/Logo/types/types';
 
-import styles from './FitLogo.module.scss';
+import styles from './FitLogo.module.less';
 
 const cx = classNames.bind(styles);
 

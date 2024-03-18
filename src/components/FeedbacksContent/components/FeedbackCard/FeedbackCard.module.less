@@ -1,0 +1,46 @@
+@import '@styles/constants.less';
+
+.feedback-card {
+    :global {
+        .ant-card-body {
+            padding: 14px 24px 24px;
+
+            @media (max-width: 540px) {
+                padding: 14px 16px 24px;
+            }
+        }
+
+        .ant-comment-inner {
+            padding: 0;
+
+            @media (max-width: 540px) {
+                flex-direction: column;
+            }
+        }
+
+        .ant-comment-avatar {
+            min-width: 166px;
+            text-align: center;
+        }
+
+        .ant-rate {
+            font-size: 14px;
+        }
+
+        .ant-rate-star:not(:last-child) {
+            margin-right: 6px;
+        }
+
+        .ant-comment-content-author > span {
+            padding-right: 17px;
+        }
+
+        .ant-comment-content-author {
+            margin-bottom: 9px;
+        }
+
+        .ant-comment-content-detail .ant-typography {
+            color: @neutral-7;
+        }
+    }
+}

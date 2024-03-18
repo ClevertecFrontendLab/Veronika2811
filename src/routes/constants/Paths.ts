@@ -15,4 +15,5 @@ export enum Paths {
     AUTH_SUB_RESULT_ERROR_CHANGE_PASSWORD = 'error-change-password',
     AUTH_SUB_RESULT_SUCCESS_CHANGE_PASSWORD = 'success-change-password',
     FEEDBACKS = '/feedbacks',
+    CALENDAR = '/calendar',
 }

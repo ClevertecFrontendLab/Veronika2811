@@ -1,9 +1,10 @@
 import { Card, Typography } from 'antd';
 
-import { FeedbackWriteButton } from '../FeedbackWriteButton';
 import { FeedbacksRefetch } from '@components/FeedbacksContent/types/feedbacksTypes';
 
-import styles from './FeedbacksDefault.module.scss';
+import { FeedbackWriteButton } from '../FeedbackWriteButton';
+
+import styles from './FeedbacksDefault.module.less';
 
 export const FeedbacksDefault = ({ refetch }: FeedbacksRefetch) => (
     <div className={styles['reedback-default-wrapper']}>
