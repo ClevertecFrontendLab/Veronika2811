@@ -8,7 +8,7 @@ export const CARD_ACTIONS = [
         title: ' Расписать тренировки',
         icon: <HeartTwoTone twoToneColor={['#2f54eb', '#2f54eb']} />,
         body: 'Тренировки',
-        pathRedirect: '',
+        pathRedirect: Paths.WORKOUTS,
         testIds: '',
     },
     {

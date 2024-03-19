@@ -1,9 +1,10 @@
-import { ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 import { Modal } from 'antd';
 
 type ModalCustomProps = {
     open: boolean;
     closeIcon?: ReactNode;
+    maskStyle?: CSSProperties;
     className?: string;
     children?: ReactNode;
     closable?: boolean;
@@ -15,6 +16,7 @@ type ModalCustomProps = {
 export const ModalCustom = ({
     open,
     closable = false,
+    maskStyle,
     children,
     width = 539,
     testIds,
@@ -28,7 +30,9 @@ export const ModalCustom = ({
         open={open}
         footer={null}
         closable={closable}
-        maskStyle={{ backdropFilter: 'blur(4px)', background: 'rgba(121, 156, 212, 0.5)' }}
+        maskStyle={
+            maskStyle || { backdropFilter: 'blur(4px)', background: 'rgba(121, 156, 212, 0.5)' }
+        }
         onCancel={onCancel}
         data-test-id={testIds}
         closeIcon={closeIcon}

@@ -1,0 +1,32 @@
+@import '@styles/constants.less';
+
+.workouts {
+    margin: 24px 24px 42px;
+    background: @neutral-1;
+    border-radius: 8px;
+
+    :global {
+        .ant-tabs {
+            padding: 37px 69px 0 36px;
+        }
+
+        .ant-tabs-top > .ant-tabs-nav:before {
+            right: -45px;
+            left: -12px;
+        }
+
+        .ant-tabs-nav-list {
+            flex: 1;
+            justify-content: space-between;
+        }
+
+        .ant-tabs-large > .ant-tabs-nav .ant-tabs-tab {
+            font-size: 24px;
+            padding: 0;
+        }
+
+        .ant-tabs-tab-btn {
+            line-height: 130%;
+        }
+    }
+}

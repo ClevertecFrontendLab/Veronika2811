@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react';
 import { CloseCircleOutlined, CloseOutlined } from '@ant-design/icons';
 import { TRAINING_ERROR_MODAL_CONTENT } from '@components/calendar-custom/constants/training-error-modal-content';
 import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
@@ -16,6 +17,7 @@ type TrainingModalErrorProps = {
     open: boolean;
     onCancel: () => void;
     onClickButton: () => void;
+    maskStyle?: CSSProperties;
 };
 
 export const TrainingModalError = ({
@@ -23,6 +25,7 @@ export const TrainingModalError = ({
     open,
     onCancel,
     onClickButton,
+    maskStyle,
 }: TrainingModalErrorProps) => {
     const { width, closable, className, title, subtitle, buttonText, buttonSize } =
         TRAINING_ERROR_MODAL_CONTENT[type];
@@ -36,6 +39,7 @@ export const TrainingModalError = ({
             closeIcon={<CloseOutlined data-test-id={TrainingTestIds.MODAL_ERROR_BUTTON_CLOSE} />}
             data-test-id={TrainingTestIds.MODAL_ERROR}
             className={styles[className]}
+            maskStyle={maskStyle}
         >
             <Space size={16} align='start'>
                 <CloseCircleOutlined />
