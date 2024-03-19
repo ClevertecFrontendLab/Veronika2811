@@ -1,7 +1,7 @@
 @import '@styles/constants.less';
 
 .exercise-item {
-    width: 100%;
+    width: @full-width;
 
     :global {
         .exercise-name {
@@ -44,11 +44,11 @@
 
         .ant-form-item-label > label {
             height: 24px;
-            font-size: 12px;
+            font-size: @font-size-sm;
             background-color: @neutral-4;
             border-radius: 2px;
             padding-left: 8px;
-            width: 100%;
+            width: @full-width;
         }
     }
 }
@@ -110,7 +110,7 @@
         }
 
         .ant-btn {
-            font-size: 14px;
+            font-size: @font-size-base;
         }
     }
 }
@@ -118,7 +118,7 @@
 .drawer-button-only {
     :global {
         .ant-btn {
-            font-size: 14px;
+            font-size: @font-size-base;
             text-align: left;
             padding-left: 11px;
         }

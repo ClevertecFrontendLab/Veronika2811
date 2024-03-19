@@ -1,22 +1,24 @@
+@import '@styles/constants.less';
+
 .auth-tabs {
     :global {
         .ant-tabs-nav-list {
-            width: 100%;
+            width: @full-width;
         }
 
         .ant-tabs-tab {
             justify-content: center;
             width: 50%;
-            font-size: 16px;
+            font-size: @font-size-lg;
         }
 
         .ant-tabs-tab + .ant-tabs-tab {
-            margin: 0;
+            margin: @margin-zero;
         }
 
         .ant-tabs-tab-btn {
             @media (max-width: 555px) {
-                font-size: 14px;
+                font-size: @font-size-base;
             }
         }
 

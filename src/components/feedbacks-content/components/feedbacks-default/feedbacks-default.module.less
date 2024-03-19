@@ -16,7 +16,7 @@
         .ant-card-head-title {
             padding-top: 53px;
             font-size: 24px;
-            line-height: 130%;
+            line-height: @line-height-large;
             color: @primary-light-9;
             text-align: center;
             white-space: pre-line;
@@ -35,8 +35,7 @@
         }
 
         .ant-typography {
-            margin: 0;
-            line-height: 130%;
+            margin: @margin-zero;
             text-align: center;
             color: @neutral-7;
         }
@@ -54,10 +53,10 @@
 
     :global {
         .ant-btn {
-            font-size: 14px;
+            font-size: @font-size-base;
 
             @media (max-width: 479px) {
-                width: 100%;
+                width: @full-width;
             }
         }
     }

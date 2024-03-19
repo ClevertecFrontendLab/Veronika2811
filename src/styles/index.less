@@ -4,8 +4,8 @@
 @import './constants.less';
 
 * {
-    margin: 0;
-    padding: 0;
+    margin: @margin-zero;
+    padding: @padding-zero;
     box-sizing: border-box;
 }
 
@@ -17,5 +17,17 @@ body {
 }
 
 #root {
-    height: 100%;
+    height: @full-height;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+div,
+span {
+    &.ant-typography {
+        line-height: @line-height-large;
+    }
 }

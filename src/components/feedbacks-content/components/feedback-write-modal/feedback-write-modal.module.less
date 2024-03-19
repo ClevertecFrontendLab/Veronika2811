@@ -1,3 +1,5 @@
+@import '@styles/constants.less';
+
 .feedback-modal {
     :global {
         .ant-modal-content {
@@ -23,9 +25,9 @@
 }
 
 [class*='ant-btn'].feedback-form-button {
-    font-size: 14px;
+    font-size: @font-size-base;
 
     @media (max-width: 479px) {
-        width: 100%;
+        width: @full-width;
     }
 }

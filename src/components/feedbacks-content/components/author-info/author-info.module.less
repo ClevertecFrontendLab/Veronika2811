@@ -1,3 +1,5 @@
+@import '@styles/constants.less';
+
 .author-info {
     display: flex;
     flex-direction: column;
@@ -17,9 +19,8 @@
         }
 
         .ant-typography {
-            margin: 0;
+            margin: @margin-zero;
             font-weight: 400;
-            line-height: 130%;
 
             @media (max-width: 540px) {
                 text-align: left;

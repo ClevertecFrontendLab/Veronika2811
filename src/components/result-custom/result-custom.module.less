@@ -1,5 +1,7 @@
+@import '@styles/constants.less';
+
 [class*='ant-result'].auth-result {
-    padding: 0;
+    padding: @padding-zero;
 
     :global {
         .ant-result-title {
@@ -12,19 +14,19 @@
         }
 
         .ant-btn-primary {
-            width: 100%;
-            font-size: 14px;
+            width: @full-width;
+            font-size: @font-size-base;
         }
     }
 }
 
 [class*='ant-result'].auth-check-no-exist {
-    padding: 0;
+    padding: @padding-zero;
     margin: 0 -32px;
 
     @media (max-width: 555px) {
         padding: 40px 0 24px;
-        margin: 0;
+        margin: @margin-zero;
     }
 
     :global {
@@ -42,13 +44,13 @@
         }
 
         .ant-btn {
-            font-size: 14px;
+            font-size: @font-size-base;
         }
     }
 }
 
 [class*='ant-result'].auth-check-error {
-    padding: 0;
+    padding: @padding-zero;
 
     @media (max-width: 555px) {
         padding: 30px 0 24px;
@@ -68,7 +70,7 @@
             line-height: 1.2;
 
             @media (max-width: 555px) {
-                margin: 0;
+                margin: @margin-zero;
             }
         }
 
@@ -77,7 +79,7 @@
         }
 
         .ant-btn {
-            font-size: 14px;
+            font-size: @font-size-base;
         }
     }
 }
@@ -92,19 +94,19 @@
 
     :global {
         .ant-btn {
-            font-size: 14px;
+            font-size: @font-size-base;
         }
 
         .ant-result-title,
         .ant-result-subtitle {
-            line-height: 130%;
+            line-height: @line-height-large;
         }
 
         .ant-space {
-            width: 100%;
+            width: @full-width;
 
             .ant-btn {
-                width: 100%;
+                width: @full-width;
             }
         }
 
@@ -113,7 +115,7 @@
         }
 
         .ant-result-extra .ant-btn-primary {
-            width: 100%;
+            width: @full-width;
         }
     }
 }

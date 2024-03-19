@@ -15,6 +15,7 @@ export const ButtonSeeReviews = () => {
     return (
         <Button
             type='link'
+            size='large'
             className={styles['footer-button']}
             onClick={handleSeeReviewsClick}
             data-test-id='see-reviews'

@@ -1,7 +1,7 @@
 @import '@styles/constants.less';
 
 [class*='ant-result'].confirm-email {
-    padding: 0;
+    padding: @padding-zero;
     margin: 0 -32px;
 
     @media (max-width: 555px) {
@@ -15,12 +15,12 @@
 
         .confirm-email-code {
             font-weight: 500;
-            line-height: 130%;
+            line-height: @line-height-large;
         }
 
         .ant-result-title {
             font-weight: 500;
-            line-height: 130%;
+            line-height: @line-height-large;
 
             .confirm-email-code {
                 white-space: pre-line;
@@ -31,14 +31,12 @@
                 padding: 0 27px;
 
                 @media (max-width: 555px) {
-                    padding: 0;
+                    padding: @padding-zero;
                 }
             }
         }
 
         .ant-result-subtitle {
-            line-height: 130%;
-
             @media (max-width: 555px) {
                 padding: 0 30px;
             }
@@ -63,7 +61,6 @@
             }
 
             .ant-typography {
-                line-height: 130%;
                 color: @neutral-7;
 
                 @media (max-width: 555px) {
