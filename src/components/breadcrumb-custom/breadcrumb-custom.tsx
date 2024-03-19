@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useAppDispatch } from '@hooks/redux-hooks';
 import { setActiveMenuKey } from '@redux/slice/main-slice';
-import { Paths } from '@routes/constants/paths';
+import { Paths } from '@routes/constants/router-paths';
 import { Breadcrumb } from 'antd';
 
 export const BreadcrumbCustom = () => {
@@ -13,6 +13,7 @@ export const BreadcrumbCustom = () => {
     const breadcrumbNameMap: Record<string, string> = {
         [Paths.FEEDBACKS]: 'Отзывы пользователей',
         [Paths.CALENDAR]: 'Календарь',
+        [Paths.WORKOUTS]: 'Тренировки',
     };
 
     const extraBreadcrumbItems = pathSnippets.map((_, index) => {
@@ -29,7 +30,7 @@ export const BreadcrumbCustom = () => {
 
     const breadcrumbItems = [
         <Breadcrumb.Item key='main'>
-            <Link to='/main' onClick={removeActiveMenuKey}>
+            <Link to={Paths.MAIN} onClick={removeActiveMenuKey}>
                 Главная
             </Link>
         </Breadcrumb.Item>,

@@ -12,10 +12,11 @@ import { CalendarPage } from '@pages/calendar-page';
 import { FeedbacksPage } from '@pages/feedbacks-page';
 import { MainPage } from '@pages/main-page';
 import { NotFoundPage } from '@pages/not-found-page';
+import { WorkoutsPage } from '@pages/workouts-page';
 import { authSlice } from '@redux/selectors';
 
 import { AuthRedirectHandler } from './components/auth-redirect-handler';
-import { Paths } from './constants/paths';
+import { Paths } from './constants/router-paths';
 
 export const AppRouter = () => {
     const { accessToken } = useAppSelector(authSlice);
@@ -72,6 +73,19 @@ export const AppRouter = () => {
                     element={
                         accessToken ? (
                             <CalendarPage />
+                        ) : (
+                            <Navigate to={Paths.AUTH_MAIN} replace={true} />
+                        )
+                    }
+                />
+            </Route>
+
+            <Route path={Paths.WORKOUTS} element={<LayoutMainPage />}>
+                <Route
+                    index={true}
+                    element={
+                        accessToken ? (
+                            <WorkoutsPage />
                         ) : (
                             <Navigate to={Paths.AUTH_MAIN} replace={true} />
                         )

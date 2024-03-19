@@ -1,6 +1,6 @@
 import { push } from 'redux-first-history';
 import { useAppDispatch } from '@hooks/redux-hooks';
-import { Paths } from '@routes/constants/paths';
+import { Paths } from '@routes/constants/router-paths';
 import { Button } from 'antd';
 
 import styles from './button-see-reviews.module.less';

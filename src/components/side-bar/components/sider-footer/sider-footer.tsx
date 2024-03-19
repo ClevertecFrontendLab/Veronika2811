@@ -1,7 +1,7 @@
 import { push } from 'redux-first-history';
 import { useAppDispatch } from '@hooks/redux-hooks';
 import { setAccessToken } from '@redux/slice/auth-slice';
-import { Paths } from '@routes/constants/paths';
+import { Paths } from '@routes/constants/router-paths';
 import { Divider, Layout, Menu } from 'antd';
 
 import { FOOTER_MENU_ITEMS } from '../../constants';

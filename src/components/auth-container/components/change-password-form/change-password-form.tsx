@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useUpdatePasswordMutation } from '@redux/api/auth.api';
 import { authSlice, previousLocationSelector } from '@redux/selectors';
 import { saveChangedPassword } from '@redux/slice/auth-slice';
-import { Paths } from '@routes/constants/paths';
+import { Paths } from '@routes/constants/router-paths';
 import { Button, Form, Typography } from 'antd';
 
 import styles from './change-password-form.module.less';

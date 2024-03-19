@@ -10,7 +10,7 @@ import { useLazyGetFeedbacksQuery } from '@redux/api/feedbacks.api';
 import { setIsLoading } from '@redux/slice/main-slice';
 import { SerializedError } from '@reduxjs/toolkit';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
-import { Paths } from '@routes/constants/paths';
+import { Paths } from '@routes/constants/router-paths';
 
 import styles from './feedbacks-page.module.less';
 

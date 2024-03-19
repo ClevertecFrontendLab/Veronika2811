@@ -1,7 +1,7 @@
 import { push } from 'redux-first-history';
 import { LogoApp } from '@components/ui/logo-app';
 import { useAppDispatch } from '@hooks/redux-hooks';
-import { Paths } from '@routes/constants/paths';
+import { Paths } from '@routes/constants/router-paths';
 import classNames from 'classnames';
 
 import styles from './sider-logo.module.less';

@@ -10,7 +10,7 @@ import { useLazyGetCatalogTrainingListQuery } from '@redux/api/catalogs.api';
 import { useLazyGetUserTrainingDataQuery } from '@redux/api/training.api';
 import { setCatalogTrainingList } from '@redux/slice/catalogs-slice';
 import { setUserTrainingList, setUserTrainingListError } from '@redux/slice/training-slice';
-import { Paths } from '@routes/constants/paths';
+import { Paths } from '@routes/constants/router-paths';
 
 import styles from './calendar-page.module.less';
 

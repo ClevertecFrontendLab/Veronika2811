@@ -3,7 +3,7 @@ import { push } from 'redux-first-history';
 import { FeedbacksStatus } from '@constants/feedbacks/feedbacks-constants';
 import { TRAINING_STATUS_ERROR } from '@constants/training/training-status-constants';
 import { useAppDispatch } from '@hooks/redux-hooks';
-import { Paths } from '@routes/constants/paths';
+import { Paths } from '@routes/constants/router-paths';
 import { Button, Result } from 'antd';
 import classNames from 'classnames';
 

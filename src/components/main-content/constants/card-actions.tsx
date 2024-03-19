@@ -1,6 +1,6 @@
 import { CalendarTwoTone, HeartTwoTone, IdcardTwoTone } from '@ant-design/icons';
 import { MENU_KEYS } from '@constants/main/menu-keys';
-import { Paths } from '@routes/constants/paths';
+import { Paths } from '@routes/constants/router-paths';
 
 export const CARD_ACTIONS = [
     {

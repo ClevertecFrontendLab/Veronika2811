@@ -2,7 +2,7 @@ import { push } from 'redux-first-history';
 import { AUTH_FORM_TABS } from '@components/auth-container/constants';
 import { LOGIN } from '@constants/auth/auth-constants';
 import { useAppDispatch } from '@hooks/redux-hooks';
-import { Paths } from '@routes/constants/paths';
+import { Paths } from '@routes/constants/router-paths';
 import { Tabs } from 'antd';
 
 import styles from './custom-tabs.module.less';

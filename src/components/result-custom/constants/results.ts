@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { AuthStatus } from '@constants/auth/auth-status-constants';
 import { FeedbacksStatus } from '@constants/feedbacks/feedbacks-constants';
 import { TRAINING_STATUS_ERROR } from '@constants/training/training-status-constants';
-import { Paths } from '@routes/constants/paths';
+import { Paths } from '@routes/constants/router-paths';
 import { ResultStatusType } from 'antd/lib/result';
 
 type ResultsInfo = {

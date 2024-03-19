@@ -8,7 +8,7 @@ import { useLoginUserMutation, useRegisterUserMutation } from '@redux/api/auth.a
 import { authSlice, previousLocationSelector } from '@redux/selectors';
 import { saveRegistrationData, setAccessToken } from '@redux/slice/auth-slice';
 import { setIsLoading } from '@redux/slice/main-slice';
-import { Paths } from '@routes/constants/paths';
+import { Paths } from '@routes/constants/router-paths';
 import { Form } from 'antd';
 
 import { LoginForm } from '../login-form';

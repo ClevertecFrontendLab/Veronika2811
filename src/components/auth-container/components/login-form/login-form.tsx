@@ -9,7 +9,7 @@ import { useCheckEmailExistenceMutation } from '@redux/api/auth.api';
 import { BASE_URL } from '@redux/api/constants/base-url';
 import { authSlice, previousLocationSelector } from '@redux/selectors';
 import { saveEmailRecoveryPassword } from '@redux/slice/auth-slice';
-import { Paths } from '@routes/constants/paths';
+import { Paths } from '@routes/constants/router-paths';
 import { Button, Checkbox, Form, FormInstance } from 'antd';
 
 import { AuthFormButtons } from '../auth-form-buttons';

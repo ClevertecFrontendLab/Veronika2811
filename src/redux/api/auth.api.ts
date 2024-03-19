@@ -1,6 +1,6 @@
 import { LOGIN, REGISTRATION } from '@constants/auth/auth-constants';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Paths } from '@routes/constants/paths';
+import { Paths } from '@routes/constants/router-paths';
 
 import { BASE_URL } from './constants/base-url';
 
