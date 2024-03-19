@@ -12,13 +12,13 @@ import { CalendarPage } from '@pages/calendar-page';
 import { FeedbacksPage } from '@pages/feedbacks-page';
 import { MainPage } from '@pages/main-page';
 import { NotFoundPage } from '@pages/not-found-page';
-import { accessTokenSelector } from '@redux/selectors';
+import { authSlice } from '@redux/selectors';
 
 import { AuthRedirectHandler } from './components/auth-redirect-handler';
 import { Paths } from './constants/paths';
 
 export const AppRouter = () => {
-    const accessToken = useAppSelector(accessTokenSelector);
+    const { accessToken } = useAppSelector(authSlice);
 
     const location = useLocation();
     const isRedirect = location.state?.fromRedirect;

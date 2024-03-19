@@ -1,7 +1,7 @@
 import React, { MouseEvent, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useBreakpoints } from '@hooks/use-breakpoints';
-import { isModalVisibleSelector, userTrainingListSelector } from '@redux/selectors';
+import { trainingSlice } from '@redux/selectors';
 import { resetState, setModalVisible } from '@redux/slice/training-slice';
 import { Calendar } from 'antd';
 import type { Moment } from 'moment';
@@ -30,8 +30,7 @@ export const CalendarCustom = ({ refetchUserTrainingList }: CalendarCustomProps)
     const [selectedDate, setSelectedDate] = useState(moment());
     const [selectedCellInfo, setSelectedCellInfo] = useState<SelectedCellInfo | null>(null);
 
-    const userTrainingListData = useAppSelector(userTrainingListSelector);
-    const isModalVisible = useAppSelector(isModalVisibleSelector);
+    const { userTrainingList, isModalVisible } = useAppSelector(trainingSlice);
     const dispatch = useAppDispatch();
 
     const { isXs } = useBreakpoints();
@@ -67,7 +66,7 @@ export const CalendarCustom = ({ refetchUserTrainingList }: CalendarCustomProps)
     };
 
     const dateFullCellRender = (date: Moment) => {
-        const trainingList = filterTrainingsByDate(userTrainingListData, date);
+        const trainingList = filterTrainingsByDate(userTrainingList, date);
 
         const isUserTraningInSelectedDay = trainingList.length > 0;
         const isUserTrainingAndNotMobile = isUserTraningInSelectedDay && !isXs;

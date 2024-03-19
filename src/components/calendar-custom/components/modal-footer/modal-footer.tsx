@@ -1,5 +1,5 @@
 import { useAppSelector } from '@hooks/redux-hooks';
-import { isEditModeSelector } from '@redux/selectors';
+import { trainingSlice } from '@redux/selectors';
 import type { Moment } from 'moment';
 
 import { Footer, FooterEdit } from './components';
@@ -13,7 +13,7 @@ type ModalFooterProps = {
 };
 
 export const ModalFooter = ({ date, cellContent, refetchUserTrainingList }: ModalFooterProps) => {
-    const isEditMode = useAppSelector(isEditModeSelector);
+    const { isEditMode } = useAppSelector(trainingSlice);
 
     if (isEditMode) {
         return <FooterEdit date={date} refetchUserTrainingList={refetchUserTrainingList} />;

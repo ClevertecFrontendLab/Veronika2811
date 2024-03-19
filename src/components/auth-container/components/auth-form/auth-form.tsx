@@ -5,7 +5,7 @@ import { AuthStatus } from '@constants/auth/auth-status-constants';
 import { ACCESS_TOKEN_KEY } from '@constants/storage-keys';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useLoginUserMutation, useRegisterUserMutation } from '@redux/api/auth.api';
-import { previousLocationSelector, registrationUserDataSelector } from '@redux/selectors';
+import { authSlice, previousLocationSelector } from '@redux/selectors';
 import { saveRegistrationData, setAccessToken } from '@redux/slice/auth-slice';
 import { setIsLoading } from '@redux/slice/main-slice';
 import { Paths } from '@routes/constants/paths';
@@ -28,7 +28,7 @@ export const AuthForm = ({ type }: { type: AuthComponentTypes }) => {
     const [loginUser, { isLoading: isLoadingLogin }] = useLoginUserMutation();
 
     const previousLocations = useAppSelector(previousLocationSelector);
-    const registrationUserData = useAppSelector(registrationUserDataSelector);
+    const { registerUser } = useAppSelector(authSlice);
     const dispatch = useAppDispatch();
 
     const [isForgotPasswordButtonDisabled, setIsForgotPasswordButtonDisabled] = useState(false);
@@ -127,9 +127,9 @@ export const AuthForm = ({ type }: { type: AuthComponentTypes }) => {
         const previousRoute = previousLocations?.[1]?.location?.pathname;
 
         if (previousRoute === `${Paths.AUTH_MAIN_RESULTS}/${Paths.AUTH_SUB_RESULT_ERROR}`) {
-            handleRegistrationSubmission(registrationUserData);
+            handleRegistrationSubmission(registerUser);
         }
-    }, [handleRegistrationSubmission, previousLocations, registrationUserData]);
+    }, [handleRegistrationSubmission, previousLocations, registerUser]);
 
     useEffect(() => {
         dispatch(setIsLoading(isLoadingRegister || isLoadingLogin));

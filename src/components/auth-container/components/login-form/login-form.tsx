@@ -7,7 +7,7 @@ import { AuthStatus } from '@constants/auth/auth-status-constants';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useCheckEmailExistenceMutation } from '@redux/api/auth.api';
 import { BASE_URL } from '@redux/api/constants/base-url';
-import { previousLocationSelector, verificationEmailSelector } from '@redux/selectors';
+import { authSlice, previousLocationSelector } from '@redux/selectors';
 import { saveEmailRecoveryPassword } from '@redux/slice/auth-slice';
 import { Paths } from '@routes/constants/paths';
 import { Button, Checkbox, Form, FormInstance } from 'antd';
@@ -33,7 +33,7 @@ export const LoginForm = ({
     const [checkUser] = useCheckEmailExistenceMutation();
 
     const previousLocations = useAppSelector(previousLocationSelector);
-    const verificationEmail = useAppSelector(verificationEmailSelector);
+    const { verificationEmail } = useAppSelector(authSlice);
     const dispatch = useAppDispatch();
 
     const checkEmailRegistrationError = useCallback(

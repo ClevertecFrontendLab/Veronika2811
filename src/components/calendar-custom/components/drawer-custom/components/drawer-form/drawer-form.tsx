@@ -4,7 +4,7 @@ import { TrainingTestIds } from '@components/calendar-custom/constants/training-
 import { CurrentTraining } from '@components/calendar-custom/types/current-training';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useBreakpoints } from '@hooks/use-breakpoints';
-import { currentTrainingSelector, editTrainingSelector } from '@redux/selectors';
+import { trainingSlice } from '@redux/selectors';
 import { setCurrentTraining } from '@redux/slice/training-slice';
 import { Button, Checkbox, Form, Input, InputNumber, Space } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
@@ -26,8 +26,7 @@ export const DrawerForm = ({ onCloseDrawer }: { onCloseDrawer: () => void }) => 
 
     const { isXs } = useBreakpoints();
 
-    const currentTraining = useAppSelector(currentTrainingSelector);
-    const editTraining = useAppSelector(editTrainingSelector);
+    const { currentTraining, editTraining } = useAppSelector(trainingSlice);
     const dispatch = useAppDispatch();
 
     const [removeFieldsKey, setRemoveFieldsKey] = useState<number[]>([]);

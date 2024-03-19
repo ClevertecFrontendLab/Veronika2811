@@ -3,11 +3,7 @@ import { TrainingModalError } from '@components/calendar-custom/components/train
 import { TYPE_ERROR_SAVE } from '@constants/training/training-types-error-modal';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useAddUserTrainingMutation, useEditUserTrainingMutation } from '@redux/api/training.api';
-import {
-    currentTrainingSelector,
-    editTrainingSelector,
-    typeTrainingSelector,
-} from '@redux/selectors';
+import { trainingSlice } from '@redux/selectors';
 import { resetEditMode, setDrawerVisible, setModalVisible } from '@redux/slice/training-slice';
 import { Button } from 'antd';
 import type { Moment } from 'moment';
@@ -25,9 +21,7 @@ export const FooterEdit = ({ date, refetchUserTrainingList }: FooterEditProps) =
 
     const [saveTrainingError, setSaveTrainingError] = useState(false);
 
-    const typeTraining = useAppSelector(typeTrainingSelector);
-    const currentTraining = useAppSelector(currentTrainingSelector);
-    const editTraining = useAppSelector(editTrainingSelector);
+    const { typeTraining, currentTraining, editTraining } = useAppSelector(trainingSlice);
     const dispatch = useAppDispatch();
 
     const openDrawer = () => dispatch(setDrawerVisible(true));

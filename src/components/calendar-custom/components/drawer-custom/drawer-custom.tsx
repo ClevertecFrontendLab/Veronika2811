@@ -3,7 +3,7 @@ import { TRAINING_MODAL_WIDTH } from '@components/calendar-custom/constants/trai
 import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useBreakpoints } from '@hooks/use-breakpoints';
-import { editTrainingSelector } from '@redux/selectors';
+import { trainingSlice } from '@redux/selectors';
 import { setDrawerVisible } from '@redux/slice/training-slice';
 import { Button, Drawer } from 'antd';
 
@@ -16,7 +16,7 @@ type DrawerCustomProps = {
 };
 
 export const DrawerCustom = ({ open, date }: DrawerCustomProps) => {
-    const editTraining = useAppSelector(editTrainingSelector);
+    const { editTraining } = useAppSelector(trainingSlice);
     const dispatch = useAppDispatch();
 
     const { isXs } = useBreakpoints();

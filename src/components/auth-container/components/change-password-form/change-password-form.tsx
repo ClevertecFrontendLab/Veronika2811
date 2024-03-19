@@ -4,7 +4,7 @@ import { CHANGE_PASSWORD_FIELDS } from '@components/auth-container/constants';
 import { AuthTestIds } from '@components/auth-container/constants/auth-test-ids';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useUpdatePasswordMutation } from '@redux/api/auth.api';
-import { newPasswordSelector, previousLocationSelector } from '@redux/selectors';
+import { authSlice, previousLocationSelector } from '@redux/selectors';
 import { saveChangedPassword } from '@redux/slice/auth-slice';
 import { Paths } from '@routes/constants/paths';
 import { Button, Form, Typography } from 'antd';
@@ -22,7 +22,7 @@ export const ChangePasswordForm = () => {
     const [changePassword] = useUpdatePasswordMutation();
 
     const previousLocations = useAppSelector(previousLocationSelector);
-    const newPassword = useAppSelector(newPasswordSelector);
+    const { newPassword } = useAppSelector(authSlice);
     const dispatch = useAppDispatch();
 
     const onFinish = useCallback(
