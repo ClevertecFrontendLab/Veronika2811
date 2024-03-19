@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { LogoSizeType } from '@components/ui/logo-app/types/types';
 import classNames from 'classnames/bind';
 
@@ -5,7 +6,7 @@ import styles from './clever-logo.module.less';
 
 const cx = classNames.bind(styles);
 
-export const CleverLogo = ({ size = 'sm' }: { size?: LogoSizeType }) => {
+export const CleverLogo: FC<{ size?: LogoSizeType }> = ({ size = 'sm' }) => {
     const logoClass = cx({
         clever: true,
         [`clever-${size}`]: true,

@@ -1,7 +1,9 @@
-.auth-logo-wrapper {
-    padding-bottom: 40px;
+@import '@styles/constants.less';
 
-    @media (max-width: 555px) {
-        padding-bottom: 25px;
+.auth-logo-wrapper {
+    padding-bottom: @padding-margin-40px;
+
+    @media (max-width: @screen-sm) {
+        padding-bottom: @padding-margin-25px;
     }
 }

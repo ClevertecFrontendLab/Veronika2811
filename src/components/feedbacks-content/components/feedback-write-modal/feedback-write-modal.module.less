@@ -3,21 +3,21 @@
 .feedback-modal {
     :global {
         .ant-modal-content {
-            @media (max-width: 479px) {
+            @media (max-width: @screen-xs) {
                 margin: 0 8px;
             }
         }
 
         .ant-modal-header {
-            @media (max-width: 479px) {
-                padding: 16px;
+            @media (max-width: @screen-xs) {
+                padding: @padding-margin-16px;
             }
         }
 
         .ant-modal-body {
             padding: 20px 16px 0;
 
-            @media (max-width: 479px) {
+            @media (max-width: @screen-xs) {
                 padding: 16px 16px 0;
             }
         }
@@ -27,7 +27,7 @@
 [class*='ant-btn'].feedback-form-button {
     font-size: @font-size-base;
 
-    @media (max-width: 479px) {
+    @media (max-width: @screen-xs) {
         width: @full-width;
     }
 }

@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { isPastDate } from '@components/calendar-custom/utils/is-past-date';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { catalogTrainingListSelector } from '@redux/selectors';
@@ -12,7 +13,7 @@ type FooterProps = {
     date: Moment;
 };
 
-export const Footer = ({ date, cellContent }: FooterProps) => {
+export const Footer: FC<FooterProps> = ({ date, cellContent }) => {
     const catalogTrainingList = useAppSelector(catalogTrainingListSelector);
     const dispatch = useAppDispatch();
 

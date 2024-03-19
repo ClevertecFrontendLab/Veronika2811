@@ -1,4 +1,4 @@
-import React, { MouseEvent, useState } from 'react';
+import React, { FC, MouseEvent, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useBreakpoints } from '@hooks/use-breakpoints';
 import { trainingSlice } from '@redux/selectors';
@@ -14,6 +14,7 @@ import { filterTrainingsByDate } from './utils/filter-trainings-by-date';
 import styles from './calendar-custom.module.less';
 import { TrainingList, TrainingModal } from './components';
 
+import { Nullebel } from '@/types/nullebel';
 import { TrainingResponse } from '@/types/training/training-api-data-types';
 
 moment.updateLocale('ru', {
@@ -26,9 +27,9 @@ type CalendarCustomProps = {
     refetchUserTrainingList: () => void;
 };
 
-export const CalendarCustom = ({ refetchUserTrainingList }: CalendarCustomProps) => {
+export const CalendarCustom: FC<CalendarCustomProps> = ({ refetchUserTrainingList }) => {
     const [selectedDate, setSelectedDate] = useState(moment());
-    const [selectedCellInfo, setSelectedCellInfo] = useState<SelectedCellInfo | null>(null);
+    const [selectedCellInfo, setSelectedCellInfo] = useState<Nullebel<SelectedCellInfo>>(null);
 
     const { userTrainingList, isModalVisible } = useAppSelector(trainingSlice);
     const dispatch = useAppDispatch();
@@ -46,7 +47,7 @@ export const CalendarCustom = ({ refetchUserTrainingList }: CalendarCustomProps)
             setSelectedDate(date);
 
             const cellHTMLElement = target.closest('td');
-            const bodyHTMLElement: HTMLDivElement | null = target.closest('.ant-picker-body');
+            const bodyHTMLElement: Nullebel<HTMLDivElement> = target.closest('.ant-picker-body');
 
             if (date.month() === selectedDate.month()) {
                 if (!isXs && cellHTMLElement instanceof HTMLTableCellElement) {

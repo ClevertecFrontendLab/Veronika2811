@@ -5,15 +5,15 @@
         .ant-card-body {
             padding: 14px 24px 24px;
 
-            @media (max-width: 540px) {
+            @media (max-width: @screen-sm) {
                 padding: 14px 16px 24px;
             }
         }
 
         .ant-comment-inner {
-            padding: @padding-zero;
+            padding: @padding-margin-zero;
 
-            @media (max-width: 540px) {
+            @media (max-width: @screen-sm) {
                 flex-direction: column;
             }
         }
@@ -28,15 +28,15 @@
         }
 
         .ant-rate-star:not(:last-child) {
-            margin-right: 6px;
+            margin-right: @padding-margin-6px;
         }
 
         .ant-comment-content-author > span {
-            padding-right: 17px;
+            padding-right: @padding-17px;
         }
 
         .ant-comment-content-author {
-            margin-bottom: 9px;
+            margin-bottom: @margin-9px;
         }
 
         .ant-comment-content-detail .ant-typography {

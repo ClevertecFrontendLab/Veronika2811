@@ -1,8 +1,9 @@
+import { FC } from 'react';
 import { Empty } from 'antd';
 
 import styles from './empty-custom.module.less';
 
-export const EmptyCustom = ({ description = false }: { description?: string | boolean }) => (
+export const EmptyCustom: FC<{ description?: string | boolean }> = ({ description = false }) => (
     <Empty
         className={styles.empty}
         image='https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg'

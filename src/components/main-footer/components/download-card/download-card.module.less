@@ -5,27 +5,27 @@
         .ant-card-head-wrapper {
             flex-direction: column;
             align-items: flex-start;
-            gap: 8px;
+            gap: @gap-8px;
 
-            @media (max-width: 479px) {
+            @media (max-width: @screen-xs) {
                 align-items: center;
             }
         }
 
         .ant-card-head-title {
-            padding: @padding-zero;
+            padding: @padding-margin-zero;
         }
 
         .ant-card-extra {
-            padding: @padding-zero;
-            margin: @margin-zero;
+            padding: @padding-margin-zero;
+            margin: @padding-margin-zero;
             color: @neutral-7;
         }
 
         .ant-btn {
             padding: 4px 16px 4px 8px;
 
-            @media (max-width: 479px) {
+            @media (max-width: @screen-xs) {
                 flex-grow: 1;
             }
         }

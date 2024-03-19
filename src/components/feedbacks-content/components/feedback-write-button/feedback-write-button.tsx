@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { FeedbacksTestIds } from '@components/feedbacks-content/constants/feedbacks-test-id';
 import { FeedbacksRefetch } from '@components/feedbacks-content/types/feedbacks-types';
 import { ResultCustom } from '@components/result-custom';
@@ -9,7 +9,7 @@ import { Button } from 'antd';
 import { FeedbackResultFooterError } from '../feedback-result-footer-error';
 import { FeedbackWriteModal } from '../feedback-write-modal';
 
-export const FeedbackWriteButton = ({ refetch }: FeedbacksRefetch) => {
+export const FeedbackWriteButton: FC<FeedbacksRefetch> = ({ refetch }) => {
     const [isModalFormVisible, setIsModalFormVisible] = useState(false);
     const [modalResult, setModalResult] = useState('');
 

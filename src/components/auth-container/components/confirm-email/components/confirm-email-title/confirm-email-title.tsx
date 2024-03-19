@@ -1,9 +1,8 @@
+import { FC } from 'react';
 import { Typography } from 'antd';
 
-export const ConfirmEmailTitle = ({
+export const ConfirmEmailTitle: FC<{ incorrectVerificationCode: boolean }> = ({
     incorrectVerificationCode,
-}: {
-    incorrectVerificationCode: boolean;
 }) => {
     if (!incorrectVerificationCode) {
         return (

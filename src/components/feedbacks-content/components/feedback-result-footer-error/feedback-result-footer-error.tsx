@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { FeedbacksTestIds } from '@components/feedbacks-content/constants/feedbacks-test-id';
 import { Button, Space } from 'antd';
 
@@ -6,10 +7,10 @@ type FeedbackResultFooterErrorProps = {
     setIsModalFormVisible: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const FeedbackResultFooterError = ({
+export const FeedbackResultFooterError: FC<FeedbackResultFooterErrorProps> = ({
     closeModalResult,
     setIsModalFormVisible,
-}: FeedbackResultFooterErrorProps) => {
+}) => {
     const writeFeedback = () => {
         closeModalResult();
         setIsModalFormVisible(true);

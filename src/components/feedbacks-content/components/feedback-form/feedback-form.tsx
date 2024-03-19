@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { FeedbacksRefetch } from '@components/feedbacks-content/types/feedbacks-types';
 import { characterRender } from '@components/feedbacks-content/utils/character-rate-render';
 import { FeedbacksStatus } from '@constants/feedbacks/feedbacks-constants';
@@ -20,12 +20,12 @@ type FeedbackFormProps = FeedbacksRefetch & {
     changeDisabledButton: (state: boolean) => void;
 };
 
-export const FeedbackForm = ({
+export const FeedbackForm: FC<FeedbackFormProps> = ({
     refetch,
     toggleModalVisibility,
     setIsModalResult,
     changeDisabledButton,
-}: FeedbackFormProps) => {
+}) => {
     const [form] = Form.useForm<FeedbackFormValues>();
 
     const [addFeedback, { isLoading }] = useAddFeedbackMutation();

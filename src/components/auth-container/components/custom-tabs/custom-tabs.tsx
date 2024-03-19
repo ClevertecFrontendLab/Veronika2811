@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { push } from 'redux-first-history';
 import { AUTH_FORM_TABS } from '@components/auth-container/constants';
 import { LOGIN } from '@constants/auth/auth-constants';
@@ -9,7 +10,7 @@ import styles from './custom-tabs.module.less';
 
 import { AuthComponentTypes } from '@/types/auth';
 
-export const CustomTabs = ({ type }: { type: AuthComponentTypes }) => {
+export const CustomTabs: FC<{ type: AuthComponentTypes }> = ({ type }) => {
     const dispatch = useAppDispatch();
 
     const onChange = (key: string) =>

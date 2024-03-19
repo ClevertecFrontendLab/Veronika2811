@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { TrainingModalError } from '@components/calendar-custom/components/training-modal-error';
 import { TYPE_ERROR_SAVE } from '@constants/training/training-types-error-modal';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
@@ -15,7 +15,7 @@ type FooterEditProps = {
     refetchUserTrainingList: () => void;
 };
 
-export const FooterEdit = ({ date, refetchUserTrainingList }: FooterEditProps) => {
+export const FooterEdit: FC<FooterEditProps> = ({ date, refetchUserTrainingList }) => {
     const [addUserTraining, { isLoading: isLoadingAddTraining }] = useAddUserTrainingMutation();
     const [editUserTraining, { isLoading: isLoadingEditTraining }] = useEditUserTrainingMutation();
 

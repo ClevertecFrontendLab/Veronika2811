@@ -5,20 +5,20 @@
 
     :global {
         .ant-btn {
-            @media (max-width: 555px) {
+            @media (max-width: @screen-sm) {
                 font-size: @font-size-base;
             }
         }
 
         .anticon {
-            @media (max-width: 555px) {
+            @media (max-width: @screen-sm) {
                 display: none;
             }
         }
 
         .ant-btn > .anticon + span {
-            @media (max-width: 555px) {
-                margin-left: @margin-zero;
+            @media (max-width: @screen-sm) {
+                margin-left: @padding-margin-zero;
             }
         }
     }

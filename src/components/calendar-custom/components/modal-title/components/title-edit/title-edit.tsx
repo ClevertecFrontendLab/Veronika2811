@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
 import { filterOutTrainingTypesForDay } from '@components/calendar-custom/utils/filter-out-training-types-for-day';
@@ -21,7 +21,7 @@ type SelectOption = {
     value: string;
 };
 
-export const TitleEdit = ({ cellContent }: { cellContent: TrainingResponse[] }) => {
+export const TitleEdit: FC<{ cellContent: TrainingResponse[] }> = ({ cellContent }) => {
     const trainingListData = useAppSelector(catalogTrainingListSelector);
     const { typeTraining, editTraining } = useAppSelector(trainingSlice);
     const dispatch = useAppDispatch();

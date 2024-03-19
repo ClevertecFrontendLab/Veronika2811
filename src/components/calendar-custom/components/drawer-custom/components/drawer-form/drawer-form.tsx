@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
 import { CurrentTraining } from '@components/calendar-custom/types/current-training';
@@ -21,7 +21,7 @@ const INITIAL_STATE_DRAWER_FORM = {
 
 type RemoveListAntd = (index: number[] | number) => void;
 
-export const DrawerForm = ({ onCloseDrawer }: { onCloseDrawer: () => void }) => {
+export const DrawerForm: FC<{ onCloseDrawer: () => void }> = ({ onCloseDrawer }) => {
     const [form] = Form.useForm();
 
     const { isXs } = useBreakpoints();

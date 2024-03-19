@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { ResultCustom } from '@components/result-custom';
 
 import { ModalCustom } from '../modal-custom';
@@ -9,12 +10,12 @@ type ModalServerErrorProps = {
     onClickCloseModal: () => void;
 };
 
-export const ModalServerError = ({
+export const ModalServerError: FC<ModalServerErrorProps> = ({
     open,
     testIds,
     statusCode,
     onClickCloseModal,
-}: ModalServerErrorProps) => (
+}) => (
     <ModalCustom open={open} testIds={testIds}>
         <ResultCustom statusCode={statusCode} onClick={onClickCloseModal} />
     </ModalCustom>

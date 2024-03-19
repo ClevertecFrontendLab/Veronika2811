@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { EditOutlined } from '@ant-design/icons';
 import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
 import { Button, List } from 'antd';
@@ -13,7 +14,7 @@ type TrainingListProps = {
     onClickEditTraining?: (item: TrainingResponse) => void;
 };
 
-export const TrainingList = ({ data, className, onClickEditTraining }: TrainingListProps) => (
+export const TrainingList: FC<TrainingListProps> = ({ data, className, onClickEditTraining }) => (
     <List
         bordered={false}
         dataSource={data}

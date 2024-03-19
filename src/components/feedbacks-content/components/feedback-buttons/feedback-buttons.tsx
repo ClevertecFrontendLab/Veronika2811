@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { FeedbacksTestIds } from '@components/feedbacks-content/constants/feedbacks-test-id';
 import { FeedbacksRefetch } from '@components/feedbacks-content/types/feedbacks-types';
 import { Button, Space } from 'antd';
@@ -11,7 +12,11 @@ type FeedbackButtonsProps = FeedbacksRefetch & {
     handleClickShowAll: () => void;
 };
 
-export const FeedbackButtons = ({ showAll, handleClickShowAll, refetch }: FeedbackButtonsProps) => (
+export const FeedbackButtons: FC<FeedbackButtonsProps> = ({
+    showAll,
+    handleClickShowAll,
+    refetch,
+}) => (
     <Space className={styles['feedback-buttons']}>
         <FeedbackWriteButton refetch={refetch} />
         <Button

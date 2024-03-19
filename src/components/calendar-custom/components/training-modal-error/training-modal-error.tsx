@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import { CSSProperties, FC } from 'react';
 import { CloseCircleOutlined, CloseOutlined } from '@ant-design/icons';
 import { TRAINING_ERROR_MODAL_CONTENT } from '@components/calendar-custom/constants/training-error-modal-content';
 import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
@@ -20,13 +20,13 @@ type TrainingModalErrorProps = {
     maskStyle?: CSSProperties;
 };
 
-export const TrainingModalError = ({
+export const TrainingModalError: FC<TrainingModalErrorProps> = ({
     type,
     open,
     onCancel,
     onClickButton,
     maskStyle,
-}: TrainingModalErrorProps) => {
+}) => {
     const { width, closable, className, title, subtitle, buttonText, buttonSize } =
         TRAINING_ERROR_MODAL_CONTENT[type];
 

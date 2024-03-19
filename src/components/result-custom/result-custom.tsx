@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { push } from 'redux-first-history';
 import { FeedbacksStatus } from '@constants/feedbacks/feedbacks-constants';
 import { TRAINING_STATUS_ERROR } from '@constants/training/training-status-constants';
@@ -18,7 +18,7 @@ type ResultCustomProps = {
     onClick?: () => void;
 };
 
-export const ResultCustom = ({ statusCode, footer, onClick }: ResultCustomProps) => {
+export const ResultCustom: FC<ResultCustomProps> = ({ statusCode, footer, onClick }) => {
     const dispatch = useAppDispatch();
 
     const matchingResult = RESULTS.find((el) => el.statusCode === statusCode) || DEFAULT_RESULT;

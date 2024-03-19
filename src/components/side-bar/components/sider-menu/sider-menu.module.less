@@ -26,21 +26,21 @@
         }
 
         .ant-menu-item:not(.ant-menu-inline-collapsed) {
-            @media (max-width: 479px) {
-                padding: @padding-zero;
+            @media (max-width: @screen-xs) {
+                padding: @padding-margin-zero;
             }
 
             &:not(:last-child) {
-                margin-bottom: 18px;
+                margin-bottom: @margin-18px;
 
-                @media (max-width: 479px) {
-                    margin-bottom: 10px;
-                    padding: @padding-zero;
+                @media (max-width: @screen-xs) {
+                    margin-bottom: @padding-margin-10px;
+                    padding: @padding-margin-zero;
                 }
             }
 
             .anticon {
-                @media (max-width: 479px) {
+                @media (max-width: @screen-xs) {
                     display: none;
                 }
             }

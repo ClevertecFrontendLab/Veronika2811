@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { useAppSelector } from '@hooks/redux-hooks';
 import { trainingSlice } from '@redux/selectors';
 import type { Moment } from 'moment';
@@ -12,7 +13,11 @@ type ModalFooterProps = {
     refetchUserTrainingList: () => void;
 };
 
-export const ModalFooter = ({ date, cellContent, refetchUserTrainingList }: ModalFooterProps) => {
+export const ModalFooter: FC<ModalFooterProps> = ({
+    date,
+    cellContent,
+    refetchUserTrainingList,
+}) => {
     const { isEditMode } = useAppSelector(trainingSlice);
 
     if (isEditMode) {

@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { FeedbacksRefetch } from '@components/feedbacks-content/types/feedbacks-types';
 import { Card, Typography } from 'antd';
 
@@ -5,7 +6,7 @@ import { FeedbackWriteButton } from '../feedback-write-button';
 
 import styles from './feedbacks-default.module.less';
 
-export const FeedbacksDefault = ({ refetch }: FeedbacksRefetch) => (
+export const FeedbacksDefault: FC<FeedbacksRefetch> = ({ refetch }) => (
     <div className={styles['reedback-default-wrapper']}>
         <Card
             bordered={false}

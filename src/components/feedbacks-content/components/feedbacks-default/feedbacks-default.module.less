@@ -15,13 +15,13 @@
 
         .ant-card-head-title {
             padding-top: 53px;
-            font-size: 24px;
+            font-size: @font-size-24px;
             line-height: @line-height-large;
             color: @primary-light-9;
             text-align: center;
-            white-space: pre-line;
+            white-space: @white-space-pre-line;
 
-            @media (max-width: 479px) {
+            @media (max-width: @screen-xs) {
                 padding-top: 48px;
             }
         }
@@ -29,13 +29,13 @@
         .ant-card-body {
             padding: 30px 32px 54px;
 
-            @media (max-width: 479px) {
+            @media (max-width: @screen-xs) {
                 padding: 33px 32px 46px;
             }
         }
 
         .ant-typography {
-            margin: @margin-zero;
+            margin: @padding-margin-zero;
             text-align: center;
             color: @neutral-7;
         }
@@ -43,11 +43,11 @@
 }
 
 .feedback-default-button {
-    padding-top: 25px;
+    padding-top: @padding-margin-25px;
     display: flex;
     justify-content: center;
 
-    @media (max-width: 479px) {
+    @media (max-width: @screen-xs) {
         padding-top: 49px;
     }
 
@@ -55,7 +55,7 @@
         .ant-btn {
             font-size: @font-size-base;
 
-            @media (max-width: 479px) {
+            @media (max-width: @screen-xs) {
                 width: @full-width;
             }
         }

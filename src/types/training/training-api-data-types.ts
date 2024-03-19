@@ -2,6 +2,7 @@ import { CurrentTraining } from '@components/calendar-custom/types/current-train
 import type { Moment } from 'moment';
 
 import { ErrorTypes } from '../error-types';
+import { Nullebel } from '../nullebel';
 
 type TrainingParameters = {
     repeat: boolean;
@@ -30,8 +31,8 @@ export type TrainingResponse = ErrorTypes & {
 };
 
 export type TrainingEditData = {
-    name: string | null;
+    name: Nullebel<string>;
     date: Moment;
-    exercises: CurrentTraining[] | null;
+    exercises: Nullebel<CurrentTraining[]>;
     isImplementation?: boolean;
 };

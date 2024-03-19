@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { GooglePlusOutlined } from '@ant-design/icons';
 import { Button, Space } from 'antd';
 
@@ -9,7 +10,11 @@ type AuthFormButtonsProps = {
     onClickGoogleLogin?: () => void;
 };
 
-export const AuthFormButtons = ({ label, testId, onClickGoogleLogin }: AuthFormButtonsProps) => (
+export const AuthFormButtons: FC<AuthFormButtonsProps> = ({
+    label,
+    testId,
+    onClickGoogleLogin,
+}) => (
     <Space direction='vertical' size={16} className={styles['auth-form-buttons']}>
         <Button htmlType='submit' type='primary' size='large' block={true} data-test-id={testId}>
             Войти

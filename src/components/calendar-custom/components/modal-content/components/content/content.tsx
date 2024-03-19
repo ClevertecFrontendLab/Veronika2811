@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { TrainingList } from '@components/calendar-custom/components/training-list';
 import { filterTrainingsByDate } from '@components/calendar-custom/utils/filter-trainings-by-date';
 import { isPastDate } from '@components/calendar-custom/utils/is-past-date';
@@ -15,7 +16,7 @@ import { EmptyCustom } from '../empty-custom';
 
 import { TrainingResponse } from '@/types/training/training-api-data-types';
 
-export const Content = ({ date }: { date: Moment }) => {
+export const Content: FC<{ date: Moment }> = ({ date }) => {
     const { userTrainingList } = useAppSelector(trainingSlice);
     const dispatch = useAppDispatch();
 

@@ -1,7 +1,7 @@
 @import '@styles/constants.less';
 
 [class*='ant-result'].auth-result {
-    padding: @padding-zero;
+    padding: @padding-margin-zero;
 
     :global {
         .ant-result-title {
@@ -21,12 +21,12 @@
 }
 
 [class*='ant-result'].auth-check-no-exist {
-    padding: @padding-zero;
+    padding: @padding-margin-zero;
     margin: 0 -32px;
 
-    @media (max-width: 555px) {
+    @media (max-width: @screen-sm) {
         padding: 40px 0 24px;
-        margin: @margin-zero;
+        margin: @padding-margin-zero;
     }
 
     :global {
@@ -38,7 +38,7 @@
             padding: 0 44px;
             line-height: 1.2;
 
-            @media (max-width: 555px) {
+            @media (max-width: @screen-sm) {
                 padding: 0 26px;
             }
         }
@@ -50,15 +50,15 @@
 }
 
 [class*='ant-result'].auth-check-error {
-    padding: @padding-zero;
+    padding: @padding-margin-zero;
 
-    @media (max-width: 555px) {
+    @media (max-width: @screen-sm) {
         padding: 30px 0 24px;
     }
 
     :global {
         .ant-result-icon {
-            margin-bottom: 22px;
+            margin-bottom: @margin-22px;
         }
 
         .ant-result-title {
@@ -69,13 +69,13 @@
             margin: 0 -21px;
             line-height: 1.2;
 
-            @media (max-width: 555px) {
-                margin: @margin-zero;
+            @media (max-width: @screen-sm) {
+                margin: @padding-margin-zero;
             }
         }
 
         .ant-result-extra {
-            margin-top: 25px;
+            margin-top: @padding-margin-25px;
         }
 
         .ant-btn {
@@ -87,7 +87,7 @@
 [class*='ant-result'].feedback-result {
     padding: 46px 63px 40px;
 
-    @media (max-width: 555px) {
+    @media (max-width: @screen-sm) {
         padding: 10px 0;
         margin: 0 -9px;
     }
@@ -127,7 +127,7 @@
         }
 
         .ant-result-subtitle {
-            @media (max-width: 555px) {
+            @media (max-width: @screen-sm) {
                 padding: 0 46px;
             }
         }

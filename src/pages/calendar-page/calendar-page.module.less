@@ -18,26 +18,26 @@
         .ant-picker-calendar {
             padding: 13px 24px 93px;
 
-            @media (max-width: 834px) {
+            @media (max-width: @screen-lg-xs) {
                 padding: 6px 25px 131px;
             }
 
-            @media (max-width: 575px) {
+            @media (max-width: @screen-sm) {
                 padding-bottom: 23px;
             }
         }
 
         .ant-picker-calendar-full .ant-picker-panel .ant-picker-calendar-date {
-            padding-top: @padding-zero;
-            padding-bottom: 30px;
+            padding-top: @padding-margin-zero;
+            padding-bottom: @padding-margin-30px;
 
-            @media (max-width: 834px) {
+            @media (max-width: @screen-lg-xs) {
                 padding: 0 5px 30px;
             }
         }
 
         .ant-picker-calendar .ant-picker-panel .ant-picker-body {
-            padding: @padding-zero;
+            padding: @padding-margin-zero;
         }
 
         .ant-picker-cell-inner {
@@ -47,19 +47,19 @@
         .ant-picker-cell-today {
             border-top: 2px solid @blue-dark-6;
 
-            @media (max-width: 575px) {
+            @media (max-width: @screen-sm) {
                 border-top: none;
             }
         }
 
         .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner:not(.mobile-date) {
-            @media (max-width: 575px) {
+            @media (max-width: @screen-sm) {
                 background: transparent;
             }
         }
 
         .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner {
-            @media (max-width: 575px) {
+            @media (max-width: @screen-sm) {
                 color: @neutral-10;
             }
         }
@@ -96,11 +96,11 @@
         }
 
         .ant-modal-confirm .ant-modal-confirm-btns {
-            margin-top: 12px;
+            margin-top: @margin-12px;
         }
 
         .anticon-close-circle svg {
-            font-size: 24px;
+            font-size: @font-size-24px;
         }
         .ant-modal-close-icon {
             font-size: @font-size-base;
@@ -119,11 +119,11 @@
         }
 
         .ant-modal-confirm-body > .anticon + .ant-modal-confirm-title + .ant-modal-confirm-content {
-            margin-left: 40px;
+            margin-left: @padding-margin-40px;
         }
 
         .ant-modal-confirm-body .ant-modal-confirm-content {
-            margin-top: 4px;
+            margin-top: @margin-4px;
             color: @neutral-7;
         }
     }

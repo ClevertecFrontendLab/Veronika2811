@@ -3,14 +3,14 @@
 .register-field {
     :global {
         .ant-form-item-explain {
-            padding-bottom: 25px;
+            padding-bottom: @padding-margin-25px;
             font-size: @font-size-sm;
             color: @neutral-7;
             text-align: left;
 
-            @media (max-width: 555px) {
+            @media (max-width: @screen-sm) {
                 line-height: @line-height-large;
-                padding-bottom: 10px;
+                padding-bottom: @padding-margin-10px;
             }
         }
 
@@ -44,7 +44,7 @@
         .ant-row {
             margin-bottom: 62px;
 
-            @media (max-width: 555px) {
+            @media (max-width: @screen-sm) {
                 margin-bottom: 57px;
             }
         }
@@ -56,5 +56,5 @@
 }
 
 [class*='ant-form'] [class*='ant-form-item'].registration-wrapper-buttons {
-    margin: @margin-zero;
+    margin: @padding-margin-zero;
 }

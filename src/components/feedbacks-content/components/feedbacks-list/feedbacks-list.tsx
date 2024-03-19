@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { FeedbacksProps } from '@components/feedbacks-content/types/feedbacks-types';
 import { Space } from 'antd';
 
@@ -7,7 +7,7 @@ import { FeedbackCard } from '../feedback-card';
 
 import styles from './feedbacks-list.module.less';
 
-export const FeedbacksList = ({ feedbacksList, refetch }: FeedbacksProps) => {
+export const FeedbacksList: FC<FeedbacksProps> = ({ feedbacksList, refetch }) => {
     const [showAll, setShowAll] = useState(false);
 
     const handleClickShowAll = () => {

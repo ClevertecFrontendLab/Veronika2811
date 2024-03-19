@@ -5,6 +5,7 @@ import type { Moment } from 'moment';
 import { BASE_URL } from './constants/base-url';
 import prepareHeaders from './utils/prepare-headers';
 
+import { Nullebel } from '@/types/nullebel';
 import { TrainingEditData, TrainingResponse } from '@/types/training/training-api-data-types';
 
 export const trainingApi = createApi({
@@ -20,9 +21,9 @@ export const trainingApi = createApi({
         addUserTraining: build.mutation<
             TrainingResponse,
             {
-                name: string | null;
+                name: Nullebel<string>;
                 date: Moment;
-                exercises: CurrentTraining[] | null;
+                exercises: Nullebel<CurrentTraining[]>;
             }
         >({
             query: (body) => ({

@@ -2,18 +2,18 @@
 
 [class*='footer'].sider-footer {
     margin-top: auto;
-    padding: @padding-zero;
+    padding: @padding-margin-zero;
 
     :global {
         .ant-divider-horizontal {
-            margin: @margin-zero;
+            margin: @padding-margin-zero;
         }
 
         .ant-menu-item {
-            margin: @margin-zero;
+            margin: @padding-margin-zero;
 
             .anticon {
-                @media (max-width: 479px) {
+                @media (max-width: @screen-xs) {
                     display: none;
                 }
             }
@@ -22,7 +22,7 @@
         .ant-menu-title-content {
             margin-left: 26px;
 
-            @media (max-width: 479px) {
+            @media (max-width: @screen-xs) {
                 margin-left: 15px;
             }
         }

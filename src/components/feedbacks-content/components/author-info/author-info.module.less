@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
 
-    @media (max-width: 540px) {
+    @media (max-width: @screen-sm) {
         flex-direction: row;
         align-items: flex-start;
     }
@@ -13,18 +13,18 @@
         .ant-card-meta-avatar {
             padding: 6px 0 11px;
 
-            @media (max-width: 540px) {
-                padding-right: 16px;
+            @media (max-width: @screen-sm) {
+                padding-right: @padding-margin-16px;
             }
         }
 
         .ant-typography {
-            margin: @margin-zero;
-            font-weight: 400;
+            margin: @padding-margin-zero;
+            font-weight: @font-weight-normal;
 
-            @media (max-width: 540px) {
+            @media (max-width: @screen-sm) {
                 text-align: left;
-                padding-top: 6px;
+                padding-top: @padding-margin-6px;
             }
         }
     }

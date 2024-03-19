@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { Button } from 'antd';
 
 type ButtonDownloadProps = {
@@ -5,7 +6,7 @@ type ButtonDownloadProps = {
     label: string;
 };
 
-export const ButtonDownload = ({ icon, label }: ButtonDownloadProps) => (
+export const ButtonDownload: FC<ButtonDownloadProps> = ({ icon, label }) => (
     <Button type='text' icon={icon}>
         {label}
     </Button>

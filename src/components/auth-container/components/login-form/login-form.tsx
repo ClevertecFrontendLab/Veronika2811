@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { FC, useCallback, useEffect } from 'react';
 import { push } from 'redux-first-history';
 import { AuthTestIds } from '@components/auth-container/constants/auth-test-ids';
 import { LOGIN_FIELDS } from '@components/auth-container/constants/login-fields';
@@ -25,11 +25,11 @@ type LoginFormProps = {
     setIsForgotPasswordButtonDisabled: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const LoginForm = ({
+export const LoginForm: FC<LoginFormProps> = ({
     form,
     isForgotPasswordButtonDisabled,
     setIsForgotPasswordButtonDisabled,
-}: LoginFormProps) => {
+}) => {
     const [checkUser] = useCheckEmailExistenceMutation();
 
     const previousLocations = useAppSelector(previousLocationSelector);

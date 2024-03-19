@@ -1,15 +1,17 @@
+@import '@styles/constants.less';
+
 [class*='ant-layout-footer'].footer {
     padding: 42px 24px;
     background: transparent;
 
-    @media (max-width: 479px) {
+    @media (max-width: @screen-xs) {
         padding: 0 16px 42px;
         text-align: center;
     }
 
     :global {
         .ant-col {
-            @media (max-width: 479px) {
+            @media (max-width: @screen-xs) {
                 flex-grow: 1;
             }
         }

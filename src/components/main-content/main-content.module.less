@@ -1,12 +1,14 @@
+@import '@styles/constants.less';
+
 [class*='ant-layout-content'].content {
     max-width: 752px;
-    margin: 24px;
+    margin: @padding-margin-24px;
 
-    @media (max-width: 600px) {
+    @media (max-width: @screen-md) {
         min-height: fit-content;
     }
 
-    @media (max-width: 479px) {
+    @media (max-width: @screen-xs) {
         margin: 27px 16px;
     }
 }

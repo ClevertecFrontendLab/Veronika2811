@@ -1,43 +1,43 @@
 @import '@styles/constants.less';
 
 [class*='ant-result'].confirm-email {
-    padding: @padding-zero;
+    padding: @padding-margin-zero;
     margin: 0 -32px;
 
-    @media (max-width: 555px) {
+    @media (max-width: @screen-sm) {
         margin: 0 -17px;
     }
 
     :global {
         .ant-result-icon {
-            margin-bottom: 30px;
+            margin-bottom: @padding-margin-30px;
         }
 
         .confirm-email-code {
-            font-weight: 500;
+            font-weight: @font-weight-medium;
             line-height: @line-height-large;
         }
 
         .ant-result-title {
-            font-weight: 500;
+            font-weight: @font-weight-medium;
             line-height: @line-height-large;
 
             .confirm-email-code {
-                white-space: pre-line;
+                white-space: @white-space-pre-line;
             }
 
             .confirm-email-code-error {
                 display: block;
                 padding: 0 27px;
 
-                @media (max-width: 555px) {
-                    padding: @padding-zero;
+                @media (max-width: @screen-sm) {
+                    padding: @padding-margin-zero;
                 }
             }
         }
 
         .ant-result-subtitle {
-            @media (max-width: 555px) {
+            @media (max-width: @screen-sm) {
                 padding: 0 30px;
             }
 
@@ -56,14 +56,14 @@
             gap: 15px;
             padding-bottom: 0;
 
-            @media (max-width: 555px) {
+            @media (max-width: @screen-sm) {
                 padding: 24px 25px 0;
             }
 
             .ant-typography {
                 color: @neutral-7;
 
-                @media (max-width: 555px) {
+                @media (max-width: @screen-sm) {
                     padding: 0 20px;
                 }
             }

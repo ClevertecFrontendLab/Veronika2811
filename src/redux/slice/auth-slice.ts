@@ -1,8 +1,10 @@
 import { ACCESS_TOKEN_KEY } from '@constants/storage-keys';
 import { createSlice } from '@reduxjs/toolkit';
 
+import { Nullebel } from '@/types/nullebel';
+
 type TInitialState = {
-    accessToken: string | null;
+    accessToken: Nullebel<string>;
     registerUser: {
         email: string;
         password: string;

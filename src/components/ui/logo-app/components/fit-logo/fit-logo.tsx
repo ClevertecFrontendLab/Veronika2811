@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { LogoSizeType } from '@components/ui/logo-app/types/types';
 import classNames from 'classnames/bind';
 
@@ -5,7 +6,7 @@ import styles from './fit-logo.module.less';
 
 const cx = classNames.bind(styles);
 
-export const FitLogo = ({ size = 'sm' }: { size?: LogoSizeType }) => {
+export const FitLogo: FC<{ size?: LogoSizeType }> = ({ size = 'sm' }) => {
     const logoClass = cx({
         fit: true,
         [`fit-${size}`]: true,

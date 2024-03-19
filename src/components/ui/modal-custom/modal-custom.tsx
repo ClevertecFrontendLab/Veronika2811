@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from 'react';
+import { CSSProperties, FC, ReactNode } from 'react';
 import { Modal } from 'antd';
 
 type ModalCustomProps = {
@@ -13,7 +13,7 @@ type ModalCustomProps = {
     onCancel?: () => void;
 };
 
-export const ModalCustom = ({
+export const ModalCustom: FC<ModalCustomProps> = ({
     open,
     closable = false,
     maskStyle,
@@ -23,7 +23,7 @@ export const ModalCustom = ({
     onCancel,
     closeIcon,
     className,
-}: ModalCustomProps) => (
+}) => (
     <Modal
         centered={true}
         width={width}

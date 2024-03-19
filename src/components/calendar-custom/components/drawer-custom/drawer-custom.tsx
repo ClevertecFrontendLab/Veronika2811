@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import { TRAINING_MODAL_WIDTH } from '@components/calendar-custom/constants/training-modal-width';
 import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
@@ -15,7 +16,7 @@ type DrawerCustomProps = {
     date: string;
 };
 
-export const DrawerCustom = ({ open, date }: DrawerCustomProps) => {
+export const DrawerCustom: FC<DrawerCustomProps> = ({ open, date }) => {
     const { editTraining } = useAppSelector(trainingSlice);
     const dispatch = useAppDispatch();
 

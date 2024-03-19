@@ -1,4 +1,4 @@
-import { Dispatch } from 'react';
+import { Dispatch, FC } from 'react';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { sideBarTestIds } from '@components/side-bar/constants';
 import { Space } from 'antd';
@@ -11,7 +11,7 @@ type SiderSwitchProps = {
     isAtBreakpoint: boolean;
 };
 
-export const SiderSwitch = ({ collapsed, setCollapsed, isAtBreakpoint }: SiderSwitchProps) => {
+export const SiderSwitch: FC<SiderSwitchProps> = ({ collapsed, setCollapsed, isAtBreakpoint }) => {
     const toggleSider = () => setCollapsed(!collapsed);
 
     return (

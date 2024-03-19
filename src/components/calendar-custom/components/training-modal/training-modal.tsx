@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { DATE_FORMAT } from '@components/calendar-custom/constants/date-format';
 import { TRAINING_MODAL_WIDTH } from '@components/calendar-custom/constants/training-modal-width';
 import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
@@ -24,12 +24,12 @@ type TrainingModalProps = {
     refetchUserTrainingList: () => void;
 };
 
-export const TrainingModal = ({
+export const TrainingModal: FC<TrainingModalProps> = ({
     date,
     selectedCellInfo,
     closeModal,
     refetchUserTrainingList,
-}: TrainingModalProps) => {
+}) => {
     const [shouldAlignRight, setShouldAlignRight] = useState(false);
 
     const { currentTraining, isModalVisible, isDrawerVisible, isEditMode } =

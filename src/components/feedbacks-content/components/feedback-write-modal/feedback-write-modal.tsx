@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { FeedbacksTestIds } from '@components/feedbacks-content/constants/feedbacks-test-id';
 import { FeedbacksRefetch } from '@components/feedbacks-content/types/feedbacks-types';
 import { Button, Modal } from 'antd';
@@ -13,12 +13,12 @@ type FeedbackModalProps = FeedbacksRefetch & {
     setIsModalResult: React.Dispatch<React.SetStateAction<string>>;
 };
 
-export const FeedbackWriteModal = ({
+export const FeedbackWriteModal: FC<FeedbackModalProps> = ({
     isModalVisible,
     toggleModalVisibility,
     refetch,
     setIsModalResult,
-}: FeedbackModalProps) => {
+}) => {
     const [disabledButton, setDisabledButton] = useState(true);
 
     const changeDisabledButton = (state: boolean) => {

@@ -10,7 +10,7 @@
     align-items: flex-start;
     margin: 20px -20px 0 0;
 
-    @media (max-width: 575px) {
+    @media (max-width: @screen-sm) {
         margin: 16px -20px 0 0;
     }
 
@@ -18,12 +18,12 @@
         .ant-badge .ant-badge-status-text,
         .date {
             color: @neutral-7;
-            font-weight: 400;
+            font-weight: @font-weight-normal;
         }
 
         .date {
             font-size: @font-size-base;
-            margin-bottom: 0;
+            margin-bottom: @padding-margin-zero;
         }
     }
 }

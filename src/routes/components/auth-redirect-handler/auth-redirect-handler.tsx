@@ -1,10 +1,10 @@
-import { ReactNode, useEffect } from 'react';
+import { FC, ReactNode, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { ACCESS_TOKEN_KEY } from '@constants/storage-keys';
 import { useAppDispatch } from '@hooks/redux-hooks';
 import { setAccessToken } from '@redux/slice/auth-slice';
 
-export const AuthRedirectHandler = ({ element }: { element: ReactNode }) => {
+export const AuthRedirectHandler: FC<{ element: ReactNode }> = ({ element }) => {
     const [searchParams] = useSearchParams();
     const dispatch = useAppDispatch();
 

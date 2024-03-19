@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { characterRender } from '@components/feedbacks-content/utils/character-rate-render';
 import { Card, Comment, Rate, Typography } from 'antd';
 
@@ -7,7 +8,7 @@ import styles from './feedback-card.module.less';
 
 import { Feedback } from '@/types/feedbacks';
 
-export const FeedbackCard = ({ feedback }: { feedback: Feedback }) => {
+export const FeedbackCard: FC<{ feedback: Feedback }> = ({ feedback }) => {
     const date = new Date(feedback.createdAt);
     const day = String(date.getDate()).padStart(2, '0');
     const month = String(date.getMonth() + 1).padStart(2, '0');

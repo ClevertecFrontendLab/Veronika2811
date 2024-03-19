@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { LogoSizeType } from './types/types';
 import { CleverLogo, FitLogo } from './components';
@@ -8,7 +8,7 @@ type LogoProps = {
     size?: LogoSizeType;
 };
 
-export const LogoApp = ({ collapsed = false, size }: LogoProps) => (
+export const LogoApp: FC<LogoProps> = ({ collapsed = false, size }) => (
     <React.Fragment>
         {!collapsed && <CleverLogo size={size} />}
         <FitLogo size={size} />

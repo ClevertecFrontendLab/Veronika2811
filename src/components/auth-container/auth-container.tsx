@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { LogoApp } from '../ui/logo-app/logo-app';
 
@@ -7,7 +7,7 @@ import { CustomTabs } from './components';
 
 import { AuthComponentTypes } from '@/types/auth';
 
-export const AuthContainer = ({ type }: { type: AuthComponentTypes }) => (
+export const AuthContainer: FC<{ type: AuthComponentTypes }> = ({ type }) => (
     <React.Fragment>
         <div className={styles['auth-logo-wrapper']}>
             <LogoApp size='md' />

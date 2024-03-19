@@ -1,18 +1,19 @@
 import { CurrentTraining } from '@components/calendar-custom/types/current-training';
 import { createSlice } from '@reduxjs/toolkit';
 
+import { Nullebel } from '@/types/nullebel';
 import { TrainingResponse } from '@/types/training/training-api-data-types';
 import { EditTrainingInfo } from '@/types/training/training-types';
 
 type TInitialState = {
     userTrainingList: TrainingResponse[];
-    userTrainingListError: string | null;
+    userTrainingListError: Nullebel<string>;
     isModalVisible: boolean;
     isEditMode: boolean;
     editTraining: EditTrainingInfo;
     isDrawerVisible: boolean;
-    typeTraining: string | null;
-    currentTraining: CurrentTraining[] | null;
+    typeTraining: Nullebel<string>;
+    currentTraining: Nullebel<CurrentTraining[]>;
 };
 
 const initialState: TInitialState = {

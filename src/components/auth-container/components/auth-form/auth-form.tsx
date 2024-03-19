@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import { push } from 'redux-first-history';
 import { LOGIN, REGISTRATION } from '@constants/auth/auth-constants';
 import { AuthStatus } from '@constants/auth/auth-status-constants';
@@ -21,7 +21,7 @@ import { AuthData, LoginData, RegistrationData } from '@/types/auth/auth-form-ty
 import { ErrorTypes } from '@/types/error-types';
 import { FieldData } from '@/types/field-data';
 
-export const AuthForm = ({ type }: { type: AuthComponentTypes }) => {
+export const AuthForm: FC<{ type: AuthComponentTypes }> = ({ type }) => {
     const [form] = Form.useForm();
 
     const [registrationUser, { isLoading: isLoadingRegister }] = useRegisterUserMutation();

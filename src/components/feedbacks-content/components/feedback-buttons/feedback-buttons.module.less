@@ -3,21 +3,21 @@
 .feedback-buttons {
     padding-top: 108px;
 
-    @media (max-width: 610px) {
-        padding-top: 27px;
+    @media (max-width: @screen-md) {
+        padding-top: @padding-margin-27px;
         flex-direction: column;
         width: @full-width;
     }
 
     :global {
         .ant-space-item {
-            @media (max-width: 610px) {
+            @media (max-width: @screen-md) {
                 width: @full-width;
             }
         }
 
         .ant-btn {
-            @media (max-width: 610px) {
+            @media (max-width: @screen-md) {
                 width: @full-width;
             }
         }
@@ -27,8 +27,8 @@
         }
 
         .ant-btn-text {
-            @media (max-width: 610px) {
-                margin-top: 10px;
+            @media (max-width: @screen-md) {
+                margin-top: @padding-margin-10px;
             }
         }
     }

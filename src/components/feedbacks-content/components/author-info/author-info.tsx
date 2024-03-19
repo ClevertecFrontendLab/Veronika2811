@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import { UserOutlined } from '@ant-design/icons';
 import { Avatar, Card, Typography } from 'antd';
 
@@ -8,7 +8,7 @@ import { Feedback } from '@/types/feedbacks';
 
 const { Meta } = Card;
 
-export const AuthorInfo = ({ feedback }: { feedback: Feedback }) => {
+export const AuthorInfo: FC<{ feedback: Feedback }> = ({ feedback }) => {
     const fullName = feedback.fullName?.split(' ').join('\n');
 
     return (

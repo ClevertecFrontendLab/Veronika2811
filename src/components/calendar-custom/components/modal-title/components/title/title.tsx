@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import { DATE_FORMAT } from '@components/calendar-custom/constants/date-format';
 import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
@@ -6,7 +7,7 @@ import { Space, Typography } from 'antd';
 
 import styles from './title.module.less';
 
-export const Title = ({ date, closeModal }: TitleProps) => {
+export const Title: FC<TitleProps> = ({ date, closeModal }) => {
     const formattedDate = date.format(DATE_FORMAT);
 
     return (

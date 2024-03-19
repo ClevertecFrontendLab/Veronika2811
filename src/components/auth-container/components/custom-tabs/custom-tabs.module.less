@@ -13,11 +13,11 @@
         }
 
         .ant-tabs-tab + .ant-tabs-tab {
-            margin: @margin-zero;
+            margin: @padding-margin-zero;
         }
 
         .ant-tabs-tab-btn {
-            @media (max-width: 555px) {
+            @media (max-width: @screen-sm) {
                 font-size: @font-size-base;
             }
         }
@@ -25,7 +25,7 @@
         #login {
             padding: 8px 0 80px;
 
-            @media (max-width: 555px) {
+            @media (max-width: @screen-sm) {
                 padding-bottom: 60px;
             }
         }
@@ -33,8 +33,8 @@
         #registration {
             padding: 16px 0 0;
 
-            @media (max-width: 555px) {
-                padding-top: 10px;
+            @media (max-width: @screen-sm) {
+                padding-top: @padding-margin-10px;
             }
         }
     }

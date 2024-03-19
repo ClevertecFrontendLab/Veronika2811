@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { push } from 'redux-first-history';
 import { LogoApp } from '@components/ui/logo-app';
 import { useAppDispatch } from '@hooks/redux-hooks';
@@ -6,7 +7,7 @@ import classNames from 'classnames';
 
 import styles from './sider-logo.module.less';
 
-export const SiderLogo = ({ collapsed }: { collapsed: boolean }) => {
+export const SiderLogo: FC<{ collapsed: boolean }> = ({ collapsed }) => {
     const dispatch = useAppDispatch();
 
     const logoClass = classNames(styles.logo, {

@@ -1,10 +1,12 @@
+@import '@styles/constants.less';
+
 .feedbacks-page {
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 24px;
+    padding: @padding-margin-24px;
 
-    @media (max-width: 479px) {
+    @media (max-width: @screen-xs) {
         padding: 24px 16px;
         justify-content: flex-start;
     }

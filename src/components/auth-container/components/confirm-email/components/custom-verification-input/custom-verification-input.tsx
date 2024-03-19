@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import VerificationInput from 'react-verification-input';
 import { AuthTestIds } from '@components/auth-container/constants/auth-test-ids';
 import classNames from 'classnames';
@@ -12,12 +12,12 @@ type CustomVerificationInputProps = {
     onCompleteVerificataion: (code: string) => Promise<void>;
 };
 
-export const CustomVerificationInput = ({
+export const CustomVerificationInput: FC<CustomVerificationInputProps> = ({
     verificationCode,
     setVerificationCode,
     incorrectVerificationCode,
     onCompleteVerificataion,
-}: CustomVerificationInputProps) => (
+}) => (
     <VerificationInput
         value={verificationCode}
         onChange={setVerificationCode}

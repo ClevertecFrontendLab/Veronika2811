@@ -1,10 +1,12 @@
+@import '@styles/constants.less';
+
 [class*='ant-btn'].button-icon-setting-round {
     display: none;
     box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.04);
 
-    @media (max-width: 550px) {
+    @media (max-width: @screen-sm) {
         display: block;
         margin-top: -11px;
-        margin-right: 9px;
+        margin-right: @margin-9px;
     }
 }
