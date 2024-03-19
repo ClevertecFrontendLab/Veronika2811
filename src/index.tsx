@@ -2,11 +2,9 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { HistoryRouter } from 'redux-first-history/rr6';
+import { history, store } from '@redux/store';
 
-import { AppRouter } from './routes/AppRouter';
-
-import { store } from '@redux/store';
-import { history } from '@redux/store';
+import { AppRouter } from './routes/app-router';
 
 import './styles/index.less';
 

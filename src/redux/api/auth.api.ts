@@ -1,8 +1,9 @@
+import { LOGIN, REGISTRATION } from '@constants/auth/auth-constants';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { Paths } from '@routes/constants/paths';
 
-import { BASE_URL } from './constants/baseUrl';
+import { BASE_URL } from './constants/base-url';
 
-import { Paths } from '@routes/constants/Paths';
 import {
     CheckEmailResponse,
     EmailData,
@@ -12,8 +13,7 @@ import {
     PasswordConfirmationData,
     RegistrationData,
 } from '@/types/auth';
-import { ErrorTypes } from '@/types/errorTypes';
-import { LOGIN, REGISTRATION } from '@constants/auth/authConstants';
+import { ErrorTypes } from '@/types/error-types';
 
 export const authApi = createApi({
     reducerPath: 'AUTH_API',

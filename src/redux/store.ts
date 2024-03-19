@@ -1,16 +1,15 @@
-import { combineReducers } from 'redux';
-import { configureStore } from '@reduxjs/toolkit';
 import { createReduxHistoryContext } from 'redux-first-history';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { createBrowserHistory } from 'history';
 
 import { authApi } from './api/auth.api';
 import { catalogsApi } from './api/catalogs.api';
 import { feedbacksApi } from './api/feedbacks.api';
 import { trainingApi } from './api/training.api';
-import reducerAuth from './slice/authSlice';
-import reducerCatalogs from './slice/catalogsSlice';
-import reducerMain from './slice/mainSlice';
-import reducerTraining from './slice/trainingSlice';
+import reducerAuth from './slice/auth-slice';
+import reducerCatalogs from './slice/catalogs-slice';
+import reducerMain from './slice/main-slice';
+import reducerTraining from './slice/training-slice';
 
 const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHistoryContext({
     history: createBrowserHistory(),
@@ -29,15 +28,14 @@ export const store = configureStore({
         [trainingApi.reducerPath]: trainingApi.reducer,
         [catalogsApi.reducerPath]: catalogsApi.reducer,
     }),
-    middleware: (getDefaultMiddleware) => {
-        return getDefaultMiddleware().concat([
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat([
             routerMiddleware,
             authApi.middleware,
             feedbacksApi.middleware,
             trainingApi.middleware,
             catalogsApi.middleware,
-        ]);
-    },
+        ]),
 });
 
 export const history = createReduxHistory(store);

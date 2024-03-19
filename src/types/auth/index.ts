@@ -1,3 +1,3 @@
-export * from './authApiDataTypes';
-export * from './authComponentTypes';
-export * from './authFormTypes';
+export * from './auth-api-data-types';
+export * from './auth-component-types';
+export * from './auth-form-types';

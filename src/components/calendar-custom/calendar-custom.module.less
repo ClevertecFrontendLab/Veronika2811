@@ -1,0 +1,102 @@
+@import '@styles/constants.less';
+
+.calendar {
+    :global {
+        .ant-list-item {
+            padding-top: 0;
+            padding-bottom: 0;
+            white-space: nowrap;
+        }
+
+        .ant-picker-calendar-header .ant-picker-calendar-year-select {
+            margin-right: 7px;
+        }
+
+        .ant-badge-status {
+            line-height: 1.1;
+        }
+
+        .ant-badge-status-text {
+            font-size: 12px;
+        }
+
+        .ant-list-item:not(.list-item-disabled):hover {
+            background-color: @neutral-3;
+        }
+
+        .ant-list-item.list-item-disabled .ant-badge .ant-badge-status-text {
+            color: @neutral-6;
+        }
+
+        .ant-picker-calendar-header .ant-picker-calendar-month-select {
+            margin-left: 0;
+        }
+    }
+}
+
+[class*='ant-picker-calendar-mini'].calendar {
+    :global {
+        .ant-picker-content {
+            height: 200px;
+        }
+
+        .ant-picker-cell-today:before,
+        .ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner:before {
+            border: 1px solid @primary-color;
+            border-radius: 2px;
+        }
+
+        .ant-picker-cell-inner {
+            width: 100%;
+        }
+
+        .ant-picker-cell-inner.mobile-date {
+            background-color: @primary-light-1;
+        }
+
+        .ant-picker-body {
+            position: relative;
+        }
+
+        .ant-picker-calendar-header {
+            display: flex;
+            padding: 9px 7px 12px 40px;
+            background-color: @neutral-1;
+        }
+
+        .ant-picker-calendar-mode-switch {
+            margin-top: 0;
+        }
+
+        .ant-radio-button-wrapper-checked:not(
+                [class*=' ant-radio-button-wrapper-disabled']
+            ).ant-radio-button-wrapper:first-child {
+            width: 60%;
+        }
+        .ant-picker-calendar-header .ant-picker-calendar-mode-switch > label {
+            width: 40%;
+        }
+
+        .ant-picker-calendar-header .ant-picker-calendar-year-select {
+            margin-right: 7px;
+        }
+
+        .ant-picker-panel {
+            padding: 12px 5px;
+        }
+
+        .ant-picker-calendar-year-select,
+        .ant-picker-calendar-month-select {
+            margin-right: 5px;
+        }
+
+        .ant-radio-group-small .ant-radio-button-wrapper,
+        .ant-select-single.ant-select-sm:not(.ant-select-customize-input) .ant-select-selector,
+        .ant-select-single.ant-select-sm:not(.ant-select-customize-input)
+            .ant-select-selector
+            .ant-select-selection-item {
+            height: 20px;
+            line-height: 18px;
+        }
+    }
+}

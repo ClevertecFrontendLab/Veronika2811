@@ -1,1 +1,0 @@
-export { FeedbacksDefault } from './FeedbacksDefault';
