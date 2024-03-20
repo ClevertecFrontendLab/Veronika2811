@@ -11,9 +11,10 @@ export const BreadcrumbCustom = () => {
     const dispatch = useAppDispatch();
 
     const breadcrumbNameMap: Record<string, string> = {
-        [Paths.FEEDBACKS]: 'Отзывы пользователей',
-        [Paths.CALENDAR]: 'Календарь',
-        [Paths.WORKOUTS]: 'Тренировки',
+        [`/${Paths.FEEDBACKS}`]: 'Отзывы пользователей',
+        [`/${Paths.CALENDAR}`]: 'Календарь',
+        [`/${Paths.WORKOUTS}`]: 'Тренировки',
+        [`/${Paths.PROFILE}`]: 'Профиль',
     };
 
     const extraBreadcrumbItems = pathSnippets.map((_, index) => {
@@ -36,7 +37,7 @@ export const BreadcrumbCustom = () => {
         </Breadcrumb.Item>,
     ].concat(extraBreadcrumbItems);
 
-    const isMainPage = location.pathname !== Paths.MAIN;
+    const isMainPage = location.pathname !== `${Paths.ROOT}${Paths.MAIN}`;
     const separator = isMainPage ? '/' : null;
 
     return <Breadcrumb separator={separator}>{breadcrumbItems}</Breadcrumb>;

@@ -13,7 +13,7 @@ type CardActionItemProps = {
         icon: JSX.Element;
         body: string;
         pathRedirect: string;
-        testIds: string;
+        testIds?: string;
     };
 };
 

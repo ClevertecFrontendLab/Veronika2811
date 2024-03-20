@@ -9,7 +9,6 @@ export const CARD_ACTIONS = [
         icon: <HeartTwoTone twoToneColor={['#2f54eb', '#2f54eb']} />,
         body: 'Тренировки',
         pathRedirect: Paths.WORKOUTS,
-        testIds: '',
     },
     {
         key: MENU_KEYS.calendar,
@@ -24,7 +23,6 @@ export const CARD_ACTIONS = [
         title: 'Заполнить профиль',
         icon: <IdcardTwoTone twoToneColor={['#2f54eb', '#ffffff']} />,
         body: 'Профиль',
-        pathRedirect: '',
-        testIds: '',
+        pathRedirect: Paths.PROFILE,
     },
 ];

@@ -1,6 +1,6 @@
 export enum Paths {
     ROOT = '/',
-    MAIN = '/main',
+    MAIN = 'main',
     AUTH_MAIN = '/auth',
     AUTH_SUB_REGISTRATION = 'registration',
     AUTH_SUB_CONFIRM_EMAIL = 'confirm-email',
@@ -14,7 +14,8 @@ export enum Paths {
     AUTH_SUB_RESULT_ERROR_CHECK_EMAIL_NO_EXIST = 'error-check-email-no-exist',
     AUTH_SUB_RESULT_ERROR_CHANGE_PASSWORD = 'error-change-password',
     AUTH_SUB_RESULT_SUCCESS_CHANGE_PASSWORD = 'success-change-password',
-    FEEDBACKS = '/feedbacks',
-    CALENDAR = '/calendar',
-    WORKOUTS = '/workouts',
+    FEEDBACKS = 'feedbacks',
+    CALENDAR = 'calendar',
+    WORKOUTS = 'workouts',
+    PROFILE = 'profile',
 }
