@@ -1,19 +1,26 @@
+import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
+import { workoutsSlice } from '@redux/selectors';
+import { setCurrentTab } from '@redux/slice/workouts-slice';
 import { Tabs } from 'antd';
 
 import { WORKOUTS_TABS } from './constants/workouts-tabs';
 import styles from './workouts-content.module.less';
 
 export const WorkoutsContent = () => {
-    const onChange = (key: string) => console.log(key);
+    const { currentTab } = useAppSelector(workoutsSlice);
+    const dispatch = useAppDispatch();
+
+    const onChange = (key: string) => dispatch(setCurrentTab(key));
 
     return (
-        <div className={styles.workouts}>
+        <div className={styles[currentTab]}>
             <Tabs
-                defaultActiveKey='workout'
+                defaultActiveKey={currentTab}
                 items={WORKOUTS_TABS}
                 onChange={onChange}
                 className={styles['workouts-tabs']}
                 size='large'
+                destroyInactiveTabPane={true}
             />
         </div>
     );

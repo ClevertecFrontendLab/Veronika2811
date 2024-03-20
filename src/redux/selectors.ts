@@ -10,3 +10,5 @@ export const trainingSlice = (state: RootState) => state.trainingSlice;
 
 export const catalogTrainingListSelector = (state: RootState) =>
     state.catalogSlice.catalogTrainingList;
+
+export const workoutsSlice = (state: RootState) => state.workoutsSlice;

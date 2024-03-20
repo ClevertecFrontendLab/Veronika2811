@@ -10,6 +10,7 @@ import reducerAuth from './slice/auth-slice';
 import reducerCatalogs from './slice/catalogs-slice';
 import reducerMain from './slice/main-slice';
 import reducerTraining from './slice/training-slice';
+import reducerWorkouts from './slice/workouts-slice';
 
 const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHistoryContext({
     history: createBrowserHistory(),
@@ -23,6 +24,7 @@ export const store = configureStore({
         mainSlice: reducerMain,
         trainingSlice: reducerTraining,
         catalogSlice: reducerCatalogs,
+        workoutsSlice: reducerWorkouts,
         [authApi.reducerPath]: authApi.reducer,
         [feedbacksApi.reducerPath]: feedbacksApi.reducer,
         [trainingApi.reducerPath]: trainingApi.reducer,
