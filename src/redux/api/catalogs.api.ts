@@ -1,19 +1,12 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { ApiEndpoints } from './constants/api-endpoints';
+import emptyApi from './empty-api';
 
-import { BASE_URL } from './constants/base-url';
-import prepareHeaders from './utils/prepare-headers';
+import { CatalogTrainingListResponse } from '@/types/catalogs/catalogs-api-data-types';
 
-import { CatalogTrainingList } from '@/types/catalogs/catalogs-api-data-types';
-
-export const catalogsApi = createApi({
-    reducerPath: 'CATALOGS_API',
-    baseQuery: fetchBaseQuery({
-        baseUrl: `${BASE_URL}/catalogs`,
-        prepareHeaders,
-    }),
+export const catalogsApi = emptyApi.injectEndpoints({
     endpoints: (build) => ({
-        getCatalogTrainingList: build.query<CatalogTrainingList, void>({
-            query: () => '/training-list',
+        getCatalogTrainingList: build.query<CatalogTrainingListResponse[], void>({
+            query: () => ApiEndpoints.CATALOGS_TRAINING_LIST,
         }),
     }),
 });

@@ -2,10 +2,7 @@ import { createReduxHistoryContext } from 'redux-first-history';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { createBrowserHistory } from 'history';
 
-import { authApi } from './api/auth.api';
-import { catalogsApi } from './api/catalogs.api';
-import { feedbacksApi } from './api/feedbacks.api';
-import { trainingApi } from './api/training.api';
+import emptyApi from './api/empty-api';
 import reducerAuth from './slice/auth-slice';
 import reducerCatalogs from './slice/catalogs-slice';
 import reducerMain from './slice/main-slice';
@@ -25,19 +22,10 @@ export const store = configureStore({
         trainingSlice: reducerTraining,
         catalogSlice: reducerCatalogs,
         workoutsSlice: reducerWorkouts,
-        [authApi.reducerPath]: authApi.reducer,
-        [feedbacksApi.reducerPath]: feedbacksApi.reducer,
-        [trainingApi.reducerPath]: trainingApi.reducer,
-        [catalogsApi.reducerPath]: catalogsApi.reducer,
+        [emptyApi.reducerPath]: emptyApi.reducer,
     }),
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat([
-            routerMiddleware,
-            authApi.middleware,
-            feedbacksApi.middleware,
-            trainingApi.middleware,
-            catalogsApi.middleware,
-        ]),
+        getDefaultMiddleware().concat(emptyApi.middleware, routerMiddleware),
 });
 
 export const history = createReduxHistory(store);

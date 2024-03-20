@@ -5,7 +5,7 @@ import { AuthStatus } from '@constants/auth/auth-status-constants';
 import { ACCESS_TOKEN_KEY } from '@constants/storage-keys';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useLoginUserMutation, useRegisterUserMutation } from '@redux/api/auth.api';
-import { authSlice, previousLocationSelector } from '@redux/selectors';
+import { authSelector, previousLocationSelector } from '@redux/selectors';
 import { saveRegistrationData, setAccessToken } from '@redux/slice/auth-slice';
 import { setIsLoading } from '@redux/slice/main-slice';
 import { Paths } from '@routes/constants/router-paths';
@@ -18,7 +18,7 @@ import styles from './auth-form.module.less';
 
 import { AuthComponentTypes } from '@/types/auth/auth-component-types';
 import { AuthData, LoginData, RegistrationData } from '@/types/auth/auth-form-types';
-import { ErrorTypes } from '@/types/error-types';
+import { ErrorTypeResponse } from '@/types/error-types';
 import { FieldData } from '@/types/field-data';
 
 export const AuthForm: FC<{ type: AuthComponentTypes }> = ({ type }) => {
@@ -28,14 +28,14 @@ export const AuthForm: FC<{ type: AuthComponentTypes }> = ({ type }) => {
     const [loginUser, { isLoading: isLoadingLogin }] = useLoginUserMutation();
 
     const previousLocations = useAppSelector(previousLocationSelector);
-    const { registerUser } = useAppSelector(authSlice);
+    const { registerUser } = useAppSelector(authSelector);
     const dispatch = useAppDispatch();
 
     const [isForgotPasswordButtonDisabled, setIsForgotPasswordButtonDisabled] = useState(false);
 
     const handleRegistrationError = useCallback(
         (err: unknown, formData: RegistrationData) => {
-            const { status } = err as ErrorTypes;
+            const { status } = err as ErrorTypeResponse;
             const authSubResultPath =
                 status === AuthStatus.STATUS_ERROR_409
                     ? Paths.AUTH_SUB_RESULT_409

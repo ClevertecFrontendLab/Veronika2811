@@ -1,6 +1,6 @@
 import { RootState } from '@redux/store';
 
-type PrepareHeadersT = (
+type PrepareHeaders = (
     headers: Headers,
     api: {
         getState: () => unknown;
@@ -11,7 +11,7 @@ type PrepareHeadersT = (
     },
 ) => Headers | void;
 
-const prepareHeaders: PrepareHeadersT = (headers, { getState }) => {
+const prepareHeaders: PrepareHeaders = (headers, { getState }) => {
     const state = getState() as RootState;
 
     const { accessToken } = state.authSlice;

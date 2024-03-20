@@ -1,10 +1,10 @@
-import { ErrorTypes } from '../error-types';
+import { ErrorTypeResponse } from '../error-types';
 
-export type LoginResponse = ErrorTypes & {
+export type LoginResponse = ErrorTypeResponse & {
     accessToken: string;
 };
 
-export type CheckEmailResponse = ErrorTypes & {
+export type CheckEmailResponse = ErrorTypeResponse & {
     email: string;
     message: string;
 };

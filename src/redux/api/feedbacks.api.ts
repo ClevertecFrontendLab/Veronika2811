@@ -1,22 +1,15 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { ApiEndpoints } from './constants/api-endpoints';
+import emptyApi from './empty-api';
 
-import { BASE_URL } from './constants/base-url';
-import prepareHeaders from './utils/prepare-headers';
+import { ErrorTypeResponse } from '@/types/error-types';
+import { FeedbackData, FeedbackResponse } from '@/types/feedbacks';
 
-import { ErrorTypes } from '@/types/error-types';
-import { Feedback, FeedbackData } from '@/types/feedbacks';
-
-export const feedbacksApi = createApi({
-    reducerPath: 'FEEDBACKS_API',
-    baseQuery: fetchBaseQuery({
-        baseUrl: BASE_URL,
-        credentials: 'include',
-        prepareHeaders,
-    }),
+export const feedbacksApi = emptyApi.injectEndpoints({
     endpoints: (build) => ({
-        getFeedbacks: build.query<Feedback[], void>({
-            query: () => '/feedback',
-            transformResponse: (baseQueryReturnValue: Feedback[]) => {
+        getFeedbacks: build.query<FeedbackResponse[], void>({
+            query: () => ApiEndpoints.FEEDBACK,
+
+            transformResponse: (baseQueryReturnValue: FeedbackResponse[]) => {
                 const sortedFeedbacks = baseQueryReturnValue.sort(
                     (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
                 );
@@ -24,9 +17,9 @@ export const feedbacksApi = createApi({
                 return sortedFeedbacks;
             },
         }),
-        addFeedback: build.mutation<ErrorTypes, FeedbackData>({
+        addFeedback: build.mutation<ErrorTypeResponse, FeedbackData>({
             query: (body) => ({
-                url: '/feedback',
+                url: ApiEndpoints.FEEDBACK,
                 method: 'POST',
                 body,
             }),

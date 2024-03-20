@@ -1,43 +1,27 @@
-import { CurrentTraining } from '@components/calendar-custom/types/current-training';
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type { Moment } from 'moment';
+import { ApiEndpoints } from './constants/api-endpoints';
+import emptyApi from './empty-api';
 
-import { BASE_URL } from './constants/base-url';
-import prepareHeaders from './utils/prepare-headers';
+import {
+    TrainingAddData,
+    TrainingEditData,
+    TrainingResponse,
+} from '@/types/training/training-api-data-types';
 
-import { Nullebel } from '@/types/nullebel';
-import { TrainingEditData, TrainingResponse } from '@/types/training/training-api-data-types';
-
-export const trainingApi = createApi({
-    reducerPath: 'TRAINING_API',
-    baseQuery: fetchBaseQuery({
-        baseUrl: BASE_URL,
-        prepareHeaders,
-    }),
+export const trainingApi = emptyApi.injectEndpoints({
     endpoints: (build) => ({
         getUserTrainingData: build.query<TrainingResponse[], void>({
-            query: () => '/training',
+            query: () => ApiEndpoints.TRAINING,
         }),
-        addUserTraining: build.mutation<
-            TrainingResponse,
-            {
-                name: Nullebel<string>;
-                date: Moment;
-                exercises: Nullebel<CurrentTraining[]>;
-            }
-        >({
+        addUserTraining: build.mutation<TrainingResponse, TrainingAddData>({
             query: (body) => ({
-                url: '/training',
+                url: ApiEndpoints.TRAINING,
                 method: 'POST',
                 body,
             }),
         }),
-        editUserTraining: build.mutation<
-            TrainingResponse,
-            { trainingId: string; body: TrainingEditData }
-        >({
+        editUserTraining: build.mutation<TrainingResponse, TrainingEditData>({
             query: ({ trainingId, body }) => ({
-                url: `/training/${trainingId}`,
+                url: `${ApiEndpoints.TRAINING}/${trainingId}`,
                 method: 'PUT',
                 body,
             }),

@@ -16,13 +16,13 @@ import { MainPage } from '@pages/main-page';
 import { NotFoundPage } from '@pages/not-found-page';
 import { ProfilePage } from '@pages/profile-page';
 import { WorkoutsPage } from '@pages/workouts-page';
-import { authSlice } from '@redux/selectors';
+import { authSelector } from '@redux/selectors';
 import { setAccessToken } from '@redux/slice/auth-slice';
 
 import { Paths } from './constants/router-paths';
 
 export const AppRouter = () => {
-    const { accessToken } = useAppSelector(authSlice);
+    const { accessToken } = useAppSelector(authSelector);
 
     const location = useLocation();
     const [searchParams] = useSearchParams();

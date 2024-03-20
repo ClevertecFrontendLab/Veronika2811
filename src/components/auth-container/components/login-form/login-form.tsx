@@ -7,7 +7,7 @@ import { AuthStatus } from '@constants/auth/auth-status-constants';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useCheckEmailExistenceMutation } from '@redux/api/auth.api';
 import { BASE_URL } from '@redux/api/constants/base-url';
-import { authSlice, previousLocationSelector } from '@redux/selectors';
+import { authSelector, previousLocationSelector } from '@redux/selectors';
 import { saveEmailRecoveryPassword } from '@redux/slice/auth-slice';
 import { Paths } from '@routes/constants/router-paths';
 import { Button, Checkbox, Form, FormInstance } from 'antd';
@@ -17,7 +17,7 @@ import { AuthFormButtons } from '../auth-form-buttons';
 import styles from './login-form.module.less';
 
 import { EmailData } from '@/types/auth';
-import { ErrorTypes } from '@/types/error-types';
+import { ErrorTypeResponse } from '@/types/error-types';
 
 type LoginFormProps = {
     form: FormInstance;
@@ -33,12 +33,12 @@ export const LoginForm: FC<LoginFormProps> = ({
     const [checkUser] = useCheckEmailExistenceMutation();
 
     const previousLocations = useAppSelector(previousLocationSelector);
-    const { verificationEmail } = useAppSelector(authSlice);
+    const { verificationEmail } = useAppSelector(authSelector);
     const dispatch = useAppDispatch();
 
     const checkEmailRegistrationError = useCallback(
         (err: unknown) => {
-            const { status, data } = err as ErrorTypes;
+            const { status, data } = err as ErrorTypeResponse;
 
             if (
                 status === AuthStatus.STATUS_ERROR_CHECK_EMAIL_404 &&

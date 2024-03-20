@@ -1,1 +1,1 @@
-export { Workout } from './workout'
+export { Workout } from './workout';

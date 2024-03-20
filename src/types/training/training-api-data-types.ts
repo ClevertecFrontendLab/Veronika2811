@@ -1,7 +1,7 @@
 import { CurrentTraining } from '@components/calendar-custom/types/current-training';
 import type { Moment } from 'moment';
 
-import { ErrorTypes } from '../error-types';
+import { ErrorTypeResponse } from '../error-types';
 import { Nullebel } from '../nullebel';
 
 type TrainingParameters = {
@@ -20,7 +20,7 @@ export type ExercisesItem = {
     isImplementation?: boolean;
 };
 
-export type TrainingResponse = ErrorTypes & {
+export type TrainingResponse = ErrorTypeResponse & {
     _id: string;
     name: string;
     date: string;
@@ -30,9 +30,17 @@ export type TrainingResponse = ErrorTypes & {
     exercises: ExercisesItem[];
 };
 
-export type TrainingEditData = {
+export type TrainingAddData = {
     name: Nullebel<string>;
     date: Moment;
     exercises: Nullebel<CurrentTraining[]>;
+};
+
+export type TrainingEditBodyData = TrainingAddData & {
     isImplementation?: boolean;
+};
+
+export type TrainingEditData = {
+    trainingId: string;
+    body: TrainingEditBodyData;
 };

@@ -1,5 +1,3 @@
 import { ButtonNewWorkout } from './components/button-new-workout';
 
-export const Workout = () => (
-    <ButtonNewWorkout />
-  )
+export const Workout = () => <ButtonNewWorkout />;

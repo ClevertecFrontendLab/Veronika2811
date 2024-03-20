@@ -13,8 +13,7 @@ export const MarathonsEmpty = () => (
         </Title>
         <Paragraph>
             Заглядывайте сюда почаще
-            <br />
-            и ваш первый марафон скоро начнется.
+            <br />и ваш первый марафон скоро начнется.
         </Paragraph>
     </Space>
 );

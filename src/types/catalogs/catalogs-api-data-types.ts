@@ -1,4 +1,4 @@
-export type CatalogTrainingList = {
+export type CatalogTrainingListResponse = {
     name: string;
     key: string;
 };

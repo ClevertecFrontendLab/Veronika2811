@@ -1,6 +1,6 @@
 import { Nullebel } from '../nullebel';
 
-export type Feedback = {
+export type FeedbackResponse = {
     id: string;
     createdAt: string;
     rating: number;

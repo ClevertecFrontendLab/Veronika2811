@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { push } from 'redux-first-history';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useCheckVerificationCodeMutation } from '@redux/api/auth.api';
-import { authSlice } from '@redux/selectors';
+import { authSelector } from '@redux/selectors';
 import { Paths } from '@routes/constants/router-paths';
 import { Result, Typography } from 'antd';
 
@@ -12,7 +12,7 @@ import styles from './confirm-email.module.less';
 export const ConfirmEmail = () => {
     const [confirmEmail] = useCheckVerificationCodeMutation();
 
-    const { verificationEmail } = useAppSelector(authSlice);
+    const { verificationEmail } = useAppSelector(authSelector);
     const dispatch = useAppDispatch();
 
     const [incorrectVerificationCode, setIncorrectVerificationCode] = useState(false);
