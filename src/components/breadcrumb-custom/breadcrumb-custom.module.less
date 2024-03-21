@@ -1,0 +1,27 @@
+@import '@styles/constants.less';
+
+[class*='ant-breadcrumb'].breadcrumb,
+.breadcrumb-profile {
+    background: @primary-light-1;
+}
+
+[class*='ant-breadcrumb'].breadcrumb {
+    padding: 14px 24px;
+}
+
+.breadcrumb-profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 24px 14px;
+
+    :global {
+        .breadcrumb-profile-title {
+            font-weight: @font-weight-medium;
+        }
+
+        .button-icon-setting {
+            margin-top: -10px;
+        }
+    }
+}
