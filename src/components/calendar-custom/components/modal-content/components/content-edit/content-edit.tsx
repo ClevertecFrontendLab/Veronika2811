@@ -1,14 +1,14 @@
 import { EditOutlined } from '@ant-design/icons';
 import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
-import { trainingSlice } from '@redux/selectors';
+import { trainingSelector } from '@redux/selectors';
 import { setDrawerVisible } from '@redux/slice/training-slice';
 import { Button, List, Typography } from 'antd';
 
 import { EmptyCustom } from '../empty-custom';
 
 export const ContentEdit = () => {
-    const { currentTraining } = useAppSelector(trainingSlice);
+    const { currentTraining } = useAppSelector(trainingSelector);
     const dispatch = useAppDispatch();
 
     const openDrawer = () => dispatch(setDrawerVisible(true));

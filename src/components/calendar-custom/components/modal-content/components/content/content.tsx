@@ -3,7 +3,7 @@ import { TrainingList } from '@components/calendar-custom/components/training-li
 import { filterTrainingsByDate } from '@components/calendar-custom/utils/filter-trainings-by-date';
 import { isPastDate } from '@components/calendar-custom/utils/is-past-date';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
-import { trainingSlice } from '@redux/selectors';
+import { trainingSelector } from '@redux/selectors';
 import {
     setCurrentTraining,
     setEditMode,
@@ -17,7 +17,7 @@ import { EmptyCustom } from '../empty-custom';
 import { TrainingResponse } from '@/types/training/training-api-data-types';
 
 export const Content: FC<{ date: Moment }> = ({ date }) => {
-    const { userTrainingList } = useAppSelector(trainingSlice);
+    const { userTrainingList } = useAppSelector(trainingSelector);
     const dispatch = useAppDispatch();
 
     const trainingList = filterTrainingsByDate(userTrainingList, date);

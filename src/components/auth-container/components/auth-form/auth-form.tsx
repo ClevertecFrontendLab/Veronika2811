@@ -24,8 +24,8 @@ import { FieldData } from '@/types/field-data';
 export const AuthForm: FC<{ type: AuthComponentTypes }> = ({ type }) => {
     const [form] = Form.useForm();
 
-    const [registrationUser, { isLoading: isLoadingRegister }] = useRegisterUserMutation();
-    const [loginUser, { isLoading: isLoadingLogin }] = useLoginUserMutation();
+    const [registrationUser] = useRegisterUserMutation();
+    const [loginUser] = useLoginUserMutation();
 
     const previousLocations = useAppSelector(previousLocationSelector);
     const { registerUser } = useAppSelector(authSelector);
@@ -130,10 +130,6 @@ export const AuthForm: FC<{ type: AuthComponentTypes }> = ({ type }) => {
             handleRegistrationSubmission(registerUser);
         }
     }, [handleRegistrationSubmission, previousLocations, registerUser]);
-
-    useEffect(() => {
-        dispatch(setIsLoading(isLoadingRegister || isLoadingLogin));
-    }, [isLoadingRegister, isLoadingLogin, dispatch]);
 
     return (
         <Form

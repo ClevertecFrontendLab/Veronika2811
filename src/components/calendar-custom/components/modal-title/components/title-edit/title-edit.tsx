@@ -3,7 +3,7 @@ import { ArrowLeftOutlined } from '@ant-design/icons';
 import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
 import { filterOutTrainingTypesForDay } from '@components/calendar-custom/utils/filter-out-training-types-for-day';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
-import { catalogTrainingListSelector, trainingSlice } from '@redux/selectors';
+import { catalogSelector, trainingSelector } from '@redux/selectors';
 import {
     resetEditMode,
     setCurrentTraining,
@@ -22,8 +22,8 @@ type SelectOption = {
 };
 
 export const TitleEdit: FC<{ cellContent: TrainingResponse[] }> = ({ cellContent }) => {
-    const trainingListData = useAppSelector(catalogTrainingListSelector);
-    const { typeTraining, editTraining } = useAppSelector(trainingSlice);
+    const { catalogTrainingList } = useAppSelector(catalogSelector);
+    const { typeTraining, editTraining } = useAppSelector(trainingSelector);
     const dispatch = useAppDispatch();
 
     const [filteredTrainingList, setFilteredTrainingList] = useState<SelectOption[]>([]);
@@ -33,12 +33,12 @@ export const TitleEdit: FC<{ cellContent: TrainingResponse[] }> = ({ cellContent
     useEffect(() => {
         const filteredTraining = filterOutTrainingTypesForDay(
             cellContent,
-            trainingListData,
+            catalogTrainingList,
             isPastTraining,
         );
 
         setFilteredTrainingList(filteredTraining);
-    }, [cellContent, isPastTraining, trainingListData]);
+    }, [cellContent, isPastTraining, catalogTrainingList]);
 
     const handleChange = (_: string, option: SelectOption | SelectOption[]) => {
         const currentOption = Array.isArray(option) ? option[0].label : option.label;

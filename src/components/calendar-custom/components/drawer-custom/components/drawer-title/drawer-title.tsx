@@ -2,13 +2,13 @@ import React, { FC } from 'react';
 import { EditOutlined, PlusOutlined } from '@ant-design/icons';
 import { BadgeCustom } from '@components/calendar-custom/components/badge-custom';
 import { useAppSelector } from '@hooks/redux-hooks';
-import { trainingSlice } from '@redux/selectors';
+import { trainingSelector } from '@redux/selectors';
 import { Typography } from 'antd';
 
 import styles from './drawer-title.module.less';
 
 export const DrawerTitle: FC<{ date: string }> = ({ date }) => {
-    const { typeTraining, editTraining } = useAppSelector(trainingSlice);
+    const { typeTraining, editTraining } = useAppSelector(trainingSelector);
 
     const drawerTitle = editTraining ? 'Редактирование' : 'Добавление упражнений';
 

@@ -6,6 +6,7 @@ import { LOGIN } from '@constants/auth/auth-constants';
 import { AuthStatus } from '@constants/auth/auth-status-constants';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useCheckEmailExistenceMutation } from '@redux/api/auth.api';
+import { ApiEndpoints } from '@redux/api/constants/api-endpoints';
 import { BASE_URL } from '@redux/api/constants/base-url';
 import { authSelector, previousLocationSelector } from '@redux/selectors';
 import { saveEmailRecoveryPassword } from '@redux/slice/auth-slice';
@@ -81,7 +82,7 @@ export const LoginForm: FC<LoginFormProps> = ({
     );
 
     const handleGoogleLogin = () => {
-        window.location.href = `${BASE_URL}/auth/google`;
+        window.location.href = `${BASE_URL}${ApiEndpoints.AUTH_GOOGLE}`;
     };
 
     const validateEmailFieldOnClick = async () => {

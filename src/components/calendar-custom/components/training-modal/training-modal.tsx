@@ -5,7 +5,7 @@ import { TrainingTestIds } from '@components/calendar-custom/constants/training-
 import { SelectedCellInfo } from '@components/calendar-custom/types/selected-cell-info';
 import { useAppSelector } from '@hooks/redux-hooks';
 import { useBreakpoints } from '@hooks/use-breakpoints';
-import { trainingSlice } from '@redux/selectors';
+import { trainingSelector } from '@redux/selectors';
 import { Modal } from 'antd';
 import classNames from 'classnames';
 import type { Moment } from 'moment';
@@ -33,7 +33,7 @@ export const TrainingModal: FC<TrainingModalProps> = ({
     const [shouldAlignRight, setShouldAlignRight] = useState(false);
 
     const { currentTraining, isModalVisible, isDrawerVisible, isEditMode } =
-        useAppSelector(trainingSlice);
+        useAppSelector(trainingSelector);
 
     const { isXs } = useBreakpoints();
 

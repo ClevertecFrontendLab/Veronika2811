@@ -19,7 +19,7 @@ export const baseQuery = async (
     api: BaseQueryApi,
     extraOptions: { auth?: boolean },
 ) => {
-    if (extraOptions.auth) return authBaseQuery(args, api, extraOptions);
+    if (extraOptions && extraOptions.auth) return authBaseQuery(args, api, extraOptions);
 
     return mainBaseQuery(args, api, extraOptions);
 };

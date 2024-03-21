@@ -1,7 +1,7 @@
 import React, { FC, MouseEvent, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useBreakpoints } from '@hooks/use-breakpoints';
-import { trainingSlice } from '@redux/selectors';
+import { trainingSelector } from '@redux/selectors';
 import { resetState, setModalVisible } from '@redux/slice/training-slice';
 import { Calendar } from 'antd';
 import type { Moment } from 'moment';
@@ -31,7 +31,7 @@ export const CalendarCustom: FC<CalendarCustomProps> = ({ refetchUserTrainingLis
     const [selectedDate, setSelectedDate] = useState(moment());
     const [selectedCellInfo, setSelectedCellInfo] = useState<Nullebel<SelectedCellInfo>>(null);
 
-    const { userTrainingList, isModalVisible } = useAppSelector(trainingSlice);
+    const { userTrainingList, isModalVisible } = useAppSelector(trainingSelector);
     const dispatch = useAppDispatch();
 
     const { isXs } = useBreakpoints();

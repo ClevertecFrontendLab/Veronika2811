@@ -4,11 +4,12 @@ export const previousLocationSelector = (state: RootState) => state.router.previ
 
 export const authSelector = (state: RootState) => state.authSlice;
 
-export const mainSlice = (state: RootState) => state.mainSlice;
+export const mainSelector = (state: RootState) => state.mainSlice;
 
-export const trainingSlice = (state: RootState) => state.trainingSlice;
+export const trainingSelector = (state: RootState) => state.trainingSlice;
 
-export const catalogTrainingListSelector = (state: RootState) =>
-    state.catalogSlice.catalogTrainingList;
+export const catalogSelector = (state: RootState) => state.catalogSlice;
 
-export const workoutsSlice = (state: RootState) => state.workoutsSlice;
+export const workoutsSelector = (state: RootState) => state.workoutsSlice;
+
+export const profileSelector = (state: RootState) => state.profileSlice;

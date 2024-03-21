@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useAppSelector } from '@hooks/redux-hooks';
-import { trainingSlice } from '@redux/selectors';
+import { trainingSelector } from '@redux/selectors';
 import type { Moment } from 'moment';
 
 import { Content, ContentEdit } from './components';
@@ -10,7 +10,7 @@ type ModalContentProps = {
 };
 
 export const ModalContent: FC<ModalContentProps> = ({ date }) => {
-    const { isEditMode } = useAppSelector(trainingSlice);
+    const { isEditMode } = useAppSelector(trainingSelector);
 
     if (isEditMode) {
         return <ContentEdit />;

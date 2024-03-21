@@ -1,4 +1,5 @@
 export enum ApiEndpoints {
+    AUTH_GOOGLE = '/auth/google',
     AUTH_LOGIN = '/auth/login',
     AUTH_REGISTRATION = '/auth/registration',
     AUTH_CHECK_EMAIL = '/auth/check-email',
@@ -8,5 +9,6 @@ export enum ApiEndpoints {
     TRAINING = '/training',
     CATALOGS_TRAINING_LIST = '/catalogs/training-list',
     USER_ME = '/user/me',
+    UPLOAD_IMAGE = '/upload-image',
     USER = '/user',
 }

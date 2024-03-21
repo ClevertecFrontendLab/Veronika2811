@@ -5,15 +5,15 @@ import { LoaderApp } from '@components/ui/loader-app';
 import { ModalServerError } from '@components/ui/modal-server-error';
 import { TRAINING_STATUS_ERROR } from '@constants/training/training-status-constants';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
-import { mainSlice, trainingSlice } from '@redux/selectors';
+import { mainSelector, trainingSelector } from '@redux/selectors';
 import { setUserTrainingListError } from '@redux/slice/training-slice';
 import { Layout } from 'antd';
 
 import styles from './layout-main-page.module.less';
 
 export const LayoutMainPage = () => {
-    const { isLoading } = useAppSelector(mainSlice);
-    const { userTrainingListError } = useAppSelector(trainingSlice);
+    const { isLoading } = useAppSelector(mainSelector);
+    const { userTrainingListError } = useAppSelector(trainingSelector);
     const dispatch = useAppDispatch();
 
     const onClickCloseModal = () => dispatch(setUserTrainingListError(false));

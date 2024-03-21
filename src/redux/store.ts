@@ -6,6 +6,7 @@ import emptyApi from './api/empty-api';
 import reducerAuth from './slice/auth-slice';
 import reducerCatalogs from './slice/catalogs-slice';
 import reducerMain from './slice/main-slice';
+import reducerProfile from './slice/profile-slice';
 import reducerTraining from './slice/training-slice';
 import reducerWorkouts from './slice/workouts-slice';
 
@@ -22,6 +23,7 @@ export const store = configureStore({
         trainingSlice: reducerTraining,
         catalogSlice: reducerCatalogs,
         workoutsSlice: reducerWorkouts,
+        profileSlice: reducerProfile,
         [emptyApi.reducerPath]: emptyApi.reducer,
     }),
     middleware: (getDefaultMiddleware) =>

@@ -1,3 +1,5 @@
+import { setIsLoading } from '@redux/slice/main-slice';
+
 import { ApiEndpoints } from './constants/api-endpoints';
 import emptyApi from './empty-api';
 
@@ -24,6 +26,15 @@ export const authApi = emptyApi.injectEndpoints({
                 method: 'POST',
                 body,
             }),
+            async onQueryStarted(_, { dispatch, queryFulfilled }) {
+                dispatch(setIsLoading(true));
+                try {
+                    await queryFulfilled;
+                    dispatch(setIsLoading(false));
+                } catch (err) {
+                    dispatch(setIsLoading(false));
+                }
+            },
             extraOptions: commonExtraOptions,
         }),
         registerUser: build.mutation<ErrorTypeResponse, RegistrationData>({
@@ -32,6 +43,15 @@ export const authApi = emptyApi.injectEndpoints({
                 method: 'POST',
                 body,
             }),
+            async onQueryStarted(_, { dispatch, queryFulfilled }) {
+                dispatch(setIsLoading(true));
+                try {
+                    await queryFulfilled;
+                    dispatch(setIsLoading(false));
+                } catch (err) {
+                    dispatch(setIsLoading(false));
+                }
+            },
             extraOptions: commonExtraOptions,
         }),
         checkEmailExistence: build.mutation<CheckEmailResponse, EmailData>({
