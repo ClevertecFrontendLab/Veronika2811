@@ -1,4 +1,4 @@
-import { setIsLoading } from '@redux/slice/main-slice';
+import { setAlertApp, setIsLoading } from '@redux/slice/main-slice';
 import { setCurrentUserInfo } from '@redux/slice/profile-slice';
 
 import { ApiEndpoints } from './constants/api-endpoints';
@@ -34,6 +34,13 @@ export const userApi = emptyApi.injectEndpoints({
                     const { data } = await queryFulfilled;
 
                     dispatch(setCurrentUserInfo(data));
+                    dispatch(
+                        setAlertApp({
+                            message: 'Данные профиля успешно обновлены',
+                            type: 'success',
+                            testIds: 'alert',
+                        }),
+                    );
                     dispatch(setIsLoading(false));
                 } catch (err) {
                     dispatch(setIsLoading(false));

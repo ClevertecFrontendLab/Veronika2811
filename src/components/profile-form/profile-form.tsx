@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { ModalNotification } from '@components/ui/modal-notification';
-import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
+import { useAppSelector } from '@hooks/redux-hooks';
 import { useUpdateCurrentUserInfoMutation } from '@redux/api/profile.api';
 import { profileSelector } from '@redux/selectors';
-import { setAlertApp } from '@redux/slice/main-slice';
 import { Button, Form, Typography } from 'antd';
 import type { Moment } from 'moment';
 import moment from 'moment';
@@ -29,10 +28,9 @@ export const ProfileForm = () => {
     const [isFormChanged, setIsFormChanged] = useState(false);
     const [errorSaveMessage, setErrorSaveMessage] = useState(false);
 
-    const [updateUserInfo] = useUpdateCurrentUserInfoMutation();
+    const [updateUserInfo, { isError }] = useUpdateCurrentUserInfoMutation();
 
     const { currentUserInfo } = useAppSelector(profileSelector);
-    const dispatch = useAppDispatch();
 
     useEffect(() => {
         if (currentUserInfo.email) {
@@ -42,9 +40,9 @@ export const ProfileForm = () => {
                 form.setFieldValue('birthday', moment(currentUserInfo.birthday));
             }
         }
-    }, [currentUserInfo, form]);
+    }, [currentUserInfo, currentUserInfo.email, form]);
 
-    const onFinish = (values: UserInfoData) => {
+    const onFinish = async (values: UserInfoData) => {
         const copiedValues = { ...values };
 
         if (values.imgSrc) {
@@ -61,24 +59,17 @@ export const ProfileForm = () => {
             copiedValues.birthday = values.birthday.toISOString();
         }
 
-        try {
-            updateUserInfo(copiedValues);
-            dispatch(
-                setAlertApp({
-                    message: 'Данные профиля успешно обновлены',
-                    type: 'success',
-                    testIds: 'alert',
-                }),
-            );
-        } catch {
-            setErrorSaveMessage(true);
-        }
+        await updateUserInfo(copiedValues);
 
         setIsFormChanged(false);
 
         form.setFieldValue('password', '');
         form.setFieldValue('passwordConfirm', '');
     };
+
+    useEffect(() => {
+        if (isError) setErrorSaveMessage(true);
+    }, [isError]);
 
     const onValuesChange = (changedValues: OnValuesChangeProps) => {
         if ('imgSrc' in changedValues && typeof changedValues.imgSrc === 'object') {

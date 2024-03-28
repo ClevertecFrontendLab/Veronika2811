@@ -29,7 +29,7 @@ export const TRAINING_ERROR_MODAL_CONTENT = {
     'error-save-userInfo': {
         width: 416,
         closable: false,
-        className: 'error-save-userInfo',
+        className: 'error-save',
         title: 'При сохранении данных произошла ошибка ',
         subtitle: 'Придётся попробовать ещё раз',
         buttonText: 'Закрыть',

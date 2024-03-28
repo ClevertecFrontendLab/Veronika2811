@@ -3,6 +3,8 @@ import path from 'path';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 
+// base: '/Veronika2811/',
+
 export default defineConfig({
     plugins: [react()],
     server: {
