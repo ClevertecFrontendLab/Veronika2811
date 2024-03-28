@@ -25,7 +25,7 @@ export const REGISTRATION_FIELDS = [
     },
     {
         name: 'password',
-        rules: passwordValidationRules,
+        rules: passwordValidationRules(true),
         help: 'Пароль не менее 8 символов, с заглавной буквой и цифрой',
         className: 'register-field',
         children: (
@@ -40,7 +40,7 @@ export const REGISTRATION_FIELDS = [
     },
     {
         name: 'passwordConfirm',
-        rules: confirmPasswordValidationRules,
+        rules: confirmPasswordValidationRules(true),
         className: 'password-confirm',
         children: (
             <Input.Password

@@ -6,9 +6,9 @@ import { AuthorInfo } from '../author-info';
 
 import styles from './feedback-card.module.less';
 
-import { Feedback } from '@/types/feedbacks';
+import { FeedbackResponse } from '@/types/feedbacks';
 
-export const FeedbackCard: FC<{ feedback: Feedback }> = ({ feedback }) => {
+export const FeedbackCard: FC<{ feedback: FeedbackResponse }> = ({ feedback }) => {
     const date = new Date(feedback.createdAt);
     const day = String(date.getDate()).padStart(2, '0');
     const month = String(date.getMonth() + 1).padStart(2, '0');

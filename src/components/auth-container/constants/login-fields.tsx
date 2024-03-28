@@ -21,7 +21,7 @@ export const LOGIN_FIELDS = [
     },
     {
         name: 'password',
-        rules: passwordValidationRules,
+        rules: passwordValidationRules(true),
         className: 'login-field',
         children: (
             <Input.Password

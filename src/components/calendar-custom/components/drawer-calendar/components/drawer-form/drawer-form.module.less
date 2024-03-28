@@ -18,7 +18,7 @@
 
         .exercise-inputs {
             height: 54px;
-            margin-bottom: @margin-18px;
+            margin-bottom: @padding-margin-18px;
 
             @media (max-width: @screen-sm) {
                 margin-bottom: @padding-margin-25px;
@@ -63,7 +63,7 @@
 
     :global {
         .ant-input-number-group-addon {
-            padding-right: 14px;
+            padding-right: @padding-margin-14px;
         }
     }
 }
@@ -74,7 +74,7 @@
 }
 
 [class*='ant-form-item'].weight {
-    margin-right: 13px;
+    margin-right: @padding-margin-13px;
     position: relative;
 
     &:after {
@@ -84,7 +84,7 @@
         color: @neutral-6;
 
         @media (max-width: @screen-sm) {
-            bottom: 0;
+            bottom: @padding-margin-zero;
         }
     }
 }
@@ -95,7 +95,7 @@
 
 .drawer-buttons,
 .drawer-button-only {
-    border-radius: 0 0 6px 6px;
+    border-radius: 0 0 @border-radius-6px @border-radius-6px;
     background: @neutral-4;
 }
 
@@ -120,7 +120,7 @@
         .ant-btn {
             font-size: @font-size-base;
             text-align: left;
-            padding-left: 11px;
+            padding-left: @padding-margin-11px;
         }
     }
 }

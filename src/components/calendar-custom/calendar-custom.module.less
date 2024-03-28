@@ -3,8 +3,8 @@
 .calendar {
     :global {
         .ant-list-item {
-            padding-top: 0;
-            padding-bottom: 0;
+            padding-top: @padding-margin-zero;
+            padding-bottom: @padding-margin-zero;
             white-space: nowrap;
         }
 
@@ -45,9 +45,13 @@
             height: 200px;
         }
 
+        .ant-picker-date-panel {
+            overflow: visible;
+        }
+
         .ant-picker-cell-today:before,
         .ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner:before {
-            border: 1px solid @primary-color;
+            border: @border-size-1px solid @primary-color;
             border-radius: @border-radius-2px;
         }
 
@@ -65,7 +69,8 @@
 
         .ant-picker-calendar-header {
             display: flex;
-            padding: 9px 7px 12px 40px;
+            padding: @padding-margin-9px @padding-margin-7px @padding-margin-12px
+                @padding-margin-40px;
             background-color: @neutral-1;
         }
 
@@ -87,12 +92,12 @@
         }
 
         .ant-picker-panel {
-            padding: 12px 5px;
+            padding: @padding-margin-12px @padding-margin-5px;
         }
 
         .ant-picker-calendar-year-select,
         .ant-picker-calendar-month-select {
-            margin-right: 5px;
+            margin-right: @padding-margin-5px;
         }
 
         .ant-radio-group-small .ant-radio-button-wrapper,

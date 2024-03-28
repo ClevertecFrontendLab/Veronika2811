@@ -1,6 +1,6 @@
 @import '@styles/constants.less';
 
-.calendar-wrapper {
+.calendar-page {
     :global {
         .ant-page-header-heading {
             justify-content: flex-end;
@@ -16,14 +16,15 @@
         }
 
         .ant-picker-calendar {
-            padding: 13px 24px 93px;
+            padding: @padding-margin-13px @padding-margin-24px 93px;
 
             @media (max-width: @screen-lg-xs) {
-                padding: 6px 25px 131px;
+                padding: @padding-margin-6px @padding-margin-25px 131px;
             }
 
             @media (max-width: @screen-sm) {
-                padding-bottom: 23px;
+                padding-top: @padding-margin-11px;
+                padding-bottom: @padding-margin-23px;
             }
         }
 
@@ -32,7 +33,7 @@
             padding-bottom: @padding-margin-30px;
 
             @media (max-width: @screen-lg-xs) {
-                padding: 0 5px 30px;
+                padding: @padding-margin-zero @padding-margin-5px @padding-margin-30px;
             }
         }
 
@@ -77,7 +78,7 @@
         }
 
         .ant-btn.ant-btn-circle {
-            margin-top: 1px;
+            margin-top: @padding-margin-1px;
             border: none;
             background-color: transparent;
             box-shadow: none;
@@ -92,11 +93,11 @@
 .modal-error {
     :global {
         .ant-modal-confirm .ant-modal-body {
-            padding: 15px 24px;
+            padding: @padding-margin-15px @padding-margin-24px;
         }
 
         .ant-modal-confirm .ant-modal-confirm-btns {
-            margin-top: @margin-12px;
+            margin-top: @padding-margin-12px;
         }
 
         .anticon-close-circle svg {
@@ -111,11 +112,11 @@
         }
 
         .ant-modal-close {
-            padding: 0 10px;
+            padding: @padding-margin-zero @padding-margin-10px;
         }
 
         .ant-modal-confirm-title {
-            padding-right: 60px;
+            padding-right: @padding-margin-60px;
         }
 
         .ant-modal-confirm-body > .anticon + .ant-modal-confirm-title + .ant-modal-confirm-content {
@@ -123,8 +124,31 @@
         }
 
         .ant-modal-confirm-body .ant-modal-confirm-content {
-            margin-top: @margin-4px;
+            margin-top: @padding-margin-4px;
             color: @neutral-7;
+        }
+    }
+}
+
+.calendar-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-right: @padding-margin-23px;
+    padding-bottom: @padding-margin-27px;
+    background: @primary-light-1;
+
+    @media (max-width: @screen-xs) {
+        padding-right: @padding-margin-17px;
+    }
+
+    :global {
+        .ant-btn {
+            margin-bottom: -24px;
+
+            @media (max-width: @screen-xs) {
+                margin-bottom: -16px;
+            }
         }
     }
 }

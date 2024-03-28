@@ -3,10 +3,10 @@
 .feedback-card {
     :global {
         .ant-card-body {
-            padding: 14px 24px 24px;
+            padding: @padding-margin-14px @padding-margin-24px @padding-margin-24px;
 
             @media (max-width: @screen-sm) {
-                padding: 14px 16px 24px;
+                padding: @padding-margin-14px @padding-margin-16px @padding-margin-24px;
             }
         }
 
@@ -32,11 +32,11 @@
         }
 
         .ant-comment-content-author > span {
-            padding-right: @padding-17px;
+            padding-right: @padding-margin-17px;
         }
 
         .ant-comment-content-author {
-            margin-bottom: @margin-9px;
+            margin-bottom: @padding-margin-9px;
         }
 
         .ant-comment-content-detail .ant-typography {

@@ -1,5 +1,5 @@
 export const TRAINING_ERROR_MODAL_CONTENT = {
-    'error-catalog': {
+    'training-error-catalog': {
         width: 384,
         closable: true,
         className: 'error-no-catalog',
@@ -8,11 +8,29 @@ export const TRAINING_ERROR_MODAL_CONTENT = {
         buttonText: 'Обновить',
         buttonSize: 'middle',
     },
-    'error-save': {
+    'training-error-save': {
         width: 416,
         closable: false,
         className: 'error-save',
         title: 'При сохранении данных произошла ошибка',
+        subtitle: 'Придётся попробовать ещё раз',
+        buttonText: 'Закрыть',
+        buttonSize: 'large',
+    },
+    'error-big-file': {
+        width: 416,
+        closable: false,
+        className: 'error-save',
+        title: 'Файл слишком большой',
+        subtitle: 'Выберите файл размером меньше 5 МБ.',
+        buttonText: 'Закрыть',
+        buttonSize: 'large',
+    },
+    'error-save-userInfo': {
+        width: 416,
+        closable: false,
+        className: 'error-save-userInfo',
+        title: 'При сохранении данных произошла ошибка ',
         subtitle: 'Придётся попробовать ещё раз',
         buttonText: 'Закрыть',
         buttonSize: 'large',

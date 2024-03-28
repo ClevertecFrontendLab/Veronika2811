@@ -1,9 +1,8 @@
 import { FC, useEffect, useState } from 'react';
-import { FeedbacksRefetch } from '@components/feedbacks-content/types/feedbacks-types';
 import { characterRender } from '@components/feedbacks-content/utils/character-rate-render';
 import { FeedbacksStatus } from '@constants/feedbacks/feedbacks-constants';
 import { useAppDispatch } from '@hooks/redux-hooks';
-import { useAddFeedbackMutation } from '@redux/api/feedbacks.api';
+import { useAddFeedbackMutation, useLazyGetFeedbacksQuery } from '@redux/api/feedbacks.api';
 import { setIsLoading } from '@redux/slice/main-slice';
 import { Form, Input, Rate } from 'antd';
 
@@ -14,18 +13,19 @@ export type FeedbackFormValues = {
     message: string;
 };
 
-type FeedbackFormProps = FeedbacksRefetch & {
+type FeedbackFormProps = {
     toggleModalVisibility: () => void;
     setIsModalResult: React.Dispatch<React.SetStateAction<string>>;
     changeDisabledButton: (state: boolean) => void;
 };
 
 export const FeedbackForm: FC<FeedbackFormProps> = ({
-    refetch,
     toggleModalVisibility,
     setIsModalResult,
     changeDisabledButton,
 }) => {
+    const [fetchFeedbacks] = useLazyGetFeedbacksQuery();
+
     const [form] = Form.useForm<FeedbackFormValues>();
 
     const [addFeedback, { isLoading }] = useAddFeedbackMutation();
@@ -37,7 +37,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
     const onFinish = async (values: FeedbackFormValues) => {
         try {
             await addFeedback(values).unwrap();
-            refetch();
+            fetchFeedbacks();
             setIsModalResult(FeedbacksStatus.STATUS_SUCCESS);
             form.resetFields();
         } catch (err: unknown) {

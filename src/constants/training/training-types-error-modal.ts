@@ -1,2 +1,2 @@
-export const TYPE_ERROR_CATALOG = 'error-catalog';
-export const TYPE_ERROR_SAVE = 'error-save';
+export const TRAINING_ERROR_CATALOG = 'training-error-catalog';
+export const TRAINING_ERROR_SAVE = 'training-error-save';

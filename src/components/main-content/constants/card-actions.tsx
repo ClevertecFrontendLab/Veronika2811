@@ -24,5 +24,6 @@ export const CARD_ACTIONS = [
         icon: <IdcardTwoTone twoToneColor={['#2f54eb', '#ffffff']} />,
         body: 'Профиль',
         pathRedirect: Paths.PROFILE,
+        testIds: 'menu-button-profile',
     },
 ];

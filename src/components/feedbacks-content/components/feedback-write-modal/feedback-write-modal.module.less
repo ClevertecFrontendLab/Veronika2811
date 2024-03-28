@@ -4,7 +4,7 @@
     :global {
         .ant-modal-content {
             @media (max-width: @screen-xs) {
-                margin: 0 8px;
+                margin: @padding-margin-zero @padding-margin-8px;
             }
         }
 
@@ -15,10 +15,10 @@
         }
 
         .ant-modal-body {
-            padding: 20px 16px 0;
+            padding: @padding-margin-20px @padding-margin-16px @padding-margin-zero;
 
             @media (max-width: @screen-xs) {
-                padding: 16px 16px 0;
+                padding: @padding-margin-16px @padding-margin-16px @padding-margin-zero;
             }
         }
     }

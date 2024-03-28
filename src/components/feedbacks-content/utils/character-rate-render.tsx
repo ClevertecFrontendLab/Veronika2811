@@ -1,6 +1,6 @@
 import { StarTwoTone } from '@ant-design/icons';
 
-export const characterRender = (index: number | undefined, value = 0) =>
+export const characterRender = (index?: number, value = 0) =>
     typeof index === 'number' && index < value ? (
         <StarTwoTone twoToneColor={['#FAAD14', '#FAAD14']} />
     ) : (

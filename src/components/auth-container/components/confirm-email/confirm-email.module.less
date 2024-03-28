@@ -2,10 +2,10 @@
 
 [class*='ant-result'].confirm-email {
     padding: @padding-margin-zero;
-    margin: 0 -32px;
+    margin: @padding-margin-zero -32px;
 
     @media (max-width: @screen-sm) {
-        margin: 0 -17px;
+        margin: @padding-margin-zero -17px;
     }
 
     :global {
@@ -28,7 +28,7 @@
 
             .confirm-email-code-error {
                 display: block;
-                padding: 0 27px;
+                padding: @padding-margin-zero @padding-margin-27px;
 
                 @media (max-width: @screen-sm) {
                     padding: @padding-margin-zero;
@@ -38,7 +38,7 @@
 
         .ant-result-subtitle {
             @media (max-width: @screen-sm) {
-                padding: 0 30px;
+                padding: @padding-margin-zero @padding-margin-30px;
             }
 
             .ant-typography {
@@ -49,22 +49,22 @@
         .ant-result-content {
             background-color: transparent;
             text-align: center;
-            margin: 0 auto;
+            margin: @padding-margin-zero auto;
             align-items: center;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            padding-bottom: 0;
+            gap: @gap-15px;
+            padding-bottom: @padding-margin-zero;
 
             @media (max-width: @screen-sm) {
-                padding: 24px 25px 0;
+                padding: @padding-margin-24px @padding-margin-25px @padding-margin-zero;
             }
 
             .ant-typography {
                 color: @neutral-7;
 
                 @media (max-width: @screen-sm) {
-                    padding: 0 20px;
+                    padding: @padding-margin-zero @padding-margin-20px;
                 }
             }
         }

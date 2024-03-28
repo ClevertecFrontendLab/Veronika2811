@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import { push } from 'redux-first-history';
-import { TrainingModalError } from '@components/calendar-custom/components/training-modal-error';
-import { MainHeader } from '@components/main-header';
+import { ModalNotification } from '@components/ui/modal-notification';
 import { WorkoutsContent } from '@components/workouts-content';
 import { TRAINING_STATUS_ERROR } from '@constants/training/training-status-constants';
-import { TYPE_ERROR_CATALOG } from '@constants/training/training-types-error-modal';
+import { TRAINING_ERROR_CATALOG } from '@constants/training/training-types-error-modal';
 import { useAppDispatch } from '@hooks/redux-hooks';
 import { useLazyGetCatalogTrainingListQuery } from '@redux/api/catalogs.api';
 import { useLazyGetUserTrainingDataQuery } from '@redux/api/training.api';
@@ -61,10 +60,9 @@ export const WorkoutsPage = () => {
 
     return (
         <div className={styles['workouts-wrapper']}>
-            <MainHeader />
             <WorkoutsContent />
-            <TrainingModalError
-                type={TYPE_ERROR_CATALOG}
+            <ModalNotification
+                type={TRAINING_ERROR_CATALOG}
                 open={catalogTrainingError}
                 onCancel={closeModalErrorTraining}
                 onClickButton={retryFetchCatalogTrainingList}

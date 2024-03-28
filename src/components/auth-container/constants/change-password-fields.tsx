@@ -8,7 +8,7 @@ import { AuthTestIds } from './auth-test-ids';
 export const CHANGE_PASSWORD_FIELDS = [
     {
         name: 'password',
-        rules: passwordValidationRules,
+        rules: passwordValidationRules(true),
         help: 'Пароль не менее 8 символов, с заглавной буквой и цифрой',
         children: (
             <Input.Password
@@ -22,7 +22,7 @@ export const CHANGE_PASSWORD_FIELDS = [
     },
     {
         name: 'confirmPassword',
-        rules: confirmPasswordValidationRules,
+        rules: confirmPasswordValidationRules(true),
         children: (
             <Input.Password
                 placeholder='Повторите пароль'

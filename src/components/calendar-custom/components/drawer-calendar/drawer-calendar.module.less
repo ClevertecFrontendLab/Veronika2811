@@ -4,10 +4,10 @@
     :global {
         .ant-drawer-content,
         .ant-drawer-content-wrapper {
-            border-radius: 8px 0 0 8px;
+            border-radius: @border-radius-8px 0 0 @border-radius-8px;
 
             @media (max-width: @screen-sm) {
-                border-radius: 24px 24px 0 0;
+                border-radius: @border-radius-24px @border-radius-24px 0 0;
             }
         }
 
@@ -30,12 +30,14 @@
         }
 
         .ant-drawer-header {
-            padding: 26px 27px 10px 32px;
+            padding: @padding-margin-26px @padding-margin-27px @padding-margin-10px
+                @padding-margin-32px;
             border-bottom: none;
             align-items: flex-start;
 
             @media (max-width: @screen-sm) {
-                padding: 26px 12px 10px 16px;
+                padding: @padding-margin-26px @padding-margin-12px @padding-margin-10px
+                    @padding-margin-16px;
             }
 
             .ant-typography {
@@ -44,10 +46,10 @@
         }
 
         .ant-drawer-body {
-            padding: 20px 32px;
+            padding: @padding-margin-20px @padding-margin-32px;
 
             @media (max-width: @screen-sm) {
-                padding: 20px 15px;
+                padding: @padding-margin-20px @padding-margin-15px;
             }
         }
 
@@ -55,7 +57,7 @@
             border-top: none;
             max-width: 350px;
             text-align: center;
-            margin: 0 auto;
+            margin: @padding-margin-zero auto;
 
             .ant-typography {
                 color: @neutral-7;

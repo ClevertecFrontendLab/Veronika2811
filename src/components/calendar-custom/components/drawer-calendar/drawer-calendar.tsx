@@ -1,43 +1,34 @@
 import { FC } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
-import { TRAINING_MODAL_WIDTH } from '@components/calendar-custom/constants/training-modal-width';
 import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
+import { DrawerCustom } from '@components/ui/drawer-custom';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
-import { useBreakpoints } from '@hooks/use-breakpoints';
 import { trainingSelector } from '@redux/selectors';
 import { setDrawerVisible } from '@redux/slice/training-slice';
-import { Button, Drawer } from 'antd';
+import { Button } from 'antd';
 
 import { DrawerFooter, DrawerForm, DrawerTitle } from './components';
-import styles from './drawer-custom.module.less';
+import styles from './drawer-calendar.module.less';
 
-type DrawerCustomProps = {
+type DrawerCalendarProps = {
     open: boolean;
     date: string;
 };
 
-export const DrawerCustom: FC<DrawerCustomProps> = ({ open, date }) => {
+export const DrawerCalendar: FC<DrawerCalendarProps> = ({ open, date }) => {
     const { editTraining } = useAppSelector(trainingSelector);
     const dispatch = useAppDispatch();
-
-    const { isXs } = useBreakpoints();
 
     const onCloseDrawer = () => dispatch(setDrawerVisible(false));
 
     const isPastTraining = editTraining?.type === 'past-training';
 
     return (
-        <Drawer
-            data-test-id={TrainingTestIds.MODAL_DRAWER_RIGHT}
-            placement={isXs ? 'bottom' : 'right'}
+        <DrawerCustom
+            testIds={TrainingTestIds.MODAL_DRAWER_RIGHT}
             onClose={onCloseDrawer}
             open={open}
-            mask={false}
-            width={isXs ? TRAINING_MODAL_WIDTH.drawer_mobile : TRAINING_MODAL_WIDTH.drawer}
             closable={false}
-            destroyOnClose={true}
-            className={styles.drawer}
-            height=''
             title={<DrawerTitle date={date} />}
             footer={isPastTraining ? <DrawerFooter /> : null}
             extra={
@@ -51,8 +42,9 @@ export const DrawerCustom: FC<DrawerCustomProps> = ({ open, date }) => {
                     data-test-id={TrainingTestIds.MODAL_DRAWER_RIGHT_BUTTON_CLOSE}
                 />
             }
+            className={styles.drawer}
         >
             <DrawerForm onCloseDrawer={onCloseDrawer} />
-        </Drawer>
+        </DrawerCustom>
     );
 };

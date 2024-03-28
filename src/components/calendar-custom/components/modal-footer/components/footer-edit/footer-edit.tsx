@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
-import { TrainingModalError } from '@components/calendar-custom/components/training-modal-error';
-import { TYPE_ERROR_SAVE } from '@constants/training/training-types-error-modal';
+import { ModalNotification } from '@components/ui/modal-notification';
+import { TRAINING_ERROR_SAVE } from '@constants/training/training-types-error-modal';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useAddUserTrainingMutation, useEditUserTrainingMutation } from '@redux/api/training.api';
 import { trainingSelector } from '@redux/selectors';
@@ -90,8 +90,8 @@ export const FooterEdit: FC<FooterEditProps> = ({ date, refetchUserTrainingList 
             >
                 {editTraining ? 'Сохранить изменения' : 'Сохранить'}
             </Button>
-            <TrainingModalError
-                type={TYPE_ERROR_SAVE}
+            <ModalNotification
+                type={TRAINING_ERROR_SAVE}
                 open={saveTrainingError}
                 onCancel={closeModalSaveErrorTraining}
                 onClickButton={closeAllModals}

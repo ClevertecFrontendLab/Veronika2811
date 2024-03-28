@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { push } from 'redux-first-history';
 import { useAppDispatch } from '@hooks/redux-hooks';
-import { setActiveMenuKey } from '@redux/slice/main-slice';
 import { Button, Card } from 'antd';
 
 import styles from './card-action-item.module.less';
@@ -20,12 +19,9 @@ type CardActionItemProps = {
 export const CardActionItem: FC<CardActionItemProps> = ({ item }) => {
     const dispatch = useAppDispatch();
 
-    const { key, title, icon, body, pathRedirect, testIds } = item;
+    const { title, icon, body, pathRedirect, testIds } = item;
 
-    const handleRedirect = () => {
-        dispatch(setActiveMenuKey(key));
-        dispatch(push(pathRedirect));
-    };
+    const handleRedirect = () => dispatch(push(pathRedirect));
 
     return (
         <Card

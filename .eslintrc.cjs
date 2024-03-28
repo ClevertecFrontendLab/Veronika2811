@@ -28,30 +28,6 @@ module.exports = {
         'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
         '@typescript-eslint/no-explicit-any': 'error',
         'no-console': ['warn', { allow: ['error'] }],
-        // 'simple-import-sort/imports': [
-        //     2,
-        //     {
-        //         groups: [
-        //             [
-        //                 '^react',
-        //                 '^react-router',
-        //                 '^redux',
-        //                 '^@reduxjs/toolkit',
-        //                 '^redux-first-history',
-        //                 '^history',
-        //                 '^classnames',
-        //                 '^moment',
-        //                 '^lottie-react',
-        //                 '^antd',
-        //                 '^@ant-design/icons',
-        //             ],
-        //             ['^@pages', '^@layouts', '^@components'],
-        //             ['^@redux', '^@hooks', '^@routes', '^@/types', '^@constants'],
-        //             ['^\\.'],
-        //             ['^.*\\.(css|scss|less)$'],
-        //         ],
-        //     },
-        // ],
         'import/no-absolute-path': 'off',
         'react/react-in-jsx-scope': 'off',
         'import/no-extraneous-dependencies': [

@@ -1,9 +1,9 @@
-import { Feedback } from '@/types/feedbacks';
+import { FeedbackResponse } from '@/types/feedbacks';
 
 export type FeedbacksRefetch = {
     refetch: () => void;
 };
 
-export type FeedbacksProps = FeedbacksRefetch & {
-    feedbacksList: Feedback[];
+export type FeedbacksProps = {
+    feedbacksList: FeedbackResponse[];
 };

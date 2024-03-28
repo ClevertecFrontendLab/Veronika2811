@@ -7,8 +7,9 @@ import { Calendar } from 'antd';
 import type { Moment } from 'moment';
 import moment from 'moment';
 
-import { DATE_FORMAT_DAY } from './constants/date-format';
-import { PICKER_LOCALE } from './constants/picker-locale';
+import { DATE_FORMAT_DAY } from '../../constants/date-format';
+import { PICKER_LOCALE } from '../../constants/picker-locale';
+
 import { SelectedCellInfo } from './types/selected-cell-info';
 import { filterTrainingsByDate } from './utils/filter-trainings-by-date';
 import styles from './calendar-custom.module.less';
@@ -108,7 +109,6 @@ export const CalendarCustom: FC<CalendarCustomProps> = ({ refetchUserTrainingLis
                 dateFullCellRender={dateFullCellRender}
                 className={styles.calendar}
                 fullscreen={!isXs}
-                // onSelect={onTrainingModalClose}
             />
 
             {shouldShowTrainingModal && (

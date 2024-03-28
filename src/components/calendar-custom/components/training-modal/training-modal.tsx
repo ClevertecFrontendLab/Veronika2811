@@ -1,8 +1,8 @@
 import React, { FC, useEffect, useState } from 'react';
-import { DATE_FORMAT } from '@components/calendar-custom/constants/date-format';
 import { TRAINING_MODAL_WIDTH } from '@components/calendar-custom/constants/training-modal-width';
 import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
 import { SelectedCellInfo } from '@components/calendar-custom/types/selected-cell-info';
+import { DATE_FORMAT } from '@constants/date-format';
 import { useAppSelector } from '@hooks/redux-hooks';
 import { useBreakpoints } from '@hooks/use-breakpoints';
 import { trainingSelector } from '@redux/selectors';
@@ -10,7 +10,7 @@ import { Modal } from 'antd';
 import classNames from 'classnames';
 import type { Moment } from 'moment';
 
-import { DrawerCustom } from '../drawer-custom';
+import { DrawerCalendar } from '../drawer-calendar';
 import { ModalContent } from '../modal-content';
 import { ModalFooter } from '../modal-footer';
 import { ModalTitle } from '../modal-title';
@@ -88,7 +88,7 @@ export const TrainingModal: FC<TrainingModalProps> = ({
             >
                 <ModalContent date={date} />
             </Modal>
-            <DrawerCustom open={isDrawerVisible} date={date.format(DATE_FORMAT)} />
+            <DrawerCalendar open={isDrawerVisible} date={date.format(DATE_FORMAT)} />
         </React.Fragment>
     );
 };

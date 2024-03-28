@@ -4,10 +4,10 @@ import { FeedbacksList } from '@components/feedbacks-content/components/feedback
 import { FeedbacksDefault } from './components/feedbacks-default';
 import { FeedbacksProps } from './types/feedbacks-types';
 
-export const FeedbacksContent: FC<FeedbacksProps> = ({ feedbacksList, refetch }) => {
+export const FeedbacksContent: FC<FeedbacksProps> = ({ feedbacksList }) => {
     if (!feedbacksList.length) {
-        return <FeedbacksDefault refetch={refetch} />;
+        return <FeedbacksDefault />;
     }
 
-    return <FeedbacksList feedbacksList={feedbacksList} refetch={refetch} />;
+    return <FeedbacksList feedbacksList={feedbacksList} />;
 };

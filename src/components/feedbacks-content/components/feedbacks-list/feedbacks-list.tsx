@@ -7,7 +7,7 @@ import { FeedbackCard } from '../feedback-card';
 
 import styles from './feedbacks-list.module.less';
 
-export const FeedbacksList: FC<FeedbacksProps> = ({ feedbacksList, refetch }) => {
+export const FeedbacksList: FC<FeedbacksProps> = ({ feedbacksList }) => {
     const [showAll, setShowAll] = useState(false);
 
     const handleClickShowAll = () => {
@@ -21,11 +21,7 @@ export const FeedbacksList: FC<FeedbacksProps> = ({ feedbacksList, refetch }) =>
                     <FeedbackCard key={item.id} feedback={item} />
                 ))}
             </Space>
-            <FeedbackButtons
-                showAll={showAll}
-                handleClickShowAll={handleClickShowAll}
-                refetch={refetch}
-            />
+            <FeedbackButtons showAll={showAll} handleClickShowAll={handleClickShowAll} />
         </React.Fragment>
     );
 };

@@ -1,12 +1,10 @@
-import { FC } from 'react';
-import { FeedbacksRefetch } from '@components/feedbacks-content/types/feedbacks-types';
 import { Card, Typography } from 'antd';
 
 import { FeedbackWriteButton } from '../feedback-write-button';
 
 import styles from './feedbacks-default.module.less';
 
-export const FeedbacksDefault: FC<FeedbacksRefetch> = ({ refetch }) => (
+export const FeedbacksDefault = () => (
     <div className={styles['reedback-default-wrapper']}>
         <Card
             bordered={false}
@@ -22,7 +20,7 @@ export const FeedbacksDefault: FC<FeedbacksRefetch> = ({ refetch }) => (
             <Typography.Paragraph>и помогите им сделать правильный выбор.</Typography.Paragraph>
         </Card>
         <div className={styles['feedback-default-button']}>
-            <FeedbackWriteButton refetch={refetch} />
+            <FeedbackWriteButton />
         </div>
     </div>
 );

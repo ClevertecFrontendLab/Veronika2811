@@ -72,11 +72,12 @@
 .workout-card-empty {
     :global {
         .ant-modal-header {
-            padding: 10px 16px 2px 12px;
+            padding: @padding-margin-10px @padding-margin-16px @padding-margin-2px
+                @padding-margin-12px;
         }
 
         .ant-modal-body {
-            padding: 0 13px 16px;
+            padding: @padding-margin-zero @padding-margin-13px @padding-margin-16px;
         }
     }
 }
@@ -88,11 +89,12 @@
         }
 
         .ant-modal-header {
-            padding: 14px 16px 14px 12px;
+            padding: @padding-margin-14px @padding-margin-16px @padding-margin-14px
+                @padding-margin-12px;
         }
 
         .ant-modal-body {
-            padding: 14px 0;
+            padding: @padding-margin-14px @padding-margin-zero;
             min-height: 100px;
 
             .ant-btn-icon-only {
@@ -105,7 +107,8 @@
         }
 
         .ant-list-item {
-            padding: 0 4px 0 13px;
+            padding: @padding-margin-zero @padding-margin-4px @padding-margin-zero
+                @padding-margin-13px;
         }
 
         .ant-list-item:hover {
@@ -122,7 +125,8 @@
         }
 
         .ant-modal-header {
-            padding: 7px 16px 11px 9px;
+            padding: @padding-margin-7px @padding-margin-16px @padding-margin-11px
+                @padding-margin-9px;
         }
 
         .ant-modal-footer {
@@ -141,7 +145,7 @@
 .workout-edit-empty {
     :global {
         .ant-modal-body {
-            padding: 29px;
+            padding: @padding-margin-29px;
         }
     }
 }
@@ -150,14 +154,14 @@
     :global {
         .ant-modal-body {
             min-height: 90px;
-            padding: 24px 0;
+            padding: @padding-margin-24px @padding-margin-zero;
 
             .ant-typography {
                 color: @neutral-7;
             }
 
             .ant-list-item {
-                padding: 0 24px;
+                padding: @padding-margin-zero @padding-margin-24px;
             }
         }
     }

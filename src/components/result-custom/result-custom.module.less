@@ -10,7 +10,7 @@
 
         .ant-result-subtitle {
             line-height: 1.4;
-            white-space: pre-line;
+            white-space: @white-space-pre-line;
         }
 
         .ant-btn-primary {
@@ -22,10 +22,10 @@
 
 [class*='ant-result'].auth-check-no-exist {
     padding: @padding-margin-zero;
-    margin: 0 -32px;
+    margin: @padding-margin-zero -32px;
 
     @media (max-width: @screen-sm) {
-        padding: 40px 0 24px;
+        padding: @padding-margin-40px @padding-margin-zero @padding-margin-24px;
         margin: @padding-margin-zero;
     }
 
@@ -35,11 +35,11 @@
         }
 
         .ant-result-subtitle {
-            padding: 0 44px;
+            padding: @padding-margin-zero 44px;
             line-height: 1.2;
 
             @media (max-width: @screen-sm) {
-                padding: 0 26px;
+                padding: @padding-margin-zero @padding-margin-26px;
             }
         }
 
@@ -53,12 +53,12 @@
     padding: @padding-margin-zero;
 
     @media (max-width: @screen-sm) {
-        padding: 30px 0 24px;
+        padding: @padding-margin-30px @padding-margin-zero @padding-margin-24px;
     }
 
     :global {
         .ant-result-icon {
-            margin-bottom: @margin-22px;
+            margin-bottom: @padding-margin-22px;
         }
 
         .ant-result-title {
@@ -66,7 +66,7 @@
         }
 
         .ant-result-subtitle {
-            margin: 0 -21px;
+            margin: @padding-margin-zero -21px;
             line-height: 1.2;
 
             @media (max-width: @screen-sm) {
@@ -85,11 +85,11 @@
 }
 
 [class*='ant-result'].feedback-result {
-    padding: 46px 63px 40px;
+    padding: @padding-margin-46px 63px @padding-margin-40px;
 
     @media (max-width: @screen-sm) {
-        padding: 10px 0;
-        margin: 0 -9px;
+        padding: @padding-margin-10px @padding-margin-zero;
+        margin: @padding-margin-zero -9px;
     }
 
     :global {
@@ -128,7 +128,7 @@
 
         .ant-result-subtitle {
             @media (max-width: @screen-sm) {
-                padding: 0 46px;
+                padding: @padding-margin-zero @padding-margin-46px;
             }
         }
     }

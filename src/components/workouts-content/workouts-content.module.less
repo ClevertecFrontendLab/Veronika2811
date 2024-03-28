@@ -3,17 +3,18 @@
 .workouts,
 .marathons,
 .joint-training {
-    margin: 24px 24px 42px;
-    border-radius: 8px;
+    margin: @padding-margin-24px @padding-margin-24px @padding-margin-42px;
+    border-radius: @border-radius-8px;
     min-height: calc(100vh - 165px);
 
     :global {
         .ant-tabs {
-            padding: 37px 23px 0;
+            padding: 37px @padding-margin-23px @padding-margin-zero;
         }
 
         .ant-tabs-nav {
-            padding: 0 46px 0 13px;
+            padding: @padding-margin-zero @padding-margin-46px @padding-margin-zero
+                @padding-margin-13px;
         }
 
         .ant-tabs-nav-list {

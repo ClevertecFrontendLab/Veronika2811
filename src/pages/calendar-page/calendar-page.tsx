@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { push } from 'redux-first-history';
 import { CalendarCustom } from '@components/calendar-custom';
-import { TrainingModalError } from '@components/calendar-custom/components/training-modal-error';
-import { MainHeader } from '@components/main-header';
+import { BreadcrumbCustom } from '@components/page-headers/breadcrumb-custom';
+import { ButtonSettings } from '@components/ui/button-settings';
+import { ModalNotification } from '@components/ui/modal-notification';
 import { TRAINING_STATUS_ERROR } from '@constants/training/training-status-constants';
-import { TYPE_ERROR_CATALOG } from '@constants/training/training-types-error-modal';
+import { TRAINING_ERROR_CATALOG } from '@constants/training/training-types-error-modal';
 import { useAppDispatch } from '@hooks/redux-hooks';
 import { useLazyGetCatalogTrainingListQuery } from '@redux/api/catalogs.api';
 import { useLazyGetUserTrainingDataQuery } from '@redux/api/training.api';
@@ -60,11 +61,14 @@ export const CalendarPage = () => {
     const retryFetchCatalogTrainingList = () => getCatalogTrainingList();
 
     return (
-        <div className={styles['calendar-wrapper']}>
-            <MainHeader />
+        <div className={styles['calendar-page']}>
+            <div className={styles['calendar-header']}>
+                <BreadcrumbCustom />
+                <ButtonSettings />
+            </div>
             <CalendarCustom refetchUserTrainingList={getUserTrainingList} />
-            <TrainingModalError
-                type={TYPE_ERROR_CATALOG}
+            <ModalNotification
+                type={TRAINING_ERROR_CATALOG}
                 open={catalogTrainingError}
                 onCancel={closeModalErrorTraining}
                 onClickButton={retryFetchCatalogTrainingList}
