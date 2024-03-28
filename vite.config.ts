@@ -9,7 +9,6 @@ export default defineConfig({
         host: true,
         port: 3000,
     },
-    base: '/Veronika2811/',
     resolve: {
         alias: {
             '@public': path.resolve(__dirname, 'public'),
