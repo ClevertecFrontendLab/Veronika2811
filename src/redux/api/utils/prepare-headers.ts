@@ -7,7 +7,7 @@ type PrepareHeaders = (
         extra?: unknown;
         endpoint?: string;
         type?: 'query' | 'mutation';
-        forced?: boolean | undefined;
+        forced?: boolean;
     },
 ) => Headers | void;
 

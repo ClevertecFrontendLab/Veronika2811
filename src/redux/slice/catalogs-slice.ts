@@ -1,13 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { CatalogTrainingList } from '@/types/catalogs/catalogs-api-data-types';
+import {
+    CatalogTariffListResponse,
+    CatalogTrainingListResponse,
+} from '@/types/catalogs/catalogs-api-data-types';
 
 type TInitialState = {
-    catalogTrainingList: CatalogTrainingList[];
+    catalogTrainingList: CatalogTrainingListResponse[];
+    catalogTariffList: CatalogTariffListResponse[];
 };
 
 const initialState: TInitialState = {
     catalogTrainingList: [],
+    catalogTariffList: [],
 };
 
 const catalogsSlice = createSlice({
@@ -17,11 +22,14 @@ const catalogsSlice = createSlice({
         setCatalogTrainingList: (state, action) => {
             state.catalogTrainingList = action.payload;
         },
+        setCatalogTariffList: (state, action) => {
+            state.catalogTariffList = action.payload;
+        },
     },
 });
 
 const { actions, reducer: reducerCatalogs } = catalogsSlice;
 
-export const { setCatalogTrainingList } = actions;
+export const { setCatalogTrainingList, setCatalogTariffList } = actions;
 
 export default reducerCatalogs;
