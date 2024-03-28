@@ -18,4 +18,5 @@ export enum Paths {
     CALENDAR = 'calendar',
     WORKOUTS = 'workouts',
     PROFILE = 'profile',
+    SETTINGS = 'settings',
 }

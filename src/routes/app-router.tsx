@@ -1,12 +1,10 @@
-import { useEffect } from 'react';
-import { Navigate, Route, Routes, useLocation, useSearchParams } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { ChangePasswordForm } from '@components/auth-container/components/change-password-form';
 import { ConfirmEmail } from '@components/auth-container/components/confirm-email';
 import { ResultCustom } from '@components/result-custom';
 import { LOGIN, REGISTRATION } from '@constants/auth/auth-constants';
 import { AuthStatus } from '@constants/auth/auth-status-constants';
-import { ACCESS_TOKEN_KEY } from '@constants/storage-keys';
-import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
+import { useAppSelector } from '@hooks/redux-hooks';
 import { LayoutAuthPage } from '@layouts/layout-auth-page';
 import { LayoutMainPage } from '@layouts/layout-main-page';
 import { AuthenticatorPage } from '@pages/authenticator-page';
@@ -15,29 +13,16 @@ import { FeedbacksPage } from '@pages/feedbacks-page';
 import { MainPage } from '@pages/main-page';
 import { NotFoundPage } from '@pages/not-found-page';
 import { ProfilePage } from '@pages/profile-page';
-import { WorkoutsPage } from '@pages/workouts-page';
+import { SettingsPage } from '@pages/settings-page';
 import { authSelector } from '@redux/selectors';
-import { setAccessToken } from '@redux/slice/auth-slice';
 
 import { Paths } from './constants/router-paths';
 
 export const AppRouter = () => {
-    const { accessToken } = useAppSelector(authSelector);
-
     const location = useLocation();
-    const [searchParams] = useSearchParams();
     const isRedirect = location.state?.fromRedirect;
 
-    const dispatch = useAppDispatch();
-
-    useEffect(() => {
-        const accessTokenGoogle = searchParams.get('accessToken');
-
-        if (accessTokenGoogle) {
-            localStorage.setItem(ACCESS_TOKEN_KEY, accessTokenGoogle);
-            dispatch(setAccessToken(accessTokenGoogle));
-        }
-    }, [dispatch, searchParams]);
+    const { accessToken } = useAppSelector(authSelector);
 
     const checkAccessTokenAndNavigate = () => {
         if (accessToken) {
@@ -47,32 +32,33 @@ export const AppRouter = () => {
         return <Navigate to={Paths.AUTH_MAIN} replace={true} />;
     };
 
+    const authRoute = accessToken ? (
+        <LayoutMainPage />
+    ) : (
+        <Navigate to={Paths.AUTH_MAIN} replace={true} />
+    );
+
+    const authPage = isRedirect ? <LayoutAuthPage /> : checkAccessTokenAndNavigate();
+
+    const authRedirectElement = accessToken ? (
+        <Navigate to={Paths.ROOT} replace={true} />
+    ) : (
+        <LayoutAuthPage />
+    );
+
     return (
         <Routes>
-            <Route
-                path={Paths.ROOT}
-                element={
-                    accessToken ? (
-                        <LayoutMainPage />
-                    ) : (
-                        <Navigate to={Paths.AUTH_MAIN} replace={true} />
-                    )
-                }
-            >
+            <Route path={Paths.ROOT} element={authRoute}>
                 <Route index={true} element={<Navigate to={Paths.MAIN} />} />
                 <Route path={Paths.MAIN} element={<MainPage />} />
                 <Route path={Paths.FEEDBACKS} element={<FeedbacksPage />} />
                 <Route path={Paths.CALENDAR} element={<CalendarPage />} />
-                <Route path={Paths.WORKOUTS} element={<WorkoutsPage />} />
                 <Route path={Paths.PROFILE} element={<ProfilePage />} />
+                <Route path={Paths.SETTINGS} element={<SettingsPage />} />
+                <Route path='*' element={<NotFoundPage />} />
             </Route>
 
-            <Route
-                path={Paths.AUTH_MAIN}
-                element={
-                    accessToken ? <Navigate to={Paths.ROOT} replace={true} /> : <LayoutAuthPage />
-                }
-            >
+            <Route path={Paths.AUTH_MAIN} element={authRedirectElement}>
                 <Route index={true} element={<AuthenticatorPage type={LOGIN} />} />
                 <Route
                     path={Paths.AUTH_SUB_REGISTRATION}
@@ -82,10 +68,7 @@ export const AppRouter = () => {
                 <Route path={Paths.AUTH_SUB_CHANGE_PASSWORD} element={<ChangePasswordForm />} />
             </Route>
 
-            <Route
-                path={Paths.AUTH_MAIN_RESULTS}
-                element={isRedirect ? <LayoutAuthPage /> : checkAccessTokenAndNavigate()}
-            >
+            <Route path={Paths.AUTH_MAIN_RESULTS} element={authPage}>
                 <Route
                     path={Paths.AUTH_SUB_RESULT_409}
                     element={<ResultCustom statusCode={AuthStatus.STATUS_ERROR_409} />}
@@ -123,8 +106,6 @@ export const AppRouter = () => {
                     }
                 />
             </Route>
-
-            <Route path='*' element={<NotFoundPage />} />
         </Routes>
     );
 };
