@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { UserInfoResponse } from '@/types/user/user-api-data-types';
+import { UserInfoResponse } from '@/types/profile/profile-api-data-types';
 
 type TInitialState = {
     currentUserInfo: UserInfoResponse;
@@ -29,11 +29,17 @@ const profileSlice = createSlice({
         setCurrentUserInfo: (state, action) => {
             state.currentUserInfo = action.payload;
         },
+        resetCurrentUserInfo: (state) => {
+            Object.assign(state, {
+                ...initialState,
+                currentUserInfo: state.currentUserInfo,
+            });
+        },
     },
 });
 
 const { actions, reducer: reducerProfile } = profileSlice;
 
-export const { setCurrentUserInfo } = actions;
+export const { setCurrentUserInfo, resetCurrentUserInfo } = actions;
 
 export default reducerProfile;
