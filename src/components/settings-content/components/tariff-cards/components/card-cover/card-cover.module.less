@@ -1,0 +1,12 @@
+@import '@styles/constants.less';
+
+.cover {
+    width: 240px;
+    object-fit: cover;
+    height: 149px;
+
+    @media (max-width: @screen-sm) {
+        width: @full-width;
+        height: 195px;
+    }
+}
