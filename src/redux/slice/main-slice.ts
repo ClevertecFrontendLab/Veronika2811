@@ -1,30 +1,36 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { AlertProps } from 'antd';
 
 type TInitialState = {
-    activeMenuKey: [string];
     isLoading: boolean;
+    alertApp: {
+        message: string;
+        type: AlertProps['type'];
+        testIds: string;
+        container?: Element | DocumentFragment;
+    } | null;
 };
 
 const initialState: TInitialState = {
-    activeMenuKey: [''],
     isLoading: false,
+    alertApp: null,
 };
 
 const mainSlice = createSlice({
     name: 'MAIN_SLICE',
     initialState,
     reducers: {
-        setActiveMenuKey: (state, action) => {
-            state.activeMenuKey = action.payload;
-        },
         setIsLoading: (state, action) => {
             state.isLoading = action.payload;
+        },
+        setAlertApp: (state, action) => {
+            state.alertApp = action.payload;
         },
     },
 });
 
 const { actions, reducer: reducerMain } = mainSlice;
 
-export const { setActiveMenuKey, setIsLoading } = actions;
+export const { setIsLoading, setAlertApp } = actions;
 
 export default reducerMain;
