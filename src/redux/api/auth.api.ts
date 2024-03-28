@@ -1,8 +1,8 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { setIsLoading } from '@redux/slice/main-slice';
 
-import { BASE_URL } from './constants/baseUrl';
+import { ApiEndpoints } from './constants/api-endpoints';
+import emptyApi from './empty-api';
 
-import { Paths } from '@routes/constants/Paths';
 import {
     CheckEmailResponse,
     EmailData,
@@ -12,50 +12,71 @@ import {
     PasswordConfirmationData,
     RegistrationData,
 } from '@/types/auth';
-import { ErrorTypes } from '@/types/errorTypes';
-import { LOGIN, REGISTRATION } from '@constants/auth/authConstants';
+import { ErrorTypeResponse } from '@/types/error-types';
 
-export const authApi = createApi({
-    reducerPath: 'AUTH_API',
-    baseQuery: fetchBaseQuery({
-        baseUrl: `${BASE_URL}${Paths.AUTH_MAIN}`,
-        credentials: 'include',
-    }),
+const commonExtraOptions = {
+    auth: true,
+};
+
+export const authApi = emptyApi.injectEndpoints({
     endpoints: (build) => ({
-        registerUser: build.mutation<ErrorTypes, RegistrationData>({
-            query: (body: RegistrationData) => ({
-                url: `/${REGISTRATION}`,
-                method: 'POST',
-                body,
-            }),
-        }),
         loginUser: build.mutation<LoginResponse, LoginData>({
             query: (body: LoginData) => ({
-                url: `/${LOGIN}`,
+                url: ApiEndpoints.AUTH_LOGIN,
                 method: 'POST',
                 body,
             }),
+            async onQueryStarted(_, { dispatch, queryFulfilled }) {
+                dispatch(setIsLoading(true));
+                try {
+                    await queryFulfilled;
+                    dispatch(setIsLoading(false));
+                } catch (err) {
+                    dispatch(setIsLoading(false));
+                }
+            },
+            extraOptions: commonExtraOptions,
+        }),
+        registerUser: build.mutation<ErrorTypeResponse, RegistrationData>({
+            query: (body: RegistrationData) => ({
+                url: ApiEndpoints.AUTH_REGISTRATION,
+                method: 'POST',
+                body,
+            }),
+            async onQueryStarted(_, { dispatch, queryFulfilled }) {
+                dispatch(setIsLoading(true));
+                try {
+                    await queryFulfilled;
+                    dispatch(setIsLoading(false));
+                } catch (err) {
+                    dispatch(setIsLoading(false));
+                }
+            },
+            extraOptions: commonExtraOptions,
         }),
         checkEmailExistence: build.mutation<CheckEmailResponse, EmailData>({
             query: (body: { email: string }) => ({
-                url: '/check-email',
+                url: ApiEndpoints.AUTH_CHECK_EMAIL,
                 method: 'POST',
                 body,
             }),
+            extraOptions: commonExtraOptions,
         }),
         checkVerificationCode: build.mutation<CheckEmailResponse, EmailVerificationData>({
             query: (body: EmailVerificationData) => ({
-                url: '/confirm-email',
+                url: ApiEndpoints.AUTH_CONFIRM_EMAIL,
                 method: 'POST',
                 body,
             }),
+            extraOptions: commonExtraOptions,
         }),
         updatePassword: build.mutation<CheckEmailResponse, PasswordConfirmationData>({
             query: (body: PasswordConfirmationData) => ({
-                url: '/change-password',
+                url: ApiEndpoints.AUTH_CHANGE_PASSWORD,
                 method: 'POST',
                 body,
             }),
+            extraOptions: commonExtraOptions,
         }),
     }),
 });

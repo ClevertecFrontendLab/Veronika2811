@@ -1,43 +1,27 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import type { Moment } from 'moment';
+import { ApiEndpoints } from './constants/api-endpoints';
+import emptyApi from './empty-api';
 
-import { CurrentTraining } from '@components/CalendarCustom/types/currentTraining';
+import {
+    TrainingAddData,
+    TrainingEditData,
+    TrainingResponse,
+} from '@/types/training/training-api-data-types';
 
-import { BASE_URL } from './constants/baseUrl';
-import prepareHeaders from './utils/prepareHeaders';
-
-import { TrainingEditData, TrainingResponse } from '@/types/training/trainingApiDataTypes';
-
-export const trainingApi = createApi({
-    reducerPath: 'TRAINING_API',
-    baseQuery: fetchBaseQuery({
-        baseUrl: BASE_URL,
-        prepareHeaders,
-    }),
+export const trainingApi = emptyApi.injectEndpoints({
     endpoints: (build) => ({
         getUserTrainingData: build.query<TrainingResponse[], void>({
-            query: () => '/training',
+            query: () => ApiEndpoints.TRAINING,
         }),
-        addUserTraining: build.mutation<
-            TrainingResponse,
-            {
-                name: string | null;
-                date: Moment;
-                exercises: CurrentTraining[] | null;
-            }
-        >({
+        addUserTraining: build.mutation<TrainingResponse, TrainingAddData>({
             query: (body) => ({
-                url: '/training',
+                url: ApiEndpoints.TRAINING,
                 method: 'POST',
-                body: body,
+                body,
             }),
         }),
-        editUserTraining: build.mutation<
-            TrainingResponse,
-            { trainingId: string; body: TrainingEditData }
-        >({
+        editUserTraining: build.mutation<TrainingResponse, TrainingEditData>({
             query: ({ trainingId, body }) => ({
-                url: `/training/${trainingId}`,
+                url: `${ApiEndpoints.TRAINING}/${trainingId}`,
                 method: 'PUT',
                 body,
             }),

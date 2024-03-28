@@ -1,0 +1,168 @@
+@import '@styles/constants.less';
+
+[class*='ant-modal-wrap'].modal {
+    position: absolute;
+    top: 2px;
+    bottom: auto;
+    overflow: visible;
+
+    :global {
+        .ant-modal {
+            position: static;
+            min-height: 200px;
+        }
+    }
+}
+
+[class*='ant-modal-wrap'].position-left {
+    :global {
+        .ant-modal {
+            left: 4px;
+            top: 0;
+            position: absolute;
+        }
+    }
+}
+
+[class*='ant-modal-wrap'].position-right {
+    :global {
+        .ant-modal {
+            right: 4px;
+            position: absolute;
+            top: 0;
+        }
+    }
+}
+
+[class*='ant-modal-wrap'].position-bottom {
+    :global {
+        .ant-modal {
+            position: absolute;
+            bottom: 20px;
+        }
+    }
+}
+
+.workout-card-list,
+.workout-card-empty {
+    :global {
+        .ant-modal-header {
+            border-bottom: none;
+
+            .ant-typography {
+                font-size: @font-size-base;
+                font-weight: 700;
+            }
+
+            .anticon {
+                font-size: 10px;
+            }
+        }
+
+        .ant-modal-footer {
+            padding: @padding-margin-10px;
+        }
+
+        .ant-btn-primary {
+            font-size: @font-size-base;
+        }
+    }
+}
+
+.workout-card-empty {
+    :global {
+        .ant-modal-header {
+            padding: @padding-margin-10px @padding-margin-16px @padding-margin-2px
+                @padding-margin-12px;
+        }
+
+        .ant-modal-body {
+            padding: @padding-margin-zero @padding-margin-13px @padding-margin-16px;
+        }
+    }
+}
+
+.workout-card-list {
+    :global {
+        .ant-badge .ant-badge-status-text {
+            font-size: @font-size-base;
+        }
+
+        .ant-modal-header {
+            padding: @padding-margin-14px @padding-margin-16px @padding-margin-14px
+                @padding-margin-12px;
+        }
+
+        .ant-modal-body {
+            padding: @padding-margin-14px @padding-margin-zero;
+            min-height: 100px;
+
+            .ant-btn-icon-only {
+                height: 24px;
+            }
+
+            .anticon {
+                font-size: @font-size-lg;
+            }
+        }
+
+        .ant-list-item {
+            padding: @padding-margin-zero @padding-margin-4px @padding-margin-zero
+                @padding-margin-13px;
+        }
+
+        .ant-list-item:hover {
+            background-color: @neutral-3;
+        }
+    }
+}
+
+.workout-edit-empty,
+.workout-edit-list {
+    :global {
+        .ant-modal-title {
+            display: flex;
+        }
+
+        .ant-modal-header {
+            padding: @padding-margin-7px @padding-margin-16px @padding-margin-11px
+                @padding-margin-9px;
+        }
+
+        .ant-modal-footer {
+            padding: @padding-margin-10px;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+
+            .ant-btn + .ant-btn:not(.ant-dropdown-trigger) {
+                margin-left: @padding-margin-zero;
+            }
+        }
+    }
+}
+
+.workout-edit-empty {
+    :global {
+        .ant-modal-body {
+            padding: @padding-margin-29px;
+        }
+    }
+}
+
+.workout-edit-list {
+    :global {
+        .ant-modal-body {
+            min-height: 90px;
+            padding: @padding-margin-24px @padding-margin-zero;
+
+            .ant-typography {
+                color: @neutral-7;
+            }
+
+            .ant-list-item {
+                padding: @padding-margin-zero @padding-margin-24px;
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+@import '@styles/constants.less';
+
+.sider {
+    height: auto;
+    box-shadow: @box-shadow-layout-0-15;
+}
+
+.sider [class*='ant-layout-sider-children'] {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: @screen-sm) {
+    [class*='ant-layout-sider'].sider {
+        position: fixed;
+        z-index: 4;
+        height: @full-height;
+    }
+}

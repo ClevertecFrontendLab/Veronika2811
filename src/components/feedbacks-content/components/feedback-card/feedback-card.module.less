@@ -1,0 +1,46 @@
+@import '@styles/constants.less';
+
+.feedback-card {
+    :global {
+        .ant-card-body {
+            padding: @padding-margin-14px @padding-margin-24px @padding-margin-24px;
+
+            @media (max-width: @screen-sm) {
+                padding: @padding-margin-14px @padding-margin-16px @padding-margin-24px;
+            }
+        }
+
+        .ant-comment-inner {
+            padding: @padding-margin-zero;
+
+            @media (max-width: @screen-sm) {
+                flex-direction: column;
+            }
+        }
+
+        .ant-comment-avatar {
+            min-width: 166px;
+            text-align: center;
+        }
+
+        .ant-rate {
+            font-size: @font-size-base;
+        }
+
+        .ant-rate-star:not(:last-child) {
+            margin-right: @padding-margin-6px;
+        }
+
+        .ant-comment-content-author > span {
+            padding-right: @padding-margin-17px;
+        }
+
+        .ant-comment-content-author {
+            margin-bottom: @padding-margin-9px;
+        }
+
+        .ant-comment-content-detail .ant-typography {
+            color: @neutral-7;
+        }
+    }
+}

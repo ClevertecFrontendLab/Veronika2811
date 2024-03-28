@@ -1,1 +1,1 @@
-export { ExitIconCustom } from './ExitIcon';
+export { ExitIconCustom } from './exit-icon';

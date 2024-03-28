@@ -1,0 +1,22 @@
+@import '@styles/constants.less';
+
+.feedbacks-list {
+    overflow: auto;
+    max-height: calc(100vh - 295px);
+}
+
+.modal-success {
+    :global {
+        .ant-result {
+            padding: @padding-margin-48px 61px;
+        }
+
+        .ant-btn {
+            font-size: @font-size-base;
+        }
+
+        .ant-result-extra {
+            margin-top: @padding-margin-18px;
+        }
+    }
+}

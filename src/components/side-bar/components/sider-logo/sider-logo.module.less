@@ -1,0 +1,15 @@
+@import '@styles/constants.less';
+
+.logo {
+    display: flex;
+    align-items: flex-end;
+    padding: @padding-margin-46px @padding-margin-zero @padding-margin-64px @padding-margin-29px;
+
+    &.logo-collapsed {
+        padding: 51px @padding-margin-zero 65px @padding-margin-18px;
+    }
+
+    @media (max-width: @screen-xs) {
+        padding: @padding-margin-17px @padding-margin-zero @padding-margin-29px @padding-margin-18px;
+    }
+}

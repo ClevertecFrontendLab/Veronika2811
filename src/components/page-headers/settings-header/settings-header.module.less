@@ -1,0 +1,32 @@
+@import '@styles/constants.less';
+
+.settings-header {
+    display: flex;
+    align-items: center;
+    gap: @gap-7px;
+    padding: @padding-margin-19px @padding-margin-24px @padding-margin-14px @padding-margin-8px;
+    background: @primary-light-1;
+
+    @media (max-width: @screen-sm) {
+        padding-top: @padding-margin-15px;
+    }
+
+    :global {
+        .anticon {
+            font-size: @font-size-base;
+        }
+
+        .ant-btn {
+            font-size: @font-size-20px;
+            display: flex;
+            align-items: center;
+            gap: @gap-8px;
+        }
+
+        .ant-btn > .anticon + span {
+            @media (max-width: @screen-sm) {
+                font-size: @font-size-base;
+            }
+        }
+    }
+}

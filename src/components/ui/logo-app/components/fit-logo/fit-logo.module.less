@@ -1,0 +1,26 @@
+@import '@styles/constants.less';
+
+.fit-sm {
+    width: 35px;
+    height: 31px;
+
+    @media (max-width: @screen-xs) {
+        width: 19px;
+        height: 17px;
+    }
+}
+
+[class*='collapsed'] .fit-sm {
+    width: 29px;
+    height: 26px;
+}
+
+.fit-md {
+    width: 79px;
+    height: 69px;
+
+    @media (max-width: @screen-xs) {
+        width: 52px;
+        height: 46px;
+    }
+}

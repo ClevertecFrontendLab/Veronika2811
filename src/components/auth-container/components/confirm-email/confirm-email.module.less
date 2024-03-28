@@ -1,0 +1,80 @@
+@import '@styles/constants.less';
+
+[class*='ant-result'].confirm-email {
+    padding: @padding-margin-zero;
+    margin: @padding-margin-zero -32px;
+
+    @media (max-width: @screen-sm) {
+        margin: @padding-margin-zero -17px;
+    }
+
+    :global {
+        .ant-result-icon {
+            margin-bottom: @padding-margin-30px;
+        }
+
+        .confirm-email-code {
+            font-weight: @font-weight-medium;
+            line-height: @line-height-large;
+        }
+
+        .ant-result-title {
+            font-weight: @font-weight-medium;
+            line-height: @line-height-large;
+
+            .confirm-email-code {
+                white-space: @white-space-pre-line;
+            }
+
+            .confirm-email-code-error {
+                display: block;
+                padding: @padding-margin-zero @padding-margin-27px;
+
+                @media (max-width: @screen-sm) {
+                    padding: @padding-margin-zero;
+                }
+            }
+        }
+
+        .ant-result-subtitle {
+            @media (max-width: @screen-sm) {
+                padding: @padding-margin-zero @padding-margin-30px;
+            }
+
+            .ant-typography {
+                color: @neutral-7;
+            }
+        }
+
+        .ant-result-content {
+            background-color: transparent;
+            text-align: center;
+            margin: @padding-margin-zero auto;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: @gap-15px;
+            padding-bottom: @padding-margin-zero;
+
+            @media (max-width: @screen-sm) {
+                padding: @padding-margin-24px @padding-margin-25px @padding-margin-zero;
+            }
+
+            .ant-typography {
+                color: @neutral-7;
+
+                @media (max-width: @screen-sm) {
+                    padding: @padding-margin-zero @padding-margin-20px;
+                }
+            }
+        }
+    }
+}
+
+[class*='ant-result'][class*='ant-result-info'].confirm-email {
+    :global {
+        .ant-result-icon > .anticon {
+            color: @primary-color;
+        }
+    }
+}

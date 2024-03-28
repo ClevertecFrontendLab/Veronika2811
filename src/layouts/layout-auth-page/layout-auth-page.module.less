@@ -1,0 +1,22 @@
+@import '@styles/constants.less';
+
+.auth-page-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('/images/background-image-light-auth.jpg') no-repeat center / cover;
+
+    .auth-form-container {
+        padding: @padding-margin-64px 85.5px;
+        width: 539px;
+        text-align: center;
+        background: @neutral-1;
+        box-shadow: @box-shadow-layout-0-15;
+
+        @media (max-width: @screen-sm) {
+            width: 328px;
+            padding: @padding-margin-32px @padding-margin-16px;
+        }
+    }
+}

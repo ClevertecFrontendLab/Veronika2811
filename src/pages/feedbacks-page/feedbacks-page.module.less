@@ -1,0 +1,19 @@
+@import '@styles/constants.less';
+
+.feedbacks-page {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.feedbacks-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: @padding-margin-24px;
+
+    @media (max-width: @screen-xs) {
+        padding: @padding-margin-24px @padding-margin-16px;
+        justify-content: flex-start;
+    }
+}

@@ -1,0 +1,35 @@
+@import '@styles/constants.less';
+
+.feedback-buttons {
+    padding-top: 108px;
+
+    @media (max-width: @screen-md) {
+        padding-top: @padding-margin-27px;
+        flex-direction: column;
+        width: @full-width;
+    }
+
+    :global {
+        .ant-space-item {
+            @media (max-width: @screen-md) {
+                width: @full-width;
+            }
+        }
+
+        .ant-btn {
+            @media (max-width: @screen-md) {
+                width: @full-width;
+            }
+        }
+
+        .ant-btn-primary {
+            font-size: @font-size-base;
+        }
+
+        .ant-btn-text {
+            @media (max-width: @screen-md) {
+                margin-top: @padding-margin-10px;
+            }
+        }
+    }
+}

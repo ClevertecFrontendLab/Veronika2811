@@ -1,0 +1,93 @@
+@import '@styles/constants.less';
+
+.drawer {
+    :global {
+        .ant-drawer-content,
+        .ant-drawer-content-wrapper {
+            border-radius: @border-radius-8px 0 0 @border-radius-8px;
+
+            @media (max-width: @screen-sm) {
+                border-radius: @border-radius-24px @border-radius-24px 0 0;
+            }
+        }
+
+        .ant-drawer-header {
+            padding: @padding-margin-24px @padding-margin-27px @padding-margin-24px
+                @padding-margin-32px;
+            border-bottom: none;
+
+            @media (max-width: @screen-sm) {
+                padding: @padding-margin-24px @padding-margin-11px @padding-margin-24px
+                    @padding-margin-16px;
+            }
+        }
+        .ant-drawer-body {
+            padding: @padding-margin-16px @padding-margin-32px @padding-margin-24px;
+
+            @media (max-width: @screen-sm) {
+                padding: @padding-margin-zero @padding-margin-16px @padding-margin-24px;
+            }
+        }
+
+        .ant-drawer-footer {
+            padding: @padding-margin-12px @padding-margin-33px;
+
+            @media (max-width: @screen-sm) {
+                padding: @padding-margin-12px @padding-margin-16px;
+            }
+        }
+
+        .ant-drawer-content-wrapper {
+            @media (max-width: @screen-sm) {
+                height: 555px;
+            }
+        }
+    }
+}
+
+.labels {
+    display: flex;
+    justify-content: flex-end;
+    padding: @padding-margin-15px @padding-margin-zero @padding-margin-24px;
+    gap: 14px;
+
+    &.labels-inactive-pro {
+        padding-top: @padding-margin-24px;
+
+        @media (max-width: @screen-sm) {
+            padding-top: @padding-margin-16px;
+            padding-bottom: @padding-margin-12px;
+        }
+    }
+}
+
+.label {
+    width: 56px;
+    height: 24px;
+    font-size: @font-size-12px;
+    line-height: @line-height-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:first-child {
+        background-color: @neutral-4;
+    }
+
+    &:last-child {
+        background-color: @primary-light-1;
+        color: @primary-light-7;
+    }
+}
+
+.label-strong {
+    font-weight: @typography-title-font-weight;
+    font-size: 13px;
+    gap: @gap-6px;
+    justify-content: flex-end;
+}
+
+[class*='anticon'].label-icon {
+    color: #52c41a;
+    font-size: @font-size-base;
+}

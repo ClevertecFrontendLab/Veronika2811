@@ -1,1 +1,0 @@
-export { CleverLogo } from './CleverLogo';

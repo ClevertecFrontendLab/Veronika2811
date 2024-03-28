@@ -1,0 +1,33 @@
+@import '@styles/constants.less';
+
+.feedback-modal {
+    :global {
+        .ant-modal-content {
+            @media (max-width: @screen-xs) {
+                margin: @padding-margin-zero @padding-margin-8px;
+            }
+        }
+
+        .ant-modal-header {
+            @media (max-width: @screen-xs) {
+                padding: @padding-margin-16px;
+            }
+        }
+
+        .ant-modal-body {
+            padding: @padding-margin-20px @padding-margin-16px @padding-margin-zero;
+
+            @media (max-width: @screen-xs) {
+                padding: @padding-margin-16px @padding-margin-16px @padding-margin-zero;
+            }
+        }
+    }
+}
+
+[class*='ant-btn'].feedback-form-button {
+    font-size: @font-size-base;
+
+    @media (max-width: @screen-xs) {
+        width: @full-width;
+    }
+}

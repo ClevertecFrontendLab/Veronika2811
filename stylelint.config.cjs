@@ -14,4 +14,10 @@ module.exports = {
         'stylelint-core-vars/use-one-of-mixins': false,
         'stylelint-core-vars/do-not-use-dark-colors': false,
     },
+    overrides: [
+        {
+            files: ['*.less', '**/*.less'],
+            customSyntax: 'postcss-less',
+        },
+    ],
 };

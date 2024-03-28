@@ -1,0 +1,98 @@
+@import '@styles/constants.less';
+
+.form-profile {
+    max-width: 480px;
+
+    & .personal-title,
+    & .privacy-title {
+        margin-bottom: @padding-margin-24px;
+
+        @media (max-width: @screen-xs) {
+            margin-bottom: @padding-margin-20px;
+        }
+    }
+
+    :global {
+        .ant-btn-primary {
+            font-size: @font-size-lg;
+            margin-top: @padding-margin-21px;
+
+            @media (max-width: @screen-xs) {
+                margin-top: @padding-margin-17px;
+                width: @full-width;
+            }
+        }
+    }
+}
+
+.personal-info-container {
+    display: flex;
+    align-items: flex-start;
+    gap: @gap-16px;
+
+    @media (max-width: @screen-xs) {
+        flex-direction: column-reverse;
+        gap: 0;
+    }
+
+    :global {
+        .ant-form-item {
+            @media (max-width: @screen-xs) {
+                width: @full-width;
+            }
+
+            .ant-upload-list-item-name {
+                @media (max-width: @screen-xs) {
+                    visibility: hidden;
+                }
+            }
+
+            .ant-upload-list-item {
+                @media (max-width: @screen-xs) {
+                    margin: @padding-margin-zero;
+                }
+            }
+        }
+
+        .ant-form-item:last-child {
+            @media (max-width: @screen-xs) {
+                margin-bottom: @padding-margin-16px;
+            }
+        }
+    }
+}
+
+.privacy-container {
+    padding-top: @padding-margin-24px;
+
+    @media (max-width: @screen-xs) {
+        padding-top: @padding-margin-12px;
+    }
+
+    & .register-field {
+        margin-bottom: @padding-margin-33px;
+        font-size: @font-size-base;
+    }
+
+    :global {
+        .ant-input-group-addon {
+            padding: @padding-margin-zero @padding-margin-12px;
+        }
+
+        .ant-input-affix-wrapper > .ant-input {
+            font-size: @font-size-base;
+        }
+
+        .ant-form-item-explain div:not(.ant-form-item-explain-success) {
+            padding-bottom: @padding-margin-21px;
+            font-size: @font-size-12px;
+            line-height: @line-height-large;
+            padding-top: @padding-margin-2px;
+
+            @media (max-width: @screen-xs) {
+                padding-right: @padding-margin-9px;
+                padding-bottom: @padding-margin-5px;
+            }
+        }
+    }
+}

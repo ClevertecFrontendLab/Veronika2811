@@ -1,0 +1,59 @@
+@import '@styles/constants.less';
+
+[class*='ant-layout-header'].header-main {
+    padding: @padding-margin-zero;
+    height: auto;
+    background: @primary-light-1;
+
+    & .header-main-content {
+        display: flex;
+        justify-content: space-between;
+        padding: @padding-margin-zero @padding-margin-24px;
+        margin-top: -2px;
+
+        @media (max-width: @screen-sm) {
+            margin-top: -10px;
+        }
+
+        :global {
+            h1.ant-typography {
+                margin-bottom: @padding-margin-22px;
+                letter-spacing: 0.2px;
+
+                @media (max-width: @screen-lg-sm) {
+                    font-size: @font-size-24px;
+                    font-weight: @font-weight-medium;
+                    letter-spacing: 0;
+                }
+
+                @media (max-width: @screen-sm) {
+                    font-size: @font-size-20px;
+                }
+            }
+
+            .ant-btn {
+                margin-top: -5px;
+
+                @media (max-width: @screen-sm) {
+                    margin-right: @padding-margin-5px;
+                }
+
+                .anticon {
+                    @media (max-width: @screen-lg-sm) {
+                        display: none;
+                    }
+
+                    @media (max-width: @screen-sm) {
+                        display: block;
+                    }
+                }
+            }
+
+            .ant-btn > .anticon + span {
+                @media (max-width: @screen-sm) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
