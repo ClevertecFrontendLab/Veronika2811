@@ -1,0 +1,22 @@
+@import '@styles/constants.less';
+
+.alert-container {
+    position: fixed;
+    bottom: 72px;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    width: @full-width;
+}
+
+.alert {
+    :global {
+        .ant-alert-icon {
+            margin-right: @padding-margin-11px;
+        }
+
+        .anticon-close {
+            margin-left: @padding-margin-55px;
+        }
+    }
+}

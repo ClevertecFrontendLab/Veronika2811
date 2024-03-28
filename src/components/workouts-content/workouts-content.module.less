@@ -1,0 +1,54 @@
+@import '@styles/constants.less';
+
+.workouts,
+.marathons,
+.joint-training {
+    margin: @padding-margin-24px @padding-margin-24px @padding-margin-42px;
+    border-radius: @border-radius-8px;
+    min-height: calc(100vh - 165px);
+
+    :global {
+        .ant-tabs {
+            padding: 37px @padding-margin-23px @padding-margin-zero;
+        }
+
+        .ant-tabs-nav {
+            padding: @padding-margin-zero @padding-margin-46px @padding-margin-zero
+                @padding-margin-13px;
+        }
+
+        .ant-tabs-nav-list {
+            flex: 1;
+            justify-content: space-between;
+        }
+
+        .ant-tabs-large > .ant-tabs-nav .ant-tabs-tab {
+            font-size: @font-size-24px;
+            padding: @padding-margin-zero;
+        }
+
+        .ant-tabs-tab-btn {
+            line-height: @line-height-large;
+        }
+    }
+}
+
+.workouts {
+    background: @neutral-1;
+}
+
+.marathons {
+    background: url('/images/background-marathons.jpg') no-repeat center / cover;
+    display: flex;
+
+    :global {
+        .ant-tabs {
+            flex: 1;
+        }
+
+        .ant-tabs-content,
+        .ant-tabs-tabpane {
+            height: @full-height;
+        }
+    }
+}

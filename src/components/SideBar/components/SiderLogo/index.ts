@@ -1,1 +1,0 @@
-export { SiderLogo } from './SiderLogo';

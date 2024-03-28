@@ -1,0 +1,21 @@
+@import '@styles/constants.less';
+
+.feedbacks-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 91px;
+    gap: @gap-8px;
+
+    @media (max-width: @screen-sm) {
+        padding-top: @padding-margin-14px;
+        gap: @gap-15px;
+    }
+
+    :global {
+        .ant-btn {
+            @media (max-width: @screen-sm) {
+                width: @full-width;
+            }
+        }
+    }
+}

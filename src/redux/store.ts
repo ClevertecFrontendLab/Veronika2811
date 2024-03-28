@@ -1,16 +1,14 @@
-import { combineReducers } from 'redux';
-import { configureStore } from '@reduxjs/toolkit';
 import { createReduxHistoryContext } from 'redux-first-history';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { createBrowserHistory } from 'history';
 
-import { authApi } from './api/auth.api';
-import { catalogsApi } from './api/catalogs.api';
-import { feedbacksApi } from './api/feedbacks.api';
-import { trainingApi } from './api/training.api';
-import reducerAuth from './slice/authSlice';
-import reducerCatalogs from './slice/catalogsSlice';
-import reducerMain from './slice/mainSlice';
-import reducerTraining from './slice/trainingSlice';
+import emptyApi from './api/empty-api';
+import reducerAuth from './slice/auth-slice';
+import reducerCatalogs from './slice/catalogs-slice';
+import reducerMain from './slice/main-slice';
+import reducerProfile from './slice/profile-slice';
+import reducerTraining from './slice/training-slice';
+import reducerWorkouts from './slice/workouts-slice';
 
 const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHistoryContext({
     history: createBrowserHistory(),
@@ -24,20 +22,12 @@ export const store = configureStore({
         mainSlice: reducerMain,
         trainingSlice: reducerTraining,
         catalogSlice: reducerCatalogs,
-        [authApi.reducerPath]: authApi.reducer,
-        [feedbacksApi.reducerPath]: feedbacksApi.reducer,
-        [trainingApi.reducerPath]: trainingApi.reducer,
-        [catalogsApi.reducerPath]: catalogsApi.reducer,
+        workoutsSlice: reducerWorkouts,
+        profileSlice: reducerProfile,
+        [emptyApi.reducerPath]: emptyApi.reducer,
     }),
-    middleware: (getDefaultMiddleware) => {
-        return getDefaultMiddleware().concat([
-            routerMiddleware,
-            authApi.middleware,
-            feedbacksApi.middleware,
-            trainingApi.middleware,
-            catalogsApi.middleware,
-        ]);
-    },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(emptyApi.middleware, routerMiddleware),
 });
 
 export const history = createReduxHistory(store);

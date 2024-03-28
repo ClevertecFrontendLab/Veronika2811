@@ -1,0 +1,35 @@
+@import '@styles/constants.less';
+
+.upload-button-desktop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: @gap-7px;
+
+    :global {
+        .ant-typography {
+            color: @neutral-7;
+            white-space: @white-space-break-spaces;
+        }
+    }
+}
+
+.upload-mobile {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    :global {
+        .ant-typography {
+            font-size: @font-size-12px;
+        }
+
+        .ant-btn.ant-btn-lg {
+            @media (max-width: @screen-xs) {
+                padding: @padding-margin-8px @padding-margin-26px;
+                margin: @padding-margin-zero;
+                font-size: @font-size-base;
+            }
+        }
+    }
+}

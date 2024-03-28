@@ -1,2 +1,2 @@
-export * from './feedbackApiDataTypes';
-export * from './feedbackFormTypes';
+export * from './feedback-api-data-types.ts';
+export * from './feedback-form-types.ts';

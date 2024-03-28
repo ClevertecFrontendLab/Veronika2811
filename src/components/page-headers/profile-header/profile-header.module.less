@@ -1,0 +1,40 @@
+@import '@styles/constants.less';
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: @padding-margin-22px @padding-margin-24px @padding-margin-14px;
+    background: @primary-light-1;
+
+    @media (max-width: @screen-lg-xs) {
+        padding: @padding-margin-16px @padding-margin-24px @padding-margin-55px;
+    }
+
+    @media (max-width: @screen-xs) {
+        padding: @padding-margin-16px @padding-margin-17px 41px @padding-margin-24px;
+    }
+
+    :global {
+        .profile-header-title {
+            font-weight: @font-weight-medium;
+
+            @media (max-width: @screen-lg-xs) {
+                font-size: @font-size-base;
+                font-weight: @font-weight-normal;
+            }
+        }
+
+        .ant-btn {
+            margin-top: -@padding-margin-10px;
+
+            @media (max-width: @screen-lg-xs) {
+                margin-bottom: -69px;
+            }
+
+            @media (max-width: @screen-xs) {
+                margin-bottom: -54px;
+            }
+        }
+    }
+}

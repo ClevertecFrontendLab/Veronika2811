@@ -1,0 +1,41 @@
+@import '@styles/constants.less';
+
+.auth-tabs {
+    :global {
+        .ant-tabs-nav-list {
+            width: @full-width;
+        }
+
+        .ant-tabs-tab {
+            justify-content: center;
+            width: 50%;
+            font-size: @font-size-lg;
+        }
+
+        .ant-tabs-tab + .ant-tabs-tab {
+            margin: @padding-margin-zero;
+        }
+
+        .ant-tabs-tab-btn {
+            @media (max-width: @screen-sm) {
+                font-size: @font-size-base;
+            }
+        }
+
+        #login {
+            padding: @padding-margin-8px @padding-margin-zero 80px;
+
+            @media (max-width: @screen-sm) {
+                padding-bottom: @padding-margin-60px;
+            }
+        }
+
+        #registration {
+            padding: @padding-margin-16px @padding-margin-zero @padding-margin-zero;
+
+            @media (max-width: @screen-sm) {
+                padding-top: @padding-margin-10px;
+            }
+        }
+    }
+}

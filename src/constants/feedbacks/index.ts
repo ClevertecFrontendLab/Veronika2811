@@ -1,1 +1,1 @@
-export * from './feedbacksConstants';
+export * from './feedbacks-constants';

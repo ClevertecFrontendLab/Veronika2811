@@ -1,1 +1,0 @@
-export { LayoutAuthPage } from './LayoutAuthPage';

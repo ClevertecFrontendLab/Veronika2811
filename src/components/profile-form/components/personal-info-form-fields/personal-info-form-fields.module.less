@@ -1,0 +1,32 @@
+@import '@styles/constants.less';
+
+.personal-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    @media (max-width: @screen-xs) {
+        width: @full-width;
+    }
+
+    :global {
+        .ant-form-item {
+            margin-bottom: @padding-margin-16px;
+
+            .ant-picker-large,
+            .ant-input-lg {
+                padding: @padding-margin-8px @padding-margin-11px;
+                font-size: @font-size-base;
+            }
+
+            .ant-picker {
+                width: @full-width;
+                font-size: @font-size-12px;
+            }
+
+            .ant-picker-large .ant-picker-input > input {
+                font-size: @font-size-base;
+            }
+        }
+    }
+}

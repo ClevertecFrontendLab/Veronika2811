@@ -1,1 +1,0 @@
-export { ButtonIconSettingRound } from './ButtonIconSettingRound';

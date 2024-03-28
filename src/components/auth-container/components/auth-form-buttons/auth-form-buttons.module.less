@@ -1,0 +1,25 @@
+@import '@styles/constants.less';
+
+.auth-form-buttons {
+    width: @full-width;
+
+    :global {
+        .ant-btn {
+            @media (max-width: @screen-sm) {
+                font-size: @font-size-base;
+            }
+        }
+
+        .anticon {
+            @media (max-width: @screen-sm) {
+                display: none;
+            }
+        }
+
+        .ant-btn > .anticon + span {
+            @media (max-width: @screen-sm) {
+                margin-left: @padding-margin-zero;
+            }
+        }
+    }
+}

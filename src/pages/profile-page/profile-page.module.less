@@ -1,0 +1,24 @@
+@import '@styles/constants.less';
+
+.profile-page {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: @gap-16px;
+    padding: @padding-margin-24px;
+    margin: @padding-margin-24px @padding-margin-24px @padding-margin-42px;
+    border-radius: @border-radius-8px;
+    background-color: @neutral-1;
+
+    @media (max-width: @screen-xs) {
+        margin: @padding-margin-24px @padding-margin-zero @padding-margin-42px;
+        border-radius: 0;
+        padding: @padding-margin-16px @padding-margin-24px;
+    }
+}

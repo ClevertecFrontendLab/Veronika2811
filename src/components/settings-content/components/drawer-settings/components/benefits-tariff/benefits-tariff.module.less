@@ -1,0 +1,33 @@
+@import '@styles/constants.less';
+
+.benefits-tariff {
+    display: flex;
+    justify-content: space-between;
+
+    & .benefits-title {
+        margin-bottom: @padding-margin-16px;
+
+        @media (max-width: @screen-sm) {
+            margin-bottom: @padding-margin-8px;
+        }
+    }
+
+    & .benefits-icons-container {
+        margin-right: @padding-margin-16px;
+        display: flex;
+        align-items: flex-start;
+        gap: 52px;
+
+        @media (max-width: @screen-sm) {
+            gap: 45px;
+        }
+    }
+
+    & .benefits-tariff-icon {
+        font-size: 18px;
+    }
+
+    & .benefits-tariff-icon-inactive {
+        color: @neutral-6;
+    }
+}

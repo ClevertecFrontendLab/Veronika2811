@@ -1,0 +1,18 @@
+@import '@styles/constants.less';
+
+.settings-page {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.settings-background {
+    display: flex;
+    flex: 1;
+    background-color: @image-bg;
+    padding: @padding-margin-29px @padding-margin-24px @padding-margin-42px;
+
+    @media (max-width: @screen-sm) {
+        padding: @padding-margin-24px @padding-margin-zero @padding-margin-42px;
+    }
+}

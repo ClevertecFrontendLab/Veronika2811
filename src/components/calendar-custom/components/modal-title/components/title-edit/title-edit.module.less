@@ -1,0 +1,15 @@
+@import '@styles/constants.less';
+
+[class*='ant-select'].select[class*='ant-select-single'][class*='ant-select-show-arrow'] {
+    width: @full-width;
+
+    :global {
+        .ant-select-selection-item {
+            text-align: left;
+        }
+
+        .ant-select-selector {
+            border-color: transparent;
+        }
+    }
+}

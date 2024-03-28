@@ -1,1 +1,0 @@
-export { FitLogo } from './FitLogo';

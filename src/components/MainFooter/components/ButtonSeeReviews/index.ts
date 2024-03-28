@@ -1,1 +1,0 @@
-export { ButtonSeeReviews } from './ButtonSeeReviews';

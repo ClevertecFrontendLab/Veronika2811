@@ -1,0 +1,27 @@
+@import '@styles/constants.less';
+
+.periods {
+    display: flex;
+    justify-content: space-between;
+
+    & .periods-title {
+        margin-bottom: @padding-margin-29px;
+        font-size: @font-size-base;
+
+        @media (max-width: @screen-sm) {
+            margin-bottom: 0;
+        }
+    }
+
+    & .periods-group {
+        margin-right: @padding-margin-8px;
+        display: flex;
+        align-items: flex-start;
+        gap: 48px;
+    }
+
+    & .periods-cost {
+        margin-bottom: @padding-margin-16px;
+        font-size: @font-size-lg;
+    }
+}

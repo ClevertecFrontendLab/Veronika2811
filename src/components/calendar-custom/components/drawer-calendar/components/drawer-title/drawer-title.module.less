@@ -1,0 +1,29 @@
+@import '@styles/constants.less';
+
+.drawer-title {
+    display: flex;
+}
+
+.drawer-subtitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: @padding-margin-20px -@padding-margin-20px @padding-margin-zero @padding-margin-zero;
+
+    @media (max-width: @screen-sm) {
+        margin: @padding-margin-16px -@padding-margin-20px @padding-margin-zero @padding-margin-zero;
+    }
+
+    :global {
+        .ant-badge .ant-badge-status-text,
+        .date {
+            color: @neutral-7;
+            font-weight: @font-weight-normal;
+        }
+
+        .date {
+            font-size: @font-size-base;
+            margin-bottom: @padding-margin-zero;
+        }
+    }
+}

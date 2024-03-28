@@ -1,0 +1,40 @@
+@import '@styles/constants.less';
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+
+    :global {
+        .ant-space-item {
+            @media (max-width: @screen-sm) {
+                width: @full-width;
+            }
+        }
+    }
+}
+
+.card {
+    box-shadow: @box-shadow-layout-0-15;
+    background: @neutral-1;
+
+    :global {
+        .ant-card-head {
+            padding: @padding-margin-1px @padding-margin-8px @padding-margin-1px
+                @padding-margin-24px;
+        }
+
+        .ant-card-body,
+        .ant-card-extra {
+            padding: @padding-margin-zero;
+        }
+
+        .ant-card-head-title {
+            padding: @padding-margin-13px @padding-margin-zero;
+        }
+
+        .ant-typography,
+        .ant-typography + h5.ant-typography {
+            margin: @padding-margin-zero;
+        }
+    }
+}

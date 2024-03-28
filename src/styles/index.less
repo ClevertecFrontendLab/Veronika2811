@@ -4,18 +4,24 @@
 @import './constants.less';
 
 * {
-    margin: 0;
-    padding: 0;
+    margin: @padding-margin-zero;
+    padding: @padding-margin-zero;
     box-sizing: border-box;
 }
 
 body {
-    max-width: 1440px;
-    min-height: 100vh;
-    margin: 0 auto;
+    margin: @padding-margin-zero auto;
     font-family: 'Inter', 'Roboto', sans-serif;
 }
 
-#root {
-    height: 100%;
+h1,
+h2,
+h3,
+h4,
+h5,
+div,
+span {
+    &.ant-typography {
+        line-height: @line-height-large;
+    }
 }

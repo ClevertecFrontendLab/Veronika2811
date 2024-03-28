@@ -1,0 +1,154 @@
+@import '@styles/constants.less';
+
+.calendar-page {
+    :global {
+        .ant-page-header-heading {
+            justify-content: flex-end;
+        }
+
+        .ant-page-header-heading-left {
+            display: none;
+        }
+
+        .ant-picker-calendar,
+        .ant-picker-calendar-full .ant-picker-panel {
+            background: @primary-light-1;
+        }
+
+        .ant-picker-calendar {
+            padding: @padding-margin-13px @padding-margin-24px 93px;
+
+            @media (max-width: @screen-lg-xs) {
+                padding: @padding-margin-6px @padding-margin-25px 131px;
+            }
+
+            @media (max-width: @screen-sm) {
+                padding-top: @padding-margin-11px;
+                padding-bottom: @padding-margin-23px;
+            }
+        }
+
+        .ant-picker-calendar-full .ant-picker-panel .ant-picker-calendar-date {
+            padding-top: @padding-margin-zero;
+            padding-bottom: @padding-margin-30px;
+
+            @media (max-width: @screen-lg-xs) {
+                padding: @padding-margin-zero @padding-margin-5px @padding-margin-30px;
+            }
+        }
+
+        .ant-picker-calendar .ant-picker-panel .ant-picker-body {
+            padding: @padding-margin-zero;
+        }
+
+        .ant-picker-cell-inner {
+            background: @neutral-1;
+        }
+
+        .ant-picker-cell-today {
+            border-top: 2px solid @blue-dark-6;
+
+            @media (max-width: @screen-sm) {
+                border-top: none;
+            }
+        }
+
+        .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner:not(.mobile-date) {
+            @media (max-width: @screen-sm) {
+                background: transparent;
+            }
+        }
+
+        .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner {
+            @media (max-width: @screen-sm) {
+                color: @neutral-10;
+            }
+        }
+
+        .ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner:before {
+            border: none;
+        }
+
+        .ant-picker-calendar-full
+            .ant-picker-panel
+            .ant-picker-cell-selected
+            .ant-picker-calendar-date
+            .ant-picker-calendar-date-value {
+            color: @neutral-10;
+        }
+
+        .ant-btn.ant-btn-circle {
+            margin-top: @padding-margin-1px;
+            border: none;
+            background-color: transparent;
+            box-shadow: none;
+
+            .anticon-setting {
+                font-size: @font-size-base;
+            }
+        }
+    }
+}
+
+.modal-error {
+    :global {
+        .ant-modal-confirm .ant-modal-body {
+            padding: @padding-margin-15px @padding-margin-24px;
+        }
+
+        .ant-modal-confirm .ant-modal-confirm-btns {
+            margin-top: @padding-margin-12px;
+        }
+
+        .anticon-close-circle svg {
+            font-size: @font-size-24px;
+        }
+        .ant-modal-close-icon {
+            font-size: @font-size-base;
+        }
+
+        .ant-modal-close-x {
+            line-height: 50px;
+        }
+
+        .ant-modal-close {
+            padding: @padding-margin-zero @padding-margin-10px;
+        }
+
+        .ant-modal-confirm-title {
+            padding-right: @padding-margin-60px;
+        }
+
+        .ant-modal-confirm-body > .anticon + .ant-modal-confirm-title + .ant-modal-confirm-content {
+            margin-left: @padding-margin-40px;
+        }
+
+        .ant-modal-confirm-body .ant-modal-confirm-content {
+            margin-top: @padding-margin-4px;
+            color: @neutral-7;
+        }
+    }
+}
+
+.calendar-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-right: @padding-margin-23px;
+    padding-bottom: @padding-margin-27px;
+    background: @primary-light-1;
+
+    @media (max-width: @screen-xs) {
+        padding-right: @padding-margin-17px;
+    }
+
+    :global {
+        .ant-btn {
+            margin-bottom: -24px;
+
+            @media (max-width: @screen-xs) {
+                margin-bottom: -16px;
+            }
+        }
+    }
+}

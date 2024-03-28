@@ -1,0 +1,11 @@
+@import '@styles/constants.less';
+
+.button-settings {
+    :global {
+        .anticon + span {
+            @media (max-width: @screen-xs) {
+                display: none;
+            }
+        }
+    }
+}

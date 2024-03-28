@@ -1,1 +1,0 @@
-export { ResultCustom } from './ResultCustom';

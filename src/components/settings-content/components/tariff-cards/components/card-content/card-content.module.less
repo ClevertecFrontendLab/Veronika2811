@@ -1,0 +1,37 @@
+@import '@styles/constants.less';
+
+.free,
+.inactive-pro-tariff,
+.pro-tariff {
+    display: flex;
+    justify-content: center;
+}
+
+.free {
+    display: flex;
+    justify-content: center;
+    gap: 11px;
+    padding: 38px;
+
+    @media (max-width: @screen-sm) {
+        padding: @padding-margin-22px 38px;
+    }
+}
+
+.pro-tariff {
+    align-items: center;
+    flex-direction: column;
+    padding: @padding-margin-27px;
+
+    @media (max-width: @screen-sm) {
+        padding: @padding-margin-11px;
+    }
+}
+
+.inactive-pro-tariff {
+    padding: @padding-margin-29px @padding-margin-20px;
+
+    @media (max-width: @screen-sm) {
+        padding: @padding-margin-12px @padding-margin-20px;
+    }
+}
