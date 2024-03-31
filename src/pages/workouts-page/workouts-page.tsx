@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { push } from 'redux-first-history';
+import { WorkoutsHeader } from '@components/page-headers/workouts-header';
 import { ModalNotification } from '@components/ui/modal-notification';
 import { WorkoutsContent } from '@components/workouts-content';
 import { TRAINING_STATUS_ERROR } from '@constants/training/training-status-constants';
@@ -60,6 +61,7 @@ export const WorkoutsPage = () => {
 
     return (
         <div className={styles['workouts-wrapper']}>
+            <WorkoutsHeader />
             <WorkoutsContent />
             <ModalNotification
                 type={TRAINING_ERROR_CATALOG}
