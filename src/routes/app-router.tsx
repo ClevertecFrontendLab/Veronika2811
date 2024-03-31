@@ -14,6 +14,7 @@ import { MainPage } from '@pages/main-page';
 import { NotFoundPage } from '@pages/not-found-page';
 import { ProfilePage } from '@pages/profile-page';
 import { SettingsPage } from '@pages/settings-page';
+import { WorkoutsPage } from '@pages/workouts-page';
 import { authSelector } from '@redux/selectors';
 
 import { Paths } from './constants/router-paths';
@@ -55,6 +56,7 @@ export const AppRouter = () => {
                 <Route path={Paths.CALENDAR} element={<CalendarPage />} />
                 <Route path={Paths.PROFILE} element={<ProfilePage />} />
                 <Route path={Paths.SETTINGS} element={<SettingsPage />} />
+                <Route path={Paths.WORKOUTS} element={<WorkoutsPage />} />
                 <Route path='*' element={<NotFoundPage />} />
             </Route>
 

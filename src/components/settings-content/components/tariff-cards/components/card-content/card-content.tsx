@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { CheckOutlined } from '@ant-design/icons';
+import { SETTINGS_TEST_IDS } from '@components/settings-content/constants/settings-test-ids';
 import { useAppSelector } from '@hooks/redux-hooks';
 import { profileSelector } from '@redux/selectors';
 import { Button, Typography } from 'antd';
@@ -37,7 +38,7 @@ export const CardContent: FC<CardContentProps> = ({ tariff, toogleDrawerVisible 
             <Button
                 type='primary'
                 size='large'
-                data-test-id='activate-tariff-btn'
+                data-test-id={SETTINGS_TEST_IDS.tariffActivateBtn}
                 onClick={toogleDrawerVisible}
             >
                 Активировать

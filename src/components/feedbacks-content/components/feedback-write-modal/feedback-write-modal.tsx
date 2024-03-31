@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { FeedbacksTestIds } from '@components/feedbacks-content/constants/feedbacks-test-id';
+import { FEEDBACKS_TEST_IDS } from '@components/feedbacks-content/constants/feedbacks-test-ids';
 import { ResultCustom } from '@components/result-custom';
 import { ModalCustom } from '@components/ui/modal-custom';
 import { FeedbacksStatus } from '@constants/feedbacks';
@@ -53,7 +53,7 @@ export const FeedbackWriteModal: FC<FeedbackModalProps> = ({
                         type='primary'
                         form='review-form'
                         className={styles['feedback-form-button']}
-                        data-test-id={FeedbacksTestIds.NEW_REVIEW_SUBMIT_BUTTON}
+                        data-test-id={FEEDBACKS_TEST_IDS.newReviewSubmitButton}
                         disabled={checkDisabledButton}
                     >
                         Опубликовать

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { EditOutlined } from '@ant-design/icons';
-import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
+import { TRAINING_TEST_IDS } from '@components/calendar-custom/constants/training-test-ids';
 import { Button, List } from 'antd';
 import classNames from 'classnames';
 
@@ -32,7 +32,7 @@ export const TrainingList: FC<TrainingListProps> = ({ data, className, onClickEd
                         <Button
                             type='link'
                             icon={<EditOutlined style={{ fontSize: '16px' }} />}
-                            data-test-id={`${TrainingTestIds.MODAL_UPDATE_EDIT_BUTTON}${index}`}
+                            data-test-id={`${TRAINING_TEST_IDS.modalUpdateEditButton}${index}`}
                             disabled={item.isImplementation}
                             onClick={() => onClickEditTraining(item)}
                         />

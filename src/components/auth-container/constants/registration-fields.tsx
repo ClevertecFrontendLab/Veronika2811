@@ -7,7 +7,7 @@ import {
     passwordValidationRules,
 } from '../utils/field-validation';
 
-import { AuthTestIds } from './auth-test-ids';
+import { AUTH_TEST_IDS } from './auth-test-ids';
 
 export const REGISTRATION_FIELDS = [
     {
@@ -19,7 +19,7 @@ export const REGISTRATION_FIELDS = [
                 addonBefore='e-mail:'
                 size='large'
                 autoComplete='username'
-                data-test-id={AuthTestIds.REGISTRATION_EMAIL}
+                data-test-id={AUTH_TEST_IDS.registrationEmail}
             />
         ),
     },
@@ -34,7 +34,7 @@ export const REGISTRATION_FIELDS = [
                 size='large'
                 iconRender={(visible) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />)}
                 autoComplete='current-password'
-                data-test-id={AuthTestIds.REGISTRATION_PASSWORD}
+                data-test-id={AUTH_TEST_IDS.registrationPassword}
             />
         ),
     },
@@ -48,7 +48,7 @@ export const REGISTRATION_FIELDS = [
                 size='large'
                 iconRender={(visible) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />)}
                 autoComplete='new-password'
-                data-test-id={AuthTestIds.REGISTRATION_PASSWORD_CONFIRM}
+                data-test-id={AUTH_TEST_IDS.registrationConfirmPassword}
             />
         ),
         dependencies: 'password',

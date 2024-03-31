@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
-import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
+import { TRAINING_TEST_IDS } from '@components/calendar-custom/constants/training-test-ids';
 import { DrawerCustom } from '@components/ui/drawer-custom';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { trainingSelector } from '@redux/selectors';
@@ -25,7 +25,7 @@ export const DrawerCalendar: FC<DrawerCalendarProps> = ({ open, date }) => {
 
     return (
         <DrawerCustom
-            testIds={TrainingTestIds.MODAL_DRAWER_RIGHT}
+            testIds={TRAINING_TEST_IDS.modalDrawer}
             onClose={onCloseDrawer}
             open={open}
             closable={false}
@@ -39,7 +39,7 @@ export const DrawerCalendar: FC<DrawerCalendarProps> = ({ open, date }) => {
                     type='text'
                     form='drawer-form'
                     icon={<CloseOutlined className='drawer-close-icon' />}
-                    data-test-id={TrainingTestIds.MODAL_DRAWER_RIGHT_BUTTON_CLOSE}
+                    data-test-id={TRAINING_TEST_IDS.modalDrawerButtonClose}
                 />
             }
             className={styles.drawer}

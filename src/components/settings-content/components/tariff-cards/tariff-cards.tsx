@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { APP_TARIFFS } from '@components/settings-content/constants/app-tariffs';
+import { SETTINGS_TEST_IDS } from '@components/settings-content/constants/settings-test-ids';
 import { useAppSelector } from '@hooks/redux-hooks';
 import { useBreakpoints } from '@hooks/use-breakpoints';
 import { profileSelector } from '@redux/selectors';
@@ -29,7 +30,7 @@ export const TariffCards: FC<{ toogleDrawerVisible: () => void }> = ({ toogleDra
                         </Button>
                     }
                     bordered={false}
-                    data-test-id={el.dataTestId ? 'pro-tariff-card' : null}
+                    data-test-id={el.dataTestId ? SETTINGS_TEST_IDS.tariffproCard : null}
                     cover={
                         <div>
                             <CardCover isUserPro={isUserPro} card={el} />

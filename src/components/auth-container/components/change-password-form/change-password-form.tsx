@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from 'react';
 import { push } from 'redux-first-history';
 import { CHANGE_PASSWORD_FIELDS } from '@components/auth-container/constants';
-import { AuthTestIds } from '@components/auth-container/constants/auth-test-ids';
+import { AUTH_TEST_IDS } from '@components/auth-container/constants/auth-test-ids';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useUpdatePasswordMutation } from '@redux/api/auth.api';
 import { authSelector, previousLocationSelector } from '@redux/selectors';
@@ -90,7 +90,7 @@ export const ChangePasswordForm = () => {
                 type='primary'
                 size='large'
                 block={true}
-                data-test-id={AuthTestIds.CHANGE_SUBMIT_BUTTON}
+                data-test-id={AUTH_TEST_IDS.changeSubmitButton}
             >
                 Сохранить
             </Button>

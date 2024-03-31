@@ -3,7 +3,7 @@ import { Input } from 'antd';
 
 import { emailValidationRules, passwordValidationRules } from '../utils/field-validation';
 
-import { AuthTestIds } from './auth-test-ids';
+import { AUTH_TEST_IDS } from './auth-test-ids';
 
 export const LOGIN_FIELDS = [
     {
@@ -15,7 +15,7 @@ export const LOGIN_FIELDS = [
                 addonBefore='e-mail:'
                 size='large'
                 autoComplete='username'
-                data-test-id={AuthTestIds.LOGIN_EMAIL}
+                data-test-id={AUTH_TEST_IDS.loginEmail}
             />
         ),
     },
@@ -29,7 +29,7 @@ export const LOGIN_FIELDS = [
                 size='large'
                 iconRender={(visible) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />)}
                 autoComplete='current-password'
-                data-test-id={AuthTestIds.LOGIN_PASSWORD}
+                data-test-id={AUTH_TEST_IDS.loginPassword}
             />
         ),
     },

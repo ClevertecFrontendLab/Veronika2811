@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { TRAINING_MODAL_WIDTH } from '@components/calendar-custom/constants/training-modal-width';
-import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
+import { TRAINING_TEST_IDS } from '@components/calendar-custom/constants/training-test-ids';
 import { SelectedCellInfo } from '@components/calendar-custom/types/selected-cell-info';
 import { DATE_FORMAT } from '@constants/date-format';
 import { useAppSelector } from '@hooks/redux-hooks';
@@ -81,8 +81,8 @@ export const TrainingModal: FC<TrainingModalProps> = ({
                 }
                 data-test-id={
                     isEditMode
-                        ? TrainingTestIds.MODAL_CREATE_EXERCISE
-                        : TrainingTestIds.MODAL_CREATE_TRAINING
+                        ? TRAINING_TEST_IDS.modalCreateExercise
+                        : TRAINING_TEST_IDS.modalCreateTraining
                 }
                 onCancel={closeModal}
             >

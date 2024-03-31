@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 import { CheckCircleOutlined, CloseOutlined } from '@ant-design/icons';
+import { SETTINGS_TEST_IDS } from '@components/settings-content/constants/settings-test-ids';
 import { DrawerCustom } from '@components/ui/drawer-custom';
 import { useAppSelector } from '@hooks/redux-hooks';
 import { profileSelector } from '@redux/selectors';
@@ -38,7 +39,7 @@ export const DrawerSettings: FC<DrawerSettingsProps> = ({ open, onClose, setModa
                         htmlType='submit'
                         form='drawer-form-tariff'
                         disabled={buttonDisabled}
-                        data-test-id='tariff-submit'
+                        data-test-id={SETTINGS_TEST_IDS.tariffSubmit}
                     >
                         Выбрать и оплатить
                     </Button>

@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
+import { TRAINING_TEST_IDS } from '@components/calendar-custom/constants/training-test-ids';
 import { filterOutTrainingTypesForDay } from '@components/calendar-custom/utils/filter-out-training-types-for-day';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { catalogSelector, trainingSelector } from '@redux/selectors';
@@ -54,7 +54,7 @@ export const TitleEdit: FC<{ cellContent: TrainingResponse[] }> = ({ cellContent
         <React.Fragment>
             <ArrowLeftOutlined
                 onClick={closeEditMode}
-                data-test-id={TrainingTestIds.MODAL_EXERCISE_BUTTON_CLOSE}
+                data-test-id={TRAINING_TEST_IDS.modalExerciseButtonClose}
             />
             <Select
                 autoFocus={true}
@@ -62,7 +62,7 @@ export const TitleEdit: FC<{ cellContent: TrainingResponse[] }> = ({ cellContent
                 defaultValue={typeTraining ?? 'Выбор типа тренировки'}
                 onChange={handleChange}
                 className={styles.select}
-                data-test-id={TrainingTestIds.MODAL_CREATE_EXERCISE_SELECT}
+                data-test-id={TRAINING_TEST_IDS.modalCreateExerciseSelect}
             />
         </React.Fragment>
     );

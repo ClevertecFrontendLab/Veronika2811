@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { PROFILE_TEST_IDS } from '@components/profile-form/constants/profile-test-ids';
 import { ModalNotification } from '@components/ui/modal-notification';
 import { useAppSelector } from '@hooks/redux-hooks';
 import { useBreakpoints } from '@hooks/use-breakpoints';
@@ -60,7 +61,7 @@ export const FormUpload = () => {
 
     return (
         <React.Fragment>
-            <Form.Item name='imgSrc' data-test-id='profile-avatar'>
+            <Form.Item name='imgSrc' data-test-id={PROFILE_TEST_IDS.profileAvatar}>
                 <Upload
                     maxCount={1}
                     accept='image/*'

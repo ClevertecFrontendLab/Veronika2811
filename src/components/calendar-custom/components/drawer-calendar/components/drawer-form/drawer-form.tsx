@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useState } from 'react';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
-import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
+import { TRAINING_TEST_IDS } from '@components/calendar-custom/constants/training-test-ids';
 import { CurrentTraining } from '@components/calendar-custom/types/current-training';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useBreakpoints } from '@hooks/use-breakpoints';
@@ -95,7 +95,7 @@ export const DrawerForm: FC<{ onCloseDrawer: () => void }> = ({ onCloseDrawer })
                                     className='exercise-name'
                                 >
                                     <Input
-                                        data-test-id={`${TrainingTestIds.MODAL_DRAWER_INPUT_EXERCISE}${name}`}
+                                        data-test-id={`${TRAINING_TEST_IDS.modalDrawerInputExercise}${name}`}
                                         placeholder='Упражнение'
                                         size='small'
                                         maxLength={32}
@@ -105,7 +105,7 @@ export const DrawerForm: FC<{ onCloseDrawer: () => void }> = ({ onCloseDrawer })
                                                     onChange={(e: CheckboxChangeEvent) =>
                                                         updateRemoveFieldsKey(e, name)
                                                     }
-                                                    data-test-id={`${TrainingTestIds.MODAL_DRAWER_CHECKBOX_EXERCISE}${name}`}
+                                                    data-test-id={`${TRAINING_TEST_IDS.modalDrawerCheckboxExercise}${name}`}
                                                 />
                                             ) : (
                                                 false
@@ -125,7 +125,7 @@ export const DrawerForm: FC<{ onCloseDrawer: () => void }> = ({ onCloseDrawer })
                                             size='small'
                                             min={1}
                                             placeholder='1'
-                                            data-test-id={`${TrainingTestIds.MODAL_DRAWER_INPUT_APPROACH}${name}`}
+                                            data-test-id={`${TRAINING_TEST_IDS.modalDrawerInputApproach}${name}`}
                                         />
                                     </Form.Item>
 
@@ -139,7 +139,7 @@ export const DrawerForm: FC<{ onCloseDrawer: () => void }> = ({ onCloseDrawer })
                                             size='small'
                                             min={0}
                                             placeholder='0'
-                                            data-test-id={`${TrainingTestIds.MODAL_DRAWER_INPUT_WEIGHT}${name}`}
+                                            data-test-id={`${TRAINING_TEST_IDS.modalDrawerInputWeight}${name}`}
                                         />
                                     </Form.Item>
 
@@ -153,7 +153,7 @@ export const DrawerForm: FC<{ onCloseDrawer: () => void }> = ({ onCloseDrawer })
                                             size='small'
                                             min={1}
                                             placeholder='3'
-                                            data-test-id={`${TrainingTestIds.MODAL_DRAWER_INPUT_QUANTITY}${name}`}
+                                            data-test-id={`${TRAINING_TEST_IDS.modalDrawerInputQuantity}${name}`}
                                         />
                                     </Form.Item>
                                 </Form.Item>

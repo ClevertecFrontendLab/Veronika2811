@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useEffect } from 'react';
 import { push } from 'redux-first-history';
-import { AuthTestIds } from '@components/auth-container/constants/auth-test-ids';
+import { AUTH_TEST_IDS } from '@components/auth-container/constants/auth-test-ids';
 import { LOGIN_FIELDS } from '@components/auth-container/constants/login-fields';
 import { LOGIN } from '@constants/auth/auth-constants';
 import { AuthStatus } from '@constants/auth/auth-status-constants';
@@ -122,12 +122,12 @@ export const LoginForm: FC<LoginFormProps> = ({
 
             <div className={styles['login-forgot']}>
                 <Form.Item name='remember' valuePropName='checked' noStyle={true}>
-                    <Checkbox data-test-id={AuthTestIds.LOGIN_REMEMBER}>Запомнить меня</Checkbox>
+                    <Checkbox data-test-id={AUTH_TEST_IDS.loginRemember}>Запомнить меня</Checkbox>
                 </Form.Item>
 
                 <Button
                     type='link'
-                    data-test-id={AuthTestIds.LOGIN_FORGOT_BUTTON}
+                    data-test-id={AUTH_TEST_IDS.loginForgotButton}
                     disabled={isForgotPasswordButtonDisabled}
                     onClick={validateEmailFieldOnClick}
                 >
