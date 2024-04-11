@@ -8,19 +8,20 @@ import { TRAINING_ERROR_CATALOG } from '@constants/training/training-types-error
 import { useAppDispatch } from '@hooks/redux-hooks';
 import { useLazyGetCatalogTrainingListQuery } from '@redux/api/catalogs.api';
 import { useLazyGetUserTrainingDataQuery } from '@redux/api/training.api';
-import { setCatalogTrainingList } from '@redux/slice/catalogs-slice';
 import { setUserTrainingList, setUserTrainingListError } from '@redux/slice/training-slice';
 import { Paths } from '@routes/constants/router-paths';
 
 import styles from './workouts-page.module.less';
 
 export const WorkoutsPage = () => {
-    const [getUserTrainingList, { data: userTrainingList, isError: isErrorUserTrainingList }] =
-        useLazyGetUserTrainingDataQuery();
+    const [
+        getUserTrainingList,
+        { isSuccess: isSuccessUserTrainingList, isError: isErrorUserTrainingList },
+    ] = useLazyGetUserTrainingDataQuery();
 
     const [
         getCatalogTrainingList,
-        { data: catalogTrainingList, isError: isErrorCatalogTrainingList },
+        { isSuccess: isSuccessCatalogTrainingList, isError: isErrorCatalogTrainingList },
     ] = useLazyGetCatalogTrainingListQuery();
 
     const [catalogTrainingError, setCatalogTrainingError] = useState(false);
@@ -36,21 +37,25 @@ export const WorkoutsPage = () => {
             dispatch(push(Paths.MAIN));
             dispatch(setUserTrainingListError(TRAINING_STATUS_ERROR));
         }
-        if (userTrainingList) {
-            dispatch(setUserTrainingList(userTrainingList));
+
+        if (isSuccessUserTrainingList) {
             getCatalogTrainingList();
         }
-    }, [userTrainingList, isErrorUserTrainingList, dispatch, getCatalogTrainingList]);
+    }, [dispatch, getCatalogTrainingList, isErrorUserTrainingList, isSuccessUserTrainingList]);
 
     useEffect(() => {
         if (isErrorCatalogTrainingList) {
             setCatalogTrainingError(true);
         }
-        if (catalogTrainingList) {
-            dispatch(setCatalogTrainingList(catalogTrainingList));
+        if (isSuccessCatalogTrainingList) {
             setCatalogTrainingError(false);
         }
-    }, [dispatch, isErrorCatalogTrainingList, catalogTrainingList]);
+    }, [
+        dispatch,
+        isErrorCatalogTrainingList,
+        getCatalogTrainingList,
+        isSuccessCatalogTrainingList,
+    ]);
 
     const closeModalErrorTraining = () => {
         dispatch(setUserTrainingList([]));
