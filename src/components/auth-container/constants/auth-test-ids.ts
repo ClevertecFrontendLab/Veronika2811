@@ -20,4 +20,4 @@ export const AUTH_TEST_IDS = {
     checkBackButton: 'check-back-button',
     changeRetryButton: 'change-retry-button',
     changeEntryButton: 'change-entry-button',
-}
+};

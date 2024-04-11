@@ -1,8 +1,17 @@
+import { EditTrainingType } from '@constants/training/edit-training-types';
+
 import { Nullebel } from '../nullebel';
 
-type EditTrainingType = 'future-training' | 'past-training';
+import { TrainingResponse } from './training-api-data-types';
+
+type EditTrainingTypeItems = typeof EditTrainingType.FUTURE | typeof EditTrainingType.PAST;
 
 export type EditTrainingInfo = Nullebel<{
-    type: EditTrainingType;
+    type: EditTrainingTypeItems;
     id: string;
 }>;
+
+export type TrainingCurrentEditData = TrainingResponse & {
+    key: string;
+    typeWorkout: string;
+};

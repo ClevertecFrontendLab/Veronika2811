@@ -3,6 +3,7 @@ import { SideBar } from '@components/side-bar';
 import { ModalServerError } from '@components/ui/modal-server-error';
 import { TRAINING_STATUS_ERROR } from '@constants/training/training-status-constants';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
+import { useGetInviteQuery } from '@redux/api/invite.api';
 import { trainingSelector } from '@redux/selectors';
 import { setUserTrainingListError } from '@redux/slice/training-slice';
 import { Layout } from 'antd';
@@ -14,6 +15,8 @@ export const LayoutMainPage = () => {
     const dispatch = useAppDispatch();
 
     const onClickCloseModal = () => dispatch(setUserTrainingListError(false));
+
+    useGetInviteQuery();
 
     return (
         <Layout className={styles['page-container']}>

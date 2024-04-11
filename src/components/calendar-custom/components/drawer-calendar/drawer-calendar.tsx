@@ -5,6 +5,7 @@ import { DrawerCustom } from '@components/ui/drawer-custom';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { trainingSelector } from '@redux/selectors';
 import { setDrawerVisible } from '@redux/slice/training-slice';
+import { checkIsPastTraining } from '@utils/check-is-past-training';
 import { Button } from 'antd';
 
 import { DrawerFooter, DrawerForm, DrawerTitle } from './components';
@@ -21,7 +22,7 @@ export const DrawerCalendar: FC<DrawerCalendarProps> = ({ open, date }) => {
 
     const onCloseDrawer = () => dispatch(setDrawerVisible(false));
 
-    const isPastTraining = editTraining?.type === 'past-training';
+    const isPastTraining = checkIsPastTraining(editTraining?.type);
 
     return (
         <DrawerCustom

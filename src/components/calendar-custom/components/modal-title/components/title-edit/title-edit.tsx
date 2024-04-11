@@ -10,11 +10,12 @@ import {
     setEditTraining,
     setTypeTraining,
 } from '@redux/slice/training-slice';
+import { checkIsPastTraining } from '@utils/check-is-past-training';
 import { Select } from 'antd';
 
 import styles from './title-edit.module.less';
 
-import { TrainingResponse } from '@/types/training/training-api-data-types';
+import { TrainingResponse } from '@/types/training';
 
 type SelectOption = {
     label: string;
@@ -28,7 +29,7 @@ export const TitleEdit: FC<{ cellContent: TrainingResponse[] }> = ({ cellContent
 
     const [filteredTrainingList, setFilteredTrainingList] = useState<SelectOption[]>([]);
 
-    const isPastTraining = editTraining?.type === 'past-training';
+    const isPastTraining = checkIsPastTraining(editTraining?.type);
 
     useEffect(() => {
         const filteredTraining = filterOutTrainingTypesForDay(

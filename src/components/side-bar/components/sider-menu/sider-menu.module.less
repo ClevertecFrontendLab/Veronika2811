@@ -27,23 +27,38 @@
         }
 
         .ant-menu-item:not(.ant-menu-inline-collapsed) {
-            @media (max-width: @screen-xs) {
+            @media (max-width: @screen-md) {
                 padding: @padding-margin-zero;
             }
 
             &:not(:last-child) {
                 margin-bottom: @padding-margin-18px;
 
-                @media (max-width: @screen-xs) {
+                @media (max-width: @screen-md) {
                     margin-bottom: @padding-margin-10px;
                     padding: @padding-margin-zero;
                 }
             }
 
             .anticon {
-                @media (max-width: @screen-xs) {
+                @media (max-width: @screen-md) {
                     display: none;
                 }
+            }
+        }
+
+        .anticon.anticon-heart {
+            display: flex;
+        }
+
+        .ant-badge-count {
+            box-shadow: none;
+            top: 1px;
+        }
+
+        .ant-badge {
+            @media (max-width: @screen-md) {
+                display: none;
             }
         }
     }

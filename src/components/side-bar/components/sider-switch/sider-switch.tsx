@@ -17,9 +17,7 @@ export const SiderSwitch: FC<SiderSwitchProps> = ({ collapsed, setCollapsed, isA
     return (
         <Space
             data-test-id={
-                isAtBreakpoint
-                    ? SIDER_TEST_IDS.siderSwitchMobile
-                    : SIDER_TEST_IDS.siderSwitch
+                isAtBreakpoint ? SIDER_TEST_IDS.siderSwitchMobile : SIDER_TEST_IDS.siderSwitch
             }
             className={styles.switch}
         >

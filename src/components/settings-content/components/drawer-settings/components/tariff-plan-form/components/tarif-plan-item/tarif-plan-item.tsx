@@ -4,7 +4,7 @@ import { Radio, Typography } from 'antd';
 
 import styles from './tarif-plan-item.module.less';
 
-import { Periods } from '@/types/catalogs/catalogs-api-data-types';
+import { Periods } from '@/types/catalogs';
 
 export const TarifPlanItem: FC<{ catalogTariffPeriods: Periods[] }> = ({
     catalogTariffPeriods,

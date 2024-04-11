@@ -24,7 +24,7 @@ export const SideBar = () => {
                     : siderWidth.SIDER_COLLAPSED_DESKTOP_WIDTH
             }
             collapsible={true}
-            breakpoint='xs'
+            breakpoint='md'
             onBreakpoint={handleBreakpointChange}
             width={isAtBreakpoint ? siderWidth.SIDER_MOBILE_WIDTH : siderWidth.SIDER_DESKTOP_WIDTH}
             className={styles.sider}

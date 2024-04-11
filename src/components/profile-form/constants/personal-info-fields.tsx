@@ -10,11 +10,19 @@ const pickerIconColor = '#bfbfbf';
 export const PERSONAL_INFO_FIELDS = [
     {
         field: 'firstName',
-        children: <Input placeholder='Имя' size='large' data-test-id={PROFILE_TEST_IDS.profileName} />,
+        children: (
+            <Input placeholder='Имя' size='large' data-test-id={PROFILE_TEST_IDS.profileName} />
+        ),
     },
     {
         field: 'lastName',
-        children: <Input placeholder='Фамилия' size='large' data-test-id={PROFILE_TEST_IDS.profileSurname} />,
+        children: (
+            <Input
+                placeholder='Фамилия'
+                size='large'
+                data-test-id={PROFILE_TEST_IDS.profileSurname}
+            />
+        ),
     },
     {
         field: 'birthday',

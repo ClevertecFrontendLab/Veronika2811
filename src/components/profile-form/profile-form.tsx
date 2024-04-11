@@ -14,7 +14,7 @@ import { PROFILE_TEST_IDS } from './constants/profile-test-ids';
 import styles from './profile-form.module.less';
 
 import { Nullebel } from '@/types/nullebel';
-import { UserAvatar, UserInfoData } from '@/types/profile/profile-api-data-types';
+import { UserAvatar, UserInfoData } from '@/types/profile';
 
 const { Title } = Typography;
 

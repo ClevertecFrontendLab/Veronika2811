@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import { BadgeCustom } from '../badge-custom';
 
-import { TrainingResponse } from '@/types/training/training-api-data-types';
+import { TrainingResponse } from '@/types/training';
 
 type TrainingListProps = {
     data: TrainingResponse[];

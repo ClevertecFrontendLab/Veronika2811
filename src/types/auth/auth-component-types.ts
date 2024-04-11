@@ -1,3 +1,3 @@
-import { LOGIN, REGISTRATION } from '@constants/auth/auth-constants';
+import { AuthTabs } from '@constants/auth/auth-tabs';
 
-export type AuthComponentTypes = typeof LOGIN | typeof REGISTRATION;
+export type AuthComponentTypes = typeof AuthTabs.login | typeof AuthTabs.registration;

@@ -5,7 +5,7 @@ import type { Moment } from 'moment';
 
 import { Footer, FooterEdit } from './components';
 
-import { TrainingResponse } from '@/types/training/training-api-data-types';
+import { TrainingResponse } from '@/types/training';
 
 type ModalFooterProps = {
     date: Moment;

@@ -7,7 +7,7 @@ import { Calendar } from 'antd';
 import type { Moment } from 'moment';
 import moment from 'moment';
 
-import { DATE_FORMAT_DAY } from '../../constants/date-format';
+import { DATE_FORMAT_D } from '../../constants/date-format';
 import { PICKER_LOCALE } from '../../constants/picker-locale';
 
 import { SelectedCellInfo } from './types/selected-cell-info';
@@ -16,7 +16,7 @@ import styles from './calendar-custom.module.less';
 import { TrainingList, TrainingModal } from './components';
 
 import { Nullebel } from '@/types/nullebel';
-import { TrainingResponse } from '@/types/training/training-api-data-types';
+import { TrainingResponse } from '@/types/training';
 
 moment.updateLocale('ru', {
     week: {
@@ -72,7 +72,7 @@ export const CalendarCustom: FC<CalendarCustomProps> = ({ refetchUserTrainingLis
 
         const isUserTraningInSelectedDay = trainingList.length > 0;
         const isUserTrainingAndNotMobile = isUserTraningInSelectedDay && !isXs;
-        const formattedDate = date.format(DATE_FORMAT_DAY);
+        const formattedDate = date.format(DATE_FORMAT_D);
 
         const responsiveClassName = isUserTraningInSelectedDay && isXs ? 'mobile-date' : '';
 

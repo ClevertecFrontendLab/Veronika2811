@@ -6,7 +6,7 @@ import { setEditMode } from '@redux/slice/training-slice';
 import { Button } from 'antd';
 import type { Moment } from 'moment';
 
-import { TrainingResponse } from '@/types/training/training-api-data-types';
+import { TrainingResponse } from '@/types/training';
 
 type FooterProps = {
     cellContent: TrainingResponse[];
