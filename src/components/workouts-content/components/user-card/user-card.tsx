@@ -1,14 +1,17 @@
 import React, { FC, useCallback } from 'react';
-import { CheckCircleFilled, InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
+import { UserOutlined } from '@ant-design/icons';
+import { TypeCards } from '@components/workouts-content/constants/type-cards';
 import { formatUserName } from '@components/workouts-content/utils/format-user-name';
 import { TrainingInviteStatus } from '@constants/invite/training-invite-status';
 import { useAppDispatch } from '@hooks/redux-hooks';
 import { setDrawerVisible } from '@redux/slice/training-slice';
 import { setSelectedUser } from '@redux/slice/workouts-slice';
-import { Avatar, Button, Card, Col, Row, Tooltip, Typography } from 'antd';
+import { Avatar, Card, Col, Row, Typography } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import classNames from 'classnames';
 
+import { CardStatus } from './components/card-status';
+import { PalButtons } from './components/pal-buttons';
 import styles from './user-card.module.less';
 
 import { CatalogTrainingPalsResponse } from '@/types/catalogs';
@@ -17,7 +20,7 @@ import { Nullebel } from '@/types/nullebel';
 type UserCardProps = {
     pal: CatalogTrainingPalsResponse;
     index: number;
-    type: 'joint-cards' | 'pal';
+    type: typeof TypeCards.JOIN_CARDS | typeof TypeCards.PAL;
     cancelTraining?: (inviteId: Nullebel<string>) => Promise<void>;
     searchValue?: string;
 };
@@ -55,17 +58,23 @@ export const UserCard: FC<UserCardProps> = ({ pal, index, cancelTraining, type, 
 
     const onClickCancelTraining = () => cancelTraining?.(pal.inviteId);
 
+    const classNameCard = classNames(styles['user-card'], {
+        [styles.blue]:
+            type === TypeCards.JOIN_CARDS && pal.status !== TrainingInviteStatus.REJECTED,
+        [styles.gray]: pal.status === TrainingInviteStatus.REJECTED,
+        [styles.default]: type === TypeCards.PAL,
+    });
+
+    const borderedCard = !(
+        type === TypeCards.JOIN_CARDS && pal.status !== TrainingInviteStatus.REJECTED
+    );
+
     return (
         <Card
             key={pal.id}
             data-test-id={`joint-training-cards${index}`}
-            className={classNames(styles['user-card'], {
-                [styles.blue]:
-                    type === 'joint-cards' && pal.status !== TrainingInviteStatus.REJECTED,
-                [styles.gray]: pal.status === TrainingInviteStatus.REJECTED,
-                [styles.default]: type === 'pal',
-            })}
-            bordered={!(type === 'joint-cards' && pal.status !== TrainingInviteStatus.REJECTED)}
+            className={classNameCard}
+            bordered={borderedCard}
             onClick={saveSelectedUser}
         >
             <Meta
@@ -86,48 +95,14 @@ export const UserCard: FC<UserCardProps> = ({ pal, index, cancelTraining, type, 
                     </Typography.Paragraph>
                 </Col>
             </Row>
-            {type === 'joint-cards' && (
+            {type === TypeCards.JOIN_CARDS && (
                 <React.Fragment>
-                    {pal.status === TrainingInviteStatus.ACCEPTED ? (
-                        <Button type='default' block={true} onClick={onClickCancelTraining}>
-                            Отменить тренировку
-                        </Button>
-                    ) : (
-                        <Button
-                            disabled={
-                                pal.status === TrainingInviteStatus.PENDING ||
-                                pal.status === TrainingInviteStatus.REJECTED
-                            }
-                            onClick={onClickUserSelection}
-                            type='primary'
-                            block={true}
-                        >
-                            Создать тренировку
-                        </Button>
-                    )}
-                    {pal.status === TrainingInviteStatus.ACCEPTED && (
-                        <div className='status'>
-                            <Typography.Text>тренировка одобрена</Typography.Text>
-                            <CheckCircleFilled />
-                        </div>
-                    )}
-                    {pal.status === TrainingInviteStatus.PENDING && (
-                        <div className='status'>
-                            <Typography.Text>ожидает подтверждения</Typography.Text>
-                        </div>
-                    )}
-                    {pal.status === TrainingInviteStatus.REJECTED && (
-                        <div className='status'>
-                            <Typography.Text>тренировка отклонена</Typography.Text>
-                            <Tooltip
-                                placement='topRight'
-                                overlayStyle={{ width: '150px' }}
-                                title='повторный запрос будет доступнен через 2 недели'
-                            >
-                                <InfoCircleOutlined />
-                            </Tooltip>
-                        </div>
-                    )}
+                    <PalButtons
+                        status={pal.status}
+                        onClickCancelTraining={onClickCancelTraining}
+                        onClickUserSelection={onClickUserSelection}
+                    />
+                    <CardStatus status={pal.status} />
                 </React.Fragment>
             )}
         </Card>

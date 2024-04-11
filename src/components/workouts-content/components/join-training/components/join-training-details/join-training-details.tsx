@@ -31,12 +31,14 @@ export const JoinTrainingDetails: FC<JoinTrainingDetailsProps> = ({ invite, clos
         return findOption ? findOption.label : null;
     };
 
+    const formattedDate = moment(training.date).format(DATE_FORMAT);
+
     return (
         <Card
+            data-test-id='joint-training-review-card'
             ref={ref}
             className={styles['training-details']}
             bordered={false}
-            data-test-id='joint-training-review-card'
             title={<BadgeCustom name={training.name} />}
             extra={
                 <Button type='text' size='small' icon={<CloseOutlined />} onClick={closeDetails} />
@@ -47,7 +49,7 @@ export const JoinTrainingDetails: FC<JoinTrainingDetailsProps> = ({ invite, clos
                     <Typography.Title level={5}>
                         {getPeriodOption(training.parameters?.period)}
                     </Typography.Title>
-                    <Typography.Text>{moment(training.date).format(DATE_FORMAT)}</Typography.Text>
+                    <Typography.Text>{formattedDate}</Typography.Text>
                 </div>
                 <List
                     split={false}

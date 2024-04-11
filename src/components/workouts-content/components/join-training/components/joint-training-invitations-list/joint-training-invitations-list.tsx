@@ -1,11 +1,9 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { DownOutlined, UpOutlined, UserOutlined } from '@ant-design/icons';
 import { DATE_FORMAT } from '@constants/date-format';
 import { TrainingInviteStatus } from '@constants/invite/training-invite-status';
-import { useAppSelector } from '@hooks/redux-hooks';
-import { useGetCatalogsTrainingPalsQuery } from '@redux/api/catalogs.api';
+import { useLazyGetCatalogsTrainingPalsQuery } from '@redux/api/catalogs.api';
 import { useRespondToInviteMutation } from '@redux/api/invite.api';
-import { inviteSelector } from '@redux/selectors';
 import { Avatar, Button, Col, Row, Typography } from 'antd';
 import moment from 'moment';
 
@@ -13,19 +11,23 @@ import { JoinTrainingDetails } from '../join-training-details';
 
 import styles from './joint-training-invitations-list.module.less';
 
+import { InviteResponse } from '@/types/invite';
 import { Nullebel } from '@/types/nullebel';
 
-export const JointTrainingInvitationsList = ({
-    setShowListPals,
-}: {
+type JointTrainingInvitationsListProps = {
     setShowListPals: React.Dispatch<React.SetStateAction<boolean>>;
+    inviteList: InviteResponse[];
+};
+
+export const JointTrainingInvitationsList: FC<JointTrainingInvitationsListProps> = ({
+    setShowListPals,
+    inviteList,
 }) => {
     const [respondToInvite, { isSuccess }] = useRespondToInviteMutation();
-    const { refetch } = useGetCatalogsTrainingPalsQuery();
+    const [getCatalogsTrainingPals] = useLazyGetCatalogsTrainingPalsQuery();
 
     const [invitationListCollapsed, setInvitationListCollapsed] = useState(true);
 
-    const { inviteList } = useAppSelector(inviteSelector);
     const invitationList = invitationListCollapsed ? [inviteList[0]] : inviteList;
 
     const [trainingDetails, setTrainingDetails] = useState<Nullebel<string>>(null);
@@ -44,7 +46,8 @@ export const JointTrainingInvitationsList = ({
 
     const onClickTrainTogether = async (id: string) => {
         await respondToInvite({ id, status: TrainingInviteStatus.ACCEPTED });
-        await refetch();
+
+        await getCatalogsTrainingPals();
 
         if (!isSuccess) {
             setShowListPals(true);
@@ -96,7 +99,7 @@ export const JointTrainingInvitationsList = ({
                                     {getTrainingType(training.name)}
                                     ]. Ты хочешь присоединиться ко мне на следующих тренировках?
                                 </Typography.Title>
-                                <div style={{ position: 'relative' }}>
+                                <div className='invitation-item-details-wrapper'>
                                     <Typography.Text
                                         className='invitation-item-details'
                                         onClick={() => openTrainingDetails(id)}

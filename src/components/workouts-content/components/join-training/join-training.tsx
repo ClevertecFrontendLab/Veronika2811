@@ -6,7 +6,7 @@ import {
     useGetCatalogsTrainingPalsQuery,
     useLazyGetCatalogsUserJoinTrainingListQuery,
 } from '@redux/api/catalogs.api';
-import { catalogSelector, trainingSelector } from '@redux/selectors';
+import { catalogSelector, inviteSelector, trainingSelector } from '@redux/selectors';
 
 import { JoinTrainingDescription } from './components/join-training-description';
 import { JoinTrainingCards } from './components/join-traning-cards/join-traning-cards';
@@ -23,6 +23,7 @@ export const JoinTraining = () => {
 
     const { userJoinTrainingList } = useAppSelector(catalogSelector);
     const { userTrainingList } = useAppSelector(trainingSelector);
+    const { inviteList } = useAppSelector(inviteSelector);
 
     const [showListPals, setShowListPals] = useState(false);
 
@@ -64,7 +65,12 @@ export const JoinTraining = () => {
 
     return (
         <div className={styles.wrapper}>
-            <JointTrainingInvitationsList setShowListPals={setShowListPals} />
+            {!!inviteList.length && (
+                <JointTrainingInvitationsList
+                    setShowListPals={setShowListPals}
+                    inviteList={inviteList}
+                />
+            )}
             <JoinTrainingDescription
                 onClickRandomSelection={onClickRandomSelection}
                 choosingFriend={choosingFriend}

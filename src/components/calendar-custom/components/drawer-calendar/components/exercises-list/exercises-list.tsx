@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 import { TRAINING_TEST_IDS } from '@components/calendar-custom/constants/training-test-ids';
 import { useAppSelector } from '@hooks/redux-hooks';
@@ -12,7 +12,7 @@ import styles from './exercises-list.module.less';
 
 type RemoveListAntd = (index: number[] | number) => void;
 
-export const ExercisesList = ({ workout }: { workout?: boolean }) => {
+export const ExercisesList: FC<{ workout?: boolean }> = ({ workout }) => {
     const { isXs } = useBreakpoints();
 
     const { editTraining } = useAppSelector(trainingSelector);

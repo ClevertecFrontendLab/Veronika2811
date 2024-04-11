@@ -1,13 +1,16 @@
+import { FC } from 'react';
 import { Button, Card, Typography } from 'antd';
 
 import styles from './join-training-description.module.less';
 
-export const JoinTrainingDescription = ({
-    onClickRandomSelection,
-    choosingFriend,
-}: {
+type JoinTrainingDescriptionProps = {
     onClickRandomSelection: () => void;
     choosingFriend: () => void;
+};
+
+export const JoinTrainingDescription: FC<JoinTrainingDescriptionProps> = ({
+    onClickRandomSelection,
+    choosingFriend,
 }) => (
     <Card
         className={styles['card-default']}
@@ -15,7 +18,7 @@ export const JoinTrainingDescription = ({
             <Button type='link' onClick={onClickRandomSelection}>
                 Случайный выбор
             </Button>,
-            <Button type='link' style={{ color: '#262626' }} onClick={choosingFriend}>
+            <Button type='link' onClick={choosingFriend}>
                 Выбор друга по моим тренировкам{' '}
             </Button>,
         ]}
