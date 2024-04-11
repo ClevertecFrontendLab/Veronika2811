@@ -1,0 +1,89 @@
+@import '@styles/constants.less';
+
+.training-table {
+    width: 50%;
+
+    @media (max-width: @screen-lg-sm) {
+        width: @full-width;
+    }
+
+    @media (max-width: @screen-xs) {
+        padding: @padding-margin-12px;
+    }
+
+    :global {
+        .ant-table table {
+            border-spacing: 8px 0;
+        }
+
+        .ant-table.ant-table-small .ant-table-tbody > tr > td {
+            padding: @padding-margin-3px @padding-margin-8px;
+        }
+
+        .ant-table.ant-table-small .ant-table-thead > tr > th {
+            font-weight: @font-weight-normal;
+            font-size: @font-size-12px;
+        }
+
+        .ant-table-thead
+            > tr
+            > th:not(:last-child):not(.ant-table-selection-column):not(
+                .ant-table-row-expand-icon-cell
+            ):not([colspan]):before {
+            background-color: transparent;
+        }
+
+        .anticon-down {
+            font-size: 10px;
+        }
+
+        .ant-badge.ant-badge-status {
+            padding: @padding-margin-zero;
+        }
+
+        .btn-create-training {
+            margin-top: @padding-margin-40px;
+
+            @media (max-width: @screen-xs) {
+                margin-top: @padding-margin-20px;
+            }
+        }
+
+        .column-type-training {
+            width: 259px;
+
+            @media (max-width: @screen-lg) {
+                width: 234px;
+            }
+
+            @media (max-width: 840px) {
+                width: 200px;
+            }
+
+            @media (max-width: @screen-xs) {
+                width: 116px;
+            }
+        }
+
+        .column-period {
+            width: 240px;
+
+            @media (max-width: 840px) {
+                width: 188px;
+            }
+
+            @media (max-width: 575px) {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+
+        .column-action {
+            width: 32px;
+
+            background-color: transparent;
+            border-bottom: none;
+        }
+    }
+}

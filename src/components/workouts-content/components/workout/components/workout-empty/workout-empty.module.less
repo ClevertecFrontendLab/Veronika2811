@@ -1,0 +1,32 @@
+@import '@styles/constants.less';
+
+.workout-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 63px;
+    padding-top: 220px;
+
+    @media (max-width: @screen-lg-sm) {
+        padding: 258px 170px;
+        text-align: center;
+        gap: 95px;
+    }
+
+    @media (max-width: @screen-xs) {
+        padding: 151px 30px;
+        gap: 103px;
+    }
+
+    :global {
+        .ant-typography {
+            font-weight: @font-weight-medium;
+        }
+
+        .ant-btn {
+            @media (max-width: @screen-xs) {
+                width: @full-width;
+            }
+        }
+    }
+}

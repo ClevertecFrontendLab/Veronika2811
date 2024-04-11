@@ -1,0 +1,132 @@
+@import '@styles/constants.less';
+
+.user-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 234px;
+
+    @media (max-width: @screen-xs) {
+        flex: 1;
+    }
+
+    & > div {
+        line-height: @line-height-large;
+    }
+
+    :global {
+        .ant-card-meta {
+            display: flex;
+            align-items: center;
+        }
+
+        .ant-card-meta-avatar {
+            padding-right: @padding-margin-9px;
+        }
+
+        .ant-card-meta-title {
+            font-size: @font-size-base;
+            white-space: @white-space-break-spaces;
+            font-weight: @font-weight-normal;
+            line-height: @line-height-large;
+        }
+
+        .ant-card-body {
+            border-radius: @border-radius-3px;
+        }
+
+        .user-card-item {
+            font-size: @font-size-12px;
+            color: @neutral-7;
+
+            &:last-child {
+                margin-top: @padding-margin-4px;
+            }
+        }
+
+        .ant-typography.training-info {
+            margin-bottom: @padding-margin-zero;
+            color: @primary-color;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            &:last-child {
+                margin-top: @padding-margin-4px;
+            }
+        }
+
+        .ant-btn {
+            margin-top: @padding-margin-18px;
+        }
+
+        .status {
+            display: flex;
+            justify-content: center;
+            gap: @gap-10px;
+            padding-top: @padding-margin-10px;
+
+            .ant-typography {
+                font-size: @font-size-12px;
+            }
+
+            .anticon-check-circle {
+                color: #52c41a;
+            }
+        }
+    }
+}
+
+[class*='ant-card'].gray {
+    background-color: @neutral-2;
+
+    :global {
+        .ant-card-body {
+            background-color: @neutral-2;
+            padding: @padding-margin-17px @padding-margin-16px @padding-margin-11px
+                @padding-margin-12px;
+            border-radius: @border-radius-3px;
+        }
+
+        .user-description {
+            padding-top: @padding-margin-11px;
+        }
+
+        .anticon-info-circle {
+            color: @neutral-7;
+        }
+    }
+}
+
+[class*='ant-card'].default {
+    :global {
+        .ant-card-body {
+            padding: @padding-margin-17px @padding-margin-16px @padding-margin-11px
+                @padding-margin-12px;
+            border-radius: @border-radius-3px;
+        }
+
+        .user-description {
+            padding-top: @padding-margin-11px;
+        }
+    }
+}
+
+[class*='ant-card'].blue {
+    background-color: @primary-light-1;
+    height: 196px;
+    overflow: auto;
+
+    :global {
+        .ant-card-body {
+            background-color: @primary-light-1;
+            padding: @padding-margin-20px @padding-margin-16px @padding-margin-8px
+                @padding-margin-17px;
+            border-radius: @border-radius-3px;
+        }
+
+        .user-description {
+            padding-top: @padding-margin-16px;
+        }
+    }
+}

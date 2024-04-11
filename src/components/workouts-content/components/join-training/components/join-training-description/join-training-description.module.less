@@ -1,0 +1,83 @@
+@import '@styles/constants.less';
+
+[class*='ant-card'].card-default {
+    margin-top: @padding-margin-22px;
+
+    @media (max-width: @screen-xs) {
+        margin: @padding-margin-18px @padding-margin-25px @padding-margin-zero;
+    }
+
+    :global {
+        .ant-card-body {
+            padding: @padding-margin-31px 50px @padding-margin-10px;
+            background-color: @neutral-2;
+
+            @media (max-width: @screen-lg-sm) {
+                padding: @padding-margin-31px @padding-margin-33px @padding-margin-10px;
+            }
+
+            @media (max-width: @screen-xs) {
+                padding: @padding-margin-31px @padding-margin-15px @padding-margin-10px;
+            }
+        }
+
+        .card-title {
+            font-weight: @font-weight-medium;
+            color: @primary-light-9;
+            text-align: center;
+            margin-bottom: @padding-margin-32px;
+        }
+
+        .card-subtitle {
+            text-align: center;
+            color: @neutral-7;
+        }
+
+        .ant-card-actions > li {
+            margin: @padding-margin-zero;
+
+            @media (max-width: @screen-lg-sm) {
+                width: @full-width !important;
+            }
+            .ant-btn-link {
+                padding-left: 100px;
+
+                @media (max-width: @screen-lg-sm) {
+                    padding-left: @padding-margin-14px;
+                }
+            }
+
+            &:last-child {
+                .ant-btn-link {
+                    padding-right: 100px;
+
+                    @media (max-width: @screen-lg-sm) {
+                        padding-right: @padding-margin-14px;
+                    }
+                }
+            }
+        }
+
+        .ant-btn-link {
+            width: @full-width;
+            height: @full-height;
+            padding: @padding-margin-19px;
+
+            @media (max-width: @screen-lg-sm) {
+                padding: @padding-margin-15px;
+            }
+        }
+
+        .ant-card-actions {
+            background-color: @neutral-2;
+
+            @media (max-width: @screen-lg-sm) {
+                flex-direction: column;
+            }
+        }
+
+        .ant-card-actions > li:not(:last-child) {
+            border-right: none;
+        }
+    }
+}
