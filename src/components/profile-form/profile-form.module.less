@@ -5,20 +5,20 @@
 
     & .personal-title,
     & .privacy-title {
-        margin-bottom: @padding-margin-24px;
+        margin-bottom: @space-24;
 
         @media (max-width: @screen-xs) {
-            margin-bottom: @padding-margin-20px;
+            margin-bottom: @space-20;
         }
     }
 
     :global {
         .ant-btn-primary {
             font-size: @font-size-lg;
-            margin-top: @padding-margin-21px;
+            margin-top: @space-21;
 
             @media (max-width: @screen-xs) {
-                margin-top: @padding-margin-17px;
+                margin-top: @space-17;
                 width: @full-width;
             }
         }
@@ -28,11 +28,11 @@
 .personal-info-container {
     display: flex;
     align-items: flex-start;
-    gap: @gap-16px;
+    gap: @space-16;
 
     @media (max-width: @screen-xs) {
         flex-direction: column-reverse;
-        gap: 0;
+        gap: @space-0;
     }
 
     :global {
@@ -49,34 +49,34 @@
 
             .ant-upload-list-item {
                 @media (max-width: @screen-xs) {
-                    margin: @padding-margin-zero;
+                    margin: @space-0;
                 }
             }
         }
 
         .ant-form-item:last-child {
             @media (max-width: @screen-xs) {
-                margin-bottom: @padding-margin-16px;
+                margin-bottom: @space-16;
             }
         }
     }
 }
 
 .privacy-container {
-    padding-top: @padding-margin-24px;
+    padding-top: @space-24;
 
     @media (max-width: @screen-xs) {
-        padding-top: @padding-margin-12px;
+        padding-top: @space-12;
     }
 
     & .register-field {
-        margin-bottom: @padding-margin-33px;
+        margin-bottom: @space-33;
         font-size: @font-size-base;
     }
 
     :global {
         .ant-input-group-addon {
-            padding: @padding-margin-zero @padding-margin-12px;
+            padding: 0 12;
         }
 
         .ant-input-affix-wrapper > .ant-input {
@@ -84,14 +84,14 @@
         }
 
         .ant-form-item-explain div:not(.ant-form-item-explain-success) {
-            padding-bottom: @padding-margin-21px;
+            padding-bottom: @space-21;
             font-size: @font-size-12px;
             line-height: @line-height-large;
-            padding-top: @padding-margin-2px;
+            padding-top: @space-2;
 
             @media (max-width: @screen-xs) {
-                padding-right: @padding-margin-9px;
-                padding-bottom: @padding-margin-5px;
+                padding-right: @space-9;
+                padding-bottom: @space-5;
             }
         }
     }

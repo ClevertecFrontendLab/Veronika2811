@@ -4,6 +4,7 @@ import { isPastDate } from '@components/calendar-custom/utils/is-past-date';
 import { PICKER_LOCALE } from '@constants/picker-locale';
 import { useAppSelector } from '@hooks/redux-hooks';
 import { trainingSelector } from '@redux/selectors';
+import { isArrayWithItems } from '@utils/is-array-with-items';
 import { Checkbox, Col, DatePicker, Form, Row } from 'antd';
 import { CheckboxChangeEvent } from 'antd/lib/checkbox';
 import { Moment } from 'moment';
@@ -26,7 +27,7 @@ export const DateAndFrequencyPickerRow = () => {
     const dateCellRender = (pickerDate: Moment) => {
         const trainingList = filterTrainingsByDate(userTrainingList, pickerDate);
 
-        const isUserTraningInSelectedDay = trainingList.length > 0;
+        const isUserTraningInSelectedDay = isArrayWithItems(trainingList);
 
         if (isUserTraningInSelectedDay) {
             return <div className={styles['selected-date']}>{pickerDate.date()}</div>;

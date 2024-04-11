@@ -1,12 +1,12 @@
 @import '@styles/constants.less';
 
 .pals {
-    padding-top: @padding-margin-40px;
-    padding-bottom: @padding-margin-20px;
+    padding-top: @space-40;
+    padding-bottom: @space-20;
 
     @media (max-width: @screen-xs) {
-        padding-left: @padding-margin-22px;
-        padding-right: @padding-margin-22px;
+        padding-left: @space-22;
+        padding-right: @space-22;
         display: flex;
         flex-direction: column;
     }
@@ -20,7 +20,7 @@
     :global {
         .ant-list-items {
             display: flex;
-            gap: 16px;
+            gap: @space-16;
             flex-wrap: wrap;
         }
 

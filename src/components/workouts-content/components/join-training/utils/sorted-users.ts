@@ -1,9 +1,9 @@
+import { isArrayWithItems } from '@utils/is-array-with-items';
+
 import { CatalogTrainingPalsResponse } from '@/types/catalogs';
 
 export const sortedUsers = (array: CatalogTrainingPalsResponse[]) => {
-    if (!array.length) {
-        return [];
-    }
+    if (!isArrayWithItems(array)) return [];
 
     return [...array].sort((a, b) => {
         const statusOrder: Record<string, number> = {

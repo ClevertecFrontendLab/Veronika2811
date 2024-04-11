@@ -6,6 +6,7 @@ import { useBreakpoints } from '@hooks/use-breakpoints';
 import { ApiEndpoints } from '@redux/api/constants/api-endpoints';
 import { BASE_URL } from '@redux/api/constants/base-url';
 import { authSelector, profileSelector } from '@redux/selectors';
+import { isArrayWithItems } from '@utils/is-array-with-items';
 import { Form, Upload, UploadFile, UploadProps } from 'antd';
 import { UploadFileStatus } from 'antd/lib/upload/interface';
 
@@ -20,7 +21,7 @@ export const FormUpload = () => {
     const { accessToken } = useAppSelector(authSelector);
     const { currentUserInfo } = useAppSelector(profileSelector);
 
-    const isShowPreview = !!fileList.length;
+    const isShowPreview = isArrayWithItems(fileList);
 
     useEffect(() => {
         if (currentUserInfo.imgSrc && typeof currentUserInfo.imgSrc === 'string') {

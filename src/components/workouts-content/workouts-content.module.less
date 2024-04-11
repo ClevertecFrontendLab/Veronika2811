@@ -3,48 +3,44 @@
 .workouts,
 .marathons,
 .joint-training {
-    margin: @padding-margin-24px @padding-margin-24px @padding-margin-42px;
+    margin: @space-24 @space-24 @space-42;
     border-radius: @border-radius-8px;
     min-height: calc(100vh - 165px);
 
     @media (max-width: @screen-xs) {
-        margin: @padding-margin-24px 0 @padding-margin-42px;
+        margin: @space-24 @space-0 @space-42;
         border-radius: 0;
     }
 
     :global {
         .ant-tabs {
-            padding: @padding-margin-25px @padding-margin-23px @padding-margin-zero;
+            padding: @space-25 @space-23 @space-0;
 
             @media (max-width: @screen-xs) {
-                padding: @padding-margin-3px @padding-margin-zero @padding-margin-zero;
+                padding: @space-3 @space-0 @space-0;
             }
         }
 
         .ant-tabs-tab {
-            padding-bottom: @padding-margin-zero;
+            padding-bottom: @space-0;
 
             @media (max-width: @screen-lg-sm) {
-                padding-bottom: @padding-margin-12px;
+                padding-bottom: @space-12;
             }
         }
 
         .ant-tabs > .ant-tabs-nav {
-            padding: @padding-margin-zero @padding-margin-46px @padding-margin-zero
-                @padding-margin-13px;
+            padding: @space-0 @space-46 @space-0 @space-13;
 
             @media (max-width: @screen-lg-sm) {
-                margin: @padding-margin-zero @padding-margin-14px @padding-margin-7px
-                    @padding-margin-13px;
-                margin: @padding-margin-zero @padding-margin-3px @padding-margin-5px
-                    @padding-margin-4px;
+                margin: @space-0 @space-14 @space-7 @space-13;
+                margin: @space-0 @space-3 @space-5 @space-4;
             }
         }
 
         .ant-tabs-tab + .ant-tabs-tab {
             @media (max-width: @screen-lg-sm) {
-                margin: @padding-margin-zero @padding-margin-zero @padding-margin-zero
-                    @padding-margin-10px;
+                margin: @space-0 @space-0 @space-0 @space-10;
             }
         }
 
@@ -63,13 +59,12 @@
         }
 
         .ant-badge {
-            padding: @padding-margin-zero @padding-margin-zero @padding-margin-5px
-                @padding-margin-9px;
+            padding: @space-0 @space-0 @space-5 @space-9;
         }
 
         .ant-badge-count {
-            font-size: 10px;
-            padding: @padding-margin-zero @padding-margin-8px;
+            font-size: @font-size-10px;
+            padding: @space-0 @space-8;
             height: 16px;
             line-height: 1.6;
         }

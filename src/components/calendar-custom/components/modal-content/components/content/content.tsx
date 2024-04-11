@@ -11,6 +11,7 @@ import {
     setEditTraining,
     setTypeTraining,
 } from '@redux/slice/training-slice';
+import { isArrayWithItems } from '@utils/is-array-with-items';
 import type { Moment } from 'moment';
 
 import { EmptyCustom } from '../empty-custom';
@@ -40,7 +41,7 @@ export const Content: FC<{ date: Moment }> = ({ date }) => {
         );
     };
 
-    if (trainingList.length > 0) {
+    if (isArrayWithItems(trainingList)) {
         return <TrainingList data={trainingList} onClickEditTraining={onClickEditTraining} />;
     }
 

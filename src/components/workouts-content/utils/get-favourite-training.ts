@@ -1,3 +1,5 @@
+import { isArrayWithItems } from '@utils/is-array-with-items';
+
 import { TrainingResponse } from '@/types/training';
 
 enum Trainings {
@@ -13,10 +15,10 @@ export const getPopularTypeTraining = (trainings: TrainingResponse[]) => {
 
     const trainigsList = Object.values(trainings);
 
-    trainigsList.forEach((el) => {
-        if (el.exercises.length > 0) {
-            const { name, exercises } = el;
+    trainigsList.forEach(({ name, exercises }) => {
+        const isExercisesWithItem = isArrayWithItems(exercises);
 
+        if (isExercisesWithItem) {
             exercises.forEach((exercise) => {
                 const { replays, weight, approaches } = exercise;
 

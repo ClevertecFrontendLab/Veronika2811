@@ -1,10 +1,12 @@
 import { FC, useEffect, useState } from 'react';
 import { ModalNotification } from '@components/ui/modal-notification';
 import { UserCard } from '@components/workouts-content/components/user-card';
+import { MAX_PALS_TO_SHOW } from '@components/workouts-content/constants/max-pals-to-show';
 import { TypeCards } from '@components/workouts-content/constants/type-cards';
 import { useAppSelector } from '@hooks/redux-hooks';
 import { useDeleteInviteMutation } from '@redux/api/invite.api';
 import { catalogSelector } from '@redux/selectors';
+import { isArrayWithItems } from '@utils/is-array-with-items';
 import { List, Space, Typography } from 'antd';
 
 import { ModalPals } from '../modal-pals';
@@ -50,14 +52,17 @@ export const PalsList: FC<PalsListProps> = ({ setShowListPals }) => {
 
     const onCloseModal = () => setOpenPalsModal(false);
 
-    const currentTrainingPals = trainingPals.length > 4 ? trainingPals.slice(0, 4) : trainingPals;
+    const currentTrainingPals =
+        trainingPals.length > MAX_PALS_TO_SHOW
+            ? trainingPals.slice(0, MAX_PALS_TO_SHOW)
+            : trainingPals;
 
     return (
         <div className={styles.pals}>
             <Typography.Title level={4} className={styles.title}>
                 Мои партнёры по тренировкам
             </Typography.Title>
-            {trainingPals.length > 0 ? (
+            {isArrayWithItems(trainingPals) ? (
                 <Space className={styles['pals-list']} onClick={() => setOpenPalsModal(true)}>
                     <List
                         dataSource={currentTrainingPals}

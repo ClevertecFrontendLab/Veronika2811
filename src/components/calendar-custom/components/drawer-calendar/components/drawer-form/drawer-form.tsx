@@ -3,6 +3,7 @@ import { CurrentTraining } from '@components/calendar-custom/types/current-train
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { trainingSelector } from '@redux/selectors';
 import { setCurrentTraining } from '@redux/slice/training-slice';
+import { isArrayWithItems } from '@utils/is-array-with-items';
 import { Form } from 'antd';
 
 import { ExercisesList } from '../exercises-list';
@@ -30,7 +31,7 @@ export const DrawerForm: FC<{ onCloseDrawer: () => void }> = ({ onCloseDrawer })
             weight: el.weight || 0,
         }));
 
-        dispatch(setCurrentTraining(validExercises.length > 0 ? validExercises : null));
+        dispatch(setCurrentTraining(isArrayWithItems(validExercises) ? validExercises : null));
         onCloseDrawer();
     };
 

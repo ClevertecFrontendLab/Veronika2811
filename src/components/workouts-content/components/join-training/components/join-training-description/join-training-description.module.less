@@ -1,23 +1,23 @@
 @import '@styles/constants.less';
 
 [class*='ant-card'].card-default {
-    margin-top: @padding-margin-22px;
+    margin-top: @space-22;
 
     @media (max-width: @screen-xs) {
-        margin: @padding-margin-18px @padding-margin-25px @padding-margin-zero;
+        margin: @space-18 @space-25 @space-0;
     }
 
     :global {
         .ant-card-body {
-            padding: @padding-margin-31px 50px @padding-margin-10px;
+            padding: @space-31 50px @space-10;
             background-color: @neutral-2;
 
             @media (max-width: @screen-lg-sm) {
-                padding: @padding-margin-31px @padding-margin-33px @padding-margin-10px;
+                padding: @space-31 @space-33 @space-10;
             }
 
             @media (max-width: @screen-xs) {
-                padding: @padding-margin-31px @padding-margin-15px @padding-margin-10px;
+                padding: @space-31 @space-15 @space-10;
             }
         }
 
@@ -25,7 +25,7 @@
             font-weight: @font-weight-medium;
             color: @primary-light-9;
             text-align: center;
-            margin-bottom: @padding-margin-32px;
+            margin-bottom: @space-32;
         }
 
         .card-subtitle {
@@ -34,7 +34,7 @@
         }
 
         .ant-card-actions > li {
-            margin: @padding-margin-zero;
+            margin: @space-0;
 
             @media (max-width: @screen-lg-sm) {
                 width: @full-width !important;
@@ -43,7 +43,7 @@
                 padding-left: 100px;
 
                 @media (max-width: @screen-lg-sm) {
-                    padding-left: @padding-margin-14px;
+                    padding-left: @space-14;
                 }
             }
 
@@ -53,7 +53,7 @@
                     color: @neutral-10;
 
                     @media (max-width: @screen-lg-sm) {
-                        padding-right: @padding-margin-14px;
+                        padding-right: @space-14;
                     }
                 }
             }
@@ -62,10 +62,10 @@
         .ant-btn-link {
             width: @full-width;
             height: @full-height;
-            padding: @padding-margin-19px;
+            padding: @space-19;
 
             @media (max-width: @screen-lg-sm) {
-                padding: @padding-margin-15px;
+                padding: @space-15;
             }
         }
 

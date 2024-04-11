@@ -1,0 +1,77 @@
+@import '@styles/constants.less';
+
+.invitation-item {
+    background-color: @neutral-1;
+    border-radius: @border-radius-3px @border-radius-18px @border-radius-18px;
+    padding: @space-17 @space-20 @space-18 @space-12;
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.02);
+    justify-content: space-between;
+
+    @media (max-width: @screen-xl) {
+        margin-top: @space-0;
+        padding-top: @space-15;
+        border-radius: @border-radius-3px;
+    }
+
+    :global {
+        .invitation-item-user {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: @space-14;
+            padding-top: @space-8;
+
+            @media (max-width: @screen-xl) {
+                flex-direction: row;
+            }
+
+            .user-name .ant-typography {
+                margin-bottom: @space-3;
+                text-align: center;
+
+                @media (max-width: @screen-xl) {
+                    text-align: left;
+                }
+            }
+        }
+
+        .invitation-item-info {
+            .invitation-item-date {
+                font-size: @font-size-12px;
+
+                @media (max-width: @screen-xl) {
+                    display: block;
+                    padding-top: @space-14;
+                }
+            }
+
+            .invitation-item-title {
+                margin: @space-7 @space-0 @space-10;
+                color: @primary-light-9;
+
+                @media (max-width: @screen-xl) {
+                    margin: @space-12 @space-0 @space-14;
+                }
+            }
+
+            .invitation-item-details-wrapper {
+                position: relative;
+            }
+
+            .invitation-item-details {
+                color: @primary-color;
+            }
+        }
+
+        .invitation-item-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: @space-15;
+            padding-top: @space-4;
+
+            @media (max-width: @screen-xl) {
+                padding-top: 36px;
+            }
+        }
+    }
+}

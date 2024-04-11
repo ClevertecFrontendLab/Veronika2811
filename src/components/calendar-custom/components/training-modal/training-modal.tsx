@@ -6,6 +6,7 @@ import { DATE_FORMAT } from '@constants/date-format';
 import { useAppSelector } from '@hooks/redux-hooks';
 import { useBreakpoints } from '@hooks/use-breakpoints';
 import { trainingSelector } from '@redux/selectors';
+import { isArrayWithItems } from '@utils/is-array-with-items';
 import { Modal } from 'antd';
 import classNames from 'classnames';
 import type { Moment } from 'moment';
@@ -48,7 +49,7 @@ export const TrainingModal: FC<TrainingModalProps> = ({
         }
     }, [cellHTMLElement, isXs]);
 
-    const workoutCardModalStyle = cellContent.length > 0;
+    const workoutCardModalStyle = isArrayWithItems(cellContent);
 
     const modalStyles = classNames({
         [styles.modal]: true,

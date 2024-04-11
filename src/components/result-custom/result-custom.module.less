@@ -1,7 +1,7 @@
 @import '@styles/constants.less';
 
 [class*='ant-result'].auth-result {
-    padding: @padding-margin-zero;
+    padding: @space-0;
 
     :global {
         .ant-result-title {
@@ -21,12 +21,12 @@
 }
 
 [class*='ant-result'].auth-check-no-exist {
-    padding: @padding-margin-zero;
-    margin: @padding-margin-zero -32px;
+    padding: @space-0;
+    margin: @space-0 -@space-32;
 
     @media (max-width: @screen-sm) {
-        padding: @padding-margin-40px @padding-margin-zero @padding-margin-24px;
-        margin: @padding-margin-zero;
+        padding: @space-40 @space-0 @space-24;
+        margin: @space-0;
     }
 
     :global {
@@ -35,11 +35,11 @@
         }
 
         .ant-result-subtitle {
-            padding: @padding-margin-zero 44px;
+            padding: @space-0 44px;
             line-height: 1.2;
 
             @media (max-width: @screen-sm) {
-                padding: @padding-margin-zero @padding-margin-26px;
+                padding: @space-0 @space-26;
             }
         }
 
@@ -50,15 +50,15 @@
 }
 
 [class*='ant-result'].auth-check-error {
-    padding: @padding-margin-zero;
+    padding: @space-0;
 
     @media (max-width: @screen-sm) {
-        padding: @padding-margin-30px @padding-margin-zero @padding-margin-24px;
+        padding: @space-30 @space-0 @space-24;
     }
 
     :global {
         .ant-result-icon {
-            margin-bottom: @padding-margin-22px;
+            margin-bottom: @space-22;
         }
 
         .ant-result-title {
@@ -66,16 +66,16 @@
         }
 
         .ant-result-subtitle {
-            margin: @padding-margin-zero -21px;
+            margin: @space-0 -21px;
             line-height: 1.2;
 
             @media (max-width: @screen-sm) {
-                margin: @padding-margin-zero;
+                margin: @space-0;
             }
         }
 
         .ant-result-extra {
-            margin-top: @padding-margin-25px;
+            margin-top: @space-25;
         }
 
         .ant-btn {
@@ -85,11 +85,11 @@
 }
 
 [class*='ant-result'].feedback-result {
-    padding: @padding-margin-46px 63px @padding-margin-40px;
+    padding: @space-46 63px @space-40;
 
     @media (max-width: @screen-sm) {
-        padding: @padding-margin-10px @padding-margin-zero;
-        margin: @padding-margin-zero -9px;
+        padding: @space-10 @space-0;
+        margin: @space-0 -@space-9;
     }
 
     :global {
@@ -128,7 +128,7 @@
 
         .ant-result-subtitle {
             @media (max-width: @screen-sm) {
-                padding: @padding-margin-zero @padding-margin-46px;
+                padding: @space-0 @space-46;
             }
         }
     }

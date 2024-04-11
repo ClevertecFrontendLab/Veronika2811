@@ -10,28 +10,28 @@
 .free {
     display: flex;
     justify-content: center;
-    gap: 11px;
+    gap: @space-11;
     padding: 38px;
 
     @media (max-width: @screen-sm) {
-        padding: @padding-margin-22px 38px;
+        padding: @space-22 38px;
     }
 }
 
 .pro-tariff {
     align-items: center;
     flex-direction: column;
-    padding: @padding-margin-27px;
+    padding: @space-27;
 
     @media (max-width: @screen-sm) {
-        padding: @padding-margin-11px;
+        padding: @space-11;
     }
 }
 
 .inactive-pro-tariff {
-    padding: @padding-margin-29px @padding-margin-20px;
+    padding: @space-29 @space-20;
 
     @media (max-width: @screen-sm) {
-        padding: @padding-margin-12px @padding-margin-20px;
+        padding: @space-12 @space-20;
     }
 }

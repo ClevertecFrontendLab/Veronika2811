@@ -1,4 +1,4 @@
-import React, { FC, useLayoutEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { ExercisesList } from '@components/calendar-custom/components/drawer-calendar/components/exercises-list';
 import { CurrentTraining } from '@components/calendar-custom/types/current-training';
 import { isPastDate } from '@components/workouts-content/utils/is-past-date';
@@ -170,7 +170,7 @@ export const WorkoutForm: FC<WorkoutFormProps> = ({
         }
     };
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         if (editTrainingData) {
             form.setFieldsValue({
                 name: editTrainingData.name,

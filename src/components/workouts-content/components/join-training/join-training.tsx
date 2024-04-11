@@ -7,6 +7,7 @@ import {
     useLazyGetCatalogsUserJoinTrainingListQuery,
 } from '@redux/api/catalogs.api';
 import { catalogSelector, inviteSelector, trainingSelector } from '@redux/selectors';
+import { isArrayWithItems } from '@utils/is-array-with-items';
 
 import { JoinTrainingDescription } from './components/join-training-description';
 import { JoinTrainingCards } from './components/join-traning-cards/join-traning-cards';
@@ -65,7 +66,7 @@ export const JoinTraining = () => {
 
     return (
         <div className={styles.wrapper}>
-            {!!inviteList.length && (
+            {isArrayWithItems(inviteList) && (
                 <JointTrainingInvitationsList
                     setShowListPals={setShowListPals}
                     inviteList={inviteList}

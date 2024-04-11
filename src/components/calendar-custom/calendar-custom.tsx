@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useBreakpoints } from '@hooks/use-breakpoints';
 import { trainingSelector } from '@redux/selectors';
 import { resetState, setModalVisible } from '@redux/slice/training-slice';
+import { isArrayWithItems } from '@utils/is-array-with-items';
 import { Calendar } from 'antd';
 import type { Moment } from 'moment';
 import moment from 'moment';
@@ -70,7 +71,7 @@ export const CalendarCustom: FC<CalendarCustomProps> = ({ refetchUserTrainingLis
     const dateFullCellRender = (date: Moment) => {
         const trainingList = filterTrainingsByDate(userTrainingList, date);
 
-        const isUserTraningInSelectedDay = trainingList.length > 0;
+        const isUserTraningInSelectedDay = isArrayWithItems(trainingList);
         const isUserTrainingAndNotMobile = isUserTraningInSelectedDay && !isXs;
         const formattedDate = date.format(DATE_FORMAT_D);
 

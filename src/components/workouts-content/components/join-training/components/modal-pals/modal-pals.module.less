@@ -7,31 +7,30 @@
         }
 
         .ant-modal-body {
-            padding: @padding-margin-40px @padding-margin-64px @padding-margin-40px
-                @padding-margin-33px;
+            padding: @space-40 @space-64 @space-40 @space-33;
 
             @media (max-width: @screen-xs) {
-                padding: @padding-margin-18px @padding-margin-12px;
+                padding: @space-18 @space-12;
             }
         }
 
         .modal-user-info {
-            padding-top: @padding-margin-3px;
+            padding-top: @space-3;
         }
 
         .modal-status-block {
-            padding-top: @padding-margin-22px;
+            padding-top: @space-22;
 
             @media (max-width: @screen-xs) {
-                padding-top: @padding-margin-10px;
-                gap: 18px;
+                padding-top: @space-10;
+                gap: @space-18;
             }
         }
 
         .status {
             display: flex;
             align-items: center;
-            gap: 9px;
+            gap: @space-9;
 
             @media (max-width: @screen-xs) {
                 justify-content: center;
@@ -48,7 +47,7 @@
 
         .ant-card-meta {
             @media (max-width: @screen-xs) {
-                padding-bottom: @padding-margin-18px;
+                padding-bottom: @space-18;
             }
         }
     }
@@ -61,7 +60,7 @@
 .training-type {
     :global {
         .ant-typography {
-            margin-bottom: @padding-margin-6px;
+            margin-bottom: @space-6;
             font-size: @font-size-12px;
         }
     }
@@ -70,7 +69,7 @@
 .training-info {
     :global {
         .ant-typography {
-            margin-bottom: @padding-margin-3px;
+            margin-bottom: @space-3;
             color: @primary-color;
             font-weight: @font-weight-medium;
         }
