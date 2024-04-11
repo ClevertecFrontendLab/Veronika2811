@@ -2,7 +2,7 @@ import { CurrentTraining } from '@components/calendar-custom/types/current-train
 import { createSlice } from '@reduxjs/toolkit';
 
 import { Nullebel } from '@/types/nullebel';
-import { TrainingResponse } from '@/types/training/training-api-data-types';
+import { TrainingCurrentEditData, TrainingResponse } from '@/types/training';
 import { EditTrainingInfo } from '@/types/training/training-types';
 
 type TInitialState = {
@@ -14,6 +14,7 @@ type TInitialState = {
     isDrawerVisible: boolean;
     typeTraining: Nullebel<string>;
     currentTraining: Nullebel<CurrentTraining[]>;
+    editTrainingData: Nullebel<TrainingCurrentEditData>;
 };
 
 const initialState: TInitialState = {
@@ -25,6 +26,7 @@ const initialState: TInitialState = {
     isDrawerVisible: false,
     typeTraining: null,
     currentTraining: null,
+    editTrainingData: null,
 };
 
 const trainingSlice = createSlice({
@@ -55,6 +57,9 @@ const trainingSlice = createSlice({
         setCurrentTraining: (state, action) => {
             state.currentTraining = action.payload;
         },
+        setEditTrainingData: (state, action) => {
+            state.editTrainingData = action.payload;
+        },
         resetEditMode: (state) => {
             Object.assign(state, {
                 isEditMode: initialState.isEditMode,
@@ -82,6 +87,7 @@ export const {
     setDrawerVisible,
     setTypeTraining,
     setCurrentTraining,
+    setEditTrainingData,
     resetEditMode,
     resetState,
 } = actions;

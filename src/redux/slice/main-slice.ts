@@ -1,14 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { AlertProps } from 'antd';
 
+import { Nullebel } from '@/types/nullebel';
+
 type TInitialState = {
     isLoading: boolean;
-    alertApp: {
+    alertApp: Nullebel<{
         message: string;
         type: AlertProps['type'];
         testIds: string;
         container?: Element | DocumentFragment;
-    } | null;
+    }>;
 };
 
 const initialState: TInitialState = {

@@ -13,3 +13,5 @@ export const catalogSelector = (state: RootState) => state.catalogSlice;
 export const workoutsSelector = (state: RootState) => state.workoutsSlice;
 
 export const profileSelector = (state: RootState) => state.profileSlice;
+
+export const inviteSelector = (state: RootState) => state.inviteSlice;

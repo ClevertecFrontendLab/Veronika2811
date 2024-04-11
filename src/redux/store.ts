@@ -5,6 +5,7 @@ import { createBrowserHistory } from 'history';
 import emptyApi from './api/empty-api';
 import reducerAuth from './slice/auth-slice';
 import reducerCatalogs from './slice/catalogs-slice';
+import reducerInvite from './slice/invite-slice';
 import reducerMain from './slice/main-slice';
 import reducerProfile from './slice/profile-slice';
 import reducerTraining from './slice/training-slice';
@@ -24,6 +25,7 @@ export const store = configureStore({
         catalogSlice: reducerCatalogs,
         workoutsSlice: reducerWorkouts,
         profileSlice: reducerProfile,
+        inviteSlice: reducerInvite,
         [emptyApi.reducerPath]: emptyApi.reducer,
     }),
     middleware: (getDefaultMiddleware) =>

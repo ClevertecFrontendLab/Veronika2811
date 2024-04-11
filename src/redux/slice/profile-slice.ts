@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { UserInfoResponse } from '@/types/profile/profile-api-data-types';
+import { UserInfoResponse } from '@/types/profile';
 
 type TInitialState = {
     currentUserInfo: UserInfoResponse;
