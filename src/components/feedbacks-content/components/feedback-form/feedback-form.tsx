@@ -70,6 +70,7 @@ export const FeedbackForm: FC<FeedbackFormProps> = ({
                     value={valueRate}
                     onChange={(value: number) => changeRateValue(value)}
                     character={({ index, value }) => characterRender(index, value)}
+                    allowClear={false}
                 />
             </Form.Item>
             <Form.Item name='message'>

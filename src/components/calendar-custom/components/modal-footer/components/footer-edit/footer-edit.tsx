@@ -40,7 +40,7 @@ export const FooterEdit: FC<FooterEditProps> = ({ date, refetchUserTrainingList 
     const addTraining = async () => {
         const body = {
             name: typeTraining,
-            date,
+            date: date.utc(true).toISOString(),
             exercises: currentTraining,
         };
 

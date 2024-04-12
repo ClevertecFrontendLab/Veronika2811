@@ -112,7 +112,7 @@ export const WorkoutForm: FC<WorkoutFormProps> = ({
 
         const body = {
             name: trainingName?.name || selectedUser?.trainingType,
-            date: values.date,
+            date: moment(values.date).utc(true).toISOString(),
             isImplementation: isPastDate(values.date),
             parameters: {
                 repeat: values.withFrequency,
