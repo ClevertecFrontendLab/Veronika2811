@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { SETTINGS_TEST_IDS } from '@components/settings-content/constants/settings-test-ids';
 import { useAppSelector } from '@hooks/redux-hooks';
 import { useAddNewTariffMutation } from '@redux/api/tariff.api';
 import { catalogSelector } from '@redux/selectors';
@@ -50,7 +51,7 @@ export const TariffPlanForm: FC<TariffPlanFormProps> = ({
             scrollToFirstError={true}
             onFinish={onFinish}
             onFieldsChange={onFieldsChange}
-            data-test-id='tariff-cost'
+            data-test-id={SETTINGS_TEST_IDS.tariffCost}
         >
             <Typography.Paragraph className={styles['tariff-cost-title']}>
                 Стоимость тарифа

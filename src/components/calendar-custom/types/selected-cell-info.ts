@@ -1,4 +1,4 @@
-import { TrainingResponse } from '@/types/training/training-api-data-types';
+import { TrainingResponse } from '@/types/training';
 
 export type SelectedCellInfo = {
     cellHTMLElement: HTMLTableCellElement | HTMLDivElement;

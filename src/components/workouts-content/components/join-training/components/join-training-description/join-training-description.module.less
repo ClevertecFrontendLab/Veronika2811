@@ -1,0 +1,84 @@
+@import '@styles/constants.less';
+
+[class*='ant-card'].card-default {
+    margin-top: @space-22;
+
+    @media (max-width: @screen-xs) {
+        margin: @space-18 @space-25 @space-0;
+    }
+
+    :global {
+        .ant-card-body {
+            padding: @space-31 50px @space-10;
+            background-color: @neutral-2;
+
+            @media (max-width: @screen-lg-sm) {
+                padding: @space-31 @space-33 @space-10;
+            }
+
+            @media (max-width: @screen-xs) {
+                padding: @space-31 @space-15 @space-10;
+            }
+        }
+
+        .card-title {
+            font-weight: @font-weight-medium;
+            color: @primary-light-9;
+            text-align: center;
+            margin-bottom: @space-32;
+        }
+
+        .card-subtitle {
+            text-align: center;
+            color: @neutral-7;
+        }
+
+        .ant-card-actions > li {
+            margin: @space-0;
+
+            @media (max-width: @screen-lg-sm) {
+                width: @full-width !important;
+            }
+            .ant-btn-link {
+                padding-left: 100px;
+
+                @media (max-width: @screen-lg-sm) {
+                    padding-left: @space-14;
+                }
+            }
+
+            &:last-child {
+                .ant-btn-link {
+                    padding-right: 100px;
+                    color: @neutral-10;
+
+                    @media (max-width: @screen-lg-sm) {
+                        padding-right: @space-14;
+                    }
+                }
+            }
+        }
+
+        .ant-btn-link {
+            width: @full-width;
+            height: @full-height;
+            padding: @space-19;
+
+            @media (max-width: @screen-lg-sm) {
+                padding: @space-15;
+            }
+        }
+
+        .ant-card-actions {
+            background-color: @neutral-2;
+
+            @media (max-width: @screen-lg-sm) {
+                flex-direction: column;
+            }
+        }
+
+        .ant-card-actions > li:not(:last-child) {
+            border-right: none;
+        }
+    }
+}

@@ -1,6 +1,6 @@
 import { Dispatch, FC } from 'react';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-import { sideBarTestIds } from '@components/side-bar/constants';
+import { SIDER_TEST_IDS } from '@components/side-bar/constants/side-bar-test-ids';
 import { Space } from 'antd';
 
 import styles from './sider-switch.module.less';
@@ -17,9 +17,7 @@ export const SiderSwitch: FC<SiderSwitchProps> = ({ collapsed, setCollapsed, isA
     return (
         <Space
             data-test-id={
-                isAtBreakpoint
-                    ? sideBarTestIds.SIDER_SWITCH_MOBILE_TEST_ID
-                    : sideBarTestIds.SIDER_SWITCH_TEST_ID
+                isAtBreakpoint ? SIDER_TEST_IDS.siderSwitchMobile : SIDER_TEST_IDS.siderSwitch
             }
             className={styles.switch}
         >

@@ -3,37 +3,76 @@
 .workouts,
 .marathons,
 .joint-training {
-    margin: @padding-margin-24px @padding-margin-24px @padding-margin-42px;
+    margin: @space-24 @space-24 @space-42;
     border-radius: @border-radius-8px;
     min-height: calc(100vh - 165px);
 
+    @media (max-width: @screen-xs) {
+        margin: @space-24 @space-0 @space-42;
+        border-radius: 0;
+    }
+
     :global {
         .ant-tabs {
-            padding: 37px @padding-margin-23px @padding-margin-zero;
+            padding: @space-25 @space-23 @space-0;
+
+            @media (max-width: @screen-xs) {
+                padding: @space-3 @space-0 @space-0;
+            }
         }
 
-        .ant-tabs-nav {
-            padding: @padding-margin-zero @padding-margin-46px @padding-margin-zero
-                @padding-margin-13px;
+        .ant-tabs-tab {
+            padding-bottom: @space-0;
+
+            @media (max-width: @screen-lg-sm) {
+                padding-bottom: @space-12;
+            }
+        }
+
+        .ant-tabs > .ant-tabs-nav {
+            padding: @space-0 @space-46 @space-0 @space-13;
+
+            @media (max-width: @screen-lg-sm) {
+                margin: @space-0 @space-14 @space-7 @space-13;
+                margin: @space-0 @space-3 @space-5 @space-4;
+            }
+        }
+
+        .ant-tabs-tab + .ant-tabs-tab {
+            @media (max-width: @screen-lg-sm) {
+                margin: @space-0 @space-0 @space-0 @space-10;
+            }
         }
 
         .ant-tabs-nav-list {
-            flex: 1;
+            width: @full-width;
             justify-content: space-between;
         }
 
-        .ant-tabs-large > .ant-tabs-nav .ant-tabs-tab {
+        .ant-tabs-tab-btn {
             font-size: @font-size-24px;
-            padding: @padding-margin-zero;
+            line-height: @line-height-large;
+
+            @media (max-width: @screen-lg-sm) {
+                font-size: @font-size-base;
+            }
         }
 
-        .ant-tabs-tab-btn {
-            line-height: @line-height-large;
+        .ant-badge {
+            padding: @space-0 @space-0 @space-5 @space-9;
+        }
+
+        .ant-badge-count {
+            font-size: @font-size-10px;
+            padding: @space-0 @space-8;
+            height: 16px;
+            line-height: 1.6;
         }
     }
 }
 
-.workouts {
+.workouts,
+.joint-training {
     background: @neutral-1;
 }
 

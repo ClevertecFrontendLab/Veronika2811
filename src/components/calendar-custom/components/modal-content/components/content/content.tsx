@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { TrainingList } from '@components/calendar-custom/components/training-list';
 import { filterTrainingsByDate } from '@components/calendar-custom/utils/filter-trainings-by-date';
 import { isPastDate } from '@components/calendar-custom/utils/is-past-date';
+import { EditTrainingType } from '@constants/training/edit-training-types';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { trainingSelector } from '@redux/selectors';
 import {
@@ -10,11 +11,12 @@ import {
     setEditTraining,
     setTypeTraining,
 } from '@redux/slice/training-slice';
+import { isArrayWithItems } from '@utils/is-array-with-items';
 import type { Moment } from 'moment';
 
 import { EmptyCustom } from '../empty-custom';
 
-import { TrainingResponse } from '@/types/training/training-api-data-types';
+import { TrainingResponse } from '@/types/training';
 
 export const Content: FC<{ date: Moment }> = ({ date }) => {
     const { userTrainingList } = useAppSelector(trainingSelector);
@@ -27,7 +29,7 @@ export const Content: FC<{ date: Moment }> = ({ date }) => {
         dispatch(setCurrentTraining(item.exercises));
         dispatch(setEditMode(true));
 
-        const editTrainingDay = isPastDate(date) ? 'past-training' : 'future-training';
+        const editTrainingDay = isPastDate(date) ? EditTrainingType.PAST : EditTrainingType.FUTURE;
 
         const { _id: id } = item;
 
@@ -39,7 +41,7 @@ export const Content: FC<{ date: Moment }> = ({ date }) => {
         );
     };
 
-    if (trainingList.length > 0) {
+    if (isArrayWithItems(trainingList)) {
         return <TrainingList data={trainingList} onClickEditTraining={onClickEditTraining} />;
     }
 

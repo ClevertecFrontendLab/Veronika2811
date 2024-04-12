@@ -1,19 +1,19 @@
 @import '@styles/constants.less';
 
 [class*='ant-form'].form-settings {
-    padding-top: @padding-margin-17px;
+    padding-top: @space-17;
     display: flex;
     flex-direction: column;
-    gap: @gap-6px;
+    gap: @space-6;
 
     @media (max-width: @screen-sm) {
-        padding-top: @padding-margin-20px;
-        gap: 13px;
+        padding-top: @space-20;
+        gap: @space-13;
     }
 
     :global {
         .ant-form-item {
-            margin: @padding-margin-zero;
+            margin: @space-0;
         }
     }
 }
@@ -29,26 +29,26 @@
 .form-settings-content:first-child .content {
     @media (max-width: @screen-sm) {
         max-width: 196px;
-        gap: 3px;
+        gap: @space-3;
         align-items: flex-start;
     }
 }
 
 .content {
     display: flex;
-    gap: @gap-7px;
+    gap: @space-7;
 }
 
 [class*='ant-typography'].title {
     font-size: @font-size-base;
     font-weight: @typography-title-font-weight;
-    margin: @padding-margin-zero;
+    margin: @space-0;
 }
 
 [class*='ant-typography'].title-inactive {
     font-size: @font-size-base;
     font-weight: @typography-title-font-weight;
-    margin: @padding-margin-zero;
+    margin: @space-0;
     color: @neutral-6;
 }
 

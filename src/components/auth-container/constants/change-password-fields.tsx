@@ -3,7 +3,7 @@ import { Input } from 'antd';
 
 import { confirmPasswordValidationRules, passwordValidationRules } from '../utils/field-validation';
 
-import { AuthTestIds } from './auth-test-ids';
+import { AUTH_TEST_IDS } from './auth-test-ids';
 
 export const CHANGE_PASSWORD_FIELDS = [
     {
@@ -16,7 +16,7 @@ export const CHANGE_PASSWORD_FIELDS = [
                 size='large'
                 iconRender={(visible) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />)}
                 autoComplete='current-password'
-                data-test-id={AuthTestIds.CHANGE_PASSWORD}
+                data-test-id={AUTH_TEST_IDS.changePassword}
             />
         ),
     },
@@ -29,7 +29,7 @@ export const CHANGE_PASSWORD_FIELDS = [
                 size='large'
                 iconRender={(visible) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />)}
                 autoComplete='new-password'
-                data-test-id={AuthTestIds.CHANGE_PASSWORD_CONFIRM}
+                data-test-id={AUTH_TEST_IDS.changeConfirmPassword}
             />
         ),
         dependencies: 'password',

@@ -4,26 +4,26 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    gap: @gap-16px;
-    padding: @padding-margin-24px;
+    gap: @space-16;
+    padding: @space-24;
     background-color: @neutral-1;
     border-radius: @border-radius-8px;
 
     @media (max-width: @screen-sm) {
-        padding: @padding-margin-17px @padding-margin-24px;
+        padding: @space-17 @space-24;
     }
 
     & .settings-title {
-        margin: @padding-margin-zero;
+        margin: @space-0;
         font-weight: @font-weight-medium;
     }
 }
 
 [class*='ant-result-success'].modal-check {
-    padding: @padding-margin-48px @padding-margin-21px @padding-margin-30px;
+    padding: @space-48 @space-21 @space-30;
 
     @media (max-width: @screen-sm) {
-        padding: @padding-margin-48px @padding-margin-zero @padding-margin-30px;
+        padding: @space-48 @space-0 @space-30;
     }
 
     :global {
@@ -52,7 +52,7 @@
         }
 
         .ant-result-extra {
-            margin-top: @padding-margin-20px;
+            margin-top: @space-20;
 
             @media (max-width: @screen-sm) {
                 white-space: @white-space-break-spaces;

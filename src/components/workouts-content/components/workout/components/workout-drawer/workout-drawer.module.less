@@ -1,0 +1,51 @@
+@import '@styles/constants.less';
+
+.drawer {
+    :global {
+        .ant-drawer-content,
+        .ant-drawer-content-wrapper {
+            border-radius: @border-radius-8px 0 0 @border-radius-8px;
+
+            @media (max-width: @screen-sm) {
+                border-radius: @border-radius-24px @border-radius-24px 0 0;
+            }
+        }
+
+        .ant-drawer-header {
+            padding: @space-24 @space-27 @space-16 @space-31;
+            border-bottom: none;
+
+            @media (max-width: @screen-sm) {
+                padding: @space-24 @space-12 @space-16 @space-15;
+            }
+        }
+
+        .ant-drawer-body {
+            padding: @space-24 @space-32;
+
+            @media (max-width: @screen-sm) {
+                padding: @space-0 @space-15;
+            }
+        }
+
+        .ant-drawer-footer {
+            padding: @space-12 @space-32;
+
+            @media (max-width: @screen-sm) {
+                padding: @space-12 @space-16;
+            }
+
+            .ant-typography {
+                color: @neutral-7;
+                text-align: center;
+                margin-bottom: @space-24;
+            }
+        }
+
+        .ant-drawer-content-wrapper {
+            @media (max-width: @screen-sm) {
+                height: 555px;
+            }
+        }
+    }
+}

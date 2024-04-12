@@ -3,16 +3,26 @@ import { DATE_FORMAT } from '@constants/date-format';
 import { PICKER_LOCALE } from '@constants/picker-locale';
 import { DatePicker, Input } from 'antd';
 
+import { PROFILE_TEST_IDS } from './profile-test-ids';
+
 const pickerIconColor = '#bfbfbf';
 
 export const PERSONAL_INFO_FIELDS = [
     {
         field: 'firstName',
-        children: <Input placeholder='Имя' size='large' data-test-id='profile-name' />,
+        children: (
+            <Input placeholder='Имя' size='large' data-test-id={PROFILE_TEST_IDS.profileName} />
+        ),
     },
     {
         field: 'lastName',
-        children: <Input placeholder='Фамилия' size='large' data-test-id='profile-surname' />,
+        children: (
+            <Input
+                placeholder='Фамилия'
+                size='large'
+                data-test-id={PROFILE_TEST_IDS.profileSurname}
+            />
+        ),
     },
     {
         field: 'birthday',
@@ -23,7 +33,7 @@ export const PERSONAL_INFO_FIELDS = [
                 size='large'
                 format={DATE_FORMAT}
                 suffixIcon={<CalendarTwoTone twoToneColor={[pickerIconColor, pickerIconColor]} />}
-                data-test-id='profile-birthday'
+                data-test-id={PROFILE_TEST_IDS.profileBirthday}
             />
         ),
     },

@@ -10,10 +10,11 @@ import moment from 'moment';
 import { FormUpload } from './components/form-upload';
 import { PersonalInfoFormFields } from './components/personal-info-form-fields';
 import { PrivacyInfoFormFields } from './components/privacy-info-form-fields';
+import { PROFILE_TEST_IDS } from './constants/profile-test-ids';
 import styles from './profile-form.module.less';
 
 import { Nullebel } from '@/types/nullebel';
-import { UserAvatar, UserInfoData } from '@/types/profile/profile-api-data-types';
+import { UserAvatar, UserInfoData } from '@/types/profile';
 
 const { Title } = Typography;
 
@@ -116,7 +117,7 @@ export const ProfileForm = () => {
                     size='large'
                     htmlType='submit'
                     disabled={!isFormChanged}
-                    data-test-id='profile-submit'
+                    data-test-id={PROFILE_TEST_IDS.profileSubmit}
                 >
                     Сохранить изменения
                 </Button>

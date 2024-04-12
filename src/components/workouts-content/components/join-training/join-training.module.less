@@ -1,0 +1,25 @@
+@import '@styles/constants.less';
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-join-list {
+    :global {
+        .ant-list-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: @space-16;
+
+            @media (max-width: @screen-xs) {
+                gap: @space-10;
+            }
+        }
+
+        .ant-list-pagination {
+            text-align: left;
+            margin-top: @space-15;
+        }
+    }
+}

@@ -1,0 +1,68 @@
+@import '@styles/constants.less';
+
+[class*='ant-card'].training-details {
+    position: absolute;
+    width: 312px;
+    top: 0;
+    background: @neutral-1;
+    z-index: 1;
+    box-shadow: @box-shadow-layout-0-15;
+
+    @media (max-width: @screen-xl) {
+        width: 288px;
+        left: -11px;
+    }
+
+    :global {
+        .ant-card-head {
+            padding: @space-0 @space-8 @space-0 @space-4;
+        }
+
+        .ant-card-head-title {
+            padding-bottom: @space-11;
+        }
+
+        .ant-btn-icon-only.ant-btn-sm > * {
+            font-size: @font-size-lg;
+        }
+
+        .ant-badge-status-text {
+            font-weight: @font-weight-normal;
+        }
+
+        .ant-card-body {
+            padding: @space-24 @space-1 @space-12;
+        }
+
+        h5.ant-typography {
+            font-weight: @font-weight-medium;
+        }
+    }
+}
+
+.training-details-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list {
+    :global {
+        .ant-list-items {
+            padding-top: @space-14;
+        }
+
+        .ant-list-item {
+            padding: @space-0;
+
+            &:not(:last-child) {
+                padding-bottom: @space-8;
+            }
+        }
+
+        .list-item {
+            color: @primary-color;
+            font-size: @font-size-12px;
+            padding: @space-0;
+        }
+    }
+}

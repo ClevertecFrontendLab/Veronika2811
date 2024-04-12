@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import VerificationInput from 'react-verification-input';
-import { AuthTestIds } from '@components/auth-container/constants/auth-test-ids';
+import { AUTH_TEST_IDS } from '@components/auth-container/constants/auth-test-ids';
 import classNames from 'classnames';
 
 import styles from './custom-verification-input.module.less';
@@ -34,6 +34,6 @@ export const CustomVerificationInput: FC<CustomVerificationInputProps> = ({
             characterFilled: styles['character--filled'],
         }}
         onComplete={onCompleteVerificataion}
-        inputProps={{ 'data-test-id': AuthTestIds.VERIFICATION_INPUT }}
+        inputProps={{ 'data-test-id': AUTH_TEST_IDS.verificationInput }}
     />
 );

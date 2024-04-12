@@ -2,8 +2,8 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { ChangePasswordForm } from '@components/auth-container/components/change-password-form';
 import { ConfirmEmail } from '@components/auth-container/components/confirm-email';
 import { ResultCustom } from '@components/result-custom';
-import { LOGIN, REGISTRATION } from '@constants/auth/auth-constants';
 import { AuthStatus } from '@constants/auth/auth-status-constants';
+import { AuthTabs } from '@constants/auth/auth-tabs';
 import { useAppSelector } from '@hooks/redux-hooks';
 import { LayoutAuthPage } from '@layouts/layout-auth-page';
 import { LayoutMainPage } from '@layouts/layout-main-page';
@@ -14,6 +14,7 @@ import { MainPage } from '@pages/main-page';
 import { NotFoundPage } from '@pages/not-found-page';
 import { ProfilePage } from '@pages/profile-page';
 import { SettingsPage } from '@pages/settings-page';
+import { WorkoutsPage } from '@pages/workouts-page';
 import { authSelector } from '@redux/selectors';
 
 import { Paths } from './constants/router-paths';
@@ -55,14 +56,15 @@ export const AppRouter = () => {
                 <Route path={Paths.CALENDAR} element={<CalendarPage />} />
                 <Route path={Paths.PROFILE} element={<ProfilePage />} />
                 <Route path={Paths.SETTINGS} element={<SettingsPage />} />
+                <Route path={Paths.TRAINING} element={<WorkoutsPage />} />
                 <Route path='*' element={<NotFoundPage />} />
             </Route>
 
             <Route path={Paths.AUTH_MAIN} element={authRedirectElement}>
-                <Route index={true} element={<AuthenticatorPage type={LOGIN} />} />
+                <Route index={true} element={<AuthenticatorPage type={AuthTabs.login} />} />
                 <Route
                     path={Paths.AUTH_SUB_REGISTRATION}
-                    element={<AuthenticatorPage type={REGISTRATION} />}
+                    element={<AuthenticatorPage type={AuthTabs.registration} />}
                 />
                 <Route path={Paths.AUTH_SUB_CONFIRM_EMAIL} element={<ConfirmEmail />} />
                 <Route path={Paths.AUTH_SUB_CHANGE_PASSWORD} element={<ChangePasswordForm />} />

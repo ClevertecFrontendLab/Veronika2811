@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: @gap-7px;
+    gap: @space-7;
 
     :global {
         .ant-typography {
@@ -17,7 +17,7 @@
 .upload-mobile {
     display: flex;
     align-items: center;
-    gap: 17px;
+    gap: @space-17;
 
     :global {
         .ant-typography {
@@ -26,8 +26,8 @@
 
         .ant-btn.ant-btn-lg {
             @media (max-width: @screen-xs) {
-                padding: @padding-margin-8px @padding-margin-26px;
-                margin: @padding-margin-zero;
+                padding: @space-8 @space-26;
+                margin: @space-0;
                 font-size: @font-size-base;
             }
         }

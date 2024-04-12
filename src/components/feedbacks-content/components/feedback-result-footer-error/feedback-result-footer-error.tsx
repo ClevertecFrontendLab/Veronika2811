@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { FeedbacksTestIds } from '@components/feedbacks-content/constants/feedbacks-test-id';
+import { FEEDBACKS_TEST_IDS } from '@components/feedbacks-content/constants/feedbacks-test-ids';
 import { Button, Space } from 'antd';
 
 type FeedbackResultFooterErrorProps = {
@@ -23,7 +23,7 @@ export const FeedbackResultFooterError: FC<FeedbackResultFooterErrorProps> = ({
                 key='button-result-write'
                 size='large'
                 onClick={writeFeedback}
-                data-test-id={FeedbacksTestIds.WRITE_REVIEW_NOT_SAVED_MODAL}
+                data-test-id={FEEDBACKS_TEST_IDS.writeReviewNotSavedModal}
             >
                 Написать отзыв
             </Button>

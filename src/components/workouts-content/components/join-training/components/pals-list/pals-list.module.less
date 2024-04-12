@@ -1,0 +1,33 @@
+@import '@styles/constants.less';
+
+.pals {
+    padding-top: @space-40;
+    padding-bottom: @space-20;
+
+    @media (max-width: @screen-xs) {
+        padding-left: @space-22;
+        padding-right: @space-22;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.pals-list {
+    @media (max-width: @screen-xs) {
+        flex: 1;
+    }
+
+    :global {
+        .ant-list-items {
+            display: flex;
+            gap: @space-16;
+            flex-wrap: wrap;
+        }
+
+        .ant-space-item {
+            @media (max-width: @screen-xs) {
+                flex: 1;
+            }
+        }
+    }
+}

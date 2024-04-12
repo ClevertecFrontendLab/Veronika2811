@@ -3,7 +3,8 @@ import path from 'path';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+    base: command === 'build' ? '/Veronika2811/' : '/',
     plugins: [react()],
     server: {
         host: true,
@@ -20,6 +21,7 @@ export default defineConfig({
             '@redux': path.resolve(__dirname, 'src/redux'),
             '@routes': path.resolve(__dirname, 'src/routes'),
             '@/types': path.resolve(__dirname, 'src/types'),
+            '@utils': path.resolve(__dirname, 'src/utils'),
             '@styles': path.resolve(__dirname, 'src/styles'),
         },
     },
@@ -32,4 +34,4 @@ export default defineConfig({
             },
         },
     },
-});
+}));

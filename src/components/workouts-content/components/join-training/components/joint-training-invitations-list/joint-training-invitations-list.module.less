@@ -1,0 +1,48 @@
+@import '@styles/constants.less';
+
+.invitation {
+    background-color: @neutral-2;
+    border-radius: @border-radius-2px;
+    padding: @space-16 @space-24 @space-19;
+    margin-top: @space-20;
+
+    @media (max-width: @screen-xl) {
+        margin-top: @space-22;
+        padding: @space-13 @space-13 @space-6;
+    }
+
+    @media (max-width: @screen-xs) {
+        margin: @space-17 @space-23 @space-0;
+    }
+}
+
+.invitation-list {
+    display: flex;
+    flex-direction: column;
+    gap: @space-8;
+}
+
+[class*='ant-btn'].button-collapsed {
+    margin-top: @space-9;
+    padding-left: @space-9;
+    color: @primary-color;
+
+    @media (max-width: @screen-xl) {
+        margin-top: @space-13;
+    }
+
+    &:focus {
+        color: @primary-color;
+    }
+
+    :global {
+        .anticon-down,
+        .anticon-up {
+            font-size: @font-size-10px;
+        }
+
+        .anticon + span {
+            margin-left: @space-12;
+        }
+    }
+}

@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
+import { TRAINING_TEST_IDS } from '@components/calendar-custom/constants/training-test-ids';
 import { filterOutTrainingTypesForDay } from '@components/calendar-custom/utils/filter-out-training-types-for-day';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { catalogSelector, trainingSelector } from '@redux/selectors';
@@ -10,11 +10,12 @@ import {
     setEditTraining,
     setTypeTraining,
 } from '@redux/slice/training-slice';
+import { checkIsPastTraining } from '@utils/check-is-past-training';
 import { Select } from 'antd';
 
 import styles from './title-edit.module.less';
 
-import { TrainingResponse } from '@/types/training/training-api-data-types';
+import { TrainingResponse } from '@/types/training';
 
 type SelectOption = {
     label: string;
@@ -28,7 +29,7 @@ export const TitleEdit: FC<{ cellContent: TrainingResponse[] }> = ({ cellContent
 
     const [filteredTrainingList, setFilteredTrainingList] = useState<SelectOption[]>([]);
 
-    const isPastTraining = editTraining?.type === 'past-training';
+    const isPastTraining = checkIsPastTraining(editTraining?.type);
 
     useEffect(() => {
         const filteredTraining = filterOutTrainingTypesForDay(
@@ -54,7 +55,7 @@ export const TitleEdit: FC<{ cellContent: TrainingResponse[] }> = ({ cellContent
         <React.Fragment>
             <ArrowLeftOutlined
                 onClick={closeEditMode}
-                data-test-id={TrainingTestIds.MODAL_EXERCISE_BUTTON_CLOSE}
+                data-test-id={TRAINING_TEST_IDS.modalExerciseButtonClose}
             />
             <Select
                 autoFocus={true}
@@ -62,7 +63,7 @@ export const TitleEdit: FC<{ cellContent: TrainingResponse[] }> = ({ cellContent
                 defaultValue={typeTraining ?? 'Выбор типа тренировки'}
                 onChange={handleChange}
                 className={styles.select}
-                data-test-id={TrainingTestIds.MODAL_CREATE_EXERCISE_SELECT}
+                data-test-id={TRAINING_TEST_IDS.modalCreateExerciseSelect}
             />
         </React.Fragment>
     );

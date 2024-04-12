@@ -1,7 +1,7 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 import { push } from 'redux-first-history';
-import { LOGIN, REGISTRATION } from '@constants/auth/auth-constants';
 import { AuthStatus } from '@constants/auth/auth-status-constants';
+import { AuthTabs } from '@constants/auth/auth-tabs';
 import { ACCESS_TOKEN_KEY } from '@constants/storage-keys';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useLoginUserMutation, useRegisterUserMutation } from '@redux/api/auth.api';
@@ -102,7 +102,7 @@ export const AuthForm: FC<{ type: AuthComponentTypes }> = ({ type }) => {
     };
 
     const validateEmailField = async (_: FieldData[], allFields: FieldData[]) => {
-        if (type === LOGIN) {
+        if (type === AuthTabs.login) {
             const emailField = allFields.find((field) => {
                 if (Array.isArray(field.name)) {
                     return field.name[0] === 'email';
@@ -116,7 +116,7 @@ export const AuthForm: FC<{ type: AuthComponentTypes }> = ({ type }) => {
     };
 
     const onFinish = (values: AuthData) => {
-        if (type === REGISTRATION) {
+        if (type === AuthTabs.registration) {
             handleRegistrationSubmission(values);
         } else {
             handleLoginSubmission(values);
@@ -142,7 +142,7 @@ export const AuthForm: FC<{ type: AuthComponentTypes }> = ({ type }) => {
             initialValues={{ remember: false }}
             onFieldsChange={validateEmailField}
         >
-            {type === LOGIN ? (
+            {type === AuthTabs.login ? (
                 <LoginForm
                     form={form}
                     isForgotPasswordButtonDisabled={isForgotPasswordButtonDisabled}

@@ -1,9 +1,9 @@
-import { CatalogTrainingList } from '@/types/catalogs/catalogs-api-data-types';
-import { TrainingResponse } from '@/types/training/training-api-data-types';
+import { CatalogTrainingListResponse } from '@/types/catalogs';
+import { TrainingResponse } from '@/types/training';
 
 export const filterOutTrainingTypesForDay = (
     cellContent: TrainingResponse[],
-    trainingListData: CatalogTrainingList[],
+    trainingListData: CatalogTrainingListResponse[],
     past?: boolean,
 ) => {
     const existingWorkoutsForSelectedDay = cellContent.map((el) => el.name);

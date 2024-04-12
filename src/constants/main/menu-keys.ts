@@ -1,6 +1,6 @@
 export const MENU_KEYS = {
     calendar: 'calendar',
-    workouts: 'workouts',
+    workouts: 'training',
     achievements: 'achievements',
     profile: 'profile',
 };

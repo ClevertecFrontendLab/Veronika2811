@@ -8,7 +8,7 @@ import styles from './side-bar.module.less';
 const { Sider } = Layout;
 
 export const SideBar = () => {
-    const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(true);
     const [isAtBreakpoint, setIsAtBreakpoint] = useState(false);
 
     const handleBreakpointChange = (broken: boolean) => setIsAtBreakpoint(broken);
@@ -24,7 +24,7 @@ export const SideBar = () => {
                     : siderWidth.SIDER_COLLAPSED_DESKTOP_WIDTH
             }
             collapsible={true}
-            breakpoint='xs'
+            breakpoint='md'
             onBreakpoint={handleBreakpointChange}
             width={isAtBreakpoint ? siderWidth.SIDER_MOBILE_WIDTH : siderWidth.SIDER_DESKTOP_WIDTH}
             className={styles.sider}

@@ -1,9 +1,9 @@
 import React, { FC, useCallback, useEffect } from 'react';
 import { push } from 'redux-first-history';
-import { AuthTestIds } from '@components/auth-container/constants/auth-test-ids';
+import { AUTH_TEST_IDS } from '@components/auth-container/constants/auth-test-ids';
 import { LOGIN_FIELDS } from '@components/auth-container/constants/login-fields';
-import { LOGIN } from '@constants/auth/auth-constants';
 import { AuthStatus } from '@constants/auth/auth-status-constants';
+import { AuthTabs } from '@constants/auth/auth-tabs';
 import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useCheckEmailExistenceMutation } from '@redux/api/auth.api';
 import { ApiEndpoints } from '@redux/api/constants/api-endpoints';
@@ -110,7 +110,7 @@ export const LoginForm: FC<LoginFormProps> = ({
         <React.Fragment>
             {LOGIN_FIELDS.map((item) => (
                 <Form.Item
-                    key={`${LOGIN}-${item.name}`}
+                    key={`${AuthTabs.login}-${item.name}`}
                     name={item.name}
                     rules={item.rules}
                     help=''
@@ -122,12 +122,12 @@ export const LoginForm: FC<LoginFormProps> = ({
 
             <div className={styles['login-forgot']}>
                 <Form.Item name='remember' valuePropName='checked' noStyle={true}>
-                    <Checkbox data-test-id={AuthTestIds.LOGIN_REMEMBER}>Запомнить меня</Checkbox>
+                    <Checkbox data-test-id={AUTH_TEST_IDS.loginRemember}>Запомнить меня</Checkbox>
                 </Form.Item>
 
                 <Button
                     type='link'
-                    data-test-id={AuthTestIds.LOGIN_FORGOT_BUTTON}
+                    data-test-id={AUTH_TEST_IDS.loginForgotButton}
                     disabled={isForgotPasswordButtonDisabled}
                     onClick={validateEmailFieldOnClick}
                 >

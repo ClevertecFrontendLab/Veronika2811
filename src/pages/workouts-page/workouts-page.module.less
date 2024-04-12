@@ -1,7 +1,9 @@
+@import '@styles/constants.less';
+
 .workouts-wrapper {
     :global {
         .ant-page-header {
-            padding-bottom: @padding-margin-19px;
+            padding-bottom: @space-19;
         }
 
         .ant-page-header-heading {
@@ -14,6 +16,11 @@
 
         .ant-page-header-heading-extra {
             margin-left: auto;
+        }
+
+        .ant-tabs-content-holder {
+            max-height: calc(100vh - 270px);
+            overflow: auto;
         }
     }
 }

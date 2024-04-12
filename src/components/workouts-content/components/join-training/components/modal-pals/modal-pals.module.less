@@ -1,0 +1,77 @@
+@import '@styles/constants.less';
+
+.modal-pals {
+    :global {
+        .ant-modal-close-icon {
+            font-size: @font-size-base;
+        }
+
+        .ant-modal-body {
+            padding: @space-40 @space-64 @space-40 @space-33;
+
+            @media (max-width: @screen-xs) {
+                padding: @space-18 @space-12;
+            }
+        }
+
+        .modal-user-info {
+            padding-top: @space-3;
+        }
+
+        .modal-status-block {
+            padding-top: @space-22;
+
+            @media (max-width: @screen-xs) {
+                padding-top: @space-10;
+                gap: @space-18;
+            }
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            gap: @space-9;
+
+            @media (max-width: @screen-xs) {
+                justify-content: center;
+            }
+
+            .ant-typography {
+                font-size: @font-size-12px;
+            }
+
+            .anticon-check-circle {
+                color: #52c41a;
+            }
+        }
+
+        .ant-card-meta {
+            @media (max-width: @screen-xs) {
+                padding-bottom: @space-18;
+            }
+        }
+    }
+}
+
+[class*='ant-col'].training {
+    display: flex;
+}
+
+.training-type {
+    :global {
+        .ant-typography {
+            margin-bottom: @space-6;
+            font-size: @font-size-12px;
+        }
+    }
+}
+
+.training-info {
+    :global {
+        .ant-typography {
+            margin-bottom: @space-3;
+            color: @primary-color;
+            font-weight: @font-weight-medium;
+        }
+    }
+}

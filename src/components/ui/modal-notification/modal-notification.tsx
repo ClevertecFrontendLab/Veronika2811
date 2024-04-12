@@ -1,7 +1,7 @@
 import { CSSProperties, FC } from 'react';
 import { CloseCircleOutlined, CloseOutlined } from '@ant-design/icons';
 import { TRAINING_ERROR_MODAL_CONTENT } from '@components/calendar-custom/constants/training-error-modal-content';
-import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
+import { TRAINING_TEST_IDS } from '@components/calendar-custom/constants/training-test-ids';
 import { ModalCustom } from '@components/ui/modal-custom';
 import {
     TRAINING_ERROR_CATALOG,
@@ -40,8 +40,8 @@ export const ModalNotification: FC<ModalNotificationProps> = ({
             width={width}
             closable={closable}
             onCancel={onCancel}
-            closeIcon={<CloseOutlined data-test-id={TrainingTestIds.MODAL_ERROR_BUTTON_CLOSE} />}
-            data-test-id={TrainingTestIds.MODAL_ERROR}
+            closeIcon={<CloseOutlined data-test-id={TRAINING_TEST_IDS.modalErrorButtonClose} />}
+            data-test-id={TRAINING_TEST_IDS.modalNoReview}
             className={styles[className]}
             maskStyle={maskStyle}
         >
@@ -50,13 +50,13 @@ export const ModalNotification: FC<ModalNotificationProps> = ({
                 <div className={styles['content-text']}>
                     <Typography.Title
                         level={2}
-                        data-test-id={TrainingTestIds.MODAL_ERROR_TITLE}
+                        data-test-id={TRAINING_TEST_IDS.modalErrorTitle}
                         className={styles['content-text-title']}
                     >
                         {title}
                     </Typography.Title>
                     <Typography.Paragraph
-                        data-test-id={TrainingTestIds.MODAL_ERROR_SUBTITLE}
+                        data-test-id={TRAINING_TEST_IDS.modalErrorSubtitle}
                         className={styles['content-text-subtitle']}
                     >
                         {subtitle}
@@ -68,7 +68,7 @@ export const ModalNotification: FC<ModalNotificationProps> = ({
                     data-test-id={
                         type === 'error-big-file'
                             ? 'big-file-error-close'
-                            : TrainingTestIds.MODAL_ERROR_BUTTON
+                            : TRAINING_TEST_IDS.modalErrorButton
                     }
                     type='primary'
                     onClick={onClickButton}

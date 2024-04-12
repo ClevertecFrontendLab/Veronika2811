@@ -1,4 +1,4 @@
-import { DATE_FORMAT_DM } from '@constants/date-format';
+import { DATE_FORMAT_D_M } from '@constants/date-format';
 import { useAppSelector } from '@hooks/redux-hooks';
 import { profileSelector } from '@redux/selectors';
 import { Typography } from 'antd';
@@ -13,7 +13,7 @@ export const LabelPro = () => {
         <div className={styles['label-pro']}>
             <Typography.Title level={5}>
                 Ваш PRO tarif активен до{' '}
-                {moment(currentUserInfo.tariff.expired).format(DATE_FORMAT_DM)}
+                {moment(currentUserInfo.tariff.expired).format(DATE_FORMAT_D_M)}
             </Typography.Title>
         </div>
     );

@@ -24,12 +24,13 @@ export const App = () => {
 
         if (
             !currentUserInfo?.email &&
-            currentPath !== Paths.AUTH_MAIN &&
-            currentPath !== Paths.AUTH_MAIN_RESULTS
+            currentPath &&
+            !currentPath.includes(Paths.AUTH_MAIN) &&
+            !currentPath.includes(Paths.AUTH_MAIN_RESULTS)
         ) {
             getCurrentUserInfo();
         }
-    });
+    }, [currentUserInfo?.email, getCurrentUserInfo, previousLocations]);
 
     useEffect(() => {
         const accessTokenGoogle = searchParams.get('accessToken');

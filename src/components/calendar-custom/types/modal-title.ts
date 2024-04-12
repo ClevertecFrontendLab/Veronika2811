@@ -1,6 +1,6 @@
 import type { Moment } from 'moment';
 
-import { TrainingResponse } from '@/types/training/training-api-data-types';
+import { TrainingResponse } from '@/types/training';
 
 export type TitleProps = {
     date: Moment;

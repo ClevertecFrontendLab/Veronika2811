@@ -26,7 +26,7 @@ export const FeedbacksPage = () => {
     }, [fetchFeedbacks]);
 
     const handleFeedbacksError = useCallback(
-        (fetchError: FetchBaseQueryError | SerializedError | undefined) => {
+        (fetchError?: FetchBaseQueryError | SerializedError) => {
             if (fetchError) {
                 if (
                     'status' in fetchError &&

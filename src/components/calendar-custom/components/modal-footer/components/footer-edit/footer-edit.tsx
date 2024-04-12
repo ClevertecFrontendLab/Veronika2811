@@ -5,10 +5,11 @@ import { useAppDispatch, useAppSelector } from '@hooks/redux-hooks';
 import { useAddUserTrainingMutation, useEditUserTrainingMutation } from '@redux/api/training.api';
 import { trainingSelector } from '@redux/selectors';
 import { resetEditMode, setDrawerVisible, setModalVisible } from '@redux/slice/training-slice';
+import { checkIsPastTraining } from '@utils/check-is-past-training';
 import { Button } from 'antd';
 import type { Moment } from 'moment';
 
-import { TrainingResponse } from '@/types/training/training-api-data-types';
+import { TrainingResponse } from '@/types/training';
 
 type FooterEditProps = {
     date: Moment;
@@ -39,19 +40,19 @@ export const FooterEdit: FC<FooterEditProps> = ({ date, refetchUserTrainingList 
     const addTraining = async () => {
         const body = {
             name: typeTraining,
-            date,
+            date: date.utc(true).toISOString(),
             exercises: currentTraining,
         };
 
         if (editTraining) {
+            const isPastTraining = checkIsPastTraining(editTraining?.type);
+
             await resetStateAndRefetch(() =>
                 editUserTraining({
                     trainingId: editTraining.id,
                     body: {
                         ...body,
-                        ...(editTraining?.type === 'past-training'
-                            ? { isImplementation: true }
-                            : {}),
+                        ...(isPastTraining ? { isImplementation: true } : {}),
                     },
                 }).unwrap(),
             );

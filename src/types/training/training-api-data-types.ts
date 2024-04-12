@@ -4,11 +4,11 @@ import type { Moment } from 'moment';
 import { ErrorTypeResponse } from '../error-types';
 import { Nullebel } from '../nullebel';
 
-type TrainingParameters = {
+export type TrainingParameters = {
     repeat: boolean;
-    period: number;
     jointTraining: boolean;
-    participants: [string];
+    participants: string[];
+    period?: number;
 };
 
 export type ExercisesItem = {
@@ -31,9 +31,11 @@ export type TrainingResponse = ErrorTypeResponse & {
 };
 
 export type TrainingAddData = {
-    name: Nullebel<string>;
-    date: Moment;
+    date: string | Moment;
     exercises: Nullebel<CurrentTraining[]>;
+    name?: Nullebel<string>;
+    isImplementation?: boolean;
+    parameters?: TrainingParameters;
 };
 
 export type TrainingEditBodyData = TrainingAddData & {

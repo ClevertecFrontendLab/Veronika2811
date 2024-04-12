@@ -1,11 +1,12 @@
 import React, { FC, useEffect, useState } from 'react';
 import { TRAINING_MODAL_WIDTH } from '@components/calendar-custom/constants/training-modal-width';
-import { TrainingTestIds } from '@components/calendar-custom/constants/training-test-id';
+import { TRAINING_TEST_IDS } from '@components/calendar-custom/constants/training-test-ids';
 import { SelectedCellInfo } from '@components/calendar-custom/types/selected-cell-info';
 import { DATE_FORMAT } from '@constants/date-format';
 import { useAppSelector } from '@hooks/redux-hooks';
 import { useBreakpoints } from '@hooks/use-breakpoints';
 import { trainingSelector } from '@redux/selectors';
+import { isArrayWithItems } from '@utils/is-array-with-items';
 import { Modal } from 'antd';
 import classNames from 'classnames';
 import type { Moment } from 'moment';
@@ -48,7 +49,7 @@ export const TrainingModal: FC<TrainingModalProps> = ({
         }
     }, [cellHTMLElement, isXs]);
 
-    const workoutCardModalStyle = cellContent.length > 0;
+    const workoutCardModalStyle = isArrayWithItems(cellContent);
 
     const modalStyles = classNames({
         [styles.modal]: true,
@@ -81,8 +82,8 @@ export const TrainingModal: FC<TrainingModalProps> = ({
                 }
                 data-test-id={
                     isEditMode
-                        ? TrainingTestIds.MODAL_CREATE_EXERCISE
-                        : TrainingTestIds.MODAL_CREATE_TRAINING
+                        ? TRAINING_TEST_IDS.modalCreateExercise
+                        : TRAINING_TEST_IDS.modalCreateTraining
                 }
                 onCancel={closeModal}
             >

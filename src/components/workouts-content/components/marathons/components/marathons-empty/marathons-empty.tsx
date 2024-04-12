@@ -11,7 +11,7 @@ export const MarathonsEmpty = () => (
             <br />
             ни один марафон не проводится
         </Title>
-        <Paragraph>
+        <Paragraph className='marathons-empty-subtitle' type='secondary'>
             Заглядывайте сюда почаще
             <br />и ваш первый марафон скоро начнется.
         </Paragraph>

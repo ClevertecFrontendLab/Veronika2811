@@ -1,6 +1,6 @@
 import React from 'react';
 import { REGISTRATION_FIELDS } from '@components/auth-container/constants/registration-fields';
-import { REGISTRATION } from '@constants/auth/auth-constants';
+import { AuthTabs } from '@constants/auth/auth-tabs';
 import { Form } from 'antd';
 
 import { AuthFormButtons } from '../auth-form-buttons';
@@ -11,7 +11,7 @@ export const RegistrationForm = () => (
     <React.Fragment>
         {REGISTRATION_FIELDS.map((item) => (
             <Form.Item
-                key={`${REGISTRATION}-${item.name}`}
+                key={`${AuthTabs.registration}-${item.name}`}
                 name={item.name}
                 rules={item.rules}
                 className={styles[item.className]}

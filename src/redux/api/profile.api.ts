@@ -4,7 +4,7 @@ import { setCurrentUserInfo } from '@redux/slice/profile-slice';
 import { ApiEndpoints } from './constants/api-endpoints';
 import emptyApi from './empty-api';
 
-import { UserInfoData, UserInfoResponse } from '@/types/profile/profile-api-data-types';
+import { UserInfoData, UserInfoResponse } from '@/types/profile';
 
 export const userApi = emptyApi.injectEndpoints({
     endpoints: (build) => ({

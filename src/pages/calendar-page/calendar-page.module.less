@@ -16,29 +16,29 @@
         }
 
         .ant-picker-calendar {
-            padding: @padding-margin-13px @padding-margin-24px 93px;
+            padding: @space-13 @space-24 93px;
 
             @media (max-width: @screen-lg-xs) {
-                padding: @padding-margin-6px @padding-margin-25px 131px;
+                padding: @space-6 @space-25 131px;
             }
 
             @media (max-width: @screen-sm) {
-                padding-top: @padding-margin-11px;
-                padding-bottom: @padding-margin-23px;
+                padding-top: @space-11;
+                padding-bottom: @space-23;
             }
         }
 
         .ant-picker-calendar-full .ant-picker-panel .ant-picker-calendar-date {
-            padding-top: @padding-margin-zero;
-            padding-bottom: @padding-margin-30px;
+            padding-top: @space-0;
+            padding-bottom: @space-30;
 
             @media (max-width: @screen-lg-xs) {
-                padding: @padding-margin-zero @padding-margin-5px @padding-margin-30px;
+                padding: @space-0 @space-5 @space-30;
             }
         }
 
         .ant-picker-calendar .ant-picker-panel .ant-picker-body {
-            padding: @padding-margin-zero;
+            padding: @space-0;
         }
 
         .ant-picker-cell-inner {
@@ -78,7 +78,7 @@
         }
 
         .ant-btn.ant-btn-circle {
-            margin-top: @padding-margin-1px;
+            margin-top: @space-1;
             border: none;
             background-color: transparent;
             box-shadow: none;
@@ -93,11 +93,11 @@
 .modal-error {
     :global {
         .ant-modal-confirm .ant-modal-body {
-            padding: @padding-margin-15px @padding-margin-24px;
+            padding: @space-15 @space-24;
         }
 
         .ant-modal-confirm .ant-modal-confirm-btns {
-            margin-top: @padding-margin-12px;
+            margin-top: @space-12;
         }
 
         .anticon-close-circle svg {
@@ -112,19 +112,19 @@
         }
 
         .ant-modal-close {
-            padding: @padding-margin-zero @padding-margin-10px;
+            padding: @space-0 @space-10;
         }
 
         .ant-modal-confirm-title {
-            padding-right: @padding-margin-60px;
+            padding-right: @space-60;
         }
 
         .ant-modal-confirm-body > .anticon + .ant-modal-confirm-title + .ant-modal-confirm-content {
-            margin-left: @padding-margin-40px;
+            margin-left: @space-40;
         }
 
         .ant-modal-confirm-body .ant-modal-confirm-content {
-            margin-top: @padding-margin-4px;
+            margin-top: @space-4;
             color: @neutral-7;
         }
     }
@@ -134,20 +134,20 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    padding-right: @padding-margin-23px;
-    padding-bottom: @padding-margin-27px;
+    padding-right: @space-23;
+    padding-bottom: @space-27;
     background: @primary-light-1;
 
     @media (max-width: @screen-xs) {
-        padding-right: @padding-margin-17px;
+        padding-right: @space-17;
     }
 
     :global {
         .ant-btn {
-            margin-bottom: -24px;
+            margin-bottom: -@space-24;
 
             @media (max-width: @screen-xs) {
-                margin-bottom: -16px;
+                margin-bottom: -@space-16;
             }
         }
     }
